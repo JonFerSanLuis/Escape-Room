@@ -3,9 +3,11 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class menuPrincipal extends JFrame {
+
+    private int segundos = 3600; // 1 hora en segundos (3600 segundos)
+    private JLabel labelCronometro;
 
     public menuPrincipal() {
         // Configuración básica del JFrame
@@ -19,13 +21,10 @@ public class menuPrincipal extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Fondo degradado
-                Graphics2D g2d = (Graphics2D) g;
-                Color colorInicio = new Color(33, 37, 41);
-                Color colorFin = new Color(100, 110, 120);
-                GradientPaint gradiente = new GradientPaint(0, 0, colorInicio, 0, getHeight(), colorFin);
-                g2d.setPaint(gradiente);
-                g2d.fillRect(0, 0, getWidth(), getHeight());
+                // Cargar y dibujar la imagen de fondo
+                ImageIcon imagenFondo = new ImageIcon("../img/image.jpg"); // Asegúrate de usar la ruta correcta
+                Image imagen = imagenFondo.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+                g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             }
         };
         panelPrincipal.setLayout(new GridBagLayout()); // Usar GridBagLayout para centrar todo
@@ -66,11 +65,38 @@ public class menuPrincipal extends JFrame {
         subPanel.add(Box.createVerticalStrut(espaciado));
         subPanel.add(btnRanking);
 
+        // Añadir el cronómetro
+        labelCronometro = new JLabel("01:00:00");
+        labelCronometro.setAlignmentX(Component.CENTER_ALIGNMENT);
+        labelCronometro.setFont(new Font("SansSerif", Font.BOLD, 30));
+        labelCronometro.setForeground(Color.BLACK); // Cambiar el color del texto a negro
+        subPanel.add(Box.createVerticalStrut(50)); // Espacio antes del cronómetro
+        subPanel.add(labelCronometro);
+
         // Añadir el sub-panel al panel principal
         panelPrincipal.add(subPanel);
 
         // Añadir el panel principal al JFrame
-        add(panelPrincipal);
+        getContentPane().add(panelPrincipal);
+
+        // Iniciar el cronómetro
+        iniciarCronometro();
+    }
+
+    private void iniciarCronometro() {
+        Timer timer = new Timer(1000, (ActionEvent e) -> {
+            if (segundos > 0) {
+                segundos--;
+                int horas = segundos / 3600;
+                int minutos = (segundos % 3600) / 60;
+                int segundosRestantes = segundos % 60;
+                labelCronometro.setText(String.format("%02d:%02d:%02d", horas, minutos, segundosRestantes));
+            } else {
+                ((Timer) e.getSource()).stop(); // Detener el cronómetro al llegar a 00:00
+                labelCronometro.setText("¡Tiempo terminado!");
+            }
+        });
+        timer.start(); // Iniciar el temporizador
     }
 
     private JButton crearBoton(String texto, int anchoTitulo) {

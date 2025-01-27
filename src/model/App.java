@@ -2,6 +2,7 @@ package model;
 
 import java.awt.EventQueue;
 
+import Inicio.Home;
 import view.menuPrincipal;
 
 public class App {
@@ -10,7 +11,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menuPrincipal frame = new menuPrincipal();
+					Home frame = new Home();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

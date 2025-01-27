@@ -3,6 +3,8 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class menuPrincipal extends JFrame {
 
@@ -22,7 +24,7 @@ public class menuPrincipal extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Cargar y dibujar la imagen de fondo
-                ImageIcon imagenFondo = new ImageIcon("../img/image.jpg"); // Asegúrate de usar la ruta correcta
+                ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/img/image.jpg"));
                 Image imagen = imagenFondo.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
                 g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             }
@@ -49,11 +51,6 @@ public class menuPrincipal extends JFrame {
         JButton btnJugar = crearBoton("Jugar", anchoTitulo);
         JButton btnInfo = crearBoton("Más Información", anchoTitulo);
         JButton btnRanking = crearBoton("Ranking", anchoTitulo);
-
-        // Añadir acción a los botones
-        btnJugar.addActionListener(e -> JOptionPane.showMessageDialog(this, "¡Comenzando el juego!"));
-        btnInfo.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del Escape Room..."));
-        btnRanking.addActionListener(e -> JOptionPane.showMessageDialog(this, "Ranking de jugadores..."));
 
         // Espaciado entre botones
         int espaciado = 30;
@@ -101,6 +98,27 @@ public class menuPrincipal extends JFrame {
 
     private JButton crearBoton(String texto, int anchoTitulo) {
         JButton boton = new JButton(texto);
+        boton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Cuando se haga clic en el botón "Jugar", se inicia la clase Recibidor
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            // Crear y mostrar la ventana Recibidor
+                            Recibidor frame = new Recibidor();
+                            frame.setVisible(true);
+
+                            // Ocultar el menú principal al abrir Recibidor
+                            setVisible(false); 
+                            dispose(); // Liberar recursos de la ventana actual
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);
         boton.setFont(new Font("SansSerif", Font.BOLD, 24)); // Fuente más grande para los botones
         boton.setBackground(new Color(52, 152, 219)); // Azul claro

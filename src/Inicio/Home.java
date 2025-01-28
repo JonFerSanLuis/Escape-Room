@@ -24,9 +24,11 @@ public class Home extends JFrame {
     private JLabel HomeLabel;  // Añadimos una referencia a lblNewLabel
 
     public Home() {
+    	
     	contentPane = new JPanel();
         setContentPane(contentPane);
         setResizable(false);
+        
     	try {
 			Font buttonFont = Font.createFont(Font.TRUETYPE_FONT,new File("fonts/BonaNovaSC-Bold.ttf"));
 			buttonFont = buttonFont.deriveFont(30f);

@@ -266,10 +266,15 @@ public class Intro extends JFrame {
 	}
 
 	private void upgradeImage() {
-		ImageIcon originalIcon = new ImageIcon(IntroBackground);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+	    // Cargar la nueva imagen
+	    ImageIcon originalIcon = new ImageIcon(IntroBackground);
+	    Image originalImage = originalIcon.getImage();
+	    Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+	    
+	    // Actualizar el fondo con la nueva imagen
+	    IntroLabel.setIcon(scaledIcon);
+	    IntroLabel.repaint(); // Redibujar para aplicar el cambio
 	}
 
 	private ImageIcon loadImage(String filePath) {

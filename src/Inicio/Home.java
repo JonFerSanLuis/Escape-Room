@@ -133,7 +133,7 @@ public class Home extends JFrame {
         // Mostrar la imagen redimensionada
         HomeLabel = new JLabel();
         HomeLabel.setBounds(0, 0, 934, 561);
-        HomeLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        HomeLabel.setIcon(scaledIcon);
         contentPane.add(HomeLabel);
     }
     

@@ -1,4 +1,4 @@
-package Escenarios;
+package view.Casa;
 
 import java.awt.Color;
 import java.awt.EventQueue;

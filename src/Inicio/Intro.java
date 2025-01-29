@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import view.Casa.CasaExterior;
+
 import javax.swing.JTextArea;
 import java.awt.Color;
 import javax.swing.JTextPane;
@@ -220,7 +223,10 @@ public class Intro extends JFrame {
 			btnContinue.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (txt == 11) {
+						CasaExterior casa = new CasaExterior();
 						dispose();
+						casa.setVisible(true);
+						
 					} else if (txt < TxtIntro.size()) {
 						TxtIntro.get(txt).setVisible(false);
 						TxtIntro.get(txt + 1).setVisible(true);

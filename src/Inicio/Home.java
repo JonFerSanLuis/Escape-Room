@@ -123,7 +123,7 @@ public class Home extends JFrame {
         setBounds(200, 100, 950, 600);
         
         
-        backgroundFile = "sources/JUGAR.png";
+        backgroundFile = "img/JUGAR.png";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);

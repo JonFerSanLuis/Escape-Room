@@ -49,7 +49,7 @@ public class Intro extends JFrame {
 		contentPane.setBackground(Color.black);
 		contentPane.setLayout(null);
 
-		IntroBackground = "sources/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";
+		IntroBackground = "img/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";
 
 		ImageIcon originalIcon = new ImageIcon(IntroBackground);
 		Image originalImage = originalIcon.getImage();
@@ -233,15 +233,15 @@ public class Intro extends JFrame {
 						txt = txt + 1;
 					}
 					if (txt == 2) {
-						IntroBackground = "sources/confesion.jpg";
+						IntroBackground = "img/confesion.jpg";
 						upgradeImage();
 					}
 					if (txt == 5) {
-						IntroBackground = "sources/Por qué.png";
+						IntroBackground = "img/Por qué.png";
 						upgradeImage();
 					}
 					if (txt == 7) {
-						IntroBackground = "sources/pixelcut-export (1).png";
+						IntroBackground = "img/pixelcut-export (1).png";
 						upgradeImage();
 					}
 					if (txt == 8) {

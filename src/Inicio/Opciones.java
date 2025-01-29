@@ -125,7 +125,7 @@ public class Opciones extends JFrame {
         }
         
      // Cargar las imágenes
-        ImageIcon SpanishImagen = new ImageIcon("sources/Bandera_de_España.svg (1).png");
+        ImageIcon SpanishImagen = new ImageIcon("img/Bandera_de_España.svg (1).png");
         JLabel Spanishlabel = new JLabel();
         Spanishlabel.setBounds(65, 124, 94, 52); // Ajusta el tamaño del JLabel
         // Redimensionar la imagen para que se ajuste al tamaño del JLabel
@@ -133,7 +133,7 @@ public class Opciones extends JFrame {
         Spanishlabel.setIcon(new ImageIcon(imgSpanish));
 
         // Cargar la imagen de la bandera inglesa
-        ImageIcon EnglishImagen = new ImageIcon("sources/Flag_of_the_United_Kingdom_(1-2).svg.png");
+        ImageIcon EnglishImagen = new ImageIcon("img/Flag_of_the_United_Kingdom_(1-2).svg.png");
         JLabel Englishlabel = new JLabel();
         Englishlabel.setBounds(182, 124, 94, 52); // Ajusta el tamaño del JLabel
         // Redimensionar la imagen para que se ajuste al tamaño del JLabel
@@ -167,7 +167,7 @@ public class Opciones extends JFrame {
     }
 
     private void ajustarImagenDeFondo() {
-        String imagePath = "sources/pixelcut-export (1) (1).png"; // Ruta de la imagen
+        String imagePath = "img/pixelcut-export (1) (1).png"; // Ruta de la imagen
 
         try {
             // Cargar la imagen desde la ruta

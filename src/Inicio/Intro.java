@@ -226,6 +226,7 @@ public class Intro extends JFrame {
 						CasaExterior casa = new CasaExterior();
 						dispose();
 						casa.setVisible(true);
+						txt = 0;
 						
 					} else if (txt < TxtIntro.size()) {
 						TxtIntro.get(txt).setVisible(false);

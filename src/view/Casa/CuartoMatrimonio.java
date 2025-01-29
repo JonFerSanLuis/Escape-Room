@@ -1,8 +1,5 @@
 package view.Casa;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,7 +14,8 @@ public class CuartoMatrimonio extends JFrame {
 
     private JPanel contentPane;
     String CuartoPadresFile;
-    JLabel HomeLabel;
+    JLabel HomeLabel; 
+    JLabel lightLabel;
 
     public CuartoMatrimonio() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +26,7 @@ public class CuartoMatrimonio extends JFrame {
         layeredPane.setPreferredSize(new Dimension(934, 561));
         setContentPane(layeredPane);
         
-        CuartoPadresFile = "D:\\Erlantz\\Programacion\\Escape-Room\\src\\img\\habitacionMatrimonial.jpeg";
+        CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);
@@ -40,22 +38,21 @@ public class CuartoMatrimonio extends JFrame {
         contentPane = new JPanel();
         contentPane.setLayout(null);
         
-        HomeLabel = new JLabel();
-        HomeLabel.setBounds(0, 0, 934, 561);
-        HomeLabel.setIcon(scaledIcon);
-        
-        layeredPane.add(HomeLabel, Integer.valueOf(0)); 
-        
-        ImageIcon ImagenCajaFuerte = new ImageIcon("D:\\Erlantz\\Programacion\\Escape-Room\\src\\img\\cajaFuerte.png");
-        JLabel ImagenCajaFuerteLabel = new JLabel();
-        ImagenCajaFuerteLabel.setBounds(810, 288, 161, 118); 
-        
-        Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);
-        ImagenCajaFuerteLabel.setIcon(new ImageIcon(imgCajaFuerte)); 
-        
-        layeredPane.add(ImagenCajaFuerteLabel, Integer.valueOf(1)); 
-        
-        JButton btnVerCajón = new JButton("BotonEnlaceCajon");
+        JLabel LightLabel = new JLabel();
+        // Cargar la imagen de la bandera inglesa
+        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
+        LightLabel.setBounds(602, 315, 122, 47); // Ajusta el tamaño del JLabel 
+        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
+        LightLabel.setIcon(new ImageIcon(imgLight));
+        layeredPane.add(LightLabel, Integer.valueOf(2));
+        LightLabel.setVisible(false);
+
+        JButton btnVerCajón = new JButton("");
+        btnVerCajón.setOpaque(false);
+        btnVerCajón.setBackground(new Color(0, 0, 0, 0));
+        btnVerCajón.setBorderPainted(false); // No dibujar el borde
+        btnVerCajón.setFocusPainted(false);
+        btnVerCajón.setContentAreaFilled(false);
         btnVerCajón.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -70,9 +67,35 @@ public class CuartoMatrimonio extends JFrame {
                     }
                 });
             }
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		LightLabel.setVisible(true);
+        	}
+        	public void mouseExited(MouseEvent e) {
+        		LightLabel.setVisible(false);
+        	}
         });
-        btnVerCajón.setBounds(589, 315, 178, 111);
+        
+        ImageIcon ImagenCajaFuerte = new ImageIcon("img/cajaFuerte.png");
+        
+        btnVerCajón.setBounds(575, 305, 178, 111);
         layeredPane.add(btnVerCajón);
+        
+        
+        
+        JLabel ImagenCajaFuerteLabel = new JLabel();
+        ImagenCajaFuerteLabel.setBounds(810, 288, 161, 118); 
+        
+        Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);
+        ImagenCajaFuerteLabel.setIcon(new ImageIcon(imgCajaFuerte)); 
+        
+        layeredPane.add(ImagenCajaFuerteLabel, Integer.valueOf(1)); 
+        
+        HomeLabel = new JLabel();
+        HomeLabel.setBounds(0, 0, 934, 561);
+        HomeLabel.setIcon(scaledIcon);
+        
+        layeredPane.add(HomeLabel, Integer.valueOf(0)); 
         
         // Ajustar el tamaño de la ventana al contenido
         pack();

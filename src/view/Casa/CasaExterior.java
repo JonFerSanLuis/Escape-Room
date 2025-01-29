@@ -47,50 +47,71 @@ public class CasaExterior extends JFrame {
 		ImageIcon scaledIcon = new ImageIcon(
 				new ImageIcon(imagePath).getImage().getScaledInstance(1000, 500, Image.SCALE_SMOOTH));
 						
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\pngimg.com_-_sticky_note_PNG18899-removebg-preview (1).png"));
-		lblNewLabel.setBounds(281, 311, 46, 50);
-		getContentPane().add(lblNewLabel);
+		JLabel lblPostit = new JLabel();
+		lblPostit.setIcon(new ImageIcon("D:\\Josu\u00E9\\Mi Seminario\\Proyecto\\Escape-Room\\img\\PostitEntrada.png"));
+		lblPostit.setBounds(281, 311, 46, 50);
+		getContentPane().add(lblPostit);
 		;
-						lblNewLabel.addMouseListener(new MouseAdapter() {
+						lblPostit.addMouseListener(new MouseAdapter() {
 							@Override
 							public void mouseEntered(MouseEvent e) {
-								lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\PostitClick.png"));
+								lblPostit.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\PostitClick.png"));
 
 							}
 							
 							
 							@Override
 							public void mouseExited(MouseEvent e) {
-								lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\PostitEntrada.png"));
+								lblPostit.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\PostitEntrada.png"));
 							}
 							
 						});
 						
 				
 						// Imagen pequeña 2
-						JLabel smallImageLabel2 = new JLabel(smallScaledIcon2);
-						smallImageLabel2.setBounds(849, 11, 50, 50); // Posición adicional a la derecha del JFrame
-						getContentPane().add(smallImageLabel2);
+						JLabel lblMochila = new JLabel(new ImageIcon("D:\\Josué\\Mi Seminario\\Proyecto\\Escape-Room\\img\\IconoMochilaEX.png"));
+						lblMochila.addMouseListener(new MouseAdapter() {
+						    @Override
+						    public void mouseEntered(MouseEvent e) {
+						        lblMochila.setIcon(new ImageIcon("D:\\Josué\\Mi Seminario\\Proyecto\\Escape-Room\\img\\IconoMochilaEX.png"));
+						    }
+						    @Override
+						    public void mouseExited(MouseEvent e) {
+						        lblMochila.setIcon(new ImageIcon("D:\\Josué\\Mi Seminario\\Proyecto\\Escape-Room\\img\\IconoMochilaENT.png"));
+						    }
+						});
+
+						lblMochila.setBounds(835, 11, 65, 60); // Posición adicional a la derecha del JFrame
+						getContentPane().add(lblMochila);
 		
 				// Imagen pequeña 1
-				JLabel smallImageLabel1 = new JLabel(smallScaledIcon1);
-				smallImageLabel1.setBounds(924, 11, 50, 50); // Posición en la parte derecha del JFrame
-				getContentPane().add(smallImageLabel1);
+				JLabel lblPista = new JLabel(new ImageIcon("D:\\Josu\u00E9\\Mi Seminario\\Proyecto\\Escape-Room\\img\\IconoPistaEX.png"));
+				lblPista.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						lblPista.setIcon(new ImageIcon("D:\\Josué\\Mi Seminario\\Proyecto\\Escape-Room\\img\\IconoPistaENT.png"));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						lblPista.setIcon(new ImageIcon("sources (in img) [Escape-Room master]\\IconoPistaEX.png"));
+					}
+				});
+				lblPista.setBounds(910, 11, 64, 60); // Posición en la parte derecha del JFrame
+				getContentPane().add(lblPista);
 
-		JLabel lblReaccionPuertaCasa = new JLabel("");
+		JLabel lblReaccionPuertaCasa = new JLabel();
 		lblReaccionPuertaCasa.setForeground(Color.WHITE);
 		lblReaccionPuertaCasa.setBounds(272, 404, 510, 50);
 		getContentPane().add(lblReaccionPuertaCasa);
 
 		// Añadir la imagen de fondo primero
-		JLabel escCasa = new JLabel(scaledIcon);
-		escCasa.setBounds(0, -52, 984, 602);
-		escCasa.setHorizontalAlignment(SwingConstants.CENTER);
-		getContentPane().add(escCasa);
+		JLabel lblCasa = new JLabel(scaledIcon);
+		lblCasa.setBounds(0, -52, 984, 602);
+		lblCasa.setHorizontalAlignment(SwingConstants.CENTER);
+		getContentPane().add(lblCasa);
 
 		// Botón (btnPuertaCasa)
-		JButton btnPuertaCasa = new JButton("New button");
+		JButton btnPuertaCasa = new JButton();
 		btnPuertaCasa.setBounds(467, 268, 67, 106);
 		btnPuertaCasa.setOpaque(false);
 		getContentPane().add(btnPuertaCasa);

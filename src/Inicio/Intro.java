@@ -43,6 +43,7 @@ public class Intro extends JFrame {
 		setResizable(false);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
+		contentPane.setBackground(Color.black);
 		contentPane.setLayout(null);
 
 		IntroBackground = "sources/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";
@@ -61,7 +62,7 @@ public class Intro extends JFrame {
 		HistoriIntro.setBackground(new Color(0, 0, 0, 0));
 		HistoriIntro.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		HistoriIntro.setEditable(false);
-		HistoriIntro.setText("Me llamo Yuri, soy una estudiante de secundaria y mi mejor amigo sufre BULLING.");
+		HistoriIntro.setText("Me llamo Yuri, soy una estudiante de secundaria y mi mejor amigo sufre BULLYING.");
 		HistoriIntro.setBounds(48, 502, 855, 58);
 		contentPane.add(HistoriIntro);
 
@@ -225,12 +226,20 @@ public class Intro extends JFrame {
 						TxtIntro.get(txt + 1).setVisible(true);
 						txt = txt + 1;
 					}
-					if (txt == 1) {
+					if (txt == 2) {
 						IntroBackground = "sources/confesion.jpg";
 						upgradeImage();
 					}
-					if (txt == 6) {
+					if (txt == 5) {
 						IntroBackground = "sources/Por qué.png";
+						upgradeImage();
+					}
+					if (txt == 7) {
+						IntroBackground = "sources/pixelcut-export (1).png";
+						upgradeImage();
+					}
+					if (txt == 8) {
+						IntroBackground = "";
 						upgradeImage();
 					}
 				}

@@ -28,7 +28,7 @@ public class CuartoMatrimonio extends JFrame {
         layeredPane.setPreferredSize(new Dimension(934, 561));
         setContentPane(layeredPane);
         
-        CuartoPadresFile = "D:\\Erlantz\\Programacion\\Escape-Room\\src\\img\\habitacionMatrimonial.jpeg";
+        CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);

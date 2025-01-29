@@ -36,7 +36,7 @@ public class CajonCuartoPadres extends JFrame {
         layeredPane.setPreferredSize(new Dimension(950, 604));
         setContentPane(layeredPane);
         
-        CuartoPadresFile = "D:\\Erlantz\\Programacion\\Escape-Room\\src\\img\\cajon.jpeg";
+        CuartoPadresFile ="img/cajon.jpeg";
         
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);

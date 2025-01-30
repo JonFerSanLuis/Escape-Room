@@ -104,17 +104,9 @@ public class CasaExterior extends JFrame {
 					lblReaccionPuertaCasa.setFont(optionsFont);
 					lblCasa.setIcon(new ImageIcon("img/CasaExteriorTexto.jpeg"));
 					lblReaccionPuertaCasa.setText("Parece que la puerta esta cerrada.");
-					try {
-						Thread.sleep(2500); // Espera
-					} catch (InterruptedException e3) {
-						System.out.println("Hilo interrumpido");
-					}
+
 					lblReaccionPuertaCasa.setText("Debo encontrar la forma de entrar.");
-					try {
-						Thread.sleep(2500); // Espera
-					} catch (InterruptedException e3) {
-						System.out.println("Hilo interrumpido");
-					}
+
 					lblCasa.setIcon(new ImageIcon("img/CasaExteriorImg.jpeg"));
 				} catch (FontFormatException | IOException e1) {
 					e1.printStackTrace();

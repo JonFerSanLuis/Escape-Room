@@ -56,4 +56,11 @@ public class Objeto {
 		ObjName = objDescrip;
 	}
 	
+	public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Objeto objeto = (Objeto) obj;
+        return ObjName.equals(objeto.ObjName);
+    }
+	
 }

@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,8 +21,11 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import Objetos.Objeto;
+import utilidades.Inventario;
 
 public class CasaExterior extends JFrame {
+	
 	private JTextField textField;
 
 	int txtPuerta;
@@ -42,6 +44,10 @@ public class CasaExterior extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		getContentPane().setLayout(null);
+		
+		Inventario inventario = new Inventario();
+		
+		Objeto LlavePuerta = new Objeto(true, true, 114, "Llave", "La llave de la puerta delantera de la casa de Mikel");
 
 		JLabel txtLlaveEncontrada = new JLabel("-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
 		txtLlaveEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
@@ -51,7 +57,7 @@ public class CasaExterior extends JFrame {
 		getContentPane().add(txtLlaveEncontrada);
 		txtLlaveEncontrada.setVisible(false);
 		
-		JLabel txtLlaveNOEncontrada = new JLabel("-Mueves la maceta pero no hay nada debajo-");
+		JLabel txtLlaveNOEncontrada = new JLabel("-Mueves la maceta, pero no hay nada debajo-");
 		txtLlaveNOEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLlaveNOEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtLlaveNOEncontrada.setForeground(Color.WHITE);
@@ -63,6 +69,11 @@ public class CasaExterior extends JFrame {
 		JButton btnMaceta = new JButton("");
 		JButton btnPuertaCasa = new JButton("");
 		JButton btnMochila = new JButton("");
+		btnMochila.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		JButton btnPista = new JButton("");
 		JButton btnPosit = new JButton("");
 		JButton btnMacetaIncorrect = new JButton("");
@@ -86,10 +97,11 @@ public class CasaExterior extends JFrame {
 				btnMacetaIncorrect.setVisible(false);
 				txtLlaveEncontrada.setVisible(true);
 				btnContinueMaceta.setVisible(true);
+				inventario.agregarObjeto(LlavePuerta);
 			}
 		});
 		
-		btnMacetaIncorrect.setBounds(428, 415, 17, 17);
+		btnMacetaIncorrect.setBounds(422, 409, 23, 23);
 		btnMacetaIncorrect.setOpaque(false);
 		btnMacetaIncorrect.setBackground(new Color(0, 0, 0, 0));
 		btnMacetaIncorrect.setBorderPainted(false); // No dibujar el borde
@@ -137,10 +149,10 @@ public class CasaExterior extends JFrame {
 					btnPista.setVisible(true);
 					btnMochila.setVisible(true);
 					btnPosit.setVisible(true);
-					btnMaceta.setVisible(true);
 					txtLlaveEncontrada.setVisible(false);
 					btnContinueMaceta.setVisible(false);
 					btnMacetaIncorrect.setVisible(true);
+					btnMaceta.setVisible(true);
 					txtLlaveNOEncontrada.setVisible(false);
 					CasaExterior = "img/CasaExteriorImg.jpeg";
 					upgradeImage();
@@ -349,23 +361,12 @@ public class CasaExterior extends JFrame {
 		btnPuertaCasa.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO: Acción al presionar el botón
-<<<<<<< HEAD
-				try {
-					Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BonaNovaSC-Bold.ttf"));
-					optionsFont = optionsFont.deriveFont(20f);
-					lblReaccionPuertaCasa.setFont(optionsFont);
-					lblCasa.setIcon(new ImageIcon("img/CasaExteriorTexto.jpeg"));
-					lblReaccionPuertaCasa.setText("Parece que la puerta esta cerrada.");
-
-					lblReaccionPuertaCasa.setText("Debo encontrar la forma de entrar.");
-
-					lblCasa.setIcon(new ImageIcon("img/CasaExteriorImg.jpeg"));
-				} catch (FontFormatException | IOException e1) {
-					e1.printStackTrace();
-				}
-=======
-				btnContinuePuerta.setVisible(true);
+				if(inventario.contieneObjeto(LlavePuerta)){
+					Recibidor recibidor = new Recibidor();
+					recibidor.setVisible(true);
+					dispose();
+				}else {
+					btnContinuePuerta.setVisible(true);
 				btnPuertaCasa.setVisible(false);
 				btnPista.setVisible(false);
 				btnPuertaCasa.setVisible(false);
@@ -375,7 +376,7 @@ public class CasaExterior extends JFrame {
 				CasaExterior = "img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				TxtPuerta1.setVisible(true);
->>>>>>> 172f1376fc4ce88e70919013e3d089a86d33eba4
+				}
 			}
 		});
 

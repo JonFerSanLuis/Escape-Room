@@ -1,5 +1,7 @@
 package Main;
 
+import utilidades.Inventario;
+
 import java.awt.EventQueue;
 
 import Inicio.Home;
@@ -17,6 +19,7 @@ public class App {
 				}
 			}
 		});
+		
 	}
 
 }

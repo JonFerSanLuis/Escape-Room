@@ -84,7 +84,7 @@ public class CuartoMatrimonio extends JFrame {
         
         
         JLabel ImagenCajaFuerteLabel = new JLabel();
-        ImagenCajaFuerteLabel.setBounds(810, 288, 161, 118); 
+        ImagenCajaFuerteLabel.setBounds(773, 264, 161, 118); 
         
         Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);
         ImagenCajaFuerteLabel.setIcon(new ImageIcon(imgCajaFuerte)); 

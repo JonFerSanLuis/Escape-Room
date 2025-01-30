@@ -38,7 +38,7 @@ public class Intro extends JFrame {
 
 	JLabel IntroLabel;
 
-	Integer txt;
+	int txt;
 
 	public Intro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +63,7 @@ public class Intro extends JFrame {
 		HistoriIntro.setForeground(Color.WHITE);
 		HistoriIntro.setOpaque(false);
 		HistoriIntro.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro.setEditable(false);
 		HistoriIntro.setText("Me llamo Yuri, soy una estudiante de secundaria y mi mejor amigo sufre BULLYING.");
 		HistoriIntro.setBounds(48, 502, 855, 58);
@@ -73,11 +73,11 @@ public class Intro extends JFrame {
 		HistoriIntro2.setForeground(Color.WHITE);
 		HistoriIntro2.setOpaque(false);
 		HistoriIntro2.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro2.setEditable(false);
 		HistoriIntro2.setText(
 				"Me di cuenta mientras charlabamos en el parque. Me confesó que dentro de poco se iba a mudar bastante lejos y se puso sentimental.");
-		HistoriIntro2.setBounds(48, 490, 855, 58);
+		HistoriIntro2.setBounds(48, 502, 855, 58);
 		contentPane.add(HistoriIntro2);
 		HistoriIntro2.setVisible(false);
 
@@ -85,11 +85,11 @@ public class Intro extends JFrame {
 		HistoriIntro3.setForeground(Color.WHITE);
 		HistoriIntro3.setOpaque(false);
 		HistoriIntro3.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro3.setEditable(false);
 		HistoriIntro3.setText(
 				"Entonces comentó que al menos esperaba no tener que lidiar con 'gente así' en su futuro hogar.");
-		HistoriIntro3.setBounds(48, 490, 855, 58);
+		HistoriIntro3.setBounds(48, 502, 855, 58);
 		contentPane.add(HistoriIntro3);
 		HistoriIntro3.setVisible(false);
 
@@ -97,7 +97,7 @@ public class Intro extends JFrame {
 		HistoriIntro4.setForeground(Color.WHITE);
 		HistoriIntro4.setOpaque(false);
 		HistoriIntro4.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro4.setEditable(false);
 		HistoriIntro4.setText("Agregarle a eso que no era la primera vez que lo veía con moratones.");
 		HistoriIntro4.setBounds(48, 502, 855, 58);
@@ -108,7 +108,7 @@ public class Intro extends JFrame {
 		HistoriIntro5.setForeground(Color.WHITE);
 		HistoriIntro5.setOpaque(false);
 		HistoriIntro5.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro5.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro5.setEditable(false);
 		HistoriIntro5.setText("Tanto silencio me hizo pensar y darme cuenta de lo despistada que fuí.");
 		HistoriIntro5.setBounds(48, 502, 855, 58);
@@ -119,7 +119,7 @@ public class Intro extends JFrame {
 		HistoriIntro6.setForeground(Color.WHITE);
 		HistoriIntro6.setOpaque(false);
 		HistoriIntro6.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro6.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro6.setEditable(false);
 		HistoriIntro6.setText("La sorpresa me hizo enfadarme sin razón y comenzar a levantar la voz.");
 		HistoriIntro6.setBounds(48, 502, 855, 58);
@@ -130,9 +130,9 @@ public class Intro extends JFrame {
 		HistoriIntro7.setForeground(Color.WHITE);
 		HistoriIntro7.setOpaque(false);
 		HistoriIntro7.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro7.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro7.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro7.setEditable(false);
-		HistoriIntro7.setText("'¡Por qué no me dijiste nada!' Le grité, cegada por la impotencia");
+		HistoriIntro7.setText("'¡Por qué no me dijiste nada!' Le grité, cegada por la impotencia.");
 		HistoriIntro7.setBounds(48, 502, 855, 58);
 		contentPane.add(HistoriIntro7);
 		HistoriIntro7.setVisible(false);
@@ -141,11 +141,11 @@ public class Intro extends JFrame {
 		HistoriIntro8.setForeground(Color.WHITE);
 		HistoriIntro8.setOpaque(false);
 		HistoriIntro8.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro8.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro8.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro8.setEditable(false);
 		HistoriIntro8.setText(
 				"Tuvimos una fuerte discusión por culpa de mi falta de tacto. Y por alguna razón no dejaba de echarle la culpa a él.");
-		HistoriIntro8.setBounds(48, 490, 855, 58);
+		HistoriIntro8.setBounds(48, 502, 855, 58);
 		contentPane.add(HistoriIntro8);
 		HistoriIntro8.setVisible(false);
 
@@ -153,7 +153,7 @@ public class Intro extends JFrame {
 		HistoriIntro9.setForeground(Color.WHITE);
 		HistoriIntro9.setOpaque(false);
 		HistoriIntro9.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro9.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro9.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro9.setEditable(false);
 		HistoriIntro9.setText("Si tan solo hubiera sido un poco más considerada y atenta...");
 		HistoriIntro9.setBounds(48, 502, 855, 58);
@@ -164,7 +164,7 @@ public class Intro extends JFrame {
 		HistoriIntro10.setForeground(Color.WHITE);
 		HistoriIntro10.setOpaque(false);
 		HistoriIntro10.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro10.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro10.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro10.setEditable(false);
 		HistoriIntro10.setText("Hace unos días, Mikel se escapó de casa.");
 		HistoriIntro10.setBounds(48, 502, 855, 58);
@@ -175,7 +175,7 @@ public class Intro extends JFrame {
 		HistoriIntro11.setForeground(Color.WHITE);
 		HistoriIntro11.setOpaque(false);
 		HistoriIntro11.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro11.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro11.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro11.setEditable(false);
 		HistoriIntro11.setText("No soporto pensar que tengo parte de culpa.");
 		HistoriIntro11.setBounds(48, 502, 855, 58);
@@ -186,7 +186,7 @@ public class Intro extends JFrame {
 		HistoriIntro12.setForeground(Color.WHITE);
 		HistoriIntro12.setOpaque(false);
 		HistoriIntro12.setBackground(new Color(0, 0, 0, 0));
-		HistoriIntro12.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		HistoriIntro12.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		HistoriIntro12.setEditable(false);
 		HistoriIntro12.setText("TENGO QUE ENCONTRARLE");
 		HistoriIntro12.setBounds(48, 502, 855, 58);

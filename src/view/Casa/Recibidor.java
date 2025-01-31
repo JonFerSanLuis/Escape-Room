@@ -1,6 +1,7 @@
 package view.Casa;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -11,6 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Recibidor extends JFrame {
 
@@ -34,6 +40,50 @@ public class Recibidor extends JFrame {
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         contentPane.setLayout(null);
+        
+     // Cargar y redimensionar imágenes una sola vez
+        ImageIcon flechaEscaleraOFF = new ImageIcon("img/flechaEscaleraOFF.png");
+        ImageIcon flechaEscaleraON = new ImageIcon("img/flechaEscaleraON.png");
+
+        Image imgEscaleraOFF = flechaEscaleraOFF.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+        Image imgEscaleraON = flechaEscaleraON.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+
+        ImageIcon iconEscaleraOFF = new ImageIcon(imgEscaleraOFF);
+        ImageIcon iconEscaleraON = new ImageIcon(imgEscaleraON);
+
+        JLabel lblEscalera = new JLabel(iconEscaleraOFF);
+        lblEscalera.setBounds(797, 247, 81, 77);
+        contentPane.add(lblEscalera);
+        
+        JButton btnEscaleras = new JButton("");
+        btnEscaleras.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Pasillo2ºPiso pasillo2 = new Pasillo2ºPiso();
+        		pasillo2.setVisible(true);
+        		dispose();
+        	}
+        });
+        btnEscaleras.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblEscalera.setIcon(iconEscaleraON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblEscalera.setIcon(iconEscaleraOFF);
+            }
+        });
+        btnEscaleras.setBounds(797, 247, 81, 77);
+        btnEscaleras.setBackground(new Color(0, 0, 0, 0));
+        btnEscaleras.setOpaque(false);
+        btnEscaleras.setBorderPainted(false);
+        btnEscaleras.setContentAreaFilled(false);
+        contentPane.add(btnEscaleras);
+        
+        JButton btnNewButton = new JButton("New button");
+        btnNewButton.setBounds(318, 337, 81, 77);
+        contentPane.add(btnNewButton);
         
         // Mostrar la imagen redimensionada
         RecibidorLabel = new JLabel();

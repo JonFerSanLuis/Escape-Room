@@ -81,15 +81,26 @@ public class Recibidor extends JFrame {
         btnEscaleras.setContentAreaFilled(false);
         contentPane.add(btnEscaleras);
         
-        JButton btnNewButton = new JButton("New button");
-        btnNewButton.setBounds(318, 337, 81, 77);
-        contentPane.add(btnNewButton);
-        
-        // Mostrar la imagen redimensionada
+        JButton btnPuerta = new JButton("");
+        btnPuerta.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		// Aqui irá lo que queramos que haga el botón que hay tras la puerta
+        	}
+        });
+        btnPuerta.setBounds(304, 158, 95, 256);
+        btnPuerta.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnPuerta.setOpaque(false);
+        btnPuerta.setBorderPainted(false);
+        btnPuerta.setContentAreaFilled(false);
+        contentPane.add(btnPuerta); // Agregarlo antes de la imagen
+
+        // Mostrar la imagen de fondo
         RecibidorLabel = new JLabel();
         RecibidorLabel.setBounds(0, 0, 934, 561);
         RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
-        contentPane.add(RecibidorLabel);
+        contentPane.add(RecibidorLabel); // Agregar al final para que quede encima del botón
+
     	
     }
     

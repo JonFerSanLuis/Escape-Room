@@ -7,6 +7,25 @@ import java.util.TimerTask;
 
 public class Cronometro {
     private static final int horaEnSegundos = 3600; // Tiempo inicial en segundos
+    private static Cronometro instanciaUnicaCronometro; // Instancia única del cronómetro
+    private JLabel labelTiempo; // Variable para almacenar el JLabel donde se mostrará el tiempo
+
+    // Constructor privado para evitar la creación de instancias externas
+    private Cronometro() {
+    }
+
+    // Método para obtener la instancia única del cronómetro
+    public static Cronometro getInstance() {
+        if (instanciaUnicaCronometro == null) {
+            instanciaUnicaCronometro = new Cronometro(); // Crear la instancia si no existe
+        }
+        return instanciaUnicaCronometro;
+    }
+
+    // Método para asignar el JLabel donde se mostrará el tiempo
+    public void asignarLabel(JLabel label) {
+        this.labelTiempo = label;
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Cronometro::createAndShowGUI);
@@ -32,11 +51,16 @@ public class Cronometro {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        // Obtener la instancia única del cronómetro
+        Cronometro cronometro = Cronometro.getInstance();
+        cronometro.asignarLabel(temporizador); // Asignamos el JLabel al cronómetro
+
         // Iniciar la cuenta atrás
-        startCountdown(temporizador, horaEnSegundos);
+        cronometro.startCountdown(horaEnSegundos); // Empezar la cuenta atrás con la duración inicial
     }
 
-    private static void startCountdown(JLabel timerLabel, int seconds) {
+    // Método para iniciar la cuenta atrás y actualizar el JLabel cada segundo
+    public void startCountdown(int seconds) {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             int remainingSeconds = seconds;
@@ -45,16 +69,21 @@ public class Cronometro {
             public void run() {
                 if (remainingSeconds <= 0) {
                     timer.cancel();
-                    timerLabel.setText("¡Tiempo terminado!"); // Mostrar mensaje al terminar
+                    if (labelTiempo != null) {
+                        labelTiempo.setText("¡Tiempo terminado!"); // Mostrar mensaje al terminar
+                    }
                 } else {
                     remainingSeconds--;
-                    timerLabel.setText(formatTime(remainingSeconds)); // Actualizar el tiempo
+                    if (labelTiempo != null) {
+                        labelTiempo.setText(formatTime(remainingSeconds)); // Actualizar el tiempo
+                    }
                 }
             }
         }, 0, 1000); // Actualización cada segundo
     }
 
-    private static String formatTime(int totalSeconds) {
+    // Formatear el tiempo de segundos a formato HH:MM:SS
+    private String formatTime(int totalSeconds) {
         int hours = totalSeconds / 3600;
         int minutes = (totalSeconds % 3600) / 60;
         int seconds = totalSeconds % 60;

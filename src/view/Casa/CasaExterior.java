@@ -47,7 +47,7 @@ public class CasaExterior extends JFrame {
 		
 		Inventario inventario = new Inventario();
 		
-		Objeto LlavePuerta = new Objeto(true, true, 114, "Llave", "La llave de la puerta delantera de la casa de Mikel");
+		inventario.setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel"));
 
 		JLabel txtLlaveEncontrada = new JLabel("-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
 		txtLlaveEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
@@ -97,7 +97,7 @@ public class CasaExterior extends JFrame {
 				btnMacetaIncorrect.setVisible(false);
 				txtLlaveEncontrada.setVisible(true);
 				btnContinueMaceta.setVisible(true);
-				inventario.agregarObjeto(LlavePuerta);
+				inventario.agregarObjeto(inventario.getLlavePuerta());
 			}
 		});
 		
@@ -363,7 +363,7 @@ public class CasaExterior extends JFrame {
 		btnPuertaCasa.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(inventario.contieneObjeto(LlavePuerta)){
+				if(inventario.contieneObjeto(inventario.getLlavePuerta())){
 					Recibidor recibidor = new Recibidor();
 					recibidor.setVisible(true);
 					dispose();

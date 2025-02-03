@@ -37,6 +37,10 @@ public class Pasillo2Piso extends JFrame {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         contentPane.setLayout(null);
         
+        JButton btnNewButton = new JButton("New button");
+        btnNewButton.setBounds(367, 131, 89, 23);
+        contentPane.add(btnNewButton);
+        
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();
         lblPasillo2Piso.setBounds(0, 0, 934, 561);

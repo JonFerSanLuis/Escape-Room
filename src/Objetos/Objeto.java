@@ -6,14 +6,16 @@ public class Objeto {
 	private Integer ObjId;
 	private String ObjName;
 	private String ObjDescrip;
+	private String FileName;
 	
-	public Objeto(Boolean inspeccionable, Boolean usable, Integer objId, String objName, String objDescrip) {
+	public Objeto(Boolean inspeccionable, Boolean usable, Integer objId, String objName, String objDescrip, String fileName) {
 		super();
 		this.inspeccionable = inspeccionable;
 		this.usable = usable;
 		ObjId = objId;
 		ObjName = objName;
 		ObjDescrip = objDescrip;
+		FileName = fileName;
 	}
 
 	public Boolean getInspeccionable() {
@@ -56,6 +58,14 @@ public class Objeto {
 		ObjName = objDescrip;
 	}
 	
+	public String getFileName() {
+		return FileName;
+	}
+
+	public void setFileName(String fileName) {
+		FileName = fileName;
+	}
+
 	public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;

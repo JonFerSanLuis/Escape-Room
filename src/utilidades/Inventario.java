@@ -32,5 +32,34 @@ public class Inventario {
             System.out.println(o.getObjDescrip());
         }
     }
+	
+	public Objeto getLlavePuerta() {
+		return LlavePuerta;
+	}
 
+	public static void setLlavePuerta(Objeto llavePuerta) {
+		LlavePuerta = llavePuerta;
+	}
+
+	private static Objeto LlavePuerta;
+	
+	public Objeto getLlaveCajonPadres() {
+		return LlaveCajonPadres;
+	}
+
+	public static void setLlaveCajonPadres(Objeto llaveCajonPadres) {
+		LlaveCajonPadres = llaveCajonPadres;
+	}
+	
+	private static Objeto LlaveCajonPadres;
+	
+	public Objeto getPapelesDivorcio() {
+		return PapelesDivorcio;
+	}
+
+	public static void setPapelesDivorcio(Objeto papelesDivorcio) {
+		PapelesDivorcio = papelesDivorcio;
+	}
+	
+	private static Objeto PapelesDivorcio;
 }

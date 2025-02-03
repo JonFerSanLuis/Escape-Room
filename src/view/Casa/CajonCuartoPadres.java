@@ -1,5 +1,6 @@
 package view.Casa;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -8,98 +9,95 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+
+import Objetos.Objeto;
+import utilidades.Inventario;
+
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CajonCuartoPadres extends JFrame {
 
+	String backgroundFile;
     private JPanel contentPane;
+    JLabel lblCajon;
 
     public CajonCuartoPadres() {
+    	contentPane = new JPanel();
+        setContentPane(contentPane);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200, 100, 950, 600);
-        setResizable(false);
+        
+        Inventario inventario = new Inventario();
+        
+       inventario.setPapelesDivorcio(new Objeto(false, true, 215, "Papeles Del Divorcio", "Parece que se trata de los documentos de separacón de los padres de Mikel"));
+    	
+        backgroundFile = "img/cajon.png";
 
-        JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setPreferredSize(new Dimension(950, 604));
-        setContentPane(layeredPane);
-
-        String CuartoPadresFile = "img/cajon.jpeg";
-        ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);
+        // Cargar la imagen y redimensionarla
+        ImageIcon originalIcon = new ImageIcon(backgroundFile);
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-        JLabel HomeLabel = new JLabel();
-        HomeLabel.setBounds(0, 0, 944, 571);
-        HomeLabel.setIcon(scaledIcon);
-        layeredPane.add(HomeLabel, Integer.valueOf(0));
-
+        contentPane.setLayout(null);
+        
         JLabel LightLabel = new JLabel();
+        // Cargar la imagen de la bandera inglesa
         ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-        LightLabel.setBounds(315, 336, 122, 47);
+        LightLabel.setBounds(438, 309, 70, 29); // Ajusta el tamaño del JLabel 
         Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
         LightLabel.setIcon(new ImageIcon(imgLight));
-        layeredPane.add(LightLabel, Integer.valueOf(3));  // Capa más alta para asegurarnos de que se vea encima de todo
-
+        
+        ImageIcon paperImagen = new ImageIcon("img/papelesDivorcio.png");
+        JLabel PaperLabel = new JLabel();
+        PaperLabel.setBounds(182, 42, 586, 519); // Ajusta el tamaño del JLabel 
+        Image imgPaper = paperImagen.getImage().getScaledInstance(PaperLabel.getWidth(), PaperLabel.getHeight(), Image.SCALE_SMOOTH);
+        PaperLabel.setIcon(new ImageIcon(imgPaper));
+        contentPane.add(PaperLabel);
+        PaperLabel.setVisible(false);
+        
+        contentPane.add(LightLabel);
         LightLabel.setVisible(false);
 
-        LightLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                LightLabel.setVisible(true); // Mostrar imagen cuando el ratón entra
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                LightLabel.setVisible(false); // Ocultar imagen cuando el ratón sale
-            }
+        JButton btnPapelesDiv = new JButton("");
+        btnPapelesDiv.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		PaperLabel.setVisible(true);
+        		inventario.agregarObjeto(inventario.getPapelesDivorcio());
+        	}
         });
-
-        JButton BtnVerPapeles = new JButton("");
-        BtnVerPapeles.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                EventQueue.invokeLater(() -> {
-                    try {
-                        PapelesDivorcio frame = new PapelesDivorcio();
-                        frame.setVisible(true);
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
-                });
-            }
+        btnPapelesDiv.setBounds(327, 285, 195, 140);
+        btnPapelesDiv.setBackground(new Color(0, 0, 0, 0));
+        btnPapelesDiv.setOpaque(false);
+        btnPapelesDiv.setBorderPainted(false);
+        btnPapelesDiv.setContentAreaFilled(false);
+        btnPapelesDiv.addMouseListener(new MouseAdapter() {
+          	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		LightLabel.setVisible(true);
+        	}
+          	@Override
+        	public void mouseExited(MouseEvent e) {
+        		LightLabel.setVisible(false);
+        	}
         });
-        BtnVerPapeles.setBounds(257, 329, 223, 119);
-        layeredPane.add(BtnVerPapeles);
-        BtnVerPapeles.setOpaque(false);
-        BtnVerPapeles.setBackground(null);
-        BtnVerPapeles.setBorderPainted(false);
-        BtnVerPapeles.setFocusPainted(false);
-        BtnVerPapeles.setContentAreaFilled(false);
-
-        JButton btnVerPapeles2 = new JButton("");
-        btnVerPapeles2.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                EventQueue.invokeLater(() -> {
-                    try {
-                        PapelesDivorcio frame = new PapelesDivorcio();
-                        frame.setVisible(true);
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
-                });
-            }
-        });
-        btnVerPapeles2.setBounds(422, 277, 199, 145);
-        layeredPane.add(btnVerPapeles2);
-        btnVerPapeles2.setOpaque(false);
-        btnVerPapeles2.setBackground(null);
-        btnVerPapeles2.setBorderPainted(false);
-        btnVerPapeles2.setFocusPainted(false);
-        btnVerPapeles2.setContentAreaFilled(false);
+        contentPane.add(btnPapelesDiv);
+        
+        // Mostrar la imagen redimensionada
+        lblCajon = new JLabel();
+        lblCajon.setBounds(0, 0, 934, 561);
+        lblCajon.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        contentPane.add(lblCajon);
+    }
+    
+    private ImageIcon loadImage(String filePath) {
+        ImageIcon icon = new ImageIcon(filePath);
+        Image image = icon.getImage();
+        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
     }
 
     public static void main(String[] args) {

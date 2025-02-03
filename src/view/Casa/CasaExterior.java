@@ -225,6 +225,7 @@ public class CasaExterior extends JFrame {
 				btnPosit.setVisible(true);
 				btnVolver.setVisible(false);
 				btnMaceta.setVisible(true);
+				btnMacetaIncorrect.setVisible(true);
 				lblPositGrande.setVisible(false);
 			}
 		});
@@ -327,6 +328,7 @@ public class CasaExterior extends JFrame {
 						btnMochila.setVisible(true);
 						btnPosit.setVisible(true);
 						btnMaceta.setVisible(true);
+						btnMacetaIncorrect.setVisible(true);
 						btnContinuePuerta.setVisible(false);
 						CasaExterior = "img/CasaExteriorImg.jpeg";
 						upgradeImage();
@@ -371,6 +373,7 @@ public class CasaExterior extends JFrame {
 				btnPista.setVisible(false);
 				btnPuertaCasa.setVisible(false);
 				btnMochila.setVisible(false);
+				btnMacetaIncorrect.setVisible(false);
 				btnMaceta.setVisible(false);
 				btnPosit.setVisible(false);
 				CasaExterior = "img/CasaExteriorTexto.jpeg";

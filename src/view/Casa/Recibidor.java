@@ -58,7 +58,7 @@ public class Recibidor extends JFrame {
         JButton btnEscaleras = new JButton("");
         btnEscaleras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Pasillo2ºPiso pasillo2 = new Pasillo2ºPiso();
+        		Pasillo2Piso pasillo2 = new Pasillo2Piso();
         		pasillo2.setVisible(true);
         		dispose();
         	}

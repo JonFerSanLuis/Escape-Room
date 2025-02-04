@@ -47,7 +47,7 @@ public class CasaExterior extends JFrame {
 		
 		Inventario inventario = new Inventario();
 		
-		inventario.setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel"));
+		inventario.setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));
 
 		JLabel txtLlaveEncontrada = new JLabel("-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
 		txtLlaveEncontrada.setHorizontalAlignment(SwingConstants.CENTER);

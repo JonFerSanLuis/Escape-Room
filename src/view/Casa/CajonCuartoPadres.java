@@ -34,7 +34,7 @@ public class CajonCuartoPadres extends JFrame {
         
         Inventario inventario = new Inventario();
         
-       inventario.setPapelesDivorcio(new Objeto(false, true, 215, "Papeles Del Divorcio", "Parece que se trata de los documentos de separacón de los padres de Mikel"));
+       inventario.setPapelesDivorcio(new Objeto(false, true, 215, "Papeles Del Divorcio", "Parece que se trata de los documentos de separacón de los padres de Mikel", "img/papelesDivorcio.png"));
     	
         backgroundFile = "img/cajon.png";
 

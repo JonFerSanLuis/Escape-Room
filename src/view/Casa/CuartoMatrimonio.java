@@ -29,7 +29,7 @@ public class CuartoMatrimonio extends JFrame {
         
         Inventario inventario = new Inventario();
         
-        inventario.setLlaveCajonPadres(new Objeto(true, true, 002, "Llave", "La llave de la puerta delantera de la casa de Mikel"));
+        inventario.setLlaveCajonPadres(new Objeto(true, true, 002, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCajon.png"));
         
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(new Dimension(934, 561));
@@ -55,6 +55,15 @@ public class CuartoMatrimonio extends JFrame {
         LightLabel.setIcon(new ImageIcon(imgLight));
         layeredPane.add(LightLabel, Integer.valueOf(2));
         LightLabel.setVisible(false);
+        
+        JLabel LightLabelCaja = new JLabel();
+        // Cargar la imagen de la bandera inglesa
+        ImageIcon LightImagenCaja = new ImageIcon("img/11571045.png");
+        LightLabelCaja.setBounds(815, 318, 83, 23); // Ajusta el tamaño del JLabel 
+        Image imgLightCaja = LightImagenCaja.getImage().getScaledInstance(LightLabelCaja.getWidth(), LightLabelCaja.getHeight(), Image.SCALE_SMOOTH);
+        LightLabelCaja.setIcon(new ImageIcon(imgLightCaja));
+        layeredPane.add(LightLabelCaja, Integer.valueOf(2));
+        LightLabelCaja.setVisible(false);
         
         ArrayList<JLabel> TxtCajon = new ArrayList<>();
         
@@ -108,6 +117,34 @@ public class CuartoMatrimonio extends JFrame {
         	}
         });
         
+        JLabel ImagenCajaFuerteLabel = new JLabel();
+        
+        JButton btnVerCaja = new JButton("");
+        btnVerCaja.setOpaque(false);
+        btnVerCaja.setBackground(new Color(0, 0, 0, 0));
+        btnVerCaja.setBorderPainted(false); // No dibujar el borde
+        btnVerCaja.setFocusPainted(false);
+        btnVerCaja.setContentAreaFilled(false);
+        btnVerCaja.setBounds(773, 264, 161, 118);
+        btnVerCaja.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                    	
+                    }
+                });
+            }
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		LightLabelCaja.setVisible(true);
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		LightLabelCaja.setVisible(false);
+        	}
+        });
+        
 		btnContinue.setBounds(819, 468, 115, 23);
 		btnContinue.setBackground(new Color(0, 0, 0, 0));
 		btnContinue.setOpaque(false);
@@ -150,9 +187,6 @@ public class CuartoMatrimonio extends JFrame {
 
         layeredPane.add(btnVerCajon);
         
-        
-        
-        JLabel ImagenCajaFuerteLabel = new JLabel();
         ImagenCajaFuerteLabel.setBounds(773, 264, 161, 118); 
         
         Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);

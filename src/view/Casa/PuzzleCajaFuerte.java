@@ -53,9 +53,11 @@ public class PuzzleCajaFuerte extends JFrame {
         		Image.SCALE_SMOOTH);
         
         contentPane.setLayout(null);
+        
         posNum1 = 0;
         posNum2 = 0;
         posNum3 = 0;
+        
         int[] PrimerNumero = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] SegundoNumero = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] TercerNumero = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -102,15 +104,17 @@ public class PuzzleCajaFuerte extends JFrame {
         secondNum.setHorizontalAlignment(SwingConstants.CENTER);
         secondNum.setBounds(434, 327, 91, 117);
         contentPane.add(secondNum);
-        
+                
+		JLabel falloLabel = new JLabel("COMBINACI\u00D3N INCORRECTA");
+		
         JButton btnAceptar = new JButton("ACEPTAR");
         btnAceptar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	 String codigo = firstNum.getText()+secondNum.getText()+thirdNum.getText();
         	 if (codigo.equals("283")){
-        		 
+        		 System.out.println("menudo focking hacker");
         	 }else {
-        		 
+        		 falloLabel.setVisible(true);
         	 }
         	}
         });
@@ -285,21 +289,26 @@ public class PuzzleCajaFuerte extends JFrame {
         	}
         });
         btnAbajo3.setOpaque(false);
-        btnAbajo3.setBackground(new Color(0, 0, 0, 0));
-        btnAbajo3.setBorderPainted(false); // No dibujar el borde
-        btnAbajo3.setFocusPainted(false);
-        btnAbajo3.setContentAreaFilled(false);
-        contentPane.add(btnAbajo3);
-        
-                // Mostrar la imagen de fondo
-                Background = new JLabel();
-                Background.setBounds(0, 0, 934, 561);
-                Background.setIcon(scaledIcon);  // Establecer la imagen por defecto
-                contentPane.add(Background); // Agregar al final para que quede encima del botón
-        // Cargar la imagen de la bandera inglesa
-        
-        
-    }
+		btnAbajo3.setBackground(new Color(0, 0, 0, 0));
+		btnAbajo3.setBorderPainted(false); // No dibujar el borde
+		btnAbajo3.setFocusPainted(false);
+		btnAbajo3.setContentAreaFilled(false);
+		contentPane.add(btnAbajo3);
+
+		falloLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		falloLabel.setForeground(new Color(255, 128, 128));
+		falloLabel.setBounds(402, 513, 161, 14);
+		contentPane.add(falloLabel);
+		falloLabel.setVisible(false);
+
+		// Mostrar la imagen de fondo
+		Background = new JLabel();
+		Background.setBounds(0, 0, 934, 561);
+		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
+		contentPane.add(Background); // Agregar al final para que quede encima del botón
+		// Cargar la imagen de la bandera inglesa
+
+	}
     
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);

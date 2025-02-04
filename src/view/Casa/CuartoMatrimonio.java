@@ -49,21 +49,62 @@ public class CuartoMatrimonio extends JFrame {
         
         JLabel LightLabel = new JLabel();
         // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-        LightLabel.setBounds(626, 312, 83, 23); // Ajusta el tamaño del JLabel 
-        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
-        LightLabel.setIcon(new ImageIcon(imgLight));
-        layeredPane.add(LightLabel, Integer.valueOf(2));
-        LightLabel.setVisible(false);
-        
-        JLabel LightLabelCaja = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagenCaja = new ImageIcon("img/11571045.png");
-        LightLabelCaja.setBounds(815, 318, 83, 23); // Ajusta el tamaño del JLabel 
-        Image imgLightCaja = LightImagenCaja.getImage().getScaledInstance(LightLabelCaja.getWidth(), LightLabelCaja.getHeight(), Image.SCALE_SMOOTH);
-        LightLabelCaja.setIcon(new ImageIcon(imgLightCaja));
+		ImageIcon LightImagen = new ImageIcon("img/11571045.png");
+		LightLabel.setBounds(626, 312, 83, 23); // Ajusta el tamaño del JLabel
+		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
+				Image.SCALE_SMOOTH);
+		LightLabel.setIcon(new ImageIcon(imgLight));
+		layeredPane.add(LightLabel, Integer.valueOf(2));
+		LightLabel.setVisible(false);
+
+		JLabel PistaCajaLabel = new JLabel();
+		// Cargar la imagen de la bandera inglesa
+		ImageIcon PistaCajaImagen = new ImageIcon("img/pistaCajaFuerte.png");
+		PistaCajaLabel.setBounds(20, 380, 40, 37); // Ajusta el tamaño del JLabel
+		Image imgPistaCaja = PistaCajaImagen.getImage().getScaledInstance(PistaCajaLabel.getWidth(),
+				PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
+		PistaCajaLabel.setIcon(new ImageIcon(imgPistaCaja));
+		layeredPane.add(PistaCajaLabel, Integer.valueOf(2));
+
+		JLabel LightLabelCaja = new JLabel();
+		// Cargar la imagen de la bandera inglesa
+		ImageIcon LightImagenCaja = new ImageIcon("img/11571045.png");
+		LightLabelCaja.setBounds(815, 318, 83, 23); // Ajusta el tamaño del JLabel
+		Image imgLightCaja = LightImagenCaja.getImage().getScaledInstance(LightLabelCaja.getWidth(),
+				LightLabelCaja.getHeight(), Image.SCALE_SMOOTH);
+		LightLabelCaja.setIcon(new ImageIcon(imgLightCaja));
         layeredPane.add(LightLabelCaja, Integer.valueOf(2));
         LightLabelCaja.setVisible(false);
+        
+        JLabel RuedaCajaLabel = new JLabel();
+		// Cargar la imagen de la bandera inglesa
+		ImageIcon ImagenRueda = new ImageIcon("img/cajaFuerteRueda.png");
+		RuedaCajaLabel.setBounds(332, 167, 220, 214); // Ajusta el tamaño del JLabel
+		Image imgRueda = ImagenRueda.getImage().getScaledInstance(RuedaCajaLabel.getWidth(),
+				RuedaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
+		RuedaCajaLabel.setIcon(new ImageIcon(imgRueda));
+        layeredPane.add(RuedaCajaLabel, Integer.valueOf(2));
+        RuedaCajaLabel.setVisible(false);
+
+		ImageIcon PistaCajaGrande = new ImageIcon("img/pistaCajaFuerte.png");
+		JLabel lblPistaCajaGrande = new JLabel();
+		lblPistaCajaGrande.setBounds(223, 67, 478, 429); // Ajusta el tamaño del JLabel
+		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
+		Image imgPistaCajaG = PistaCajaGrande.getImage().getScaledInstance(lblPistaCajaGrande.getWidth(),
+				lblPistaCajaGrande.getHeight(), Image.SCALE_SMOOTH);
+		lblPistaCajaGrande.setIcon(new ImageIcon(imgPistaCajaG));
+		getContentPane().add(lblPistaCajaGrande);
+		lblPistaCajaGrande.setVisible(false);
+		
+		ImageIcon CajaZoom = new ImageIcon("img/cajaFuerteCod.png");
+		JLabel lblCajaZoom = new JLabel();
+		lblCajaZoom.setBounds(223, 67, 478, 429); // Ajusta el tamaño del JLabel
+		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
+		Image imgCajaZoom = CajaZoom.getImage().getScaledInstance(lblCajaZoom.getWidth(),
+				lblCajaZoom.getHeight(), Image.SCALE_SMOOTH);
+		lblCajaZoom.setIcon(new ImageIcon(imgCajaZoom));
+		
+		lblCajaZoom.setVisible(false);
         
         ArrayList<JLabel> TxtCajon = new ArrayList<>();
         
@@ -76,10 +117,19 @@ public class CuartoMatrimonio extends JFrame {
 		Txtcajon1.setVisible(false);
 		
 		TxtCajon.add(Txtcajon1);
+		
+        JButton btnVerCaja = new JButton("");
+        
+        JButton btnPistaCaja = new JButton("");
+        
+        JButton btnVerCajon = new JButton("");
+        
+        JButton btnPuzzleCaja = new JButton("");
         
         JButton btnContinue = new JButton("CONTINUAR");
-
-        JButton btnVerCajon = new JButton("");
+        
+        JButton btnVolver = new JButton("VOLVER");
+        
         btnVerCajon.setOpaque(false);
         btnVerCajon.setBackground(new Color(0, 0, 0, 0));
         btnVerCajon.setBorderPainted(false); // No dibujar el borde
@@ -103,6 +153,9 @@ public class CuartoMatrimonio extends JFrame {
                     		upgradeImage();
                     		btnContinue.setVisible(true);
                     		Txtcajon1.setVisible(true);
+                    		btnVerCaja.setVisible(false);
+                        	btnPistaCaja.setVisible(false);
+                        	btnVerCajon.setVisible(false);
                     	}
                     }
                 });
@@ -119,19 +172,53 @@ public class CuartoMatrimonio extends JFrame {
         
         JLabel ImagenCajaFuerteLabel = new JLabel();
         
-        JButton btnVerCaja = new JButton("");
+        btnPuzzleCaja.setOpaque(false);
+        btnPuzzleCaja.setBackground(new Color(0, 0, 0, 0));
+        btnPuzzleCaja.setBorderPainted(false); // No dibujar el borde
+        btnPuzzleCaja.setFocusPainted(false);
+        btnPuzzleCaja.setContentAreaFilled(false);
+        btnPuzzleCaja.setBounds(345, 187, 194, 191);
+        btnPuzzleCaja.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                    	PuzzleCajaFuerte puzzle = new PuzzleCajaFuerte();
+                    	puzzle.setVisible(true);
+                    	dispose();
+                    }
+                });
+            }
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		RuedaCajaLabel.setVisible(true);
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		RuedaCajaLabel.setVisible(false);
+        	}
+        }); 
+        btnPuzzleCaja.setVisible(false);
+        layeredPane.add(btnPuzzleCaja);
+        getContentPane().add(lblCajaZoom);
+        
         btnVerCaja.setOpaque(false);
         btnVerCaja.setBackground(new Color(0, 0, 0, 0));
         btnVerCaja.setBorderPainted(false); // No dibujar el borde
         btnVerCaja.setFocusPainted(false);
         btnVerCaja.setContentAreaFilled(false);
-        btnVerCaja.setBounds(773, 264, 161, 118);
+        btnVerCaja.setBounds(830, 303, 63, 55);
         btnVerCaja.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                    	
+                    	lblCajaZoom.setVisible(true);
+                    	btnVolver.setVisible(true);
+                    	btnVerCaja.setVisible(false);
+                    	btnPistaCaja.setVisible(false);
+                    	btnVerCajon.setVisible(false);
+                    	btnPuzzleCaja.setVisible(true);
                     }
                 });
             }
@@ -144,6 +231,57 @@ public class CuartoMatrimonio extends JFrame {
         		LightLabelCaja.setVisible(false);
         	}
         });
+        layeredPane.add(btnVerCaja);
+        
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnVolver.setVisible(false);
+				btnPuzzleCaja.setVisible(false);
+				lblPistaCajaGrande.setVisible(false);
+				btnPistaCaja.setVisible(true);
+				btnVerCajon.setVisible(true);
+				btnVerCaja.setVisible(true);
+				lblCajaZoom.setVisible(false);
+			}
+		});
+		btnVolver.setBounds(37, 511, 89, 23);
+		layeredPane.add(btnVolver);
+		btnVolver.setVisible(false);
+       
+        btnPistaCaja.setOpaque(false);
+        btnPistaCaja.setBackground(new Color(0, 0, 0, 0));
+        btnPistaCaja.setBorderPainted(false); // No dibujar el borde
+        btnPistaCaja.setFocusPainted(false);
+        btnPistaCaja.setContentAreaFilled(false);
+        btnPistaCaja.setBounds(20, 380, 40, 37);
+        btnPistaCaja.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                    	lblPistaCajaGrande.setVisible(true);
+                    	btnVolver.setVisible(true);
+                    	btnVerCaja.setVisible(false);
+                    	btnPistaCaja.setVisible(false);
+                    	btnVerCajon.setVisible(false);
+                    }
+                });
+            }
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		 ImageIcon hoveredImage = new ImageIcon("img/pistaCajaFuerteON.png");
+        	        Image imgHovered = hoveredImage.getImage().getScaledInstance(PistaCajaLabel.getWidth(), PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
+        	        PistaCajaLabel.setIcon(new ImageIcon(imgHovered));
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		 ImageIcon hoveredImage = new ImageIcon("img/pistaCajaFuerte.png");
+        	        Image imgHovered = hoveredImage.getImage().getScaledInstance(PistaCajaLabel.getWidth(), PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
+        	        PistaCajaLabel.setIcon(new ImageIcon(imgHovered));
+        	}
+        });
+        layeredPane.add(btnPistaCaja);   
+        
         
 		btnContinue.setBounds(819, 468, 115, 23);
 		btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -162,6 +300,8 @@ public class CuartoMatrimonio extends JFrame {
 				btnVerCajon.setVisible(true);
 				btnContinue.setVisible(false);
 				Txtcajon1.setVisible(false);
+				btnVerCaja.setVisible(true);
+            	btnPistaCaja.setVisible(true);
 			}
 		});
 

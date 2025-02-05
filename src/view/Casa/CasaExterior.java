@@ -1,4 +1,4 @@
-package view.Casa;
+ package view.Casa;
 
 import java.awt.Color;
 import java.awt.EventQueue;

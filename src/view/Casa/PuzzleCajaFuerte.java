@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -39,6 +40,8 @@ public class PuzzleCajaFuerte extends JFrame {
         setBounds(200, 100, 950, 600);
     	
         backgroundFile = "img/puzzleCajaFuerte.png";
+        
+        CuartoMatrimonio cuarto = new CuartoMatrimonio();
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
@@ -72,8 +75,7 @@ public class PuzzleCajaFuerte extends JFrame {
         JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		CuartoMatrimonio cuartoPadres = new CuartoMatrimonio();
-        		cuartoPadres.setVisible(true);
+        		cuarto.setVisible(true);
         		dispose();
         	}
         });
@@ -108,19 +110,7 @@ public class PuzzleCajaFuerte extends JFrame {
 		JLabel falloLabel = new JLabel("COMBINACI\u00D3N INCORRECTA");
 		
         JButton btnAceptar = new JButton("ACEPTAR");
-        btnAceptar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	 String codigo = firstNum.getText()+secondNum.getText()+thirdNum.getText();
-        	 if (codigo.equals("283")){
-        		 System.out.println("menudo focking hacker");
-        	 }else {
-        		 falloLabel.setVisible(true);
-        	 }
-        	}
-        });
-        btnAceptar.setBounds(796, 494, 89, 23);
-        contentPane.add(btnAceptar);
-        
+
         RuedaLabel.setIcon(new ImageIcon(imgRueda));
         contentPane.add(RuedaLabel, Integer.valueOf(2));
         
@@ -300,7 +290,21 @@ public class PuzzleCajaFuerte extends JFrame {
 		falloLabel.setBounds(402, 513, 161, 14);
 		contentPane.add(falloLabel);
 		falloLabel.setVisible(false);
-
+		
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String codigo = firstNum.getText() + secondNum.getText() + thirdNum.getText();
+				if (codigo.equals("283")) {
+					CajaAbierta open = new CajaAbierta();
+					open.setVisible(true);
+					dispose();
+				} else {
+					falloLabel.setVisible(true);
+				}
+			}
+		});
+		btnAceptar.setBounds(796, 494, 89, 23);
+		contentPane.add(btnAceptar);
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 934, 561);
@@ -309,14 +313,25 @@ public class PuzzleCajaFuerte extends JFrame {
 		// Cargar la imagen de la bandera inglesa
 
 	}
+    private void upgradeImage() {
+		// Cargar la nueva imagen
+		ImageIcon originalIcon = new ImageIcon(backgroundFile);
+		Image originalImage = originalIcon.getImage();
+		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+		// Actualizar el fondo con la nueva imagen
+		Background.setIcon(scaledIcon);
+		Background.repaint(); // Redibujar para aplicar el cambio
+	}
     
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
     }
-
-    public static void main(String[] args) {
+	
+	public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

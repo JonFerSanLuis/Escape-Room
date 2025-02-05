@@ -38,7 +38,14 @@ public class Pasillo2Piso extends JFrame {
         contentPane.setLayout(null);
         
         JButton btnNewButton = new JButton("New button");
-        btnNewButton.setBounds(367, 131, 89, 23);
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CuartoMatrimonio cuartoM = new CuartoMatrimonio();
+        		cuartoM.setVisible(true);
+        		dispose();
+        	}
+        });
+        btnNewButton.setBounds(213, 200, 89, 23);
         contentPane.add(btnNewButton);
         
         // Mostrar la imagen redimensionada

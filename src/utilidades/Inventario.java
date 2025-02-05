@@ -62,4 +62,5 @@ public class Inventario {
 	}
 	
 	private static Objeto PapelesDivorcio;
+	
 }

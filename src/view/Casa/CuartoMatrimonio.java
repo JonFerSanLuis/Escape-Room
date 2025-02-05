@@ -29,8 +29,6 @@ public class CuartoMatrimonio extends JFrame {
         
         Inventario inventario = new Inventario();
         
-        inventario.setLlaveCajonPadres(new Objeto(true, true, 002, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCajon.png"));
-        
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(new Dimension(934, 561));
         setContentPane(layeredPane);
@@ -140,24 +138,24 @@ public class CuartoMatrimonio extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                    	if (inventario.contieneObjeto(inventario.getLlaveCajonPadres())) {
-                    		try {
-                            CajonCuartoPadres frame = new CajonCuartoPadres();
-                            frame.setVisible(true);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    	}else {
-                    		CuartoPadresFile = "img/CuartoPadresTexto.png";
-                    		upgradeImage();
-                    		btnContinue.setVisible(true);
-                    		Txtcajon1.setVisible(true);
-                    		btnVerCaja.setVisible(false);
-                        	btnPistaCaja.setVisible(false);
-                        	btnVerCajon.setVisible(false);
-                    	}
-                    }
+					public void run() {
+						if (inventario.contieneObjeto(inventario.getLlaveCajonPadres())) {
+							try {
+								CajonCuartoPadres frame = new CajonCuartoPadres();
+								frame.setVisible(true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						} else {
+							CuartoPadresFile = "img/CuartoPadresTexto.png";
+							upgradeImage();
+							btnContinue.setVisible(true);
+							Txtcajon1.setVisible(true);
+							btnVerCaja.setVisible(false);
+							btnPistaCaja.setVisible(false);
+							btnVerCajon.setVisible(false);
+						}
+					}
                 });
             }
         	@Override

@@ -11,6 +11,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Objetos.Objeto;
+import utilidades.Inventario;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -33,6 +37,10 @@ public class CajaAbierta extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200, 100, 950, 600);
+        
+        Inventario inventario = new Inventario();
+        
+        inventario.setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "img/llaveCajon.png"));
     	
         backgroundFile = "img/cajaFuerteOpen.jpeg";
         
@@ -41,6 +49,31 @@ public class CajaAbierta extends JFrame {
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        
+        JLabel llaveLabel = new JLabel();
+		// Cargar la imagen de la bandera inglesa
+		ImageIcon llaveCajonImage = new ImageIcon("img/llaveEnCaja.png");
+		llaveLabel.setBounds(326, 208, 332, 166); // Ajusta el tamaño del JLabel
+		Image imgllaveCajon = llaveCajonImage.getImage().getScaledInstance(llaveLabel.getWidth(),
+				llaveLabel.getHeight(), Image.SCALE_SMOOTH);
+		
+		JButton btnLlaveCajon = new JButton("");
+		btnLlaveCajon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				inventario.agregarObjeto(inventario.getLlaveCajonPadres());
+				llaveLabel.setVisible(false);
+				btnLlaveCajon.setVisible(false);
+			}
+		});
+		btnLlaveCajon.setBounds(432, 280, 138, 23);
+		btnLlaveCajon.setOpaque(false);
+		btnLlaveCajon.setBackground(new Color(0, 0, 0, 0));
+		btnLlaveCajon.setBorderPainted(false); // No dibujar el borde
+		btnLlaveCajon.setFocusPainted(false);
+		btnLlaveCajon.setContentAreaFilled(false);
+		contentPane.add(btnLlaveCajon);
+		llaveLabel.setIcon(new ImageIcon(imgllaveCajon));
+		contentPane.add(llaveLabel, Integer.valueOf(2));
         
         contentPane.setLayout(null);
 

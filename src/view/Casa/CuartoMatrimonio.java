@@ -183,7 +183,7 @@ public class CuartoMatrimonio extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                    	PuzzleCajaFuerte puzzle = new PuzzleCajaFuerte();
+                        PuzzleCajaFuerte puzzle = new PuzzleCajaFuerte();
                     	puzzle.setVisible(true);
                     	dispose();
                     }
@@ -213,12 +213,12 @@ public class CuartoMatrimonio extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                    	lblCajaZoom.setVisible(true);
-                    	btnVolver.setVisible(true);
-                    	btnVerCaja.setVisible(false);
-                    	btnPistaCaja.setVisible(false);
-                    	btnVerCajon.setVisible(false);
-                    	btnPuzzleCaja.setVisible(true);
+                    		lblCajaZoom.setVisible(true);
+                    		btnVolver.setVisible(true);
+                    		btnVerCaja.setVisible(false);
+                    		btnPistaCaja.setVisible(false);
+                    		btnVerCajon.setVisible(false);
+                    		btnPuzzleCaja.setVisible(true);
                     }
                 });
             }
@@ -356,7 +356,8 @@ public class CuartoMatrimonio extends JFrame {
 		HomeLabel.repaint(); // Redibujar para aplicar el cambio
 	}
 
-    private ImageIcon loadImage(String filePath) {
+
+	private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));

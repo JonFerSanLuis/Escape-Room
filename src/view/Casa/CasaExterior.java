@@ -1,6 +1,7 @@
  package view.Casa;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -21,6 +22,7 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import Objetos.Objeto;
 import utilidades.Inventario;
 

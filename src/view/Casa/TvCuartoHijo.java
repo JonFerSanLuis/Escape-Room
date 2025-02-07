@@ -1,19 +1,40 @@
 package view.Casa;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JOptionPane;
 
 public class TvCuartoHijo extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblTv;
+	private JTextField textField;
+	private JButton btnSubmit;
+	private int attemptCount = 0;  // Contador de intentos
+
+	// La contraseña correcta
+	private final String correctPassword = "acoso";
+	
+	// Pistas
+	private final String[] clues = {
+		"La contraseña tiene 5 letras.",
+		"Es una palabra en español.",
+		"La primera letra es 'a'.",
+		"La contraseña es algo que ocurre cuando alguien se comporta de manera inapropiada."
+	};
 
 	/**
 	 * Launch the application.
@@ -49,10 +70,58 @@ public class TvCuartoHijo extends JFrame {
 	    Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 	    
+	    // Crear el JLabel y asignar la imagen redimensionada
+        ImageIcon flechaIcon = new ImageIcon("D:\\Erlantz\\Programacion\\Escape-Room\\img\\flechaDerechaTV.png");
+
+	    
+	    JLabel lblFlechaDerecha = new JLabel("");
+        Image flechaImage = flechaIcon.getImage().getScaledInstance(150, 40, Image.SCALE_SMOOTH);
+        ImageIcon scaledFlechaIcon = new ImageIcon(flechaImage);
+	    lblFlechaDerecha.setIcon(scaledFlechaIcon);
+	    
+	    lblFlechaDerecha.setBounds(706, 424, 150, 40);  // Establecer el mismo tamaño que el botón
+	    contentPane.add(lblFlechaDerecha);
+	    
+	    JLabel lblPosit = new JLabel("");
+	    lblPosit.setIcon(new ImageIcon("D:\\Erlantz\\Programacion\\Escape-Room\\img\\PositTv.png"));
+	    lblPosit.setBounds(-114, 54, 430, 217);
+	    contentPane.add(lblPosit);
+	    
 	    lblTv = new JLabel();
-	    lblTv.setBounds(0, 0, 934, 561);
+	    lblTv.setBounds(0, 0, 944, 561);
 	    lblTv.setIcon(scaledIcon);
 	    contentPane.add(lblTv);
-	}
+	    
+	    textField = new JTextField();
+	    textField.setBounds(358, 254, 208, 33);
+	    contentPane.add(textField);
+	    textField.setColumns(10);
+        Color backgroundColor = new Color(209, 238, 253);
+        textField.setBackground(backgroundColor);
+        textField.setForeground(Color.BLACK);
+        textField.setBorder(new LineBorder(backgroundColor, 2)); 
+        
+        btnSubmit = new JButton("");
+        btnSubmit.setBounds(706, 424, 150, 40);  
+        contentPane.add(btnSubmit);
+        btnSubmit.setVisible(false);
 
+        
+        btnSubmit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String userInput = textField.getText().trim().toLowerCase();
+                
+                if (userInput.equals(correctPassword)) {
+                    JOptionPane.showMessageDialog(null, "¡Contraseña correcta! ¡Acceso concedido!");
+                } else {
+                    attemptCount++;
+                    if (attemptCount < clues.length) {
+                        JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Pista: " + clues[attemptCount]);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Ya no hay más pistas.");
+                    }
+                }
+            }
+        });
+	}
 }

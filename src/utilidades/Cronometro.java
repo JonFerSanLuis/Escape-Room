@@ -1,11 +1,40 @@
 package utilidades;
 
 import javax.swing.*;
-import java.awt.*;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Cronometro {
+    private static Cronometro instancia; // Singleton
+    private int segundos;
+    private Timer timer;
+
+    private Cronometro() {
+        segundos = 0;
+        timer = new Timer(1000, new ActionListener() { // Cada 1000ms (1s)
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                segundos++;
+            }
+        });
+        timer.start();
+    }
+
+    // Método para obtener la instancia única
+    public static Cronometro getInstancia() {
+        if (instancia == null) {
+            instancia = new Cronometro();
+        }
+        return instancia;
+    }
+
+    public int getSegundos() {
+        return segundos;
+    }
+}
+
+
+	/*
     private static final int horaEnSegundos = 3600; // Tiempo inicial en segundos
     private static Cronometro instanciaUnicaCronometro; // Instancia única del cronómetro
     private JLabel labelTiempo; // Variable para almacenar el JLabel donde se mostrará el tiempo
@@ -90,3 +119,4 @@ public class Cronometro {
         return String.format("%02d:%02d:%02d", hours, minutes, seconds); // Formato HH:MM:SS
     }
 }
+*/

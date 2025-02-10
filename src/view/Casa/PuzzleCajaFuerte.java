@@ -289,6 +289,7 @@ public class PuzzleCajaFuerte extends JPanel {
 				String codigo = firstNum.getText() + secondNum.getText() + thirdNum.getText();
 				if (codigo.equals("283")) {
 					juego.cambiarEscena("cajaAbierta");
+					juego.setPuzzleCajaFinished(true);
 				} else {
 					falloLabel.setVisible(true);
 				}

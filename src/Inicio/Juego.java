@@ -2,6 +2,7 @@ package Inicio;
 
 import javax.swing.*;
 
+import utilidades.Inventario;
 import view.Casa.CajaAbierta;
 import view.Casa.CajonCuartoPadres;
 import view.Casa.CasaExterior;
@@ -16,11 +17,31 @@ public class Juego extends JFrame{
     private JFrame frame;
     private JPanel panelPrincipal;
     private CardLayout cardLayout;
+    private Boolean puzzleCajaFinished;
+    
+    public Boolean getPuzzleCajaFinished() {
+		return puzzleCajaFinished;
+	}
 
-    public Juego() {
+	public void setPuzzleCajaFinished(Boolean puzzleCajaFinished) {
+		this.puzzleCajaFinished = puzzleCajaFinished;
+	}
+
+	Inventario inventario = new Inventario();
+
+    public Inventario getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+
+	public Juego() {
         setTitle("Escape Room");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200, 100, 950, 600);
+        puzzleCajaFinished = false;
 
         cardLayout = new CardLayout();
         panelPrincipal = new JPanel(cardLayout);

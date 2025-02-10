@@ -34,9 +34,7 @@ public class CajaAbierta extends JPanel {
     public CajaAbierta(Juego juego) {
         setBounds(0, 0, 950, 600);
         
-        Inventario inventario = new Inventario();
-        
-        inventario.setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "img/llaveCajon.png"));
+        juego.getInventario().setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "img/llaveCajon.png"));
     	
         backgroundFile = "img/cajaFuerteOpen.jpeg";
         
@@ -56,7 +54,7 @@ public class CajaAbierta extends JPanel {
 		JButton btnLlaveCajon = new JButton("");
 		btnLlaveCajon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				inventario.agregarObjeto(inventario.getLlaveCajonPadres());
+				juego.getInventario().agregarObjeto(juego.getInventario().getLlaveCajonPadres());
 				llaveLabel.setVisible(false);
 				btnLlaveCajon.setVisible(false);
 			}

@@ -37,23 +37,52 @@ public class Pasillo2Piso extends JFrame {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         contentPane.setLayout(null);
         
-        JButton btnNewButton = new JButton("New button");
-        btnNewButton.addActionListener(new ActionListener() {
+        // Flecha
+        ImageIcon flechaPasilloOFF = new ImageIcon("img/flechaArribaOFF.png");
+        ImageIcon flechaPasilloON = new ImageIcon("img/flechaArribaON.png");
+
+        Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+        Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+
+        ImageIcon iconPasilloOFF = new ImageIcon(imgPasilloOFF);
+        ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
+
+        JLabel lblPasillo = new JLabel(iconPasilloOFF);
+        lblPasillo.setBounds(445, 336, 81, 77);
+        contentPane.add(lblPasillo);
+        
+        JButton btnPasillo = new JButton("");
+        btnPasillo.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CuartoMatrimonio cuartoM = new CuartoMatrimonio();
         		cuartoM.setVisible(true);
         		dispose();
         	}
         });
-        btnNewButton.setBounds(213, 200, 89, 23);
-        contentPane.add(btnNewButton);
+        btnPasillo.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblPasillo.setIcon(iconPasilloON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblPasillo.setIcon(iconPasilloOFF);
+            }
+        });
+        btnPasillo.setBounds(435, 346, 53, 52);
+        btnPasillo.setBackground(new Color(0, 0, 0, 0));
+        btnPasillo.setOpaque(false);
+        btnPasillo.setBorderPainted(false);
+        btnPasillo.setContentAreaFilled(false);
+        contentPane.add(btnPasillo);
+        // --------------
         
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();
         lblPasillo2Piso.setBounds(0, 0, 934, 561);
         lblPasillo2Piso.setIcon(scaledIcon);  // Establecer la imagen por defecto
         contentPane.add(lblPasillo2Piso);
-    	
     }
     
     private ImageIcon loadImage(String filePath) {

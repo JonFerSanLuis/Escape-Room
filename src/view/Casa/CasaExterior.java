@@ -20,10 +20,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import Objetos.Objeto;
+import utilidades.Cronometro;
 import utilidades.Inventario;
 
 public class CasaExterior extends JFrame {
@@ -37,6 +40,8 @@ public class CasaExterior extends JFrame {
 	String CasaExterior;
 
 	JLabel lblCasa;
+	
+	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
 	public CasaExterior() {
 		// Configuración básica del JFrame
@@ -293,7 +298,7 @@ public class CasaExterior extends JFrame {
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
 		lblCasa = new JLabel();
-		lblCasa.setBackground(new Color(240, 240, 240));
+		lblCasa.setBackground(Color.BLACK);
 		lblCasa.setBounds(0, 0, 934, 561);
 		lblCasa.setIcon(scaledIcon); // Establecer la imagen por defecto
 		getContentPane().add(lblCasa);
@@ -526,8 +531,27 @@ public class CasaExterior extends JFrame {
 		} catch (FontFormatException | IOException e1) {
 			e1.printStackTrace();
 		}
+		
+		
 
 		getContentPane().add(lblCasa);
+		
+		labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+		labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+		labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+		labelTiempo.setOpaque(true);
+		labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		labelTiempo.setBounds(10, 10, 102, 30); 
+		
+		// Agregar primero labelTiempo para asegurarnos de que está al frente
+		getContentPane().add(labelTiempo);
+		getContentPane().setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+
+        // Actualizar la etiqueta cada segundo con el formato HH:MM:SS
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
 
 	}
 

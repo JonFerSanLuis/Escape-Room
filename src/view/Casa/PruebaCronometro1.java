@@ -18,18 +18,18 @@ public class PruebaCronometro1 extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new FlowLayout());
 
-        labelTiempo = new JLabel("Tiempo: " + Cronometro.getInstancia().getSegundos() + " s");
+        labelTiempo = new JLabel("Tiempo: " + Cronometro.getInstancia().getTiempoFormato());
         add(labelTiempo);
 
-        // Actualizar el tiempo cada segundo
+        // Actualizar la etiqueta cada segundo con el formato HH:MM:SS
         Timer actualizarTimer = new Timer(1000, e -> 
-            labelTiempo.setText("Tiempo: " + Cronometro.getInstancia().getSegundos() + " s"));
+            labelTiempo.setText("Tiempo: " + Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
 
         JButton siguienteVentana = new JButton("Siguiente");
         siguienteVentana.addActionListener(e -> {
-            this.dispose();  // Cerrar ventana actual
-            new PruebaCronometro2("Siguiente Nivel").setVisible(true); // Nueva ventana sin reiniciar el tiempo
+            this.dispose();
+            new PruebaCronometro2("Siguiente Nivel").setVisible(true);
         });
 
         add(siguienteVentana);

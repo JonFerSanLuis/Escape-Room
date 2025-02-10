@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JOptionPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TvCuartoHijo extends JFrame {
 
@@ -104,24 +106,33 @@ public class TvCuartoHijo extends JFrame {
         btnSubmit = new JButton("");
         btnSubmit.setBounds(706, 424, 150, 40);  
         contentPane.add(btnSubmit);
-        btnSubmit.setVisible(false);
-
-        
-        btnSubmit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String userInput = textField.getText().trim().toLowerCase();
+        btnSubmit.setOpaque(false);
+        btnSubmit.setContentAreaFilled(false);
+        btnSubmit.setBorderPainted(false);
                 
-                if (userInput.equals(correctPassword)) {
-                    JOptionPane.showMessageDialog(null, "¡Contraseña correcta! ¡Acceso concedido!");
-                } else {
-                    attemptCount++;
-                    if (attemptCount < clues.length) {
-                        JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Pista: " + clues[attemptCount]);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Ya no hay más pistas.");
+                btnSubmit.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        String userInput = textField.getText().trim().toLowerCase();
+                        
+                        if (userInput.equals(correctPassword)) {
+                    		EventQueue.invokeLater(new Runnable() {
+                    			public void run() {
+                    				try {
+                    					ElegirConversacion frame = new ElegirConversacion();
+                    					frame.setVisible(true);
+                    				} catch (Exception e) {
+                    					e.printStackTrace();
+                    				}
+                    			}
+                    		});                        } else {
+                            attemptCount++;
+                            if (attemptCount < clues.length) {
+                                JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Pista: " + clues[attemptCount]);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Ya no hay más pistas.");
+                            }
+                        }
                     }
-                }
-            }
-        });
+                }); 
 	}
 }

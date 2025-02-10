@@ -170,6 +170,13 @@ public class CuartoMatrimonio extends JPanel {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
                         juego.cambiarEscena("puzzleCaja");
+                        btnPuzzleCaja.setVisible(false);
+                        btnVolver.setVisible(false);
+                        lblCajaZoom.setVisible(false);
+                        RuedaCajaLabel.setVisible(false);
+                        btnVerCaja.setVisible(true);
+                        btnVerCajon.setVisible(true);
+                        btnPistaCaja.setVisible(true);
                     }
                 });
             }

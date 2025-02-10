@@ -15,18 +15,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Pasillo2Piso extends JFrame {
-	private JPanel contentPane;
+import Inicio.Juego;
+
+public class Pasillo2Piso extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel lblPasillo2Piso;
 
-    public Pasillo2Piso() {
-    	contentPane = new JPanel();
-        setContentPane(contentPane);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+    public Pasillo2Piso(Juego juego) {
+        setBounds(0, 0, 950, 600);
     	
         backgroundFile = "img/pasillo2Piso.jpg";
 
@@ -35,7 +32,7 @@ public class Pasillo2Piso extends JFrame {
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        contentPane.setLayout(null);
+        setLayout(null);
         
         // Flecha
         ImageIcon flechaPasilloOFF = new ImageIcon("img/flechaArribaOFF.png");
@@ -49,14 +46,12 @@ public class Pasillo2Piso extends JFrame {
 
         JLabel lblPasillo = new JLabel(iconPasilloOFF);
         lblPasillo.setBounds(445, 336, 81, 77);
-        contentPane.add(lblPasillo);
+        add(lblPasillo);
         
         JButton btnPasillo = new JButton("");
         btnPasillo.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		CuartoMatrimonio cuartoM = new CuartoMatrimonio();
-        		cuartoM.setVisible(true);
-        		dispose();
+        		juego.cambiarEscena("cuartoPadres");
         	}
         });
         btnPasillo.addMouseListener(new MouseAdapter() {
@@ -75,32 +70,19 @@ public class Pasillo2Piso extends JFrame {
         btnPasillo.setOpaque(false);
         btnPasillo.setBorderPainted(false);
         btnPasillo.setContentAreaFilled(false);
-        contentPane.add(btnPasillo);
+        add(btnPasillo);
         // --------------
         
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();
         lblPasillo2Piso.setBounds(0, 0, 934, 561);
         lblPasillo2Piso.setIcon(scaledIcon);  // Establecer la imagen por defecto
-        contentPane.add(lblPasillo2Piso);
+        add(lblPasillo2Piso);
     }
     
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
-    }
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Recibidor frame = new Recibidor();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
 }

@@ -22,6 +22,8 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import Inicio.Juego;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -29,7 +31,7 @@ import Objetos.Objeto;
 import utilidades.Cronometro;
 import utilidades.Inventario;
 
-public class CasaExterior extends JFrame {
+public class CasaExterior extends JPanel {
 	
 	private JTextField textField;
 
@@ -43,14 +45,9 @@ public class CasaExterior extends JFrame {
 	
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
-	public CasaExterior() {
-		// Configuración básica del JFrame
-		setTitle("Casa");
-		setBounds(200, 100, 950, 600);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setResizable(false);
-		getContentPane().setLayout(null);
+	public CasaExterior(Juego juego) {
+		setBounds(0, 0, 950, 600);
+		setLayout(null);
 		
 		Inventario inventario = new Inventario();
 		
@@ -61,7 +58,7 @@ public class CasaExterior extends JFrame {
 		txtLlaveEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtLlaveEncontrada.setForeground(Color.WHITE);
 		txtLlaveEncontrada.setBounds(50, 495, 875, 50);
-		getContentPane().add(txtLlaveEncontrada);
+		add(txtLlaveEncontrada);
 		txtLlaveEncontrada.setVisible(false);
 		
 		JLabel txtLlaveNOEncontrada = new JLabel("-Mueves la maceta, pero no hay nada debajo-");
@@ -69,7 +66,7 @@ public class CasaExterior extends JFrame {
 		txtLlaveNOEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtLlaveNOEncontrada.setForeground(Color.WHITE);
 		txtLlaveNOEncontrada.setBounds(50, 495, 875, 50);
-		getContentPane().add(txtLlaveNOEncontrada);
+		add(txtLlaveNOEncontrada);
 		txtLlaveNOEncontrada.setVisible(false);
 
 		JButton btnContinueMaceta = new JButton("CONTINUAR");
@@ -130,7 +127,7 @@ public class CasaExterior extends JFrame {
 			}
 		});
 		
-		getContentPane().add(btnMacetaIncorrect);
+		add(btnMacetaIncorrect);
 
 		ImageIcon PositImagen = new ImageIcon("img/postitGrande (2).png");
 		JLabel lblPositGrande = new JLabel();
@@ -179,16 +176,16 @@ public class CasaExterior extends JFrame {
 			});
 			
 			
-			getContentPane().add(btnContinueMaceta);
+			add(btnContinueMaceta);
 
 		} catch (FontFormatException | IOException e1) {
 			e1.printStackTrace();
 		}
 
-		getContentPane().add(btnMaceta);
+		add(btnMaceta);
 
 		lblPositGrande.setIcon(new ImageIcon(imgPositG));
-		getContentPane().add(lblPositGrande);
+		add(lblPositGrande);
 		lblPositGrande.setVisible(false);
 
 		JLabel TxtPuerta1 = new JLabel("Parece que no hay nadie en casa.");
@@ -196,7 +193,7 @@ public class CasaExterior extends JFrame {
 		TxtPuerta1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta1.setForeground(Color.WHITE);
 		TxtPuerta1.setBounds(50, 495, 875, 50);
-		getContentPane().add(TxtPuerta1);
+		add(TxtPuerta1);
 		TxtPuerta1.setVisible(false);
 
 		JLabel TxtPuerta2 = new JLabel("Pero la puerta esta cerrada.");
@@ -204,7 +201,7 @@ public class CasaExterior extends JFrame {
 		TxtPuerta2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta2.setForeground(Color.WHITE);
 		TxtPuerta2.setBounds(50, 495, 875, 50);
-		getContentPane().add(TxtPuerta2);
+		add(TxtPuerta2);
 		TxtPuerta2.setVisible(false);
 
 		JLabel TxtPuerta3 = new JLabel("Debo encontrar la forma de entrar");
@@ -212,7 +209,7 @@ public class CasaExterior extends JFrame {
 		TxtPuerta3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta3.setForeground(Color.WHITE);
 		TxtPuerta3.setBounds(50, 495, 875, 50);
-		getContentPane().add(TxtPuerta3);
+		add(TxtPuerta3);
 		TxtPuerta3.setVisible(false);
 
 		ArrayList<JLabel> ReaccionPuerta = new ArrayList<>();
@@ -237,13 +234,13 @@ public class CasaExterior extends JFrame {
 			}
 		});
 		btnVolver.setBounds(37, 511, 89, 23);
-		getContentPane().add(btnVolver);
+		add(btnVolver);
 		btnVolver.setVisible(false);
 
 		JLabel lblPostit = new JLabel();
 		lblPostit.setIcon(new ImageIcon("img/PostitEntrada.png"));
 		lblPostit.setBounds(259, 350, 46, 50);
-		getContentPane().add(lblPostit);
+		add(lblPostit);
 
 		btnPosit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -277,7 +274,7 @@ public class CasaExterior extends JFrame {
 		btnPosit.setBorderPainted(false); // No dibujar el borde
 		btnPosit.setFocusPainted(false);
 		btnPosit.setContentAreaFilled(false);
-		getContentPane().add(btnPosit);
+		add(btnPosit);
 		btnPosit.setVisible(false);
 
 		// Imagen pequeña 1
@@ -301,7 +298,7 @@ public class CasaExterior extends JFrame {
 		lblCasa.setBackground(Color.BLACK);
 		lblCasa.setBounds(0, 0, 934, 561);
 		lblCasa.setIcon(scaledIcon); // Establecer la imagen por defecto
-		getContentPane().add(lblCasa);
+		add(lblCasa);
 
 		// Botón (btnPuertaCasa)
 
@@ -311,7 +308,7 @@ public class CasaExterior extends JFrame {
 		btnPuertaCasa.setBorderPainted(false); // No dibujar el borde
 		btnPuertaCasa.setFocusPainted(false);
 		btnPuertaCasa.setContentAreaFilled(false);
-		getContentPane().add(btnPuertaCasa);
+		add(btnPuertaCasa);
 
 		JButton btnContinuePuerta = new JButton("CONTINUAR");
 
@@ -361,7 +358,7 @@ public class CasaExterior extends JFrame {
 				}
 			});
 
-			getContentPane().add(btnContinuePuerta);
+			add(btnContinuePuerta);
 
 		} catch (FontFormatException | IOException e1) {
 			e1.printStackTrace();
@@ -371,9 +368,7 @@ public class CasaExterior extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(inventario.contieneObjeto(inventario.getLlavePuerta())){
-					Recibidor recibidor = new Recibidor();
-					recibidor.setVisible(true);
-					dispose();
+					juego.cambiarEscena("recibidor");
 				}else {
 					btnContinuePuerta.setVisible(true);
 				btnPuertaCasa.setVisible(false);
@@ -413,8 +408,8 @@ public class CasaExterior extends JFrame {
 		btnMochila.setContentAreaFilled(false);
 
 		lblMochila.setBounds(785, 11, 65, 60); // Posición adicional a la derecha del JFrame
-		getContentPane().add(lblMochila);
-		getContentPane().add(btnMochila);
+		add(lblMochila);
+		add(btnMochila);
 		btnMochila.setVisible(false);
 		lblMochila.setVisible(false);
 
@@ -441,8 +436,8 @@ public class CasaExterior extends JFrame {
 		btnPista.setContentAreaFilled(false);
 
 		lblPista.setBounds(860, 11, 64, 60);
-		getContentPane().add(btnPista);// Posición en la parte derecha del JFrame
-		getContentPane().add(lblPista);
+		add(btnPista);// Posición en la parte derecha del JFrame
+		add(lblPista);
 		btnPista.setVisible(false);
 		lblPista.setVisible(false);
 
@@ -457,7 +452,7 @@ public class CasaExterior extends JFrame {
 		TxtIntroCasa1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtIntroCasa1.setForeground(Color.WHITE);
 		TxtIntroCasa1.setBounds(50, 495, 875, 50);
-		getContentPane().add(TxtIntroCasa1);
+		add(TxtIntroCasa1);
 		TxtIntroCasa1.setVisible(true);
 
 		JLabel TxtIntroCasa2 = new JLabel("Debería ver a sus padres por si me pueden dar algo de información");
@@ -465,7 +460,7 @@ public class CasaExterior extends JFrame {
 		TxtIntroCasa2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtIntroCasa2.setForeground(Color.WHITE);
 		TxtIntroCasa2.setBounds(50, 495, 875, 50);
-		getContentPane().add(TxtIntroCasa2);
+		add(TxtIntroCasa2);
 		TxtIntroCasa2.setVisible(false);
 
 		TxtIntroCasa.add(TxtIntroCasa1);
@@ -526,7 +521,7 @@ public class CasaExterior extends JFrame {
 			btnContinue.setBorderPainted(false);
 			btnContinue.setContentAreaFilled(false);
 
-			getContentPane().add(btnContinue);
+			add(btnContinue);
 
 		} catch (FontFormatException | IOException e1) {
 			e1.printStackTrace();
@@ -534,7 +529,7 @@ public class CasaExterior extends JFrame {
 		
 		
 
-		getContentPane().add(lblCasa);
+		add(lblCasa);
 		
 		labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
 		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
@@ -545,8 +540,8 @@ public class CasaExterior extends JFrame {
 		labelTiempo.setBounds(10, 10, 102, 30); 
 		
 		// Agregar primero labelTiempo para asegurarnos de que está al frente
-		getContentPane().add(labelTiempo);
-		getContentPane().setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+		add(labelTiempo);
+		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
 
         // Actualizar la etiqueta cada segundo con el formato HH:MM:SS
         Timer actualizarTimer = new Timer(1000, e -> 
@@ -571,13 +566,6 @@ public class CasaExterior extends JFrame {
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage();
 		return new ImageIcon(
-				image.getScaledInstance(getContentPane().getWidth(), getContentPane().getHeight(), Image.SCALE_SMOOTH));
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(() -> {
-			CasaExterior frame = new CasaExterior();
-			frame.setVisible(true);
-		});
+				image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
 	}
 }

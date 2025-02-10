@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Inicio.Juego;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -21,9 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class PuzzleCajaFuerte extends JFrame {
-
-    private JPanel contentPane;
+public class PuzzleCajaFuerte extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel Background;
@@ -32,16 +32,10 @@ public class PuzzleCajaFuerte extends JFrame {
     int posNum2;
     int posNum3;
 
-    public PuzzleCajaFuerte() {
-    	contentPane = new JPanel();
-        setContentPane(contentPane);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+    public PuzzleCajaFuerte(Juego juego) {
+        setBounds(0, 0, 950, 600);
     	
         backgroundFile = "img/puzzleCajaFuerte.png";
-        
-        CuartoMatrimonio cuarto = new CuartoMatrimonio();
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
@@ -55,7 +49,7 @@ public class PuzzleCajaFuerte extends JFrame {
         Image imgRueda = RuedaImage.getImage().getScaledInstance(RuedaLabel.getWidth(), RuedaLabel.getHeight(),
         		Image.SCALE_SMOOTH);
         
-        contentPane.setLayout(null);
+        setLayout(null);
         
         posNum1 = 0;
         posNum2 = 0;
@@ -75,12 +69,11 @@ public class PuzzleCajaFuerte extends JFrame {
         JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		cuarto.setVisible(true);
-        		dispose();
+        		juego.cambiarEscena("cuartoPadres");
         	}
         });
         btnVolver.setBounds(64, 494, 89, 23);
-        contentPane.add(btnVolver);
+        add(btnVolver);
         
         
         JLabel thirdNum = new JLabel("0");
@@ -89,7 +82,7 @@ public class PuzzleCajaFuerte extends JFrame {
         thirdNum.setFont(new Font("Tahoma", Font.PLAIN, 40));
         thirdNum.setHorizontalAlignment(SwingConstants.CENTER);
         thirdNum.setBounds(595, 327, 91, 117);
-        contentPane.add(thirdNum);
+        add(thirdNum);
         
         JLabel firstNum = new JLabel("0");
         firstNum.setForeground(Color.WHITE);
@@ -97,7 +90,7 @@ public class PuzzleCajaFuerte extends JFrame {
         firstNum.setFont(new Font("Tahoma", Font.PLAIN, 40));
         firstNum.setHorizontalAlignment(SwingConstants.CENTER);
         firstNum.setBounds(262, 327, 91, 117);
-        contentPane.add(firstNum);
+        add(firstNum);
         
         JLabel secondNum = new JLabel("0");
         secondNum.setForeground(Color.WHITE);
@@ -105,14 +98,14 @@ public class PuzzleCajaFuerte extends JFrame {
         secondNum.setFont(new Font("Tahoma", Font.PLAIN, 40));
         secondNum.setHorizontalAlignment(SwingConstants.CENTER);
         secondNum.setBounds(434, 327, 91, 117);
-        contentPane.add(secondNum);
+        add(secondNum);
                 
 		JLabel falloLabel = new JLabel("COMBINACI\u00D3N INCORRECTA");
 		
         JButton btnAceptar = new JButton("ACEPTAR");
 
         RuedaLabel.setIcon(new ImageIcon(imgRueda));
-        contentPane.add(RuedaLabel, Integer.valueOf(2));
+        add(RuedaLabel, Integer.valueOf(2));
         
         JLabel flechaArriba1 = new JLabel("");
         flechaArriba1.setBounds(262, 269, 91, 47);
@@ -126,32 +119,32 @@ public class PuzzleCajaFuerte extends JFrame {
         		Image.SCALE_SMOOTH);
         
         flechaArriba1.setIcon(new ImageIcon(imgFlechaArriba));
-        contentPane.add(flechaArriba1);
+        add(flechaArriba1);
         
         JLabel flechaArriba2 = new JLabel("");
         flechaArriba2.setBounds(434, 269, 91, 47);
         flechaArriba2.setIcon(new ImageIcon(imgFlechaArriba));
-        contentPane.add(flechaArriba2);
+        add(flechaArriba2);
         
         JLabel flechaArriba3 = new JLabel("");
         flechaArriba3.setBounds(595, 269, 91, 47);
         flechaArriba3.setIcon(new ImageIcon(imgFlechaArriba));
-        contentPane.add(flechaArriba3);
+        add(flechaArriba3);
         
         JLabel flechaAbajo3 = new JLabel("");
         flechaAbajo3.setBounds(595, 455, 91, 47);
         flechaAbajo3.setIcon(new ImageIcon(imgFlechaAbajo));
-        contentPane.add(flechaAbajo3);
+        add(flechaAbajo3);
         
         JLabel flechaAbajo2 = new JLabel("");
         flechaAbajo2.setBounds(434, 455, 91, 47);
         flechaAbajo2.setIcon(new ImageIcon(imgFlechaAbajo));
-        contentPane.add(flechaAbajo2);
+        add(flechaAbajo2);
         
         JLabel flechaAbajo1 = new JLabel("");
         flechaAbajo1.setBounds(262, 455, 91, 47);
         flechaAbajo1.setIcon(new ImageIcon(imgFlechaAbajo));
-        contentPane.add(flechaAbajo1);
+        add(flechaAbajo1);
         
         btnArriba1.setBounds(262, 269, 91, 47);
         btnArriba1.addActionListener(new ActionListener() {
@@ -173,7 +166,7 @@ public class PuzzleCajaFuerte extends JFrame {
         btnArriba1.setBorderPainted(false); // No dibujar el borde
         btnArriba1.setFocusPainted(false);
         btnArriba1.setContentAreaFilled(false);
-        contentPane.add(btnArriba1);
+        add(btnArriba1);
         
         btnArriba2.setBounds(434, 269, 91, 47);
         btnArriba2.addActionListener(new ActionListener() {
@@ -195,7 +188,7 @@ public class PuzzleCajaFuerte extends JFrame {
         btnArriba2.setBorderPainted(false); // No dibujar el borde
         btnArriba2.setFocusPainted(false);
         btnArriba2.setContentAreaFilled(false);
-        contentPane.add(btnArriba2);
+        add(btnArriba2);
         
         btnArriba3.setBounds(595, 269, 91, 47);
         btnArriba3.addActionListener(new ActionListener() {
@@ -217,7 +210,7 @@ public class PuzzleCajaFuerte extends JFrame {
         btnArriba3.setBorderPainted(false); // No dibujar el borde
         btnArriba3.setFocusPainted(false);
         btnArriba3.setContentAreaFilled(false);
-        contentPane.add(btnArriba3);
+        add(btnArriba3);
         
         btnAbajo1.setBounds(262, 455, 91, 47);
         btnAbajo1.addActionListener(new ActionListener() {
@@ -239,7 +232,7 @@ public class PuzzleCajaFuerte extends JFrame {
         btnAbajo1.setBorderPainted(false); // No dibujar el borde
         btnAbajo1.setFocusPainted(false);
         btnAbajo1.setContentAreaFilled(false);
-        contentPane.add(btnAbajo1);
+        add(btnAbajo1);
         
         btnAbajo2.setBounds(434, 455, 91, 47);
         btnAbajo2.addActionListener(new ActionListener() {
@@ -261,7 +254,7 @@ public class PuzzleCajaFuerte extends JFrame {
         btnAbajo2.setBorderPainted(false); // No dibujar el borde
         btnAbajo2.setFocusPainted(false);
         btnAbajo2.setContentAreaFilled(false);
-        contentPane.add(btnAbajo2);
+        add(btnAbajo2);
         
         btnAbajo3.setBounds(595, 455, 91, 47);
         btnAbajo3.addActionListener(new ActionListener() {
@@ -283,33 +276,31 @@ public class PuzzleCajaFuerte extends JFrame {
 		btnAbajo3.setBorderPainted(false); // No dibujar el borde
 		btnAbajo3.setFocusPainted(false);
 		btnAbajo3.setContentAreaFilled(false);
-		contentPane.add(btnAbajo3);
+		add(btnAbajo3);
 
 		falloLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		falloLabel.setForeground(new Color(255, 128, 128));
 		falloLabel.setBounds(402, 513, 161, 14);
-		contentPane.add(falloLabel);
+		add(falloLabel);
 		falloLabel.setVisible(false);
 		
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String codigo = firstNum.getText() + secondNum.getText() + thirdNum.getText();
 				if (codigo.equals("283")) {
-					CajaAbierta open = new CajaAbierta();
-					open.setVisible(true);
-					dispose();
+					juego.cambiarEscena("cajaAbierta");
 				} else {
 					falloLabel.setVisible(true);
 				}
 			}
 		});
 		btnAceptar.setBounds(796, 494, 89, 23);
-		contentPane.add(btnAceptar);
+		add(btnAceptar);
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 934, 561);
 		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
-		contentPane.add(Background); // Agregar al final para que quede encima del botón
+		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa
 
 	}
@@ -328,19 +319,6 @@ public class PuzzleCajaFuerte extends JFrame {
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
-    }
-	
-	public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                	PuzzleCajaFuerte frame = new PuzzleCajaFuerte();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
 }

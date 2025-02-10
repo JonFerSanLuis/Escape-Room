@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Inicio.Juego;
 import Objetos.Objeto;
 import utilidades.Inventario;
 
@@ -24,19 +25,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class CajaAbierta extends JFrame {
-
-    private JPanel contentPane;
+public class CajaAbierta extends JPanel {
+	
     private Image backgroundImage;
     String backgroundFile;
     JLabel Background;
 
-    public CajaAbierta() {
-    	contentPane = new JPanel();
-        setContentPane(contentPane);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+    public CajaAbierta(Juego juego) {
+        setBounds(0, 0, 950, 600);
         
         Inventario inventario = new Inventario();
         
@@ -71,28 +67,26 @@ public class CajaAbierta extends JFrame {
 		btnLlaveCajon.setBorderPainted(false); // No dibujar el borde
 		btnLlaveCajon.setFocusPainted(false);
 		btnLlaveCajon.setContentAreaFilled(false);
-		contentPane.add(btnLlaveCajon);
+		add(btnLlaveCajon);
 		llaveLabel.setIcon(new ImageIcon(imgllaveCajon));
-		contentPane.add(llaveLabel, Integer.valueOf(2));
+		add(llaveLabel, Integer.valueOf(2));
         
-        contentPane.setLayout(null);
+        setLayout(null);
 
         JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		CuartoMatrimonio cuartoPadres = new CuartoMatrimonio();
-        		cuartoPadres.setVisible(true);
-        		dispose();
+        		juego.cambiarEscena("cuartoPadres");
         	}
         });
         btnVolver.setBounds(64, 494, 89, 23);
-        contentPane.add(btnVolver);
+        add(btnVolver);
 
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 934, 561);
 		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
-		contentPane.add(Background); // Agregar al final para que quede encima del botón
+		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa
 
 	}
@@ -111,19 +105,7 @@ public class CajaAbierta extends JFrame {
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
+        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
-	
-	public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                	CajaAbierta frame = new CajaAbierta();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+
 }

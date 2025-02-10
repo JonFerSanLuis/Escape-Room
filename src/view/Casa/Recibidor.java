@@ -11,6 +11,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Inicio.Juego;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -18,19 +21,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Recibidor extends JFrame {
-
-    private JPanel contentPane;
+public class Recibidor extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel RecibidorLabel;
 
-    public Recibidor() {
-    	contentPane = new JPanel();
-        setContentPane(contentPane);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+    public Recibidor(Juego juego) {
+        setBounds(0, 0, 950, 600);
     	
         backgroundFile = "img/recibidor.jpeg";
 
@@ -39,7 +36,7 @@ public class Recibidor extends JFrame {
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        contentPane.setLayout(null);
+        setLayout(null);
         
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaEscaleraOFF = new ImageIcon("img/flechaEscaleraOFF.png");
@@ -53,14 +50,12 @@ public class Recibidor extends JFrame {
 
         JLabel lblEscalera = new JLabel(iconEscaleraOFF);
         lblEscalera.setBounds(797, 247, 81, 77);
-        contentPane.add(lblEscalera);
+        add(lblEscalera);
         
         JButton btnEscaleras = new JButton("");
         btnEscaleras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Pasillo2Piso pasillo2 = new Pasillo2Piso();
-        		pasillo2.setVisible(true);
-        		dispose();
+        		juego.cambiarEscena("pasillo2");
         	}
         });
         btnEscaleras.addMouseListener(new MouseAdapter() {
@@ -79,7 +74,7 @@ public class Recibidor extends JFrame {
         btnEscaleras.setOpaque(false);
         btnEscaleras.setBorderPainted(false);
         btnEscaleras.setContentAreaFilled(false);
-        contentPane.add(btnEscaleras);
+        add(btnEscaleras);
         
         JButton btnPuerta = new JButton("");
         btnPuerta.addMouseListener(new MouseAdapter() {
@@ -93,13 +88,13 @@ public class Recibidor extends JFrame {
         btnPuerta.setOpaque(false);
         btnPuerta.setBorderPainted(false);
         btnPuerta.setContentAreaFilled(false);
-        contentPane.add(btnPuerta); // Agregarlo antes de la imagen
+        add(btnPuerta); // Agregarlo antes de la imagen
 
         // Mostrar la imagen de fondo
         RecibidorLabel = new JLabel();
         RecibidorLabel.setBounds(0, 0, 934, 561);
         RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
-        contentPane.add(RecibidorLabel); // Agregar al final para que quede encima del botón
+        add(RecibidorLabel); // Agregar al final para que quede encima del botón
 
     	
     }
@@ -107,19 +102,7 @@ public class Recibidor extends JFrame {
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
+        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Recibidor frame = new Recibidor();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 }

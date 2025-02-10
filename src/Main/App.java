@@ -5,6 +5,7 @@ import utilidades.Inventario;
 import java.awt.EventQueue;
 
 import Inicio.Home;
+import Inicio.Juego;
 
 public class App {
 
@@ -12,7 +13,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Home frame = new Home();
+					Juego frame = new Juego();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

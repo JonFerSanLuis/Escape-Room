@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import Inicio.Juego;
 import Objetos.Objeto;
 import utilidades.Inventario;
 
@@ -19,18 +20,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CajonCuartoPadres extends JFrame {
+public class CajonCuartoPadres extends JPanel {
 
 	String backgroundFile;
-    private JPanel contentPane;
     JLabel lblCajon;
 
-    public CajonCuartoPadres() {
-    	contentPane = new JPanel();
-        setContentPane(contentPane);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+    public CajonCuartoPadres(Juego juego) {
+        setBounds(0, 0, 950, 600);
         
         Inventario inventario = new Inventario();
         
@@ -43,7 +39,7 @@ public class CajonCuartoPadres extends JFrame {
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        contentPane.setLayout(null);
+        setLayout(null);
         
         JLabel LightLabel = new JLabel();
         // Cargar la imagen de la bandera inglesa
@@ -57,10 +53,10 @@ public class CajonCuartoPadres extends JFrame {
         PaperLabel.setBounds(182, 42, 586, 519); // Ajusta el tamaño del JLabel 
         Image imgPaper = paperImagen.getImage().getScaledInstance(PaperLabel.getWidth(), PaperLabel.getHeight(), Image.SCALE_SMOOTH);
         PaperLabel.setIcon(new ImageIcon(imgPaper));
-        contentPane.add(PaperLabel);
+        add(PaperLabel);
         PaperLabel.setVisible(false);
         
-        contentPane.add(LightLabel);
+        add(LightLabel);
         LightLabel.setVisible(false);
 
         JButton btnPapelesDiv = new JButton("");
@@ -85,29 +81,19 @@ public class CajonCuartoPadres extends JFrame {
         		LightLabel.setVisible(false);
         	}
         });
-        contentPane.add(btnPapelesDiv);
+        add(btnPapelesDiv);
         
         // Mostrar la imagen redimensionada
         lblCajon = new JLabel();
         lblCajon.setBounds(0, 0, 934, 561);
         lblCajon.setIcon(scaledIcon);  // Establecer la imagen por defecto
-        contentPane.add(lblCajon);
+        add(lblCajon);
     }
     
     private ImageIcon loadImage(String filePath) {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(contentPane.getWidth(), contentPane.getHeight(), Image.SCALE_SMOOTH));
+        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                CajonCuartoPadres frame = new CajonCuartoPadres();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 }

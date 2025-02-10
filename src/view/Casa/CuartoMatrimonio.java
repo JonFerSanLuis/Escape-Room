@@ -23,7 +23,6 @@ public class CuartoMatrimonio extends JPanel {
 
     public CuartoMatrimonio(Juego juego) {
         setBounds(0, 0, 950, 600);
-        Inventario inventario = new Inventario();
         setLayout(null);
 
         
@@ -129,7 +128,7 @@ public class CuartoMatrimonio extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
 					public void run() {
-						if (inventario.contieneObjeto(inventario.getLlaveCajonPadres())) {
+						if (juego.getInventario().contieneObjeto(juego.getInventario().getLlaveCajonPadres())) {
 							try {
 								juego.cambiarEscena("cajonPadres");
 							} catch (Exception e) {
@@ -198,12 +197,16 @@ public class CuartoMatrimonio extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
+                    	if(juego.getPuzzleCajaFinished()==true) {
+                    		juego.cambiarEscena("cajaAbierta");
+                    	}else {
                     		lblCajaZoom.setVisible(true);
                     		btnVolver.setVisible(true);
                     		btnVerCaja.setVisible(false);
                     		btnPistaCaja.setVisible(false);
                     		btnVerCajon.setVisible(false);
                     		btnPuzzleCaja.setVisible(true);
+                    	}
                     }
                 });
             }

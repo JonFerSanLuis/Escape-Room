@@ -27,7 +27,6 @@ public class CuartoMatrimonio extends JPanel {
     public CuartoMatrimonio(Juego juego) {
         setBounds(0, 0, 950, 600); 
         setLayout(null);
-
         
         CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
 
@@ -44,18 +43,52 @@ public class CuartoMatrimonio extends JPanel {
 		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
 				Image.SCALE_SMOOTH);
 		
-		JButton btnVolverPasillo = new JButton("PASILLO");
-		btnVolverPasillo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				juego.cambiarEscena("pasillo2");
-			}
-		});
-		btnVolverPasillo.setBounds(450, 511, 89, 23);
-		add(btnVolverPasillo);
-		LightLabel.setIcon(new ImageIcon(imgLight));
-		add(LightLabel, Integer.valueOf(2));
-		LightLabel.setVisible(false);
+		 // Flecha pasillo
+		
+ 		JLabel lblFlechaPasillo = new JLabel("");
+ 		lblFlechaPasillo.setBounds(527, 380, 309, 190);
+ 		
+ 		
+ 		 ImageIcon flechaPasilloOFF = new ImageIcon("img/FlechaVolverPasilloPadresOFF.png");
+         ImageIcon flechaPasilloON = new ImageIcon("img/FlechaVolverPasilloPadresON.png");
+
+         Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(309, 190, Image.SCALE_SMOOTH);
+         Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(309, 190, Image.SCALE_SMOOTH);
+
+         ImageIcon iconPasilloOFF = new ImageIcon(imgPasilloOFF);
+         ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
+
+         lblFlechaPasillo.setIcon(iconPasilloOFF);
+         add(lblFlechaPasillo);
+    // Boton pasillo
+    JButton btnVolverPasillo = new JButton("");
+	btnVolverPasillo.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			juego.cambiarEscena("pasillo2");
+		}
+	});
+	btnVolverPasillo.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lblFlechaPasillo.setIcon(iconPasilloON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblFlechaPasillo.setIcon(iconPasilloOFF);
+            }
+        });
+	
+	btnVolverPasillo.setBounds(612, 394, 145, 128);
+	btnVolverPasillo.setBackground(new Color(0, 0, 0, 0));
+	btnVolverPasillo.setOpaque(false);
+	btnVolverPasillo.setBorderPainted(false);
+	btnVolverPasillo.setContentAreaFilled(false);
+	add(btnVolverPasillo);
+	LightLabel.setIcon(new ImageIcon(imgLight));
+	add(LightLabel, Integer.valueOf(2));
+	LightLabel.setVisible(false);
 
 		JLabel PistaCajaLabel = new JLabel();
 		// Cargar la imagen de la bandera inglesa
@@ -161,6 +194,7 @@ public class CuartoMatrimonio extends JPanel {
 							btnVerCaja.setVisible(false);
 							btnPistaCaja.setVisible(false);
 							btnVerCajon.setVisible(false);
+							lblFlechaPasillo.setVisible(false);
 						}
 					}
                 });
@@ -232,6 +266,8 @@ public class CuartoMatrimonio extends JPanel {
                     		btnPistaCaja.setVisible(false);
                     		btnVerCajon.setVisible(false);
                     		btnPuzzleCaja.setVisible(true);
+                    		lblFlechaPasillo.setVisible(false);
+                    		btnVolverPasillo.setVisible(false);
                     	}
                     }
                 });
@@ -256,6 +292,8 @@ public class CuartoMatrimonio extends JPanel {
 				btnVerCajon.setVisible(true);
 				btnVerCaja.setVisible(true);
 				lblCajaZoom.setVisible(false);
+				lblFlechaPasillo.setVisible(true);
+				btnVolverPasillo.setVisible(true);
 			}
 		});
 		btnVolver.setBounds(37, 511, 89, 23);
@@ -278,6 +316,8 @@ public class CuartoMatrimonio extends JPanel {
                     	btnVerCaja.setVisible(false);
                     	btnPistaCaja.setVisible(false);
                     	btnVerCajon.setVisible(false);
+                    	lblFlechaPasillo.setVisible(false);
+                    	btnVolverPasillo.setVisible(false);
                     }
                 });
             }
@@ -316,6 +356,8 @@ public class CuartoMatrimonio extends JPanel {
 				Txtcajon1.setVisible(false);
 				btnVerCaja.setVisible(true);
             	btnPistaCaja.setVisible(true);
+            	lblFlechaPasillo.setVisible(true);
+            	btnVolverPasillo.setVisible(true);
 			}
 		});
 
@@ -351,6 +393,7 @@ public class CuartoMatrimonio extends JPanel {
         HomeLabel = new JLabel();
         HomeLabel.setBounds(0, 0, 934, 561);
         HomeLabel.setIcon(scaledIcon);
+        upgradeImage();
         
         add(HomeLabel, Integer.valueOf(0)); 
         
@@ -366,18 +409,20 @@ public class CuartoMatrimonio extends JPanel {
 		// Agregar primero labelTiempo para asegurarnos de que está al frente
 		add(labelTiempo);
 		setComponentZOrder(labelTiempo, 0);
-
+		
+		
         // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
         Timer actualizarTimer = new Timer(1000, e -> 
             labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
+        
     }
     
     private void upgradeImage() {
 		// Cargar la nueva imagen
 		ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);
 		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		Image scaledImage = originalImage.getScaledInstance(HomeLabel.getWidth(), HomeLabel.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
 		// Actualizar el fondo con la nueva imagen

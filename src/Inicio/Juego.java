@@ -28,7 +28,15 @@ public class Juego extends JFrame{
     private JLabel lblPista;
     private JLabel lblMochila;
     
-    public JLabel getLblPista() {
+    public JPanel getPanelPrincipal() {
+		return panelPrincipal;
+	}
+
+	public void setPanelPrincipal(JPanel panelPrincipal) {
+		this.panelPrincipal = panelPrincipal;
+	}
+
+	public JLabel getLblPista() {
 		return lblPista;
 	}
 
@@ -89,13 +97,18 @@ public class Juego extends JFrame{
 	public Juego() {
         setTitle("Escape Room");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
+        setBounds(200, 100, 1090, 600);
+        setResizable(false);
+        getContentPane().setLayout(null);
+        setBackground(Color.black);
         puzzleCajaFinished = false;
 
         cardLayout = new CardLayout();
+        
         panelPrincipal = new JPanel(cardLayout);
+        panelPrincipal.setBounds(0, 0, getWidth(), getHeight());
+        panelPrincipal.setBackground(new Color(0, 0, 0));
 
-        panelPrincipal.add(new Home(this), "home");
         panelPrincipal.add(new Intro(this), "intro");
         panelPrincipal.add(new CasaExterior(this), "casaExterior");
         panelPrincipal.add(new Recibidor(this), "recibidor");
@@ -193,8 +206,10 @@ public class Juego extends JFrame{
         configurarRanuras(ranura14);
         configurarRanuras(ranura15);
         
+        lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
         btnPista = new JButton("");
         btnMochila = new JButton("");
+        lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
         
         btnMochila.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -202,8 +217,7 @@ public class Juego extends JFrame{
 				panelMochila.setVisible(!isVisible);
 			}
 		});
-        lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
-
+        
 		btnPista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -215,7 +229,6 @@ public class Juego extends JFrame{
 				lblPista.setIcon(new ImageIcon("img/IconoPistaEX.png"));
 			}
 		});
-		lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
 
 		btnMochila.addMouseListener(new MouseAdapter() {
 			@Override
@@ -229,29 +242,29 @@ public class Juego extends JFrame{
 			}
 		});
 
-		btnMochila.setBounds(785, 11, 65, 60);
+		btnMochila.setBounds(950, 11, 60, 60);
 		btnMochila.setOpaque(false);
 		btnMochila.setBackground(new Color(0, 0, 0, 0));
 		btnMochila.setBorderPainted(false); // No dibujar el borde
 		btnMochila.setFocusPainted(false);
 		btnMochila.setContentAreaFilled(false);
 
-		lblMochila.setBounds(785, 11, 65, 60); // Posición adicional a la derecha del JFrame
-		add(lblMochila);
-		add(btnMochila);
+		lblMochila.setBounds(945, 11, 60, 60); // Posición adicional a la derecha del JFrame
+		getContentPane().add(lblMochila);
+		getContentPane().add(btnMochila);
 		btnMochila.setVisible(false);
 		lblMochila.setVisible(false);
 
-		btnPista.setBounds(860, 11, 64, 60);
+		btnPista.setBounds(1010, 11, 60, 60);
 		btnPista.setOpaque(false);
 		btnPista.setBackground(new Color(0, 0, 0, 0));
 		btnPista.setBorderPainted(false); // No dibujar el borde
 		btnPista.setFocusPainted(false);
 		btnPista.setContentAreaFilled(false);
 
-		lblPista.setBounds(860, 11, 64, 60);
-		add(btnPista);// Posición en la parte derecha del JFrame
-		add(lblPista);
+		lblPista.setBounds(1010, 11, 60, 60);
+		getContentPane().add(btnPista);// Posición en la parte derecha del JFrame
+		getContentPane().add(lblPista);
 		btnPista.setVisible(false);
 		lblPista.setVisible(false);
         
@@ -263,6 +276,7 @@ public class Juego extends JFrame{
         panelMochila.setVisible(false);
         getContentPane().add(panelMochila);
         getContentPane().add(panelPrincipal);
+
     }
 
     private void configurarRanuras(JButton boton) {

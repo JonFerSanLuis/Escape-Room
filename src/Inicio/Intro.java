@@ -19,7 +19,7 @@ public class Intro extends JPanel {
 
     public Intro(Juego juego) {
         setLayout(null);
-        setBounds(0, 0, 950, 600);
+        setBounds(0, 0, juego.getPanelPrincipal().getWidth(), juego.getPanelPrincipal().getHeight());
         setBackground(Color.BLACK);
 
         IntroBackground = "img/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";

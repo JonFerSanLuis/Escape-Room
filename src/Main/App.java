@@ -4,8 +4,7 @@ import utilidades.Inventario;
 
 import java.awt.EventQueue;
 
-import Inicio.Home;
-import Inicio.Juego;
+import Inicio.Casa;
 
 public class App {
 
@@ -13,8 +12,8 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Juego frame = new Juego();
-					frame.setVisible(true);
+					Casa casa = new Casa();
+					casa.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

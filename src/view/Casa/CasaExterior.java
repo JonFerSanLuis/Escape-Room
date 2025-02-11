@@ -46,7 +46,7 @@ public class CasaExterior extends JPanel {
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
 	public CasaExterior(Juego juego) {
-		setBounds(0, 0, 950, 600);
+		setBounds(0, 0, juego.getPanelPrincipal().getWidth(), juego.getPanelPrincipal().getHeight());
 		setLayout(null);
 		
 		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));

@@ -22,7 +22,7 @@ public class CuartoMatrimonio extends JPanel {
     int txtPre;
 
     public CuartoMatrimonio(Juego juego) {
-        setBounds(0, 0, 950, 600);
+        setBounds(0, 0, 950, 600); 
         setLayout(null);
 
         
@@ -354,6 +354,4 @@ public class CuartoMatrimonio extends JPanel {
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
-
-
 }

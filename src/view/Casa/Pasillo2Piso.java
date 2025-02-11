@@ -25,7 +25,7 @@ public class Pasillo2Piso extends JPanel {
     public Pasillo2Piso(Juego juego) {
         setBounds(0, 0, 950, 600);
     	
-        backgroundFile = "img/pasillo2Piso.jpg";
+        backgroundFile = "img/pasillo2dPiso.jpg";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);

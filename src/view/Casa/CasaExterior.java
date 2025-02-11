@@ -80,7 +80,7 @@ public class CasaExterior extends JPanel {
 		JButton btnPosit = new JButton("");
 		JButton btnMacetaIncorrect = new JButton("");
 		
-		btnMaceta.setBounds(512, 422, 17, 17);
+		btnMaceta.setBounds(512, 416, 17, 23);
 		btnMaceta.setOpaque(false);
 		btnMaceta.setBackground(new Color(0, 0, 0, 0));
 		btnMaceta.setBorderPainted(false); // No dibujar el borde

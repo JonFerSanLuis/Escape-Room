@@ -61,7 +61,7 @@ public class ElegirConversacion extends JFrame {
 
         lblfotoconver1 = new JLabel();
         lblfotoconver1.setBounds(332, 72, 309, 389);
-        String imgPath = "D:\\Erlantz\\Programacion\\Escape-Room\\img\\movilconver1 (1).png";
+        String imgPath = "img\\movilconver1 (1).png";
         ImageIcon imgIcon = new ImageIcon(imgPath);
         lblfotoconver1.setVisible(false);
         Image img = imgIcon.getImage().getScaledInstance(lblfotoconver1.getWidth(), lblfotoconver1.getHeight(), Image.SCALE_SMOOTH);
@@ -89,7 +89,7 @@ public class ElegirConversacion extends JFrame {
         lblfotoconver1.setIcon(new ImageIcon(img));
         contentPane.add(lblfotoconver1);
 
-        String imgPath2 = "D:\\Erlantz\\Programacion\\Escape-Room\\img\\MovilConver2.png";
+        String imgPath2 = "img\\MovilConver2.png";
         ImageIcon imgIcon2 = new ImageIcon(imgPath2);
 
         lblfotoconver2 = new JLabel();

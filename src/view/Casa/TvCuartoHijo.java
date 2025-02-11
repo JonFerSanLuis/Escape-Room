@@ -73,7 +73,7 @@ public class TvCuartoHijo extends JFrame {
 	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 	    
 	    // Crear el JLabel y asignar la imagen redimensionada
-        ImageIcon flechaIcon = new ImageIcon("D:\\Erlantz\\Programacion\\Escape-Room\\img\\flechaDerechaTV.png");
+        ImageIcon flechaIcon = new ImageIcon("img\\flechaDerechaTV.png");
 
 	    
 	    JLabel lblFlechaDerecha = new JLabel("");
@@ -85,7 +85,7 @@ public class TvCuartoHijo extends JFrame {
 	    contentPane.add(lblFlechaDerecha);
 	    
 	    JLabel lblPosit = new JLabel("");
-	    lblPosit.setIcon(new ImageIcon("D:\\Erlantz\\Programacion\\Escape-Room\\img\\PositTv.png"));
+	    lblPosit.setIcon(new ImageIcon("img\\PositTv.png"));
 	    lblPosit.setBounds(-114, 54, 430, 217);
 	    contentPane.add(lblPosit);
 	    

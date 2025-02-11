@@ -70,17 +70,10 @@ public class CasaExterior extends JPanel {
 		JButton btnContinueMaceta = new JButton("CONTINUAR");
 		JButton btnMaceta = new JButton("");
 		JButton btnPuertaCasa = new JButton("");
-		JButton btnMochila = new JButton("");
-		btnMochila.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		JButton btnPista = new JButton("");
 		JButton btnPosit = new JButton("");
 		JButton btnMacetaIncorrect = new JButton("");
 		
-		btnMaceta.setBounds(512, 416, 17, 23);
+		btnMaceta.setBounds(512, 422, 17, 17);
 		btnMaceta.setOpaque(false);
 		btnMaceta.setBackground(new Color(0, 0, 0, 0));
 		btnMaceta.setBorderPainted(false); // No dibujar el borde
@@ -92,8 +85,8 @@ public class CasaExterior extends JPanel {
 				CasaExterior = "img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
-				btnPista.setVisible(false);
-				btnMochila.setVisible(false);
+				juego.getBtnPista().setVisible(false);
+				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnMaceta.setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
@@ -115,8 +108,8 @@ public class CasaExterior extends JPanel {
 				CasaExterior = "img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
-				btnPista.setVisible(false);
-				btnMochila.setVisible(false);
+				juego.getBtnPista().setVisible(false);
+				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnMaceta.setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
@@ -148,8 +141,8 @@ public class CasaExterior extends JPanel {
 			btnContinueMaceta.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					btnPuertaCasa.setVisible(true);
-					btnPista.setVisible(true);
-					btnMochila.setVisible(true);
+					juego.getBtnPista().setVisible(true);
+					juego.getBtnMochila().setVisible(true);
 					btnPosit.setVisible(true);
 					txtLlaveEncontrada.setVisible(false);
 					btnContinueMaceta.setVisible(false);
@@ -222,8 +215,8 @@ public class CasaExterior extends JPanel {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPuertaCasa.setVisible(true);
-				btnPista.setVisible(true);
-				btnMochila.setVisible(true);
+				juego.getBtnPista().setVisible(true);
+				juego.getBtnMochila().setVisible(true);
 				btnPosit.setVisible(true);
 				btnVolver.setVisible(false);
 				btnMaceta.setVisible(true);
@@ -243,8 +236,8 @@ public class CasaExterior extends JPanel {
 		btnPosit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPuertaCasa.setVisible(false);
-				btnPista.setVisible(false);
-				btnMochila.setVisible(false);
+				juego.getBtnPista().setVisible(false);
+				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnVolver.setVisible(true);
 				btnMaceta.setVisible(false);
@@ -326,8 +319,8 @@ public class CasaExterior extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					if (txtPuerta == 2) {
 						btnPuertaCasa.setVisible(true);
-						btnPista.setVisible(true);
-						btnMochila.setVisible(true);
+						juego.getBtnPista().setVisible(true);
+						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
 						btnMaceta.setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
@@ -370,9 +363,9 @@ public class CasaExterior extends JPanel {
 				}else {
 					btnContinuePuerta.setVisible(true);
 				btnPuertaCasa.setVisible(false);
-				btnPista.setVisible(false);
+				juego.getBtnPista().setVisible(false);
 				btnPuertaCasa.setVisible(false);
-				btnMochila.setVisible(false);
+				juego.getBtnMochila().setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
 				btnMaceta.setVisible(false);
 				btnPosit.setVisible(false);
@@ -382,62 +375,6 @@ public class CasaExterior extends JPanel {
 				}
 			}
 		});
-
-		// Imagen pequeña 2
-		JLabel lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
-
-		btnMochila.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblMochila.setIcon(new ImageIcon("img/IconoMochilaENT.png"));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblMochila.setIcon(new ImageIcon("img/IconoMochilaEX.png"));
-			}
-		});
-
-		btnMochila.setBounds(785, 11, 65, 60);
-		btnMochila.setOpaque(false);
-		btnMochila.setBackground(new Color(0, 0, 0, 0));
-		btnMochila.setBorderPainted(false); // No dibujar el borde
-		btnMochila.setFocusPainted(false);
-		btnMochila.setContentAreaFilled(false);
-
-		lblMochila.setBounds(785, 11, 65, 60); // Posición adicional a la derecha del JFrame
-		add(lblMochila);
-		add(btnMochila);
-		btnMochila.setVisible(false);
-		lblMochila.setVisible(false);
-
-		// Imagen pequeña 1
-		JLabel lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
-
-		btnPista.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblPista.setIcon(new ImageIcon("img/IconoPistaENT.png"));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblPista.setIcon(new ImageIcon("img/IconoPistaEX.png"));
-			}
-		});
-
-		btnPista.setBounds(860, 11, 64, 60);
-		btnPista.setOpaque(false);
-		btnPista.setBackground(new Color(0, 0, 0, 0));
-		btnPista.setBorderPainted(false); // No dibujar el borde
-		btnPista.setFocusPainted(false);
-		btnPista.setContentAreaFilled(false);
-
-		lblPista.setBounds(860, 11, 64, 60);
-		add(btnPista);// Posición en la parte derecha del JFrame
-		add(lblPista);
-		btnPista.setVisible(false);
-		lblPista.setVisible(false);
 
 		// Añadir la imagen de fondo primero
 		lblCasa.setBounds(0, 0, 934, 561);
@@ -480,12 +417,12 @@ public class CasaExterior extends JPanel {
 			btnContinue.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (txtPre == 1) {
-						btnMochila.setVisible(true);
+						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
-						btnPista.setVisible(true);
-						lblPista.setVisible(true);
+						juego.getBtnPista().setVisible(true);
+						juego.getLblPista().setVisible(true);
 						btnMaceta.setVisible(true);
-						lblMochila.setVisible(true);
+						juego.getLblMochila().setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
 						btnPuertaCasa.setVisible(true);
 						TxtIntroCasa2.setVisible(false);

@@ -73,16 +73,16 @@ public class TvCuartoHijo extends JFrame {
 	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 	    
 	    // Crear el JLabel y asignar la imagen redimensionada
-        ImageIcon flechaIcon = new ImageIcon("img\\flechaDerechaTV.png");
+        ImageIcon flechaIcon = new ImageIcon("img\\botonenter.png");
 
 	    
-	    JLabel lblFlechaDerecha = new JLabel("");
-        Image flechaImage = flechaIcon.getImage().getScaledInstance(150, 40, Image.SCALE_SMOOTH);
+	    JLabel btnenter = new JLabel("");
+        Image flechaImage = flechaIcon.getImage().getScaledInstance(150, 70, Image.SCALE_SMOOTH);
         ImageIcon scaledFlechaIcon = new ImageIcon(flechaImage);
-	    lblFlechaDerecha.setIcon(scaledFlechaIcon);
+        btnenter.setIcon(scaledFlechaIcon);
 	    
-	    lblFlechaDerecha.setBounds(706, 424, 150, 40);  // Establecer el mismo tamaño que el botón
-	    contentPane.add(lblFlechaDerecha);
+        btnenter.setBounds(390, 298, 160, 88);  // Establecer el mismo tamaño que el botón
+	    contentPane.add(btnenter);
 	    
 	    JLabel lblPosit = new JLabel("");
 	    lblPosit.setIcon(new ImageIcon("img\\PositTv.png"));
@@ -104,7 +104,7 @@ public class TvCuartoHijo extends JFrame {
         textField.setBorder(new LineBorder(backgroundColor, 2)); 
         
         btnSubmit = new JButton("");
-        btnSubmit.setBounds(706, 424, 150, 40);  
+        btnSubmit.setBounds(379, 298, 171, 100);  
         contentPane.add(btnSubmit);
         btnSubmit.setOpaque(false);
         btnSubmit.setContentAreaFilled(false);

@@ -43,6 +43,16 @@ public class CuartoMatrimonio extends JPanel {
 		LightLabel.setBounds(626, 312, 83, 23); // Ajusta el tamaño del JLabel
 		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
 				Image.SCALE_SMOOTH);
+		
+		JButton btnVolverPasillo = new JButton("PASILLO");
+		btnVolverPasillo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				juego.cambiarEscena("pasillo2");
+			}
+		});
+		btnVolverPasillo.setBounds(450, 511, 89, 23);
+		add(btnVolverPasillo);
 		LightLabel.setIcon(new ImageIcon(imgLight));
 		add(LightLabel, Integer.valueOf(2));
 		LightLabel.setVisible(false);
@@ -119,6 +129,12 @@ public class CuartoMatrimonio extends JPanel {
         JButton btnContinue = new JButton("CONTINUAR");
         
         JButton btnVolver = new JButton("VOLVER");
+        btnVolver.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		juego.cambiarEscena("pasillo2");
+        	}
+        });
         
         btnVerCajon.setOpaque(false);
         btnVerCajon.setBackground(new Color(0, 0, 0, 0));
@@ -349,7 +365,7 @@ public class CuartoMatrimonio extends JPanel {
 		
 		// Agregar primero labelTiempo para asegurarnos de que está al frente
 		add(labelTiempo);
-		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+		setComponentZOrder(labelTiempo, 0);
 
         // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
         Timer actualizarTimer = new Timer(1000, e -> 

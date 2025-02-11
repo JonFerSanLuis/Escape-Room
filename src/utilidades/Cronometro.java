@@ -17,7 +17,7 @@ public class Cronometro {
                 if (segundos > 0) {  
                     segundos--; // Reducir tiempo
                 } else {
-                    timer.stop(); // Detener el cronómetro al llegar a 00:00:00
+                    timer.stop(); // Detener el cronometro al llegar a 00:00:00
                 }
             }
         });

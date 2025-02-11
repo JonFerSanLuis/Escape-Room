@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import utilidades.Cronometro;
 import utilidades.Inventario;
 
 import javax.swing.*;
@@ -18,6 +19,8 @@ public class CuartoMatrimonio extends JPanel {
     String CuartoPadresFile;
     JLabel HomeLabel; 
     JLabel lightLabel;
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
+
     
     int txtPre;
 
@@ -334,6 +337,24 @@ public class CuartoMatrimonio extends JPanel {
         HomeLabel.setIcon(scaledIcon);
         
         add(HomeLabel, Integer.valueOf(0)); 
+        
+        // Cronometro
+        labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+		labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+		labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+		labelTiempo.setOpaque(true);
+		labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		labelTiempo.setBounds(10, 10, 102, 30); 
+		
+		// Agregar primero labelTiempo para asegurarnos de que está al frente
+		add(labelTiempo);
+		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+
+        // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
     }
     
     private void upgradeImage() {

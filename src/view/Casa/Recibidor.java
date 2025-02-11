@@ -3,6 +3,7 @@ package view.Casa;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
@@ -10,9 +11,12 @@ import java.awt.MediaTracker;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import utilidades.Cronometro;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -25,6 +29,7 @@ public class Recibidor extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel RecibidorLabel;
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
     public Recibidor(Juego juego) {
         setBounds(0, 0, 950, 600);
@@ -95,6 +100,24 @@ public class Recibidor extends JPanel {
         RecibidorLabel.setBounds(0, 0, 934, 561);
         RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
         add(RecibidorLabel); // Agregar al final para que quede encima del botón
+        
+        // Cronometro
+        labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+		labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+		labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+		labelTiempo.setOpaque(true);
+		labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+		labelTiempo.setBounds(10, 10, 102, 30); 
+		
+		// Agregar primero labelTiempo para asegurarnos de que está al frente
+		add(labelTiempo);
+		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+
+        // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
 
     	
     }
@@ -104,5 +127,4 @@ public class Recibidor extends JPanel {
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
     }
-
 }

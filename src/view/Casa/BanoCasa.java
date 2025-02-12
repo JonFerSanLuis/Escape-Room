@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class BañoCasa extends JFrame {
+public class BanoCasa extends JFrame {
 
 	private JPanel contentPane;
 	private Image backgroundImage;
@@ -23,7 +23,7 @@ public class BañoCasa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BañoCasa frame = new BañoCasa();
+					BanoCasa frame = new BanoCasa();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class BañoCasa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BañoCasa() {
+	public BanoCasa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, 950, 600);
 		contentPane = new JPanel();

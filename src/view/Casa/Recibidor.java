@@ -1,6 +1,8 @@
 package view.Casa;
 
 import java.awt.BorderLayout;
+import view.Casa.CocinaCasa;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -12,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
@@ -91,33 +94,41 @@ public class Recibidor extends JPanel {
         ImageIcon iconPuertaOFF = new ImageIcon(imgPuertaOFF);
         ImageIcon iconPuertaON = new ImageIcon(imgPuertaON);
 
-        JLabel lblPuerta = new JLabel(iconPuertaOFF);
-        lblPuerta.setBounds(250, 390, 212, 137);
-        add(lblPuerta);
+        JLabel lblSalon = new JLabel(iconPuertaOFF);
+        lblSalon.setBounds(250, 390, 212, 137);
+        add(lblSalon);
         
         
-        JButton btnPuerta = new JButton("");
-        btnPuerta.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		
-        	}
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		lblPuerta.setIcon(iconPuertaON);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		lblPuerta.setIcon(iconPuertaOFF);
-        		
-        	}
+        JButton btnSalon = new JButton("");
+        btnSalon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Crear una instancia de SalonCasa y hacerla visible
+                SalonCasa salon = new SalonCasa();
+                salon.setVisible(true);
+                
+                // Si quieres cerrar la ventana actual (Recibidor), puedes hacerlo así:
+                JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(btnSalon);
+                parentFrame.setVisible(false);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblSalon.setIcon(iconPuertaON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblSalon.setIcon(iconPuertaOFF);
+            }
         });
-        btnPuerta.setBounds(332, 405, 95, 88);
-        btnPuerta.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
-        btnPuerta.setOpaque(false);
-        btnPuerta.setBorderPainted(false);
-        btnPuerta.setContentAreaFilled(false);
-        add(btnPuerta); // Agregarlo antes de la imagen
+
+        btnSalon.setBounds(332, 405, 95, 88);
+        btnSalon.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnSalon.setOpaque(false);
+        btnSalon.setBorderPainted(false);
+        btnSalon.setContentAreaFilled(false);
+        add(btnSalon); // Agregarlo antes de la imagen
         
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaCocinaOFF = new ImageIcon("img/flechaCocinaOFF.png");
@@ -136,20 +147,30 @@ public class Recibidor extends JPanel {
         
         JButton btnCocina = new JButton("");
         btnCocina.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		
-        	}
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		lblCocina.setIcon(iconCocinaON);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		lblCocina.setIcon(iconCocinaOFF);
-        		
-        	}
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Crear una instancia de CocinaCasa
+                CocinaCasa cocina = new CocinaCasa();
+                
+                // Hacer visible la ventana CocinaCasa
+                cocina.setVisible(true);
+
+                // Si deseas ocultar la ventana actual (Recibidor), puedes hacerlo así:
+                JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(btnCocina);
+                parentFrame.setVisible(false);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblCocina.setIcon(iconCocinaON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblCocina.setIcon(iconCocinaOFF);
+            }
         });
+
         btnCocina.setBounds(183, 471, 147, 88);
         btnCocina.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
         btnCocina.setOpaque(false);
@@ -167,8 +188,8 @@ public class Recibidor extends JPanel {
 		add(LightLabel, Integer.valueOf(2));
 		LightLabel.setVisible(false);
         
-        JButton btnBaño = new JButton("");
-        btnBaño.addMouseListener(new MouseAdapter() {
+        JButton btnBano = new JButton("");
+        btnBano.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseEntered(MouseEvent e) {
         		LightLabel.setVisible(true);
@@ -178,17 +199,24 @@ public class Recibidor extends JPanel {
         		LightLabel.setVisible(false);
         	}
         });
-        btnBaño.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        	}
+        btnBano.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia de BanoCasa y hacerla visible
+                BanoCasa bano = new BanoCasa();
+                bano.setVisible(true);
+                
+                // Si quieres cerrar la ventana actual (Recibidor), puedes hacerlo así:
+                JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(btnBano);
+                parentFrame.setVisible(false);
+            }
         });
-        btnBaño.setBounds(591, 171, 89, 256);
-        btnBaño.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
-        btnBaño.setOpaque(false);
-        btnBaño.setBorderPainted(false);
-        btnBaño.setContentAreaFilled(false);
-        add(btnBaño);
+
+        btnBano.setBounds(591, 171, 89, 256);
+        btnBano.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnBano.setOpaque(false);
+        btnBano.setBorderPainted(false);
+        btnBano.setContentAreaFilled(false);
+        add(btnBano);
         
         // Cronometro
         labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());

@@ -36,11 +36,11 @@ public class CuartoMatrimonio extends JPanel {
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
-        JLabel LightLabel = new JLabel();
+        JLabel lblDestello = new JLabel();
         // Cargar la imagen de la bandera inglesa
 		ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-		LightLabel.setBounds(626, 312, 83, 23); // Ajusta el tamaño del JLabel
-		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
+		lblDestello.setBounds(618, 303, 83, 23); // Ajusta el tamaño del JLabel
+		Image imgLight = LightImagen.getImage().getScaledInstance(lblDestello.getWidth(), lblDestello.getHeight(),
 				Image.SCALE_SMOOTH);
 		
 		 // Flecha pasillo
@@ -86,9 +86,9 @@ public class CuartoMatrimonio extends JPanel {
 	btnVolverPasillo.setBorderPainted(false);
 	btnVolverPasillo.setContentAreaFilled(false);
 	add(btnVolverPasillo);
-	LightLabel.setIcon(new ImageIcon(imgLight));
-	add(LightLabel, Integer.valueOf(2));
-	LightLabel.setVisible(false);
+	lblDestello.setIcon(new ImageIcon(imgLight));
+	add(lblDestello, Integer.valueOf(2));
+	lblDestello.setVisible(false);
 
 		JLabel PistaCajaLabel = new JLabel();
 		// Cargar la imagen de la bandera inglesa
@@ -201,11 +201,11 @@ public class CuartoMatrimonio extends JPanel {
             }
         	@Override
         	public void mouseEntered(MouseEvent e) {
-        		LightLabel.setVisible(true);
+        		lblDestello.setVisible(true);
         	}
         	@Override
         	public void mouseExited(MouseEvent e) {
-        		LightLabel.setVisible(false);
+        		lblDestello.setVisible(false);
         	}
         });
         

@@ -101,6 +101,7 @@ public class Juego extends JFrame{
         setResizable(false);
         getContentPane().setLayout(null);
         setBackground(Color.black);
+        setUndecorated(true);
         puzzleCajaFinished = false;
 
         cardLayout = new CardLayout();
@@ -131,6 +132,13 @@ public class Juego extends JFrame{
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(680, 370, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        
+     // Cargar la imagen de fondo
+        String backgroundInventario = "img/backgroundInventario.jpg";
+        ImageIcon originalIconInventario = new ImageIcon(backgroundInventario);
+        Image originalImageInventario = originalIconInventario.getImage();
+        Image scaledImageInventario = originalImageInventario.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
+        ImageIcon scaledIconInventario = new ImageIcon(scaledImageInventario);
         
         panelMochila = new JPanel();
         panelMochila.setLayout(null);
@@ -215,7 +223,8 @@ public class Juego extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				boolean isVisible = panelMochila.isVisible();
 				panelMochila.setVisible(!isVisible);
-			}
+				panelPrincipal.setVisible(isVisible);
+				}
 		});
         
 		btnPista.addMouseListener(new MouseAdapter() {
@@ -269,10 +278,16 @@ public class Juego extends JFrame{
 		lblPista.setVisible(false);
         
         JLabel inventarioLabel = new JLabel();
-        inventarioLabel.setBounds(0, 0, 680, 370);
+        inventarioLabel.setBounds(130, 100, 680, 370);
         inventarioLabel.setIcon(scaledIcon);
+        
+        JLabel fondoInventario = new JLabel();
+        fondoInventario.setBounds(0, 0, 950, 600);
+        fondoInventario.setIcon(scaledIconInventario);
+        
         panelMochila.add(inventarioLabel);
-        panelMochila.setBounds(130, 100, 680, 370);
+        panelMochila.add(fondoInventario);
+        panelMochila.setBounds(0, 0, 950, 600);
         panelMochila.setVisible(false);
         getContentPane().add(panelMochila);
         getContentPane().add(panelPrincipal);

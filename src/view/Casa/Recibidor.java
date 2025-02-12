@@ -81,45 +81,139 @@ public class Recibidor extends JPanel {
         btnEscaleras.setContentAreaFilled(false);
         add(btnEscaleras);
         
+     // Cargar y redimensionar imágenes una sola vez
+        ImageIcon flechaPuertaOFF = new ImageIcon("img/FlechaSalonOFF.png");
+        ImageIcon flechaPuertaON = new ImageIcon("img/FlechaSalonON.png");
+
+        Image imgPuertaOFF = flechaPuertaOFF.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
+        Image imgPuertaON = flechaPuertaON.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
+
+        ImageIcon iconPuertaOFF = new ImageIcon(imgPuertaOFF);
+        ImageIcon iconPuertaON = new ImageIcon(imgPuertaON);
+
+        JLabel lblPuerta = new JLabel(iconPuertaOFF);
+        lblPuerta.setBounds(250, 390, 212, 137);
+        add(lblPuerta);
+        
+        
         JButton btnPuerta = new JButton("");
         btnPuerta.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		// Aqui irá lo que queramos que haga el botón que hay tras la puerta
+        		
+        	}
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		lblPuerta.setIcon(iconPuertaON);
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		lblPuerta.setIcon(iconPuertaOFF);
+        		
         	}
         });
-        btnPuerta.setBounds(304, 158, 95, 256);
+        btnPuerta.setBounds(332, 405, 95, 88);
         btnPuerta.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
         btnPuerta.setOpaque(false);
         btnPuerta.setBorderPainted(false);
         btnPuerta.setContentAreaFilled(false);
         add(btnPuerta); // Agregarlo antes de la imagen
+        
+     // Cargar y redimensionar imágenes una sola vez
+        ImageIcon flechaCocinaOFF = new ImageIcon("img/flechaCocinaOFF.png");
+        ImageIcon flechaCocinaON = new ImageIcon("img/flechaCocinaON.png");
 
-        // Mostrar la imagen de fondo
-        RecibidorLabel = new JLabel();
-        RecibidorLabel.setBounds(0, 0, 934, 561);
-        RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
-        add(RecibidorLabel); // Agregar al final para que quede encima del botón
+        Image imgCocinaOFF = flechaCocinaOFF.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
+        Image imgCocinaON = flechaCocinaON.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
+
+        ImageIcon iconCocinaOFF = new ImageIcon(imgCocinaOFF);
+        ImageIcon iconCocinaON = new ImageIcon(imgCocinaON);
+
+        JLabel lblCocina = new JLabel(iconCocinaOFF);
+        lblCocina.setBounds(150, 450, 212, 137);
+        add(lblCocina);
+        
+        
+        JButton btnCocina = new JButton("");
+        btnCocina.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		
+        	}
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		lblCocina.setIcon(iconCocinaON);
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		lblCocina.setIcon(iconCocinaOFF);
+        		
+        	}
+        });
+        btnCocina.setBounds(183, 471, 147, 88);
+        btnCocina.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnCocina.setOpaque(false);
+        btnCocina.setBorderPainted(false);
+        btnCocina.setContentAreaFilled(false);
+        add(btnCocina); // Agregarlo antes de la imagen
+        
+        JLabel LightLabel = new JLabel();
+        // Cargar la imagen de la bandera inglesa
+		ImageIcon LightImagen = new ImageIcon("img/11571045.png");
+		LightLabel.setBounds(620, 315, 83, 23); // Ajusta el tamaño del JLabel
+		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
+				Image.SCALE_SMOOTH);
+		LightLabel.setIcon(new ImageIcon(imgLight));
+		add(LightLabel, Integer.valueOf(2));
+		LightLabel.setVisible(false);
+        
+        JButton btnBaño = new JButton("");
+        btnBaño.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseEntered(MouseEvent e) {
+        		LightLabel.setVisible(true);
+        	}
+        	@Override
+        	public void mouseExited(MouseEvent e) {
+        		LightLabel.setVisible(false);
+        	}
+        });
+        btnBaño.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
+        btnBaño.setBounds(591, 171, 89, 256);
+        btnBaño.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnBaño.setOpaque(false);
+        btnBaño.setBorderPainted(false);
+        btnBaño.setContentAreaFilled(false);
+        add(btnBaño);
         
         // Cronometro
         labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
-		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
-		labelTiempo.setForeground(Color.WHITE); // Texto en blanco
-		labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
-		labelTiempo.setOpaque(true);
-		labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
-		labelTiempo.setBounds(10, 10, 102, 30); 
-		
-		// Agregar primero labelTiempo para asegurarnos de que está al frente
-		add(labelTiempo);
-		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+        labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+        labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+        labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+        labelTiempo.setOpaque(true);
+        labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelTiempo.setBounds(10, 10, 102, 30); 
+        
+        // Agregar primero labelTiempo para asegurarnos de que está al frente
+        add(labelTiempo);
+        setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+
+        // Mostrar la imagen de fondo
+        RecibidorLabel = new JLabel();
+        RecibidorLabel.setBounds(0, 0, 950, 600);
+        RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        add(RecibidorLabel); // Agregar al final para que quede encima del botón
 
         // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
         Timer actualizarTimer = new Timer(1000, e -> 
             labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
 
-    	
     }
     
     private ImageIcon loadImage(String filePath) {

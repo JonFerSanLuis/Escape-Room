@@ -27,9 +27,9 @@ public class Casa extends JFrame {
 
 	public Casa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 100, 1090, 600);
+		setBounds(200, 80, 950, 600);
 		contentPanel = new JPanel();
-		contentPanel.setBounds(0, 0, 1090, 600);
+		contentPanel.setBounds(0, 0, 950, 600);
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
 		getContentPane().setLayout(null);
@@ -48,7 +48,7 @@ public class Casa extends JFrame {
             		dispose();
             	}
             });
-			play.setBounds(418, 155, 246, 57);
+			play.setBounds(348, 155, 246, 57);
 			play.setContentAreaFilled(false);
 			configurarBoton(play, buttonFont);
 
@@ -178,11 +178,11 @@ public class Casa extends JFrame {
 			        ranking.setVisible(false);
 				}
 			});
-			btnOptions.setBounds(418, 231, 246, 57);
+			btnOptions.setBounds(348, 231, 246, 57);
 			btnOptions.setContentAreaFilled(false);
 			configurarBoton(btnOptions, buttonFont);
 
-			ranking.setBounds(418, 303, 246, 57);
+			ranking.setBounds(348, 303, 246, 57);
 			ranking.setContentAreaFilled(false);
 			configurarBoton(ranking, buttonFont);
 
@@ -197,11 +197,11 @@ public class Casa extends JFrame {
         String backgroundFile = "img/JUGAR.png";
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
         Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(1090, 600, Image.SCALE_SMOOTH);
+        Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         HomeLabel = new JLabel();
-        HomeLabel.setBounds(0, 0, 1090, 600);
+        HomeLabel.setBounds(0, 0, 950, 600);
         HomeLabel.setIcon(scaledIcon);
         contentPanel.add(HomeLabel);
         

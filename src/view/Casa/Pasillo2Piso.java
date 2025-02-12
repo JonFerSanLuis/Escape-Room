@@ -125,7 +125,7 @@ public class Pasillo2Piso extends JPanel {
         
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();
-        lblPasillo2Piso.setBounds(0, 0, 934, 561);
+        lblPasillo2Piso.setBounds(0, 0, 950, 600);
         lblPasillo2Piso.setIcon(scaledIcon);  // Establecer la imagen por defecto
         add(lblPasillo2Piso);
         

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class BañoCasa extends JFrame {
+public class CocinaCasa extends JFrame {
 
 	private JPanel contentPane;
 	private Image backgroundImage;
@@ -23,7 +23,7 @@ public class BañoCasa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BañoCasa frame = new BañoCasa();
+					CocinaCasa frame = new CocinaCasa();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class BañoCasa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BañoCasa() {
+	public CocinaCasa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, 950, 600);
 		contentPane = new JPanel();
@@ -43,7 +43,7 @@ public class BañoCasa extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		backgroundFile = "img/bañoCasa.jpg";
+		backgroundFile = "img/cocinaCasa.jpg";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);

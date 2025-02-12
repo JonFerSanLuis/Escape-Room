@@ -43,7 +43,7 @@ public class SalonCasa extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		backgroundFile = "img/recibidor.jpeg";
+		backgroundFile = "img/salonCasa.jpg";
 
         // Cargar la imagen y redimensionarla
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
@@ -54,7 +54,7 @@ public class SalonCasa extends JFrame {
         
         // Mostrar la imagen de fondo
         bañoLabel = new JLabel();
-        bañoLabel.setBounds(0, 0, 934, 561);
+        bañoLabel.setBounds(0, 0, 950, 600);
         bañoLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
         add(bañoLabel); // Agregar al final para que quede encima del botón
 	}

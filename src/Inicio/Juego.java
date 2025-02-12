@@ -97,7 +97,7 @@ public class Juego extends JFrame{
 	public Juego() {
         setTitle("Escape Room");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 1090, 600);
+        setBounds(200, 80, 950, 600);
         setResizable(false);
         getContentPane().setLayout(null);
         setBackground(Color.black);
@@ -242,27 +242,27 @@ public class Juego extends JFrame{
 			}
 		});
 
-		btnMochila.setBounds(950, 11, 60, 60);
+		btnMochila.setBounds(800, 11, 60, 60);
 		btnMochila.setOpaque(false);
 		btnMochila.setBackground(new Color(0, 0, 0, 0));
 		btnMochila.setBorderPainted(false); 
 		btnMochila.setFocusPainted(false);
 		btnMochila.setContentAreaFilled(false);
 
-		lblMochila.setBounds(945, 11, 60, 60); 
+		lblMochila.setBounds(800, 11, 60, 60); 
 		getContentPane().add(lblMochila);
 		getContentPane().add(btnMochila);
 		btnMochila.setVisible(false);
 		lblMochila.setVisible(false);
 
-		btnPista.setBounds(1010, 11, 60, 60);
+		btnPista.setBounds(870, 11, 60, 60);
 		btnPista.setOpaque(false);
 		btnPista.setBackground(new Color(0, 0, 0, 0));
 		btnPista.setBorderPainted(false); 
 		btnPista.setFocusPainted(false);
 		btnPista.setContentAreaFilled(false);
 
-		lblPista.setBounds(1010, 11, 60, 60);
+		lblPista.setBounds(870, 11, 60, 60);
 		getContentPane().add(btnPista);
 		getContentPane().add(lblPista);
 		btnPista.setVisible(false);

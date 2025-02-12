@@ -101,6 +101,8 @@ public class Recibidor extends JPanel {
         RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
         add(RecibidorLabel); // Agregar al final para que quede encima del botón
         
+        
+        
         // Cronometro
         labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
 		labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
@@ -118,8 +120,6 @@ public class Recibidor extends JPanel {
         Timer actualizarTimer = new Timer(1000, e -> 
             labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
-
-    	
     }
     
     private ImageIcon loadImage(String filePath) {

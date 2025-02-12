@@ -435,5 +435,7 @@ public class CuartoMatrimonio extends JPanel {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
+   
+        
+	}
 }

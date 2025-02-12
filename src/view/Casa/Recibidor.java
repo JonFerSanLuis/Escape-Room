@@ -2,6 +2,7 @@ package view.Casa;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -43,6 +44,15 @@ public class Recibidor extends JPanel {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         setLayout(null);
         
+        JButton btnEscaleras = new JButton("");
+        add(btnEscaleras);
+        JButton btnPuerta = new JButton("");
+        add(btnPuerta);
+        JButton btnCocina = new JButton("");
+        add(btnCocina);
+        JButton btnBaño = new JButton("");
+        add(btnBaño);
+        
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaEscaleraOFF = new ImageIcon("img/flechaEscaleraOFF.png");
         ImageIcon flechaEscaleraON = new ImageIcon("img/flechaEscaleraON.png");
@@ -57,7 +67,6 @@ public class Recibidor extends JPanel {
         lblEscalera.setBounds(797, 247, 81, 77);
         add(lblEscalera);
         
-        JButton btnEscaleras = new JButton("");
         btnEscaleras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("pasillo2");
@@ -79,7 +88,6 @@ public class Recibidor extends JPanel {
         btnEscaleras.setOpaque(false);
         btnEscaleras.setBorderPainted(false);
         btnEscaleras.setContentAreaFilled(false);
-        add(btnEscaleras);
         
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaPuertaOFF = new ImageIcon("img/FlechaSalonOFF.png");
@@ -95,8 +103,6 @@ public class Recibidor extends JPanel {
         lblPuerta.setBounds(250, 390, 212, 137);
         add(lblPuerta);
         
-        
-        JButton btnPuerta = new JButton("");
         btnPuerta.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
@@ -117,7 +123,6 @@ public class Recibidor extends JPanel {
         btnPuerta.setOpaque(false);
         btnPuerta.setBorderPainted(false);
         btnPuerta.setContentAreaFilled(false);
-        add(btnPuerta); // Agregarlo antes de la imagen
         
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaCocinaOFF = new ImageIcon("img/flechaCocinaOFF.png");
@@ -130,11 +135,10 @@ public class Recibidor extends JPanel {
         ImageIcon iconCocinaON = new ImageIcon(imgCocinaON);
 
         JLabel lblCocina = new JLabel(iconCocinaOFF);
+
         lblCocina.setBounds(150, 450, 212, 137);
         add(lblCocina);
         
-        
-        JButton btnCocina = new JButton("");
         btnCocina.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
@@ -155,29 +159,7 @@ public class Recibidor extends JPanel {
         btnCocina.setOpaque(false);
         btnCocina.setBorderPainted(false);
         btnCocina.setContentAreaFilled(false);
-        add(btnCocina); // Agregarlo antes de la imagen
         
-        JLabel LightLabel = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-		ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-		LightLabel.setBounds(620, 315, 83, 23); // Ajusta el tamaño del JLabel
-		Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(),
-				Image.SCALE_SMOOTH);
-		LightLabel.setIcon(new ImageIcon(imgLight));
-		add(LightLabel, Integer.valueOf(2));
-		LightLabel.setVisible(false);
-        
-        JButton btnBaño = new JButton("");
-        btnBaño.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		LightLabel.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		LightLabel.setVisible(false);
-        	}
-        });
         btnBaño.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
@@ -188,7 +170,11 @@ public class Recibidor extends JPanel {
         btnBaño.setOpaque(false);
         btnBaño.setBorderPainted(false);
         btnBaño.setContentAreaFilled(false);
-        add(btnBaño);
+        
+        btnPuerta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnEscaleras.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnCocina.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnBaño.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         // Cronometro
         labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());

@@ -2,6 +2,7 @@ package view.Casa;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -47,11 +48,12 @@ public class CajaAbierta extends JPanel {
         JLabel llaveLabel = new JLabel();
 		// Cargar la imagen de la bandera inglesa
 		ImageIcon llaveCajonImage = new ImageIcon("img/llaveEnCaja.png");
-		llaveLabel.setBounds(326, 208, 332, 166); // Ajusta el tamaño del JLabel
+		llaveLabel.setBounds(326, 225, 332, 166); // Ajusta el tamaño del JLabel
 		Image imgllaveCajon = llaveCajonImage.getImage().getScaledInstance(llaveLabel.getWidth(),
 				llaveLabel.getHeight(), Image.SCALE_SMOOTH);
 		
 		JButton btnLlaveCajon = new JButton("");
+		btnLlaveCajon.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnLlaveCajon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				juego.getInventario().agregarObjeto(juego.getInventario().getLlaveCajonPadres());
@@ -59,7 +61,7 @@ public class CajaAbierta extends JPanel {
 				btnLlaveCajon.setVisible(false);
 			}
 		});
-		btnLlaveCajon.setBounds(432, 280, 138, 23);
+		btnLlaveCajon.setBounds(432, 288, 138, 23);
 		btnLlaveCajon.setOpaque(false);
 		btnLlaveCajon.setBackground(new Color(0, 0, 0, 0));
 		btnLlaveCajon.setBorderPainted(false); // No dibujar el borde
@@ -67,7 +69,7 @@ public class CajaAbierta extends JPanel {
 		btnLlaveCajon.setContentAreaFilled(false);
 		add(btnLlaveCajon);
 		llaveLabel.setIcon(new ImageIcon(imgllaveCajon));
-		add(llaveLabel, Integer.valueOf(2));
+		
         
         setLayout(null);
 
@@ -79,6 +81,7 @@ public class CajaAbierta extends JPanel {
         });
         btnVolver.setBounds(64, 494, 89, 23);
         add(btnVolver);
+        add(llaveLabel, Integer.valueOf(2));
 
 		// Mostrar la imagen de fondo
 		Background = new JLabel();

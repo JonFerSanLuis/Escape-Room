@@ -2,6 +2,7 @@ package view.Casa;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
@@ -47,29 +48,11 @@ public class SalonCasa extends JPanel {
         JLabel LightLabel = new JLabel();
         // Cargar la imagen de la bandera inglesa
         ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-        LightLabel.setBounds(825, 437, 61, 17); // Ajusta el tamaño del JLabel 
+        LightLabel.setBounds(313, 382, 61, 17); // Ajusta el tamaño del JLabel 
         Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
         LightLabel.setIcon(new ImageIcon(imgLight));
         LightLabel.setVisible(false);
         add(LightLabel);
-        
-        JLabel LightPerro = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagenPerro = new ImageIcon("img/11571045.png");
-        LightPerro.setBounds(898, 282, 47, 17); // Ajusta el tamaño del JLabel 
-        Image imgLightPerro = LightImagenPerro.getImage().getScaledInstance(LightPerro.getWidth(), LightPerro.getHeight(), Image.SCALE_SMOOTH);
-        LightPerro.setIcon(new ImageIcon(imgLightPerro));
-        LightPerro.setVisible(false);
-        add(LightPerro);
-        
-        JLabel LightCod = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon CodImagen = new ImageIcon("img/11571045.png");
-        LightCod.setBounds(174, 232, 47, 17); // Ajusta el tamaño del JLabel 
-        Image imgLightCod = CodImagen.getImage().getScaledInstance(LightCod.getWidth(), LightCod.getHeight(), Image.SCALE_SMOOTH);
-        LightCod.setIcon(new ImageIcon(imgLightCod));
-        LightCod.setVisible(false);
-        add(LightCod);
         
         JLabel TxtAlmohada = new JLabel("Parece que debajo de la almohada había una nota");
 		TxtAlmohada.setHorizontalAlignment(SwingConstants.CENTER);
@@ -93,16 +76,7 @@ public class SalonCasa extends JPanel {
         JLabel lblFlecha = new JLabel(iconOFF);
         
         JButton btnCuadroPerro = new JButton("");
-        btnCuadroPerro.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		LightPerro.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		LightPerro.setVisible(false);
-        	}
-        });
+        btnCuadroPerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCuadroPerro.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -115,16 +89,7 @@ public class SalonCasa extends JPanel {
         add(btnCuadroPerro);
         
         JButton btnCuadroCod = new JButton("");
-        btnCuadroCod.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		LightCod.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		LightCod.setVisible(false);
-        	}
-        });
+        btnCuadroCod.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCuadroCod.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -137,16 +102,7 @@ public class SalonCasa extends JPanel {
         add(btnCuadroCod);
         
         JButton btnMueble = new JButton("");
-        btnMueble.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		LightLabel.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		LightLabel.setVisible(false);
-        	}
-        });
+        btnMueble.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnMueble.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -162,13 +118,14 @@ public class SalonCasa extends JPanel {
         btnAlmohada.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseEntered(MouseEvent e) {
-        		LightCod.setVisible(true);
+        		LightLabel.setVisible(true);
         	}
         	@Override
         	public void mouseExited(MouseEvent e) {
-        		LightCod.setVisible(false);
+        		LightLabel.setVisible(false);
         	}
         });
+        btnAlmohada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnAlmohada.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		backgroundFile = "img/salonCasaTxt.jpg";
@@ -193,7 +150,7 @@ public class SalonCasa extends JPanel {
         
         lblFlecha.setBounds(696, 479, 117, 71);
         add(lblFlecha);
-        
+        btnRecibidor.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnRecibidor.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseEntered(MouseEvent e) {
@@ -216,6 +173,7 @@ public class SalonCasa extends JPanel {
         btnRecibidor.setContentAreaFilled(false);
         add(btnRecibidor);
         
+        btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
 		btnContinue.setBackground(new Color(0, 0, 0, 0));
 		btnContinue.setOpaque(false);
@@ -223,6 +181,7 @@ public class SalonCasa extends JPanel {
 		btnContinue.setContentAreaFilled(false);
 		btnContinue.setForeground(Color.GRAY);
 		btnContinue.setVisible(false);
+		
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

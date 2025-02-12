@@ -1,7 +1,7 @@
  package view.Casa;
 
 import java.awt.Color;
-
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -51,6 +51,25 @@ public class CasaExterior extends JPanel {
 		
 		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));
 
+		JLabel LightLabel = new JLabel();
+        // Cargar la imagen de la bandera inglesa
+        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
+        LightLabel.setBounds(502, 448, 61, 17); // Ajusta el tamaño del JLabel 
+        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
+        LightLabel.setIcon(new ImageIcon(imgLight));
+        LightLabel.setVisible(false);
+		
+		JButton btnPuertaDoble = new JButton("");
+		btnPuertaDoble.setBounds(317, 326, 90, 121);
+		btnPuertaDoble.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnPuertaDoble.setOpaque(false);
+		btnPuertaDoble.setBackground(new Color(0, 0, 0, 0));
+		btnPuertaDoble.setBorderPainted(false); // No dibujar el borde
+		btnPuertaDoble.setFocusPainted(false);
+		btnPuertaDoble.setContentAreaFilled(false);
+		btnPuertaDoble.setVisible(false);
+		add(btnPuertaDoble);
+		
 		JLabel txtLlaveEncontrada = new JLabel("-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
 		txtLlaveEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLlaveEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -58,6 +77,30 @@ public class CasaExterior extends JPanel {
 		txtLlaveEncontrada.setBounds(50, 495, 875, 50);
 		add(txtLlaveEncontrada);
 		txtLlaveEncontrada.setVisible(false);
+		
+		JLabel txtSegundaVentana = new JLabel("No llego ni de coña.");
+		txtSegundaVentana.setHorizontalAlignment(SwingConstants.CENTER);
+		txtSegundaVentana.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtSegundaVentana.setForeground(Color.WHITE);
+		txtSegundaVentana.setBounds(50, 495, 875, 50);
+		add(txtSegundaVentana);
+		txtSegundaVentana.setVisible(false);
+		
+		JLabel txtVentana = new JLabel("Nah, tampoco puedo entrar por la ventana.");
+		txtVentana.setHorizontalAlignment(SwingConstants.CENTER);
+		txtVentana.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtVentana.setForeground(Color.WHITE);
+		txtVentana.setBounds(50, 495, 875, 50);
+		add(txtVentana);
+		txtVentana.setVisible(false);
+		
+		JLabel txtOtraPuerta = new JLabel("Esta puerta tampoco se habre.");
+		txtOtraPuerta.setHorizontalAlignment(SwingConstants.CENTER);
+		txtOtraPuerta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtOtraPuerta.setForeground(Color.WHITE);
+		txtOtraPuerta.setBounds(50, 495, 875, 50);
+		add(txtOtraPuerta);
+		txtOtraPuerta.setVisible(false);
 		
 		JLabel txtLlaveNOEncontrada = new JLabel("-Mueves la maceta, pero no hay nada debajo-");
 		txtLlaveNOEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
@@ -68,12 +111,28 @@ public class CasaExterior extends JPanel {
 		txtLlaveNOEncontrada.setVisible(false);
 
 		JButton btnContinueMaceta = new JButton("CONTINUAR");
+		btnContinueMaceta.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		JButton btnMaceta = new JButton("");
-		JButton btnPuertaCasa = new JButton("");
-		JButton btnPosit = new JButton("");
-		JButton btnMacetaIncorrect = new JButton("");
+		btnMaceta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnMaceta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LightLabel.setVisible(true);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LightLabel.setVisible(false);
+			}
+		});
 		
-		btnMaceta.setBounds(511, 433, 23, 23);
+		JButton btnPuertaCasa = new JButton("");
+		btnPuertaCasa.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		JButton btnPosit = new JButton("");
+		btnPosit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		JButton btnMacetaIncorrect = new JButton("");
+		btnMacetaIncorrect.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		btnMaceta.setBounds(517, 433, 23, 23);
 		btnMaceta.setOpaque(false);
 		btnMaceta.setBackground(new Color(0, 0, 0, 0));
 		btnMaceta.setBorderPainted(false); // No dibujar el borde
@@ -88,6 +147,7 @@ public class CasaExterior extends JPanel {
 				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
+				btnPuertaDoble.setVisible(false);
 				btnMaceta.setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
 				txtLlaveEncontrada.setVisible(true);
@@ -96,7 +156,7 @@ public class CasaExterior extends JPanel {
 			}
 		});
 		
-		btnMacetaIncorrect.setBounds(428, 433, 23, 23);
+		btnMacetaIncorrect.setBounds(431, 433, 23, 23);
 		btnMacetaIncorrect.setOpaque(false);
 		btnMacetaIncorrect.setBackground(new Color(0, 0, 0, 0));
 		btnMacetaIncorrect.setBorderPainted(false); // No dibujar el borde
@@ -112,6 +172,7 @@ public class CasaExterior extends JPanel {
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnMaceta.setVisible(false);
+				btnPuertaDoble.setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
 				btnContinueMaceta.setVisible(true);
 				txtLlaveNOEncontrada.setVisible(true);
@@ -146,6 +207,8 @@ public class CasaExterior extends JPanel {
 					btnPosit.setVisible(true);
 					txtLlaveEncontrada.setVisible(false);
 					btnContinueMaceta.setVisible(false);
+					txtOtraPuerta.setVisible(false);
+					btnPuertaDoble.setVisible(true);
 					btnMacetaIncorrect.setVisible(true);
 					btnMaceta.setVisible(true);
 					txtLlaveNOEncontrada.setVisible(false);
@@ -174,6 +237,7 @@ public class CasaExterior extends JPanel {
 		}
 
 		add(btnMaceta);
+		add(LightLabel);
 
 		lblPositGrande.setIcon(new ImageIcon(imgPositG));
 		add(lblPositGrande);
@@ -212,6 +276,7 @@ public class CasaExterior extends JPanel {
 		txtPuerta = 0;
 
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPuertaCasa.setVisible(true);
@@ -219,6 +284,7 @@ public class CasaExterior extends JPanel {
 				juego.getBtnMochila().setVisible(true);
 				btnPosit.setVisible(true);
 				btnVolver.setVisible(false);
+				btnPuertaDoble.setVisible(true);
 				btnMaceta.setVisible(true);
 				btnMacetaIncorrect.setVisible(true);
 				lblPositGrande.setVisible(false);
@@ -231,7 +297,6 @@ public class CasaExterior extends JPanel {
 		JLabel lblPostit = new JLabel();
 		lblPostit.setIcon(new ImageIcon("img/PostitEntrada.png"));
 		lblPostit.setBounds(270, 378, 46, 50);
-		add(lblPostit);
 
 		btnPosit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -240,43 +305,20 @@ public class CasaExterior extends JPanel {
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnVolver.setVisible(true);
+				btnPuertaDoble.setVisible(false);
 				btnMaceta.setVisible(false);
 				lblPositGrande.setVisible(true);
 			}
 		});
-
-		btnPosit.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblPostit.setIcon(new ImageIcon("img/PostitClick.png"));
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblPostit.setIcon(new ImageIcon("img/PostitEntrada.png"));
-			}
-
-		});
-
-		btnPosit.setBounds(270, 378, 46, 50);
+		btnPosit.setBounds(270, 378, 37, 37);
 		btnPosit.setOpaque(false);
 		btnPosit.setBackground(new Color(0, 0, 0, 0));
 		btnPosit.setBorderPainted(false); // No dibujar el borde
 		btnPosit.setFocusPainted(false);
 		btnPosit.setContentAreaFilled(false);
 		add(btnPosit);
+		add(lblPostit);
 		btnPosit.setVisible(false);
-
-		// Imagen pequeña 1
-		String smallImagePath1 = "img/PistaIcono.png";
-		ImageIcon smallScaledIcon1 = new ImageIcon(
-				new ImageIcon(smallImagePath1).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
-
-		// Imagen pequeña 2
-		String smallImagePath2 = "img/MochilaIcono.png";
-		ImageIcon smallScaledIcon2 = new ImageIcon(
-				new ImageIcon(smallImagePath2).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
 
 		CasaExterior = "img/CasaExteriorTexto.jpeg";
 
@@ -294,7 +336,7 @@ public class CasaExterior extends JPanel {
 
 		// Botón (btnPuertaCasa)
 
-		btnPuertaCasa.setBounds(449, 328, 57, 130);
+		btnPuertaCasa.setBounds(455, 328, 53, 130);
 		btnPuertaCasa.setOpaque(false);
 		btnPuertaCasa.setBackground(new Color(0, 0, 0, 0));
 		btnPuertaCasa.setBorderPainted(false); // No dibujar el borde
@@ -303,6 +345,23 @@ public class CasaExterior extends JPanel {
 		add(btnPuertaCasa);
 
 		JButton btnContinuePuerta = new JButton("CONTINUAR");
+		btnContinuePuerta.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		btnPuertaDoble.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CasaExterior = "img/CasaExteriorTexto.jpeg";
+				upgradeImage();
+				btnPuertaCasa.setVisible(false);
+				juego.getBtnPista().setVisible(false);
+				juego.getBtnMochila().setVisible(false);
+				btnPosit.setVisible(false);
+				btnPuertaDoble.setVisible(false);
+				btnMaceta.setVisible(false);
+				btnMacetaIncorrect.setVisible(false);
+				txtOtraPuerta.setVisible(true);
+				btnContinueMaceta.setVisible(true);
+			}
+		});
 
 		try {
 			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
@@ -326,6 +385,7 @@ public class CasaExterior extends JPanel {
 						btnMaceta.setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
 						btnContinuePuerta.setVisible(false);
+						btnPuertaDoble.setVisible(true);
 						CasaExterior = "img/CasaExteriorImg.jpeg";
 						upgradeImage();
 						TxtPuerta3.setVisible(false);
@@ -369,6 +429,7 @@ public class CasaExterior extends JPanel {
 				juego.getBtnMochila().setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
 				btnMaceta.setVisible(false);
+				btnPuertaDoble.setVisible(false);
 				btnPosit.setVisible(false);
 				CasaExterior = "img/CasaExteriorTexto.jpeg";
 				upgradeImage();
@@ -408,6 +469,7 @@ public class CasaExterior extends JPanel {
 			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
 			optionsFont = optionsFont.deriveFont(10f);
 			JButton btnContinue = new JButton("CONTINUAR");
+			btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			btnContinue.setBounds(819, 468, 115, 23);
 			btnContinue.setBackground(new Color(0, 0, 0, 0));
 			btnContinue.setOpaque(false);
@@ -426,6 +488,7 @@ public class CasaExterior extends JPanel {
 						juego.getLblMochila().setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
 						btnPuertaCasa.setVisible(true);
+						btnPuertaDoble.setVisible(true);
 						TxtIntroCasa2.setVisible(false);
 						btnContinue.setVisible(false);
 						txtPre = 2;

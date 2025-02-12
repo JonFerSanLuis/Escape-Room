@@ -1,6 +1,7 @@
 package view.Casa;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
@@ -43,15 +44,14 @@ public class Pasillo2Piso extends JPanel {
         ImageIcon flechaPasilloOFF = new ImageIcon("img/flechaArribaOFF.png");
         ImageIcon flechaPasilloON = new ImageIcon("img/flechaArribaON.png");
 
-        Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
-        Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+        Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(61, 57, Image.SCALE_SMOOTH);
+        Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(61, 57, Image.SCALE_SMOOTH);
 
         ImageIcon iconPasilloOFF = new ImageIcon(imgPasilloOFF);
         ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
 
         JLabel lblPasillo = new JLabel(iconPasilloOFF);
-        lblPasillo.setBounds(445, 336, 81, 77);
-        add(lblPasillo);
+        lblPasillo.setBounds(458, 319, 61, 57);
         
         // boton pasillo
         JButton btnPasillo = new JButton("");
@@ -71,12 +71,50 @@ public class Pasillo2Piso extends JPanel {
                 lblPasillo.setIcon(iconPasilloOFF);
             }
         });
-        btnPasillo.setBounds(445, 346, 65, 67);
+        btnPasillo.setBounds(464, 319, 47, 47);
         btnPasillo.setBackground(new Color(0, 0, 0, 0));
         btnPasillo.setOpaque(false);
         btnPasillo.setBorderPainted(false);
         btnPasillo.setContentAreaFilled(false);
         add(btnPasillo);
+        
+     // Flecha pasillo
+        ImageIcon flechaHijoOFF = new ImageIcon("img/felchaDerOFF.png");
+        ImageIcon flechaHijoON = new ImageIcon("img/felchaDerON.png");
+
+        Image imgHijoOFF = flechaHijoOFF.getImage().getScaledInstance(61, 57, Image.SCALE_SMOOTH);
+        Image imgHijoON = flechaHijoON.getImage().getScaledInstance(61, 57, Image.SCALE_SMOOTH);
+
+        ImageIcon iconHijoOFF = new ImageIcon(imgHijoOFF);
+        ImageIcon iconHijoON = new ImageIcon(imgHijoON);
+
+        JLabel lblHijo = new JLabel(iconHijoOFF);
+        lblHijo.setBounds(458, 377, 61, 57);
+        
+        // boton pasillo
+        JButton btnHijo = new JButton("");
+        btnHijo.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
+        btnHijo.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                lblHijo.setIcon(iconHijoON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                lblHijo.setIcon(iconHijoOFF);
+            }
+        });
+        btnHijo.setBounds(464, 377, 47, 47);
+        btnHijo.setBackground(new Color(0, 0, 0, 0));
+        btnHijo.setOpaque(false);
+        btnHijo.setBorderPainted(false);
+        btnHijo.setContentAreaFilled(false);
+        add(btnHijo);
         
         
      // Flecha volver escaleras
@@ -91,8 +129,6 @@ public class Pasillo2Piso extends JPanel {
 
         JLabel lblFlechaEscaleras = new JLabel(iconEscalerasOFF);
         lblFlechaEscaleras.setBounds(445, 484, 81, 77);
-        add(lblFlechaEscaleras);
-        
         
         // boton volver escaleras
         JButton btnVolverRecibidor = new JButton("");
@@ -122,6 +158,13 @@ public class Pasillo2Piso extends JPanel {
 		btnVolverRecibidor.setBorderPainted(false);
 		btnVolverRecibidor.setContentAreaFilled(false);
 		
+		btnHijo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnPasillo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnVolverRecibidor.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+        add(lblFlechaEscaleras);
+        add(lblPasillo);
+        add(lblHijo);
         
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();

@@ -1,6 +1,7 @@
 package Inicio;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Image;
@@ -51,13 +52,14 @@ public class Intro extends JPanel {
             historia.setFont(new Font("Tahoma", Font.PLAIN, 15));
             historia.setEditable(false);
             historia.setText(textos[i]);
-            historia.setBounds(48, 502, 855, 58);
+            historia.setBounds(48, 538, 855, 58);
             historia.setVisible(i == 0);
             add(historia);
             TxtIntro.add(historia);
         }
 
         JButton btnContinue = new JButton("CONTINUAR");
+        btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
         btnContinue.setBackground(new Color(0, 0, 0, 0));
         btnContinue.setOpaque(false);

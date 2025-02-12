@@ -1,6 +1,7 @@
 package Inicio;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -189,6 +190,13 @@ public class Casa extends JFrame {
 			ranking.setContentAreaFilled(false);
 			configurarBoton(ranking, buttonFont);
 
+			play.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			btnOptions.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			ranking.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			guardar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			btnEnglish.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			btnSpanish.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			
 			contentPanel.add(play);
 			contentPanel.add(btnOptions);
 			contentPanel.add(ranking);

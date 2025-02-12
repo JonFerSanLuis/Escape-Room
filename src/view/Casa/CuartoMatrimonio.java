@@ -36,17 +36,10 @@ public class CuartoMatrimonio extends JPanel {
         Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
-        JLabel lblDestello = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-		ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-		lblDestello.setBounds(618, 303, 83, 23); // Ajusta el tamaño del JLabel
-		Image imgLight = LightImagen.getImage().getScaledInstance(lblDestello.getWidth(), lblDestello.getHeight(),
-				Image.SCALE_SMOOTH);
-		
 		 // Flecha pasillo
 		
  		JLabel lblFlechaPasillo = new JLabel("");
- 		lblFlechaPasillo.setBounds(527, 380, 309, 190);
+ 		lblFlechaPasillo.setBounds(527, 390, 309, 190);
  		
  		
  		 ImageIcon flechaPasilloOFF = new ImageIcon("img/FlechaVolverPasilloPadresOFF.png");
@@ -59,7 +52,6 @@ public class CuartoMatrimonio extends JPanel {
          ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
 
          lblFlechaPasillo.setIcon(iconPasilloOFF);
-         add(lblFlechaPasillo);
     // Boton pasillo
     JButton btnVolverPasillo = new JButton("");
 	btnVolverPasillo.addMouseListener(new MouseAdapter() {
@@ -80,39 +72,44 @@ public class CuartoMatrimonio extends JPanel {
             }
         });
 	
-	btnVolverPasillo.setBounds(612, 394, 145, 128);
+	btnVolverPasillo.setBounds(612, 436, 155, 106);
 	btnVolverPasillo.setBackground(new Color(0, 0, 0, 0));
 	btnVolverPasillo.setOpaque(false);
 	btnVolverPasillo.setBorderPainted(false);
 	btnVolverPasillo.setContentAreaFilled(false);
+	
+	JButton btnVerCajon = new JButton("");
+    add(btnVerCajon);
+	
 	add(btnVolverPasillo);
-	lblDestello.setIcon(new ImageIcon(imgLight));
-	add(lblDestello, Integer.valueOf(2));
-	lblDestello.setVisible(false);
+	add(lblFlechaPasillo);
+	
+
+    JButton btnVerCaja = new JButton("");
+    
+    JButton btnPistaCaja = new JButton("");
+    
+    JButton btnPuzzleCaja = new JButton("");
+    
+    JButton btnContinue = new JButton("CONTINUAR");
+    
+    JButton btnVolver = new JButton("VOLVER");
+    add(btnPuzzleCaja);
+    add(btnPistaCaja); 
 
 		JLabel PistaCajaLabel = new JLabel();
 		// Cargar la imagen de la bandera inglesa
 		ImageIcon PistaCajaImagen = new ImageIcon("img/pistaCajaFuerte.png");
-		PistaCajaLabel.setBounds(20, 380, 40, 37); // Ajusta el tamaño del JLabel
+		PistaCajaLabel.setBounds(20, 405, 40, 37); // Ajusta el tamaño del JLabel
 		Image imgPistaCaja = PistaCajaImagen.getImage().getScaledInstance(PistaCajaLabel.getWidth(),
 				PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
 		PistaCajaLabel.setIcon(new ImageIcon(imgPistaCaja));
 		add(PistaCajaLabel, Integer.valueOf(2));
-
-		JLabel LightLabelCaja = new JLabel();
-		// Cargar la imagen de la bandera inglesa
-		ImageIcon LightImagenCaja = new ImageIcon("img/11571045.png");
-		LightLabelCaja.setBounds(815, 318, 83, 23); // Ajusta el tamaño del JLabel
-		Image imgLightCaja = LightImagenCaja.getImage().getScaledInstance(LightLabelCaja.getWidth(),
-				LightLabelCaja.getHeight(), Image.SCALE_SMOOTH);
-		LightLabelCaja.setIcon(new ImageIcon(imgLightCaja));
-        add(LightLabelCaja, Integer.valueOf(2));
-        LightLabelCaja.setVisible(false);
         
         JLabel RuedaCajaLabel = new JLabel();
 		// Cargar la imagen de la bandera inglesa
 		ImageIcon ImagenRueda = new ImageIcon("img/cajaFuerteRueda.png");
-		RuedaCajaLabel.setBounds(332, 167, 220, 214); // Ajusta el tamaño del JLabel
+		RuedaCajaLabel.setBounds(336, 177, 220, 214); // Ajusta el tamaño del JLabel
 		Image imgRueda = ImagenRueda.getImage().getScaledInstance(RuedaCajaLabel.getWidth(),
 				RuedaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
 		RuedaCajaLabel.setIcon(new ImageIcon(imgRueda));
@@ -121,7 +118,7 @@ public class CuartoMatrimonio extends JPanel {
 
 		ImageIcon PistaCajaGrande = new ImageIcon("img/pistaCajaFuerte.png");
 		JLabel lblPistaCajaGrande = new JLabel();
-		lblPistaCajaGrande.setBounds(223, 67, 478, 429); // Ajusta el tamaño del JLabel
+		lblPistaCajaGrande.setBounds(223, 67, 488, 429); // Ajusta el tamaño del JLabel
 		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
 		Image imgPistaCajaG = PistaCajaGrande.getImage().getScaledInstance(lblPistaCajaGrande.getWidth(),
 				lblPistaCajaGrande.getHeight(), Image.SCALE_SMOOTH);
@@ -131,15 +128,13 @@ public class CuartoMatrimonio extends JPanel {
 		
 		ImageIcon CajaZoom = new ImageIcon("img/cajaFuerteCod.png");
 		JLabel lblCajaZoom = new JLabel();
-		lblCajaZoom.setBounds(223, 67, 478, 429); // Ajusta el tamaño del JLabel
+		lblCajaZoom.setBounds(223, 77, 488, 429); // Ajusta el tamaño del JLabel
 		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
 		Image imgCajaZoom = CajaZoom.getImage().getScaledInstance(lblCajaZoom.getWidth(),
 				lblCajaZoom.getHeight(), Image.SCALE_SMOOTH);
 		lblCajaZoom.setIcon(new ImageIcon(imgCajaZoom));
 		
 		lblCajaZoom.setVisible(false);
-        
-        ArrayList<JLabel> TxtCajon = new ArrayList<>();
         
         JLabel Txtcajon1 = new JLabel("El cajón esta cerrado con llave");
 		Txtcajon1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -149,19 +144,6 @@ public class CuartoMatrimonio extends JPanel {
 		add(Txtcajon1);
 		Txtcajon1.setVisible(false);
 		
-		TxtCajon.add(Txtcajon1);
-		
-        JButton btnVerCaja = new JButton("");
-        
-        JButton btnPistaCaja = new JButton("");
-        
-        JButton btnVerCajon = new JButton("");
-        
-        JButton btnPuzzleCaja = new JButton("");
-        
-        JButton btnContinue = new JButton("CONTINUAR");
-        
-        JButton btnVolver = new JButton("VOLVER");
         btnVolver.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
@@ -174,7 +156,7 @@ public class CuartoMatrimonio extends JPanel {
         btnVerCajon.setBorderPainted(false); // No dibujar el borde
         btnVerCajon.setFocusPainted(false);
         btnVerCajon.setContentAreaFilled(false);
-        btnVerCajon.setBounds(581, 299, 178, 96);
+        btnVerCajon.setBounds(581, 310, 188, 106);
         btnVerCajon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -199,24 +181,18 @@ public class CuartoMatrimonio extends JPanel {
 					}
                 });
             }
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		lblDestello.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		lblDestello.setVisible(false);
-        	}
         });
         
         JLabel ImagenCajaFuerteLabel = new JLabel();
+
+        add(btnVerCaja);
         
         btnPuzzleCaja.setOpaque(false);
         btnPuzzleCaja.setBackground(new Color(0, 0, 0, 0));
         btnPuzzleCaja.setBorderPainted(false); // No dibujar el borde
         btnPuzzleCaja.setFocusPainted(false);
         btnPuzzleCaja.setContentAreaFilled(false);
-        btnPuzzleCaja.setBounds(345, 187, 194, 191);
+        btnPuzzleCaja.setBounds(345, 197, 194, 191);
         btnPuzzleCaja.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -243,7 +219,7 @@ public class CuartoMatrimonio extends JPanel {
         	}
         }); 
         btnPuzzleCaja.setVisible(false);
-        add(btnPuzzleCaja);
+        
         add(lblCajaZoom);
         
         btnVerCaja.setOpaque(false);
@@ -251,7 +227,7 @@ public class CuartoMatrimonio extends JPanel {
         btnVerCaja.setBorderPainted(false); // No dibujar el borde
         btnVerCaja.setFocusPainted(false);
         btnVerCaja.setContentAreaFilled(false);
-        btnVerCaja.setBounds(830, 303, 63, 55);
+        btnVerCaja.setBounds(830, 319, 63, 55);
         btnVerCaja.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -272,17 +248,8 @@ public class CuartoMatrimonio extends JPanel {
                     }
                 });
             }
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		LightLabelCaja.setVisible(true);
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		LightLabelCaja.setVisible(false);
-        	}
         });
-        add(btnVerCaja);
-        
+
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnVolver.setVisible(false);
@@ -296,16 +263,16 @@ public class CuartoMatrimonio extends JPanel {
 				btnVolverPasillo.setVisible(true);
 			}
 		});
-		btnVolver.setBounds(37, 511, 89, 23);
+		btnVolver.setBounds(37, 521, 89, 23);
 		add(btnVolver);
 		btnVolver.setVisible(false);
-       
+		btnPistaCaja.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnPistaCaja.setOpaque(false);
         btnPistaCaja.setBackground(new Color(0, 0, 0, 0));
         btnPistaCaja.setBorderPainted(false); // No dibujar el borde
         btnPistaCaja.setFocusPainted(false);
         btnPistaCaja.setContentAreaFilled(false);
-        btnPistaCaja.setBounds(20, 380, 40, 37);
+        btnPistaCaja.setBounds(20, 405, 40, 37);
         btnPistaCaja.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -321,21 +288,13 @@ public class CuartoMatrimonio extends JPanel {
                     }
                 });
             }
-        	@Override
-        	public void mouseEntered(MouseEvent e) {
-        		 ImageIcon hoveredImage = new ImageIcon("img/pistaCajaFuerteON.png");
-        	        Image imgHovered = hoveredImage.getImage().getScaledInstance(PistaCajaLabel.getWidth(), PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
-        	        PistaCajaLabel.setIcon(new ImageIcon(imgHovered));
-        	}
-        	@Override
-        	public void mouseExited(MouseEvent e) {
-        		 ImageIcon hoveredImage = new ImageIcon("img/pistaCajaFuerte.png");
-        	        Image imgHovered = hoveredImage.getImage().getScaledInstance(PistaCajaLabel.getWidth(), PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
-        	        PistaCajaLabel.setIcon(new ImageIcon(imgHovered));
-        	}
-        });
-        add(btnPistaCaja);   
+        });  
         
+        btnPuzzleCaja.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnVerCaja.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnVerCajon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnVolverPasillo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
 		btnContinue.setBounds(819, 468, 115, 23);
 		btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -358,7 +317,8 @@ public class CuartoMatrimonio extends JPanel {
             	btnVolverPasillo.setVisible(true);
 			}
 		});
-
+		
+		btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnContinue.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -378,10 +338,8 @@ public class CuartoMatrimonio extends JPanel {
 		add(btnContinue);
         
         ImageIcon ImagenCajaFuerte = new ImageIcon("img/cajaFuerte.png");
-
-        add(btnVerCajon);
         
-        ImagenCajaFuerteLabel.setBounds(773, 264, 161, 118); 
+        ImagenCajaFuerteLabel.setBounds(773, 284, 161, 118); 
         
         Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);
         ImagenCajaFuerteLabel.setIcon(new ImageIcon(imgCajaFuerte)); 
@@ -413,16 +371,7 @@ public class CuartoMatrimonio extends JPanel {
         Timer actualizarTimer = new Timer(1000, e -> 
             labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
-        
-<<<<<<< Updated upstream
-=======
-        JButton btnJuegoCaja = new JButton("");
-        btnJuegoCaja.setBounds(837, 312, 61, 50);
-        layeredPane.add(btnJuegoCaja);
-        
-        // Ajustar el tamaño de la ventana al contenido
-        pack();
->>>>>>> Stashed changes
+
     }
     
     private void upgradeImage() {

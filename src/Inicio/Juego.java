@@ -6,6 +6,7 @@ import utilidades.Inventario;
 import view.Casa.CajaAbierta;
 import view.Casa.CajonCuartoPadres;
 import view.Casa.CasaExterior;
+import view.Casa.CocinaCasa;
 import view.Casa.CuartoMatrimonio;
 import view.Casa.Pasillo2Piso;
 import view.Casa.PuzzleCajaFuerte;

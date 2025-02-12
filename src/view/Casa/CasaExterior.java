@@ -46,7 +46,7 @@ public class CasaExterior extends JPanel {
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
 	public CasaExterior(Juego juego) {
-		setBounds(0, 0, 950, 600);
+		setBounds(0, 0, juego.getPanelPrincipal().getWidth(), juego.getPanelPrincipal().getHeight());
 		setLayout(null);
 		
 		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));
@@ -73,7 +73,7 @@ public class CasaExterior extends JPanel {
 		JButton btnPosit = new JButton("");
 		JButton btnMacetaIncorrect = new JButton("");
 		
-		btnMaceta.setBounds(512, 422, 17, 17);
+		btnMaceta.setBounds(512, 416, 17, 17);
 		btnMaceta.setOpaque(false);
 		btnMaceta.setBackground(new Color(0, 0, 0, 0));
 		btnMaceta.setBorderPainted(false); // No dibujar el borde
@@ -290,6 +290,8 @@ public class CasaExterior extends JPanel {
 		lblCasa.setBounds(0, 0, 934, 561);
 		lblCasa.setIcon(scaledIcon); // Establecer la imagen por defecto
 		add(lblCasa);
+		
+		upgradeImage();
 
 		// Botón (btnPuertaCasa)
 
@@ -489,7 +491,7 @@ public class CasaExterior extends JPanel {
 		// Cargar la nueva imagen
 		ImageIcon originalIcon = new ImageIcon(CasaExterior);
 		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		Image scaledImage = originalImage.getScaledInstance(lblCasa.getWidth(), lblCasa.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
 		// Actualizar el fondo con la nueva imagen

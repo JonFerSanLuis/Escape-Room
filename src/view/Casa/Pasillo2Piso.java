@@ -39,7 +39,7 @@ public class Pasillo2Piso extends JPanel {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         setLayout(null);
         
-        // Flecha
+        // Flecha pasillo
         ImageIcon flechaPasilloOFF = new ImageIcon("img/flechaArribaOFF.png");
         ImageIcon flechaPasilloON = new ImageIcon("img/flechaArribaON.png");
 
@@ -53,6 +53,7 @@ public class Pasillo2Piso extends JPanel {
         lblPasillo.setBounds(445, 336, 81, 77);
         add(lblPasillo);
         
+        // boton pasillo
         JButton btnPasillo = new JButton("");
         btnPasillo.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -76,7 +77,51 @@ public class Pasillo2Piso extends JPanel {
         btnPasillo.setBorderPainted(false);
         btnPasillo.setContentAreaFilled(false);
         add(btnPasillo);
-        // --------------
+        
+        
+     // Flecha volver escaleras
+        ImageIcon flechaEscalerasOFF = new ImageIcon("img/felchaDerOFF.png");
+        ImageIcon flechaEscalerasON = new ImageIcon("img/felchaDerON.png");
+
+        Image imgEscalerasOFF = flechaEscalerasOFF.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+        Image imgEscalerasON = flechaEscalerasON.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
+
+        ImageIcon iconEscalerasOFF = new ImageIcon(imgEscalerasOFF);
+        ImageIcon iconEscalerasON = new ImageIcon(imgEscalerasON);
+
+        JLabel lblFlechaEscaleras = new JLabel(iconEscalerasOFF);
+        lblFlechaEscaleras.setBounds(445, 484, 81, 77);
+        add(lblFlechaEscaleras);
+        
+        
+        // boton volver escaleras
+        JButton btnVolverRecibidor = new JButton("");
+		btnVolverRecibidor.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				juego.cambiarEscena("recibidor");
+			}
+		});
+		btnVolverRecibidor.setBounds(434, 492, 113, 59);
+		add(btnVolverRecibidor);
+		
+		btnVolverRecibidor.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            	lblFlechaEscaleras.setIcon(iconEscalerasON);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblFlechaEscaleras.setIcon(iconEscalerasOFF);
+            }
+        });
+		
+		btnVolverRecibidor.setBackground(new Color(0, 0, 0, 0));
+		btnVolverRecibidor.setOpaque(false);
+		btnVolverRecibidor.setBorderPainted(false);
+		btnVolverRecibidor.setContentAreaFilled(false);
+		
         
         // Mostrar la imagen redimensionada
         lblPasillo2Piso = new JLabel();
@@ -95,7 +140,7 @@ public class Pasillo2Piso extends JPanel {
 		
 		// Agregar primero labelTiempo para asegurarnos de que está al frente
 		add(labelTiempo);
-		setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+		setComponentZOrder(labelTiempo, 0);
 
         // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
         Timer actualizarTimer = new Timer(1000, e -> 

@@ -27,6 +27,7 @@ public class Casa extends JFrame {
 
 	private JPanel contentPanel;
 	private JLabel HomeLabel;
+	private JButton play, btnOptions, ranking, guardar;
 
 	public Casa() {
 		Config.cargarIdiomas();
@@ -45,7 +46,7 @@ public class Casa extends JFrame {
             Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BonaNovaSC-Bold.ttf"));
             buttonFont = buttonFont.deriveFont(30f);
 
-            JButton play = new JButton(Config.getTexto("jugar"));
+            play = new JButton(Config.getTexto("jugar"));
             play.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent e) {
             		Juego juego = new Juego();
@@ -79,7 +80,7 @@ public class Casa extends JFrame {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					Config.idioma = "es";
-					//actualizarTextos();
+					actualizarTextos();
 				}
 			});
 			btnSpanish.setVisible(false);
@@ -105,7 +106,7 @@ public class Casa extends JFrame {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					Config.idioma = "en";
-					//actualizarTextos();
+					actualizarTextos();
 				}
 			});
 			btnEnglish.setVisible(false);
@@ -135,7 +136,7 @@ public class Casa extends JFrame {
 	        Englishlabel.setVisible(false);
 
 			JLabel lblOpciones = new JLabel();
-			JButton guardar = new JButton(Config.getTexto("guardar"));
+			guardar = new JButton(Config.getTexto("guardar"));
 			contentPanel.add(guardar);
 			
 	        lblOpciones.setBounds(257, 11, 410, 489);
@@ -145,9 +146,9 @@ public class Casa extends JFrame {
 	        contentPanel.add(lblOpciones);
 	        lblOpciones.setVisible(false);
 	        
-	        JButton ranking = new JButton(Config.getTexto("ranking"));
+	        ranking = new JButton(Config.getTexto("ranking"));
 			
-			JButton btnOptions = new JButton(Config.getTexto("opciones"));
+			btnOptions = new JButton(Config.getTexto("opciones"));
 			
 			guardar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -255,12 +256,10 @@ public class Casa extends JFrame {
             }
         });
     }
-    /*
     private void actualizarTextos() {
         play.setText(Config.getTexto("jugar"));
         btnOptions.setText(Config.getTexto("opciones"));
         ranking.setText(Config.getTexto("ranking"));
         guardar.setText(Config.getTexto("guardar"));
-    }*/
-
+    }
 }

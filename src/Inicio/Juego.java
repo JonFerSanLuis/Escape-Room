@@ -108,6 +108,11 @@ public class Juego extends JFrame{
         panelPrincipal = new JPanel(cardLayout);
         panelPrincipal.setBounds(0, 0, getWidth(), getHeight());
         panelPrincipal.setBackground(new Color(0, 0, 0));
+        
+        lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
+        btnPista = new JButton("");
+        btnMochila = new JButton("");
+        lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
 
         panelPrincipal.add(new Intro(this), "intro");
         panelPrincipal.add(new CasaExterior(this), "casaExterior");
@@ -206,11 +211,6 @@ public class Juego extends JFrame{
         configurarRanuras(ranura14);
         configurarRanuras(ranura15);
         
-        lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
-        btnPista = new JButton("");
-        btnMochila = new JButton("");
-        lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
-        
         btnMochila.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean isVisible = panelMochila.isVisible();
@@ -245,11 +245,11 @@ public class Juego extends JFrame{
 		btnMochila.setBounds(950, 11, 60, 60);
 		btnMochila.setOpaque(false);
 		btnMochila.setBackground(new Color(0, 0, 0, 0));
-		btnMochila.setBorderPainted(false); // No dibujar el borde
+		btnMochila.setBorderPainted(false); 
 		btnMochila.setFocusPainted(false);
 		btnMochila.setContentAreaFilled(false);
 
-		lblMochila.setBounds(945, 11, 60, 60); // Posición adicional a la derecha del JFrame
+		lblMochila.setBounds(945, 11, 60, 60); 
 		getContentPane().add(lblMochila);
 		getContentPane().add(btnMochila);
 		btnMochila.setVisible(false);
@@ -258,12 +258,12 @@ public class Juego extends JFrame{
 		btnPista.setBounds(1010, 11, 60, 60);
 		btnPista.setOpaque(false);
 		btnPista.setBackground(new Color(0, 0, 0, 0));
-		btnPista.setBorderPainted(false); // No dibujar el borde
+		btnPista.setBorderPainted(false); 
 		btnPista.setFocusPainted(false);
 		btnPista.setContentAreaFilled(false);
 
 		lblPista.setBounds(1010, 11, 60, 60);
-		getContentPane().add(btnPista);// Posición en la parte derecha del JFrame
+		getContentPane().add(btnPista);
 		getContentPane().add(lblPista);
 		btnPista.setVisible(false);
 		lblPista.setVisible(false);

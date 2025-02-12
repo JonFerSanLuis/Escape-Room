@@ -3,13 +3,10 @@ package Inicio;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
-import view.Casa.CasaExterior;
+import config.Config;
 
 public class Intro extends JPanel {
 
@@ -29,21 +26,23 @@ public class Intro extends JPanel {
         TxtIntro = new ArrayList<>();
         txt = 0;
 
+        // Array de textos cogidos de la clase Config
         String[] textos = {
-            "Me llamo Yuri, soy una estudiante de secundaria y mi mejor amigo sufre BULLYING.",
-            "Me di cuenta mientras charlábamos en el parque. Me confesó que dentro de poco se iba a mudar bastante lejos y se puso sentimental.",
-            "Entonces comentó que al menos esperaba no tener que lidiar con 'gente así' en su futuro hogar.",
-            "Agregarle a eso que no era la primera vez que lo veía con moratones.",
-            "Tanto silencio me hizo pensar y darme cuenta de lo despistada que fui.",
-            "La sorpresa me hizo enfadarme sin razón y comenzar a levantar la voz.",
-            "'¡Por qué no me dijiste nada!' Le grité, cegada por la impotencia.",
-            "Tuvimos una fuerte discusión por culpa de mi falta de tacto. Y por alguna razón no dejaba de echarle la culpa a él.",
-            "Si tan solo hubiera sido un poco más considerada y atenta...",
-            "Hace unos días, Mikel se escapó de casa.",
-            "No soporto pensar que tengo parte de culpa.",
-            "TENGO QUE ENCONTRARLE"
+            Config.getTexto("1"),
+            Config.getTexto("2"),
+            Config.getTexto("3"),
+            Config.getTexto("4"),
+            Config.getTexto("5"),
+            Config.getTexto("6"),
+            Config.getTexto("7"),
+            Config.getTexto("8"),
+            Config.getTexto("9"),
+            Config.getTexto("10"),
+            Config.getTexto("11"),
+            Config.getTexto("12")
         };
 
+        // Crear JTextPane para cada texto
         for (int i = 0; i < textos.length; i++) {
             JTextPane historia = new JTextPane();
             historia.setForeground(Color.WHITE);
@@ -58,7 +57,7 @@ public class Intro extends JPanel {
             TxtIntro.add(historia);
         }
 
-        JButton btnContinue = new JButton("CONTINUAR");
+        JButton btnContinue = new JButton(Config.getTexto("siguiente"));  // Usamos el texto para el botón
         btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
         btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -114,4 +113,3 @@ public class Intro extends JPanel {
         return new ImageIcon(image.getScaledInstance(950, 600, Image.SCALE_SMOOTH));
     }
 }
-

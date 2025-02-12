@@ -20,12 +20,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import config.Config;
+
 public class Casa extends JFrame {
 
 	private JPanel contentPanel;
 	private JLabel HomeLabel;
 
 	public Casa() {
+		Config.cargarIdiomas(); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 80, 950, 600);
 		contentPanel = new JPanel();
@@ -40,7 +43,7 @@ public class Casa extends JFrame {
             Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BonaNovaSC-Bold.ttf"));
             buttonFont = buttonFont.deriveFont(30f);
 
-            JButton play = new JButton("JUGAR");
+            JButton play = new JButton(Config.getTexto("jugar"));
             play.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent e) {
             		Juego juego = new Juego();
@@ -95,7 +98,7 @@ public class Casa extends JFrame {
 			contentPanel.add(btnEnglish);
 			contentPanel.add(btnSpanish);
 
-			JLabel idioma = new JLabel("Idioma");
+			JLabel idioma = new JLabel(Config.getTexto("idioma"));
 			idioma.setBounds(348, 39, 246, 57);
 			idioma.setOpaque(false);
 			idioma.setForeground(Color.white);
@@ -117,7 +120,7 @@ public class Casa extends JFrame {
 	        Englishlabel.setVisible(false);
 
 			JLabel lblOpciones = new JLabel();
-			JButton guardar = new JButton("GUARDAR");
+			JButton guardar = new JButton(Config.getTexto("guardar"));
 			contentPanel.add(guardar);
 			
 	        lblOpciones.setBounds(257, 11, 410, 489);
@@ -127,9 +130,9 @@ public class Casa extends JFrame {
 	        contentPanel.add(lblOpciones);
 	        lblOpciones.setVisible(false);
 	        
-			JButton ranking = new JButton("RANKING");
+	        JButton ranking = new JButton(Config.getTexto("ranking"));
 			
-			JButton btnOptions = new JButton("OPCIONES");
+			JButton btnOptions = new JButton(Config.getTexto("opciones"));
 			
 			guardar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

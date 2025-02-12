@@ -45,7 +45,7 @@ public class ElegirConversacionIN extends JFrame {
         contentPane.setLayout(null);
 
         // --------- BACKGROUND IMAGE ---------
-        String backgroundFile = "img/Fototelevision-conver.jpg";
+        String backgroundFile = "FotosIngles\\FototelevisionConverINGLES.jpg";
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
         Image originalImage = originalIcon.getImage();
         Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
@@ -54,7 +54,7 @@ public class ElegirConversacionIN extends JFrame {
         // --------- BACK ARROW TO GO TO ChildRoom ---------
         btnReturn = new JButton("");
         btnReturn.setBounds(715, 374, 177, 141);
-        ImageIcon iconReturn = new ImageIcon("img\\ReturnRoom.png");
+        ImageIcon iconReturn = new ImageIcon("FotosIngles\\VolverHabitacionINGLES.png");
         btnReturn.setIcon(new ImageIcon(iconReturn.getImage().getScaledInstance(200, 125, Image.SCALE_SMOOTH)));
         btnReturn.setOpaque(false);
         btnReturn.setContentAreaFilled(false);

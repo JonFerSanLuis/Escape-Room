@@ -27,7 +27,6 @@ public class CuartoMatrimonio extends JPanel {
     public CuartoMatrimonio(Juego juego) {
         setBounds(0, 0, 950, 600); 
         setLayout(null);
-
         
         CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
 
@@ -374,5 +373,7 @@ public class CuartoMatrimonio extends JPanel {
         ImageIcon icon = new ImageIcon(filePath);
         Image image = icon.getImage();
         return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
+   
+        
+	}
 }

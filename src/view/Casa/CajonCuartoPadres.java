@@ -44,10 +44,13 @@ public class CajonCuartoPadres extends JPanel {
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         setLayout(null);
         
+        JButton btnPapelesDiv = new JButton("");
+        add(btnPapelesDiv);
+        
         JLabel LightLabel = new JLabel();
         // Cargar la imagen de la bandera inglesa
         ImageIcon LightImagen = new ImageIcon("img/11571045.png");
-        LightLabel.setBounds(438, 309, 70, 29); // Ajusta el tamaño del JLabel 
+        LightLabel.setBounds(448, 319, 70, 29); // Ajusta el tamaño del JLabel 
         Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
         LightLabel.setIcon(new ImageIcon(imgLight));
         
@@ -62,22 +65,29 @@ public class CajonCuartoPadres extends JPanel {
 		add(Txtcajon1);
 		Txtcajon1.setVisible(false);
 
-        JButton btnPapelesDiv = new JButton("");
+
+        JButton btnVolver = new JButton("VOLVER");
+
+        JButton btnContinue = new JButton("CONTINUAR");
+		
         btnPapelesDiv.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnPapelesDiv.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		backgroundFile = "img/habitacionMatrimonial.jpeg";
-				upgradeImage();
-        		btnPapelesDiv.setVisible(false);
-        		Txtcajon1.setVisible(true);
-        		inventario.agregarObjeto(inventario.getPapelesDivorcio());
-        	}
-        });
-        btnPapelesDiv.setBounds(327, 285, 195, 140);
         btnPapelesDiv.setBackground(new Color(0, 0, 0, 0));
         btnPapelesDiv.setOpaque(false);
         btnPapelesDiv.setBorderPainted(false);
         btnPapelesDiv.setContentAreaFilled(false);
+        btnPapelesDiv.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		backgroundFile = "img/cajonTxt.png";
+				upgradeImage();
+        		btnPapelesDiv.setVisible(false);
+        		Txtcajon1.setVisible(true);
+        		inventario.agregarObjeto(inventario.getPapelesDivorcio());
+        		btnVolver.setVisible(false);
+        		btnContinue.setVisible(true);
+        	}
+        });
+        btnPapelesDiv.setBounds(327, 295, 195, 140);
+
         btnPapelesDiv.addMouseListener(new MouseAdapter() {
           	@Override
         	public void mouseEntered(MouseEvent e) {
@@ -88,9 +98,7 @@ public class CajonCuartoPadres extends JPanel {
         		LightLabel.setVisible(false);
         	}
         });
-        add(btnPapelesDiv);
         
-        JButton btnVolver = new JButton("VOLVER");
         btnVolver.setBounds(37, 521, 89, 23);
         btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(btnVolver);
@@ -101,7 +109,6 @@ public class CajonCuartoPadres extends JPanel {
         	}
         });
 
-        JButton btnContinue = new JButton("CONTINUAR");
         btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
 		btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -113,7 +120,7 @@ public class CajonCuartoPadres extends JPanel {
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backgroundFile = "img/habitacionMatrimonial.jpeg";
+				backgroundFile = "img/cajon.png";
 				upgradeImage();
 				Txtcajon1.setVisible(false);
 				btnVolver.setVisible(true);
@@ -142,11 +149,11 @@ public class CajonCuartoPadres extends JPanel {
         
         // Mostrar la imagen redimensionada
         lblCajon = new JLabel();
-        lblCajon.setBounds(0, 0, 934, 561);
+        lblCajon.setBounds(0, 0, 950, 600);
         lblCajon.setIcon(scaledIcon);  // Establecer la imagen por defecto
         add(lblCajon);
     }
-    
+
     private void upgradeImage() {
 		// Cargar la nueva imagen
 		ImageIcon originalIcon = new ImageIcon(backgroundFile);

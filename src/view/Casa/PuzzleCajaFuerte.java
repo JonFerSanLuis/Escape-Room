@@ -2,6 +2,7 @@ package view.Casa;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -119,32 +120,26 @@ public class PuzzleCajaFuerte extends JPanel {
         		Image.SCALE_SMOOTH);
         
         flechaArriba1.setIcon(new ImageIcon(imgFlechaArriba));
-        add(flechaArriba1);
         
         JLabel flechaArriba2 = new JLabel("");
         flechaArriba2.setBounds(434, 269, 91, 47);
         flechaArriba2.setIcon(new ImageIcon(imgFlechaArriba));
-        add(flechaArriba2);
         
         JLabel flechaArriba3 = new JLabel("");
         flechaArriba3.setBounds(595, 269, 91, 47);
         flechaArriba3.setIcon(new ImageIcon(imgFlechaArriba));
-        add(flechaArriba3);
         
         JLabel flechaAbajo3 = new JLabel("");
         flechaAbajo3.setBounds(595, 455, 91, 47);
         flechaAbajo3.setIcon(new ImageIcon(imgFlechaAbajo));
-        add(flechaAbajo3);
         
         JLabel flechaAbajo2 = new JLabel("");
         flechaAbajo2.setBounds(434, 455, 91, 47);
         flechaAbajo2.setIcon(new ImageIcon(imgFlechaAbajo));
-        add(flechaAbajo2);
         
         JLabel flechaAbajo1 = new JLabel("");
         flechaAbajo1.setBounds(262, 455, 91, 47);
         flechaAbajo1.setIcon(new ImageIcon(imgFlechaAbajo));
-        add(flechaAbajo1);
         
         btnArriba1.setBounds(262, 269, 91, 47);
         btnArriba1.addActionListener(new ActionListener() {
@@ -297,6 +292,23 @@ public class PuzzleCajaFuerte extends JPanel {
 		});
 		btnAceptar.setBounds(796, 494, 89, 23);
 		add(btnAceptar);
+		
+        add(flechaAbajo1);
+        add(flechaAbajo2);
+        add(flechaAbajo3);
+        add(flechaArriba3);
+        add(flechaArriba2);
+        add(flechaArriba1);
+		
+		btnAceptar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnAbajo1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnAbajo2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnAbajo3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnArriba1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnArriba2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnArriba3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 950, 600);

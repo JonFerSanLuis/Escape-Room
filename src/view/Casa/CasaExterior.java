@@ -210,7 +210,7 @@ public class CasaExterior extends JPanel {
 					txtOtraPuerta.setVisible(false);
 					btnPuertaDoble.setVisible(true);
 					btnMacetaIncorrect.setVisible(true);
-					btnMaceta.setVisible(true);
+					btnMaceta.setEnabled(true);
 					txtLlaveNOEncontrada.setVisible(false);
 					CasaExterior = "img/CasaExteriorImg.jpeg";
 					upgradeImage();

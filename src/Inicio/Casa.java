@@ -28,7 +28,8 @@ public class Casa extends JFrame {
 	private JLabel HomeLabel;
 
 	public Casa() {
-		Config.cargarIdiomas(); 
+		Config.cargarIdiomas();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 80, 950, 600);
 		contentPanel = new JPanel();
@@ -72,6 +73,13 @@ public class Casa extends JFrame {
 				public void mouseExited(MouseEvent e) {
 					btnSpanish.setBorderPainted(false);
 				}
+				
+				// elegir idioma
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					Config.idioma = "es";
+					//actualizarTextos();
+				}
 			});
 			btnSpanish.setVisible(false);
 
@@ -91,6 +99,12 @@ public class Casa extends JFrame {
 				@Override
 				public void mouseExited(MouseEvent e) {
 					btnEnglish.setBorderPainted(false);
+				}
+				// elegir idioma
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					Config.idioma = "en";
+					//actualizarTextos();
 				}
 			});
 			btnEnglish.setVisible(false);
@@ -233,4 +247,12 @@ public class Casa extends JFrame {
             }
         });
     }
+    /*
+    private void actualizarTextos() {
+        play.setText(Config.getTexto("jugar"));
+        btnOptions.setText(Config.getTexto("opciones"));
+        ranking.setText(Config.getTexto("ranking"));
+        guardar.setText(Config.getTexto("guardar"));
+    }*/
+
 }

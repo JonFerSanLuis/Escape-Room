@@ -10,6 +10,7 @@ import view.Casa.CuartoMatrimonio;
 import view.Casa.Pasillo2Piso;
 import view.Casa.PuzzleCajaFuerte;
 import view.Casa.Recibidor;
+import view.Casa.SalonCasa;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -123,84 +124,80 @@ public class Juego extends JFrame{
         panelPrincipal.add(new PuzzleCajaFuerte(this), "puzzleCaja");
         panelPrincipal.add(new CajaAbierta(this), "cajaAbierta");
         panelPrincipal.add(new CajonCuartoPadres(this), "cajonPadres");
+        panelPrincipal.add(new SalonCasa(this), "salon");
         
         setVisible(true);
         
      // Cargar la imagen de fondo
-        String backgroundFile = "img/inventarioUI-removebg-preview.png";
+        String backgroundFile = "img/fondoInv.png";
         ImageIcon originalIcon = new ImageIcon(backgroundFile);
         Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(680, 370, Image.SCALE_SMOOTH);
+        Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
-     // Cargar la imagen de fondo
-        String backgroundInventario = "img/backgroundInventario.jpg";
-        ImageIcon originalIconInventario = new ImageIcon(backgroundInventario);
-        Image originalImageInventario = originalIconInventario.getImage();
-        Image scaledImageInventario = originalImageInventario.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-        ImageIcon scaledIconInventario = new ImageIcon(scaledImageInventario);
+        ImageIcon paperImagen = new ImageIcon("img/inventarioUI-removebg-preview.png");
         
         panelMochila = new JPanel();
         panelMochila.setLayout(null);
-        
+         
         JButton ranura1 = new JButton("New button");
-        ranura1.setBounds(38, 36, 83, 81);
+        ranura1.setBounds(123, 122, 83, 81);
         panelMochila.add(ranura1);
         
         JButton ranura2 = new JButton("New button");
-        ranura2.setBounds(168, 36, 83, 81);
+        ranura2.setBounds(253, 122, 83, 81);
         panelMochila.add(ranura2);
         
         JButton ranura3 = new JButton("New button");
-        ranura3.setBounds(299, 36, 83, 81);
+        ranura3.setBounds(384, 122, 83, 81);
         panelMochila.add(ranura3);
         
         JButton ranura4 = new JButton("New button");
-        ranura4.setBounds(429, 36, 83, 81);
+        ranura4.setBounds(514, 122, 83, 81);
         panelMochila.add(ranura4);
         
         JButton ranura5 = new JButton("New button");
-        ranura5.setBounds(559, 36, 83, 81);
+        ranura5.setBounds(644, 122, 83, 81);
         panelMochila.add(ranura5);
         
         JButton ranura6 = new JButton("New button");
-        ranura6.setBounds(38, 145, 83, 81);
+        ranura6.setBounds(123, 231, 83, 81);
         panelMochila.add(ranura6);
         
         JButton ranura7 = new JButton("New button");
-        ranura7.setBounds(168, 145, 83, 81);
+        ranura7.setBounds(253, 231, 83, 81);
         panelMochila.add(ranura7);
         
         JButton ranura8 = new JButton("New button");
-        ranura8.setBounds(299, 145, 83, 81);
+        ranura8.setBounds(384, 231, 83, 81);
         panelMochila.add(ranura8);
         
         JButton ranura9 = new JButton("New button");
-        ranura9.setBounds(429, 145, 83, 81);
+        ranura9.setBounds(514, 231, 83, 81);
         panelMochila.add(ranura9);
         
         JButton ranura10 = new JButton("New button");
-        ranura10.setBounds(559, 145, 83, 81);
+        ranura10.setBounds(644, 231, 83, 81);
         panelMochila.add(ranura10);
         
         JButton ranura11 = new JButton("New button");
-        ranura11.setBounds(38, 253, 83, 81);
+        ranura11.setBounds(123, 339, 83, 81);
         panelMochila.add(ranura11);
         
         JButton ranura12 = new JButton("New button");
-        ranura12.setBounds(168, 253, 83, 81);
+        ranura12.setBounds(253, 339, 83, 81);
         panelMochila.add(ranura12);
         
         JButton ranura13 = new JButton("New button");
-        ranura13.setBounds(299, 253, 83, 81);
+        ranura13.setBounds(384, 339, 83, 81);
         panelMochila.add(ranura13);
         
         JButton ranura14 = new JButton("New button");
-        ranura14.setBounds(429, 253, 83, 81);
+        ranura14.setBounds(514, 339, 83, 81);
         panelMochila.add(ranura14);
         
         JButton ranura15 = new JButton("New button");
-        ranura15.setBounds(559, 253, 83, 81);
+        ranura15.setBounds(644, 339, 83, 81);
         panelMochila.add(ranura15);
         
         configurarRanuras(ranura1);
@@ -276,18 +273,19 @@ public class Juego extends JFrame{
 		getContentPane().add(lblPista);
 		btnPista.setVisible(false);
 		lblPista.setVisible(false);
+        JLabel PanelesLabel = new JLabel();
+        PanelesLabel.setBounds(74, 84, 689, 372); // Ajusta el tamaño del JLabel 
+        Image imgPaper = paperImagen.getImage().getScaledInstance(PanelesLabel.getWidth(), PanelesLabel.getHeight(), Image.SCALE_SMOOTH);
+        PanelesLabel.setIcon(new ImageIcon(imgPaper));
+        
+        panelMochila.add(PanelesLabel);
         
         JLabel inventarioLabel = new JLabel();
-        inventarioLabel.setBounds(130, 100, 680, 370);
+        inventarioLabel.setBounds(0, 0, 950, 600);
         inventarioLabel.setIcon(scaledIcon);
         
-        JLabel fondoInventario = new JLabel();
-        fondoInventario.setBounds(0, 0, 950, 600);
-        fondoInventario.setIcon(scaledIconInventario);
-        
         panelMochila.add(inventarioLabel);
-        panelMochila.add(fondoInventario);
-        panelMochila.setBounds(0, 0, 950, 600);
+        panelMochila.setBounds(0, 0, getWidth(), getHeight());
         panelMochila.setVisible(false);
         getContentPane().add(panelMochila);
         getContentPane().add(panelPrincipal);

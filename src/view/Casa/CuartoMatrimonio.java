@@ -344,8 +344,6 @@ public class CuartoMatrimonio extends JPanel {
 		btnContinue.setContentAreaFilled(false);
 		btnContinue.setForeground(Color.GRAY);
 		btnContinue.setVisible(false);
-		
-		txtPre = 0;
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -391,7 +389,7 @@ public class CuartoMatrimonio extends JPanel {
         add(ImagenCajaFuerteLabel, Integer.valueOf(1)); 
         
         HomeLabel = new JLabel();
-        HomeLabel.setBounds(0, 0, 934, 561);
+        HomeLabel.setBounds(0, 0, 950, 600);
         HomeLabel.setIcon(scaledIcon);
         upgradeImage();
         

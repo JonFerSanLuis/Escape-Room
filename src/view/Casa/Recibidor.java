@@ -100,7 +100,7 @@ public class Recibidor extends JPanel {
         btnPuerta.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		
+        		juego.cambiarEscena("salon");
         	}
         	@Override
         	public void mouseEntered(MouseEvent e) {

@@ -63,4 +63,14 @@ public class Inventario {
 	
 	private static Objeto PapelesDivorcio;
 	
+	private Objeto notaHijoSalon;
+
+	public Objeto getNotaHijoSalon() {
+		return notaHijoSalon;
+	}
+
+	public void setNotaHijoSalon(Objeto notaHijoSalon) {
+		this.notaHijoSalon = notaHijoSalon;
+	}
+	
 }

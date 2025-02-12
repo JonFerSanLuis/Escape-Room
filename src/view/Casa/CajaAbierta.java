@@ -82,7 +82,7 @@ public class CajaAbierta extends JPanel {
 
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
-		Background.setBounds(0, 0, 934, 561);
+		Background.setBounds(0, 0, 950, 600);
 		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
 		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa

@@ -416,6 +416,15 @@ public class CuartoMatrimonio extends JPanel {
             labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
         actualizarTimer.start();
         
+<<<<<<< Updated upstream
+=======
+        JButton btnJuegoCaja = new JButton("");
+        btnJuegoCaja.setBounds(837, 312, 61, 50);
+        layeredPane.add(btnJuegoCaja);
+        
+        // Ajustar el tamaño de la ventana al contenido
+        pack();
+>>>>>>> Stashed changes
     }
     
     private void upgradeImage() {

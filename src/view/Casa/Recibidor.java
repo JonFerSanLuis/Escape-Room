@@ -50,8 +50,8 @@ public class Recibidor extends JPanel {
         add(btnPuerta);
         JButton btnCocina = new JButton("");
         add(btnCocina);
-        JButton btnBaño = new JButton("");
-        add(btnBaño);
+        JButton btnBano = new JButton("");
+        add(btnBano);
         
      // Cargar y redimensionar imágenes una sola vez
         ImageIcon flechaEscaleraOFF = new ImageIcon("img/flechaEscaleraOFF.png");
@@ -142,7 +142,7 @@ public class Recibidor extends JPanel {
         btnCocina.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
-        		
+        		juego.cambiarEscena("cocina");
         	}
         	@Override
         	public void mouseEntered(MouseEvent e) {
@@ -160,21 +160,21 @@ public class Recibidor extends JPanel {
         btnCocina.setBorderPainted(false);
         btnCocina.setContentAreaFilled(false);
         
-        btnBaño.addActionListener(new ActionListener() {
+        btnBano.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		juego.cambiarEscena("bano");
         	}
         });
-        btnBaño.setBounds(591, 171, 89, 256);
-        btnBaño.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
-        btnBaño.setOpaque(false);
-        btnBaño.setBorderPainted(false);
-        btnBaño.setContentAreaFilled(false);
+        btnBano.setBounds(591, 171, 89, 256);
+        btnBano.setBackground(new Color(0, 0, 0, 0)); // Hacer el fondo transparente
+        btnBano.setOpaque(false);
+        btnBano.setBorderPainted(false);
+        btnBano.setContentAreaFilled(false);
         
         btnPuerta.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnEscaleras.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCocina.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnBaño.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnBano.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         // Cronometro
         labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());

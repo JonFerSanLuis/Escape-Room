@@ -52,7 +52,6 @@ public class SalonCasa extends JPanel {
         Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
         LightLabel.setIcon(new ImageIcon(imgLight));
         LightLabel.setVisible(false);
-        add(LightLabel);
         
         JLabel TxtAlmohada = new JLabel("Parece que debajo de la almohada había una nota");
 		TxtAlmohada.setHorizontalAlignment(SwingConstants.CENTER);
@@ -79,6 +78,7 @@ public class SalonCasa extends JPanel {
         btnCuadroPerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCuadroPerro.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("cuadroP");
         	}
         });
         btnCuadroPerro.setBounds(887, 114, 47, 186);
@@ -92,6 +92,7 @@ public class SalonCasa extends JPanel {
         btnCuadroCod.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCuadroCod.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("cuadroM");
         	}
         });
         btnCuadroCod.setBounds(149, 142, 89, 99);
@@ -136,7 +137,7 @@ public class SalonCasa extends JPanel {
 				btnCuadroPerro.setVisible(false);
 				btnMueble.setVisible(false);
 				TxtAlmohada.setVisible(true);
-				lblFlecha.setVisible(true);
+				lblFlecha.setVisible(false);
 				btnRecibidor.setVisible(false);
 				juego.getInventario().agregarObjeto(juego.getInventario().getNotaHijoSalon());
         	}
@@ -149,7 +150,6 @@ public class SalonCasa extends JPanel {
         add(btnAlmohada);
         
         lblFlecha.setBounds(696, 479, 117, 71);
-        add(lblFlecha);
         btnRecibidor.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnRecibidor.addMouseListener(new MouseAdapter() {
         	@Override
@@ -185,14 +185,14 @@ public class SalonCasa extends JPanel {
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backgroundFile = "img/habitacionMatrimonial.jpeg";
+				backgroundFile = "img/salonCasa.jpg";
 				upgradeImage();
 				btnContinue.setVisible(false);
 				btnCuadroCod.setVisible(true);
 				btnCuadroPerro.setVisible(true);
 				btnMueble.setVisible(true);
 				TxtAlmohada.setVisible(false);
-				lblFlecha.setVisible(false);
+				lblFlecha.setVisible(true);
 				btnRecibidor.setVisible(true);
 			}
 		});
@@ -214,6 +214,8 @@ public class SalonCasa extends JPanel {
 		btnContinue.setContentAreaFilled(false);
 
 		add(btnContinue);
+        add(lblFlecha);
+        add(LightLabel);
         
         // Mostrar la imagen de fondo
         salonLabel = new JLabel();

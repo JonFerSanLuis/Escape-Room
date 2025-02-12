@@ -141,18 +141,20 @@ public class CasaExterior extends JPanel {
 		btnMaceta.setVisible(false);
 		btnMaceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CasaExterior = "img/CasaExteriorTexto.jpeg";
-				upgradeImage();
-				btnPuertaCasa.setVisible(false);
-				juego.getBtnPista().setVisible(false);
-				juego.getBtnMochila().setVisible(false);
-				btnPosit.setVisible(false);
-				btnPuertaDoble.setVisible(false);
-				btnMaceta.setVisible(false);
-				btnMacetaIncorrect.setVisible(false);
-				txtLlaveEncontrada.setVisible(true);
-				btnContinueMaceta.setVisible(true);
-				juego.getInventario().agregarObjeto(juego.getInventario().getLlavePuerta());
+				if(!juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())) {
+					CasaExterior = "img/CasaExteriorTexto.jpeg";
+					upgradeImage();
+					btnPuertaCasa.setVisible(false);
+					juego.getBtnPista().setVisible(false);
+					juego.getBtnMochila().setVisible(false);
+					btnPosit.setVisible(false);
+					btnPuertaDoble.setVisible(false);
+					btnMaceta.setVisible(false);
+					btnMacetaIncorrect.setVisible(false);
+					txtLlaveEncontrada.setVisible(true);
+					btnContinueMaceta.setVisible(true);
+					juego.getInventario().agregarObjeto(juego.getInventario().getLlavePuerta());
+				}
 			}
 		});
 		
@@ -201,19 +203,19 @@ public class CasaExterior extends JPanel {
 			btnContinueMaceta.setVisible(false);
 			btnContinueMaceta.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					btnPuertaCasa.setVisible(true);
-					juego.getBtnPista().setVisible(true);
-					juego.getBtnMochila().setVisible(true);
-					btnPosit.setVisible(true);
-					txtLlaveEncontrada.setVisible(false);
-					btnContinueMaceta.setVisible(false);
-					txtOtraPuerta.setVisible(false);
-					btnPuertaDoble.setVisible(true);
-					btnMacetaIncorrect.setVisible(true);
-					btnMaceta.setEnabled(true);
-					txtLlaveNOEncontrada.setVisible(false);
-					CasaExterior = "img/CasaExteriorImg.jpeg";
-					upgradeImage();
+						btnPuertaCasa.setVisible(true);
+						juego.getBtnPista().setVisible(true);
+						juego.getBtnMochila().setVisible(true);
+						btnPosit.setVisible(true);
+						txtLlaveEncontrada.setVisible(false);
+						btnContinueMaceta.setVisible(false);
+						txtOtraPuerta.setVisible(false);
+						btnPuertaDoble.setVisible(true);
+						btnMacetaIncorrect.setVisible(true);
+						btnMaceta.setEnabled(true);
+						txtLlaveNOEncontrada.setVisible(false);
+						CasaExterior = "img/CasaExteriorImg.jpeg";
+						upgradeImage();
 				}
 				
 			});

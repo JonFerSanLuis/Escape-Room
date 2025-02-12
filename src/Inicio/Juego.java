@@ -3,11 +3,15 @@ package Inicio;
 import javax.swing.*;
 
 import utilidades.Inventario;
+import view.Casa.BanoCasa;
 import view.Casa.CajaAbierta;
 import view.Casa.CajonCuartoPadres;
 import view.Casa.CasaExterior;
 import view.Casa.CocinaCasa;
+import view.Casa.CuadroMadre;
+import view.Casa.CuadroPerro;
 import view.Casa.CuartoMatrimonio;
+import view.Casa.NeveraCalendario;
 import view.Casa.Pasillo2Piso;
 import view.Casa.PuzzleCajaFuerte;
 import view.Casa.Recibidor;
@@ -126,6 +130,11 @@ public class Juego extends JFrame{
         panelPrincipal.add(new CajaAbierta(this), "cajaAbierta");
         panelPrincipal.add(new CajonCuartoPadres(this), "cajonPadres");
         panelPrincipal.add(new SalonCasa(this), "salon");
+        panelPrincipal.add(new CuadroPerro(this), "cuadroP");
+        panelPrincipal.add(new CuadroMadre(this), "cuadroM");
+        panelPrincipal.add(new NeveraCalendario(this), "nevera");
+        panelPrincipal.add(new CocinaCasa(this), "cocina");
+        panelPrincipal.add(new BanoCasa(this), "bano");
         
         setVisible(true);
         

@@ -46,7 +46,7 @@ public class CasaExterior extends JPanel {
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
 	public CasaExterior(Juego juego) {
-		setBounds(0, 0, juego.getPanelPrincipal().getWidth(), juego.getPanelPrincipal().getHeight());
+		setBounds(0, 0, 950, 600);
 		setLayout(null);
 		
 		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));
@@ -73,7 +73,7 @@ public class CasaExterior extends JPanel {
 		JButton btnPosit = new JButton("");
 		JButton btnMacetaIncorrect = new JButton("");
 		
-		btnMaceta.setBounds(512, 416, 17, 17);
+		btnMaceta.setBounds(511, 433, 23, 23);
 		btnMaceta.setOpaque(false);
 		btnMaceta.setBackground(new Color(0, 0, 0, 0));
 		btnMaceta.setBorderPainted(false); // No dibujar el borde
@@ -96,7 +96,7 @@ public class CasaExterior extends JPanel {
 			}
 		});
 		
-		btnMacetaIncorrect.setBounds(422, 409, 23, 23);
+		btnMacetaIncorrect.setBounds(428, 433, 23, 23);
 		btnMacetaIncorrect.setOpaque(false);
 		btnMacetaIncorrect.setBackground(new Color(0, 0, 0, 0));
 		btnMacetaIncorrect.setBorderPainted(false); // No dibujar el borde
@@ -122,7 +122,7 @@ public class CasaExterior extends JPanel {
 
 		ImageIcon PositImagen = new ImageIcon("img/postitGrande (2).png");
 		JLabel lblPositGrande = new JLabel();
-		lblPositGrande.setBounds(223, 67, 478, 429); // Ajusta el tamaño del JLabel
+		lblPositGrande.setBounds(240, 100, 478, 429); // Ajusta el tamaño del JLabel
 		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
 		Image imgPositG = PositImagen.getImage().getScaledInstance(lblPositGrande.getWidth(),
 				lblPositGrande.getHeight(), Image.SCALE_SMOOTH);
@@ -230,7 +230,7 @@ public class CasaExterior extends JPanel {
 
 		JLabel lblPostit = new JLabel();
 		lblPostit.setIcon(new ImageIcon("img/PostitEntrada.png"));
-		lblPostit.setBounds(259, 350, 46, 50);
+		lblPostit.setBounds(270, 378, 46, 50);
 		add(lblPostit);
 
 		btnPosit.addActionListener(new ActionListener() {
@@ -259,7 +259,7 @@ public class CasaExterior extends JPanel {
 
 		});
 
-		btnPosit.setBounds(259, 350, 46, 50);
+		btnPosit.setBounds(270, 378, 46, 50);
 		btnPosit.setOpaque(false);
 		btnPosit.setBackground(new Color(0, 0, 0, 0));
 		btnPosit.setBorderPainted(false); // No dibujar el borde
@@ -287,7 +287,6 @@ public class CasaExterior extends JPanel {
 
 		lblCasa = new JLabel();
 		lblCasa.setBackground(Color.BLACK);
-		lblCasa.setBounds(0, 0, 934, 561);
 		lblCasa.setIcon(scaledIcon); // Establecer la imagen por defecto
 		add(lblCasa);
 		
@@ -295,7 +294,7 @@ public class CasaExterior extends JPanel {
 
 		// Botón (btnPuertaCasa)
 
-		btnPuertaCasa.setBounds(445, 296, 57, 130);
+		btnPuertaCasa.setBounds(449, 328, 57, 130);
 		btnPuertaCasa.setOpaque(false);
 		btnPuertaCasa.setBackground(new Color(0, 0, 0, 0));
 		btnPuertaCasa.setBorderPainted(false); // No dibujar el borde
@@ -379,7 +378,7 @@ public class CasaExterior extends JPanel {
 		});
 
 		// Añadir la imagen de fondo primero
-		lblCasa.setBounds(0, 0, 934, 561);
+		lblCasa.setBounds(0, 0, 950, 600);
 		lblCasa.setHorizontalAlignment(SwingConstants.CENTER);
 
 		ArrayList<JLabel> TxtIntroCasa = new ArrayList<>();
@@ -491,7 +490,7 @@ public class CasaExterior extends JPanel {
 		// Cargar la nueva imagen
 		ImageIcon originalIcon = new ImageIcon(CasaExterior);
 		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(lblCasa.getWidth(), lblCasa.getHeight(), Image.SCALE_SMOOTH);
+		Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
 		// Actualizar el fondo con la nueva imagen
@@ -503,6 +502,6 @@ public class CasaExterior extends JPanel {
 		ImageIcon icon = new ImageIcon(filePath);
 		Image image = icon.getImage();
 		return new ImageIcon(
-				image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+				image.getScaledInstance(950, 600, Image.SCALE_SMOOTH));
 	}
 }

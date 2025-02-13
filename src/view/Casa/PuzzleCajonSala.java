@@ -14,6 +14,9 @@ import javax.swing.SwingWorker;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import Objetos.Objeto;
+import utilidades.ImagenLoader;
+import utilidades.Inventario;
 
 import javax.swing.JButton;
 import java.awt.Font;
@@ -26,32 +29,31 @@ public class PuzzleCajonSala extends JPanel {
     String backgroundFile;
     JLabel Background;
     String cod = "";
+    
+    ImagenLoader img = new ImagenLoader();
+    
+    Inventario inventario = new Inventario();
 
 	public PuzzleCajonSala(Juego juego) {
 		setBounds(0,  0, 950, 600);
 		setLayout(null);
 		
-		backgroundFile = "img/cajonSalonImg.png";
+		backgroundFile = "/img/cajonSalonImg.png";
 		
-		// Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+		inventario.setLlaveHijo(new Objeto(true, true, 100, "Llave del cuarto de Mikel", "Es la llave de la puerta del cuarto de Mikel.", "/img/llavesNiño.png"));
+		inventario.setPistaTelefonoHijo(new Objeto(true, false, 15, "Tablon Encriptado", "¿Qué será este tablón tan raro?", "/img/pistaCodMovil.png"));
+
 
 		JLabel lblLlavesNiño = new JLabel("");
 		JLabel lblPistaMovil = new JLabel("");
-		// Cargar la imagen de la bandera inglesa
-		ImageIcon PistaCajaImagen = new ImageIcon("img/llavesNiño.png");
 		lblLlavesNiño.setBounds(648, 418, 73, 70); // Ajusta el tamaño del JLabel
-		Image imgPistaCaja = PistaCajaImagen.getImage().getScaledInstance(lblLlavesNiño.getWidth(),
-				lblLlavesNiño.getHeight(), Image.SCALE_SMOOTH);
 		
 		JButton btnLlave = new JButton("");
 		btnLlave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblLlavesNiño.setVisible(false);
 				btnLlave.setVisible(false);
+				inventario.agregarObjeto(inventario.getLlaveHijo());
 			}
 		});
 		btnLlave.setBounds(648, 418, 73, 70);
@@ -62,19 +64,17 @@ public class PuzzleCajonSala extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				lblPistaMovil.setVisible(false);
 				btnPistaMovil.setVisible(false);
+				inventario.agregarObjeto(inventario.getPistaTelefonoHijo());
 			}
 		});
 		btnPistaMovil.setBounds(699, 201, 225, 119);
 		add(btnPistaMovil);
-		lblLlavesNiño.setIcon(new ImageIcon(imgPistaCaja));
+		lblLlavesNiño.setIcon(img.scaleImage("/img/llavesNiño.png",73, 70));
 		add(lblLlavesNiño);
 		lblLlavesNiño.setVisible(false);
 
-		ImageIcon PistaImagen = new ImageIcon("img/pistaCodMovil.png");
 		lblPistaMovil.setBounds(699, 201, 225, 119);
-		Image imgPista = PistaImagen.getImage().getScaledInstance(lblPistaMovil.getWidth(),
-				lblPistaMovil.getHeight(), Image.SCALE_SMOOTH);
-		lblPistaMovil.setIcon(new ImageIcon(imgPista));
+		lblPistaMovil.setIcon(img.scaleImage("/img/pistaCodMovil.png", 225, 119));
 		add(lblPistaMovil);
 		lblPistaMovil.setVisible(false);
 
@@ -207,7 +207,7 @@ public class PuzzleCajonSala extends JPanel {
      			public void actionPerformed(ActionEvent e) {
      				if (panelCod.getText().equals("150317")) {
      					panelCod.setText("¡CODIGO ACERTADO!");
-     					backgroundFile = "img/cajonPuzzleEcho.png";
+     					backgroundFile = "/img/cajonPuzzleEcho.png";
     					upgradeImage();
      				    btn0.setVisible(false);
      				    btn1.setVisible(false);
@@ -274,7 +274,7 @@ public class PuzzleCajonSala extends JPanel {
      // Mostrar la imagen de fondo
      		Background = new JLabel();
      		Background.setBounds(0, 0, 950, 600);
-     		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
+     		Background.setIcon(img.scaleImage(backgroundFile, 950, 600)); // Establecer la imagen por defecto
      		add(Background); // Agregar al final para que quede encima del botón
      		// Cargar la imagen de la bandera inglesa
         
@@ -289,20 +289,8 @@ public class PuzzleCajonSala extends JPanel {
 	}
 	
 	private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(backgroundFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		Background.setIcon(scaledIcon);
+		Background.setIcon(img.scaleImage(backgroundFile, 950, 600));
 		Background.repaint(); // Redibujar para aplicar el cambio
 	}
     
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
 }

@@ -5,6 +5,7 @@ import javax.swing.border.EmptyBorder;
 import Inicio.Juego;
 import Objetos.Objeto;
 import utilidades.Cronometro;
+import utilidades.ImagenLoader;
 import utilidades.Inventario;
 
 import javax.swing.*;
@@ -21,6 +22,7 @@ public class CuartoMatrimonio extends JPanel {
     JLabel lightLabel;
     private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
+    ImagenLoader img = new ImagenLoader();
     
     int txtPre;
 
@@ -28,30 +30,14 @@ public class CuartoMatrimonio extends JPanel {
         setBounds(0, 0, 950, 600); 
         setLayout(null);
         
-        CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
+        CuartoPadresFile = "/img/habitacionMatrimonial.jpeg";
 
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
 		 // Flecha pasillo
 		
  		JLabel lblFlechaPasillo = new JLabel("");
  		lblFlechaPasillo.setBounds(527, 390, 309, 190);
- 		
- 		
- 		 ImageIcon flechaPasilloOFF = new ImageIcon("img/FlechaVolverPasilloPadresOFF.png");
-         ImageIcon flechaPasilloON = new ImageIcon("img/FlechaVolverPasilloPadresON.png");
 
-         Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(309, 190, Image.SCALE_SMOOTH);
-         Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(309, 190, Image.SCALE_SMOOTH);
-
-         ImageIcon iconPasilloOFF = new ImageIcon(imgPasilloOFF);
-         ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
-
-         lblFlechaPasillo.setIcon(iconPasilloOFF);
+        lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverPasilloPadresOFF.png", 309, 190));
     // Boton pasillo
     JButton btnVolverPasillo = new JButton("");
 	btnVolverPasillo.addMouseListener(new MouseAdapter() {
@@ -63,12 +49,12 @@ public class CuartoMatrimonio extends JPanel {
 	btnVolverPasillo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-            	lblFlechaPasillo.setIcon(iconPasilloON);
+            	lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverPasilloPadresON.png", 309, 190));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-            	lblFlechaPasillo.setIcon(iconPasilloOFF);
+            	lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverPasilloPadresOFF.png", 309, 190));
             }
         });
 	
@@ -98,41 +84,25 @@ public class CuartoMatrimonio extends JPanel {
     add(btnPistaCaja); 
 
 		JLabel PistaCajaLabel = new JLabel();
-		// Cargar la imagen de la bandera inglesa
-		ImageIcon PistaCajaImagen = new ImageIcon("img/pistaCajaFuerte.png");
 		PistaCajaLabel.setBounds(20, 405, 40, 37); // Ajusta el tamaño del JLabel
-		Image imgPistaCaja = PistaCajaImagen.getImage().getScaledInstance(PistaCajaLabel.getWidth(),
-				PistaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
-		PistaCajaLabel.setIcon(new ImageIcon(imgPistaCaja));
+		PistaCajaLabel.setIcon(img.scaleImage("/img/pistaCajaFuerte.png", 40, 37));
 		add(PistaCajaLabel, Integer.valueOf(2));
         
         JLabel RuedaCajaLabel = new JLabel();
-		// Cargar la imagen de la bandera inglesa
-		ImageIcon ImagenRueda = new ImageIcon("img/cajaFuerteRueda.png");
 		RuedaCajaLabel.setBounds(336, 177, 220, 214); // Ajusta el tamaño del JLabel
-		Image imgRueda = ImagenRueda.getImage().getScaledInstance(RuedaCajaLabel.getWidth(),
-				RuedaCajaLabel.getHeight(), Image.SCALE_SMOOTH);
-		RuedaCajaLabel.setIcon(new ImageIcon(imgRueda));
+		RuedaCajaLabel.setIcon(img.scaleImage("/img/cajaFuerteRueda.png", 220, 214));
         add(RuedaCajaLabel, Integer.valueOf(2));
         RuedaCajaLabel.setVisible(false);
 
-		ImageIcon PistaCajaGrande = new ImageIcon("img/pistaCajaFuerte.png");
 		JLabel lblPistaCajaGrande = new JLabel();
 		lblPistaCajaGrande.setBounds(223, 67, 488, 429); // Ajusta el tamaño del JLabel
-		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
-		Image imgPistaCajaG = PistaCajaGrande.getImage().getScaledInstance(lblPistaCajaGrande.getWidth(),
-				lblPistaCajaGrande.getHeight(), Image.SCALE_SMOOTH);
-		lblPistaCajaGrande.setIcon(new ImageIcon(imgPistaCajaG));
+		lblPistaCajaGrande.setIcon(img.scaleImage("/img/pistaCajaFuerte.png", 488, 429));
 		add(lblPistaCajaGrande);
 		lblPistaCajaGrande.setVisible(false);
-		
-		ImageIcon CajaZoom = new ImageIcon("img/cajaFuerteCod.png");
+
 		JLabel lblCajaZoom = new JLabel();
 		lblCajaZoom.setBounds(223, 77, 488, 429); // Ajusta el tamaño del JLabel
-		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
-		Image imgCajaZoom = CajaZoom.getImage().getScaledInstance(lblCajaZoom.getWidth(),
-				lblCajaZoom.getHeight(), Image.SCALE_SMOOTH);
-		lblCajaZoom.setIcon(new ImageIcon(imgCajaZoom));
+		lblCajaZoom.setIcon(img.scaleImage("/img/cajaFuerteCod.png", 488, 429));
 		
 		lblCajaZoom.setVisible(false);
         
@@ -337,18 +307,14 @@ public class CuartoMatrimonio extends JPanel {
 
 		add(btnContinue);
         
-        ImageIcon ImagenCajaFuerte = new ImageIcon("img/cajaFuerte.png");
-        
         ImagenCajaFuerteLabel.setBounds(773, 284, 161, 118); 
-        
-        Image imgCajaFuerte = ImagenCajaFuerte.getImage().getScaledInstance(ImagenCajaFuerteLabel.getWidth(), ImagenCajaFuerteLabel.getHeight(), Image.SCALE_SMOOTH);
-        ImagenCajaFuerteLabel.setIcon(new ImageIcon(imgCajaFuerte)); 
+        ImagenCajaFuerteLabel.setIcon(img.scaleImage("/img/cajaFuerte.png", 161, 118)); 
         
         add(ImagenCajaFuerteLabel, Integer.valueOf(1)); 
         
         HomeLabel = new JLabel();
         HomeLabel.setBounds(0, 0, 950, 600);
-        HomeLabel.setIcon(scaledIcon);
+        HomeLabel.setIcon(img.scaleImage(CuartoPadresFile, 950, 600));
         upgradeImage();
         
         add(HomeLabel, Integer.valueOf(0)); 
@@ -375,23 +341,8 @@ public class CuartoMatrimonio extends JPanel {
     }
     
     private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(CuartoPadresFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(HomeLabel.getWidth(), HomeLabel.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		HomeLabel.setIcon(scaledIcon);
+		HomeLabel.setIcon(img.scaleImage(CuartoPadresFile, 950, 600));
 		HomeLabel.repaint(); // Redibujar para aplicar el cambio
 	}
 
-
-	private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-   
-        
-	}
 }

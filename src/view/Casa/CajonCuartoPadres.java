@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import utilidades.ImagenLoader;
 import utilidades.Inventario;
 
 import javax.swing.JButton;
@@ -27,37 +28,31 @@ public class CajonCuartoPadres extends JPanel {
 
 	String backgroundFile;
     JLabel lblCajon;
+    
+    ImagenLoader img = new ImagenLoader();
 
     public CajonCuartoPadres(Juego juego) {
         setBounds(0, 0, 950, 600);
         
         Inventario inventario = new Inventario();
         
-        inventario.setPapelesDivorcio(new Objeto(false, true, 215, "Papeles Del Divorcio", "Parece que se trata de los documentos de separacón de los padres de Mikel, Hay un número de teléfono subrayado (+34 614 26 85 84)", "img/papelesDivorcio.png"));
+        inventario.setPapelesDivorcio(new Objeto(false, true, 215, "Papeles Del Divorcio", "Parece que se trata de los documentos de separacón de los padres de Mikel, Hay un número de teléfono subrayado (+34 614 26 85 84)", "/img/papelesDivorcio.png"));
     	
-        backgroundFile = "img/cajon.png";
+        backgroundFile = "/img/cajon.png";
 
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
         setLayout(null);
         
         JButton btnPapelesDiv = new JButton("");
         add(btnPapelesDiv);
         
         JLabel LightLabel = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
         LightLabel.setBounds(448, 319, 70, 29); // Ajusta el tamaño del JLabel 
-        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
-        LightLabel.setIcon(new ImageIcon(imgLight));
+        LightLabel.setIcon(img.scaleImage("/img/11571045.png", 70, 29));
         
         add(LightLabel);
         LightLabel.setVisible(false);
         
-        JLabel Txtcajon1 = new JLabel("Que será esto...");
+        JLabel Txtcajon1 = new JLabel("Qué será esto...");
 		Txtcajon1.setHorizontalAlignment(SwingConstants.CENTER);
 		Txtcajon1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Txtcajon1.setForeground(Color.WHITE);
@@ -77,7 +72,7 @@ public class CajonCuartoPadres extends JPanel {
         btnPapelesDiv.setContentAreaFilled(false);
         btnPapelesDiv.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		backgroundFile = "img/cajonTxt.png";
+        		backgroundFile = "/img/cajonTxt.png";
 				upgradeImage();
         		btnPapelesDiv.setVisible(false);
         		Txtcajon1.setVisible(true);
@@ -120,7 +115,7 @@ public class CajonCuartoPadres extends JPanel {
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backgroundFile = "img/cajon.png";
+				backgroundFile = "/img/cajon.png";
 				upgradeImage();
 				Txtcajon1.setVisible(false);
 				btnVolver.setVisible(true);
@@ -150,26 +145,13 @@ public class CajonCuartoPadres extends JPanel {
         // Mostrar la imagen redimensionada
         lblCajon = new JLabel();
         lblCajon.setBounds(0, 0, 950, 600);
-        lblCajon.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        lblCajon.setIcon(img.scaleImage(backgroundFile, 950, 600));  // Establecer la imagen por defecto
         add(lblCajon);
     }
 
     private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(backgroundFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(lblCajon.getWidth(), lblCajon.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		lblCajon.setIcon(scaledIcon);
-		lblCajon.repaint(); // Redibujar para aplicar el cambio
+		lblCajon.setIcon(img.scaleImage(backgroundFile, 950, 600));
+		lblCajon.repaint();
 	}
-    
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
 
 }

@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import utilidades.ImagenLoader;
 import utilidades.Inventario;
 
 import javax.swing.JLabel;
@@ -31,26 +32,18 @@ public class CajaAbierta extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel Background;
+    
+    ImagenLoader img = new ImagenLoader();
 
     public CajaAbierta(Juego juego) {
         setBounds(0, 0, 950, 600);
         
         juego.getInventario().setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "img/llaveCajon.png"));
     	
-        backgroundFile = "img/cajaFuerteOpen.jpeg";
-        
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        backgroundFile = "/img/cajaFuerteOpen.jpeg";
         
         JLabel llaveLabel = new JLabel();
-		// Cargar la imagen de la bandera inglesa
-		ImageIcon llaveCajonImage = new ImageIcon("img/llaveEnCaja.png");
 		llaveLabel.setBounds(326, 225, 332, 166); // Ajusta el tamaño del JLabel
-		Image imgllaveCajon = llaveCajonImage.getImage().getScaledInstance(llaveLabel.getWidth(),
-				llaveLabel.getHeight(), Image.SCALE_SMOOTH);
 		
 		JButton btnLlaveCajon = new JButton("");
 		btnLlaveCajon.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -68,7 +61,7 @@ public class CajaAbierta extends JPanel {
 		btnLlaveCajon.setFocusPainted(false);
 		btnLlaveCajon.setContentAreaFilled(false);
 		add(btnLlaveCajon);
-		llaveLabel.setIcon(new ImageIcon(imgllaveCajon));
+		llaveLabel.setIcon(img.scaleImage("/img/llaveEnCaja.png", 332, 166));
 		
         
         setLayout(null);
@@ -86,27 +79,14 @@ public class CajaAbierta extends JPanel {
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 950, 600);
-		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
+		Background.setIcon(img.scaleImage(backgroundFile, 950, 600)); // Establecer la imagen por defecto
 		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa
 
 	}
     private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(backgroundFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		Background.setIcon(scaledIcon);
+		Background.setIcon(img.scaleImage(backgroundFile, 950, 600));
 		Background.repaint(); // Redibujar para aplicar el cambio
 	}
-    
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
 
 }

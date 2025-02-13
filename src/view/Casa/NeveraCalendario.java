@@ -15,26 +15,21 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import utilidades.ImagenLoader;
 
 public class NeveraCalendario extends JPanel {
 
 	private Image backgroundImage;
     private String backgroundFile;
     JLabel bañoLabel;
+    
+    ImagenLoader img = new ImagenLoader();
 
 	public NeveraCalendario(Juego juego) {
 		setBounds(0, 0, 950, 600);
 		setLayout(null);
-		setLayout(null);
 		
-		backgroundFile = "img/NeveraView.png";
-
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        setLayout(null);
+		backgroundFile = "/img/NeveraView.png";
         
         JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
@@ -50,14 +45,8 @@ public class NeveraCalendario extends JPanel {
         // Mostrar la imagen de fondo
         bañoLabel = new JLabel();
         bañoLabel.setBounds(0, 0, 950, 600);
-        bañoLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        bañoLabel.setIcon(img.scaleImage(backgroundFile, 950, 600));  // Establecer la imagen por defecto
         add(bañoLabel); // Agregar al final para que quede encima del botón
 	}
-	
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
 
 }

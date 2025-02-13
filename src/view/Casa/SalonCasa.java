@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import utilidades.ImagenLoader;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,29 +29,22 @@ public class SalonCasa extends JPanel {
 	private Image backgroundImage;
     private String backgroundFile;
     JLabel salonLabel;
+    
+    ImagenLoader img = new ImagenLoader();
 
 	public SalonCasa(Juego juego) {
 		setBounds(0, 0, 950, 600);
 		setLayout(null);
 		
-		backgroundFile = "img/salonCasa.jpg";
+		backgroundFile = "/img/salonCasa.jpg";
 		
 		JButton btnContinue = new JButton("CONTINUAR");
 		
 		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", "Parece que es una nota desgastada por los días que lleva bajo la almohada, además la letra parece de Mikel", "img/......."));
-
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
         JLabel LightLabel = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
         LightLabel.setBounds(313, 382, 61, 17); // Ajusta el tamaño del JLabel 
-        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
-        LightLabel.setIcon(new ImageIcon(imgLight));
+        LightLabel.setIcon(img.scaleImage("/img/11571045.png", 61, 17));
         LightLabel.setVisible(false);
         
         JLabel TxtAlmohada = new JLabel("Parece que debajo de la almohada había una nota");
@@ -62,18 +56,10 @@ public class SalonCasa extends JPanel {
 		TxtAlmohada.setVisible(false);
 		
 		add(TxtAlmohada);
-        
-        ImageIcon flechaOFF = new ImageIcon("img/FlechaVolverSalonOFF.png");
-        ImageIcon flechaON = new ImageIcon("img/FlechaVolverSalonON.png");
 
-        Image imgOFF = flechaOFF.getImage().getScaledInstance(117, 71, Image.SCALE_SMOOTH);
-        Image imgON = flechaON.getImage().getScaledInstance(117, 71, Image.SCALE_SMOOTH);
-
-        ImageIcon iconOFF = new ImageIcon(imgOFF);
-        ImageIcon iconON = new ImageIcon(imgON);
         JButton btnRecibidor = new JButton("");
-        JLabel lblFlecha = new JLabel(iconOFF);
-        
+        JLabel lblFlecha = new JLabel();
+        lblFlecha.setIcon(img.scaleImage("/img/FlechaVolverSalonOFF.png", 117, 71));
         JButton btnCuadroPerro = new JButton("");
         btnCuadroPerro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnCuadroPerro.addActionListener(new ActionListener() {
@@ -130,7 +116,7 @@ public class SalonCasa extends JPanel {
         btnAlmohada.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnAlmohada.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		backgroundFile = "img/salonCasaTxt.jpg";
+        		backgroundFile = "/img/salonCasaTxt.jpg";
 				upgradeImage();
 				btnAlmohada.setVisible(false);
 				btnContinue.setVisible(true);
@@ -155,11 +141,11 @@ public class SalonCasa extends JPanel {
         btnRecibidor.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseEntered(MouseEvent e) {
-        		lblFlecha.setIcon(iconON);
+        		lblFlecha.setIcon(img.scaleImage("/img/FlechaVolverSalonON.png", 117, 71));
         	}
         	@Override
         	public void mouseExited(MouseEvent e) {
-        		lblFlecha.setIcon(iconOFF);
+        		lblFlecha.setIcon(img.scaleImage("/img/FlechaVolverSalonOFF.png", 117, 71));
         	}
         });
         btnRecibidor.addActionListener(new ActionListener() {
@@ -186,7 +172,7 @@ public class SalonCasa extends JPanel {
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backgroundFile = "img/salonCasa.jpg";
+				backgroundFile = "/img/salonCasa.jpg";
 				upgradeImage();
 				btnContinue.setVisible(false);
 				btnCuadroCod.setVisible(true);
@@ -221,24 +207,12 @@ public class SalonCasa extends JPanel {
         // Mostrar la imagen de fondo
         salonLabel = new JLabel();
         salonLabel.setBounds(0, 0, 950, 600);
-        salonLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        salonLabel.setIcon(img.scaleImage(backgroundFile, 950, 600));  // Establecer la imagen por defecto
         add(salonLabel); // Agregar al final para que quede encima del botón
 	}
 	private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(backgroundFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		salonLabel.setIcon(scaledIcon);
+		salonLabel.setIcon(img.scaleImage(backgroundFile, 950, 600));
 		salonLabel.repaint(); // Redibujar para aplicar el cambio
 	}
-	
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
+
 }

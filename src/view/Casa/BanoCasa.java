@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import utilidades.ImagenLoader;
 
 import javax.swing.JButton;
 
@@ -24,17 +25,13 @@ public class BanoCasa extends JPanel {
     private String backgroundFile;
     JLabel bañoLabel;
     
+    ImagenLoader img = new ImagenLoader();
+    
 	public BanoCasa(Juego juego) {
 		setBounds(0, 0, 950, 600);
 		setLayout(null);
 		
-		backgroundFile = "img/bañoCasa.jpg";
-
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+		backgroundFile = "/img/bañoCasa.jpg";
         
         JButton btnDiario = new JButton("");
         btnDiario.setBounds(0, 381, 89, 44);
@@ -48,17 +45,8 @@ public class BanoCasa extends JPanel {
 
 		JLabel lblFlechaPasillo = new JLabel("");
 		lblFlechaPasillo.setBounds(443, 435, 209, 115);
-
-		ImageIcon flechaPasilloOFF = new ImageIcon("img/FlechaVolverSalonOFF.png");
-		ImageIcon flechaPasilloON = new ImageIcon("img/FlechaVolverSalonON.png");
 		
-		Image imgPasilloOFF = flechaPasilloOFF.getImage().getScaledInstance(209, 115, Image.SCALE_SMOOTH);
-		Image imgPasilloON = flechaPasilloON.getImage().getScaledInstance(209, 115, Image.SCALE_SMOOTH);
-		
-		ImageIcon iconPasilloOFF = new ImageIcon(imgPasilloOFF);
-		ImageIcon iconPasilloON = new ImageIcon(imgPasilloON);
-		
-		lblFlechaPasillo.setIcon(iconPasilloOFF);
+		lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverSalonOFF.png", lblFlechaPasillo.getWidth(), lblFlechaPasillo.getHeight()));
 		
 		JButton btnVolverPasillo = new JButton("");
 		btnVolverPasillo.addMouseListener(new MouseAdapter() {
@@ -70,11 +58,11 @@ public class BanoCasa extends JPanel {
 		btnVolverPasillo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblFlechaPasillo.setIcon(iconPasilloON);
+				lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverSalonON.png", lblFlechaPasillo.getWidth(), lblFlechaPasillo.getHeight()));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblFlechaPasillo.setIcon(iconPasilloOFF);
+				lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverSalonOFF.png", lblFlechaPasillo.getWidth(), lblFlechaPasillo.getHeight()));
 			}
 		});
 		
@@ -93,14 +81,8 @@ public class BanoCasa extends JPanel {
 		// Mostrar la imagen de fondo
 		bañoLabel = new JLabel();
 		bañoLabel.setBounds(0, 0, 950, 600);
-		bañoLabel.setIcon(scaledIcon); // Establecer la imagen por defecto
+		bañoLabel.setIcon(img.scaleImage(backgroundFile, 950, 600)); // Establecer la imagen por defecto
 		add(bañoLabel); // Agregar al final para que quede encima del botón
 	}
-
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
 
 }

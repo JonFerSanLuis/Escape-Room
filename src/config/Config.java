@@ -36,6 +36,21 @@ public class Config {
         textosEn.put("10", "A few days ago, Mikel ran away from home.");
         textosEn.put("11", "I can’t stand thinking that I might be partly to blame.");
         textosEn.put("12", "I HAVE TO FIND HIM.");
+        
+     // Casa exterior
+        textosEn.put("", "");
+        textosEn.put("1CE", "-You move the flowerpot carefully and find the house key-");
+        textosEn.put("2CE", "I won't make it");
+        textosEn.put("3CE", "Nah, I can't get in through the window either.");
+        textosEn.put("4CE", "This door won't open either.");
+        textosEn.put("5CE", "-You move the flowerpot, but there's nothing underneath.-");
+        textosEn.put("btnContinuar", "CONTINUE");
+        textosEn.put("postit", "img/PostitIngles.png");
+        textosEn.put("8CE", "It looks like no one is home.");
+        textosEn.put("9CE", "But the door is closed.");
+        textosEn.put("10CE", "I must find a way to get in.");
+        textosEn.put("btnVolver", "RETURN");
+        textosEn.put("12CE", "");
 
         // Textos en español
         Map<String, String> textosEs = new HashMap<>();
@@ -63,6 +78,22 @@ public class Config {
         textosEs.put("10", "Hace unos días, Mikel se escapó de casa.");
         textosEs.put("11", "No soporto pensar que tengo parte de culpa.");
         textosEs.put("12", "TENGO QUE ENCONTRARLE.");
+        
+        // Casa exterior
+        textosEs.put("", "");
+        textosEs.put("1CE", "-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
+        textosEs.put("2CE", "No llego ni de coña.");
+        textosEs.put("3CE", "Nah, tampoco puedo entrar por la ventana.");
+        textosEs.put("4CE", "Esta puerta tampoco se abre.");
+        textosEs.put("5CE", "-Mueves la maceta, pero no hay nada debajo-");
+        textosEs.put("btnContinuar", "CONTINUAR");
+        textosEs.put("postit", "img/postitGrande (2).png");
+        textosEs.put("8CE", "Parece que no hay nadie en casa.");
+        textosEs.put("9CE", "Pero la puerta esta cerrada.");
+        textosEs.put("10CE", "Debo encontrar la forma de entrar");
+        textosEs.put("btnVolver", "VOLVER");
+        textosEs.put("12CE", "");
+        
         
         // Guardar los textos de cada idioma en el hashmap
         textos.put("en", textosEn);

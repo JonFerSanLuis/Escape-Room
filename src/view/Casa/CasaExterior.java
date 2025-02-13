@@ -148,7 +148,6 @@ public class CasaExterior extends JPanel {
 					CasaExterior = "/img/CasaExteriorTexto.jpeg";
 					upgradeImage();
 					btnPuertaCasa.setVisible(false);
-					juego.getBtnPista().setVisible(false);
 					juego.getBtnMochila().setVisible(false);
 					btnPosit.setVisible(false);
 					btnPuertaDoble.setVisible(false);
@@ -174,7 +173,6 @@ public class CasaExterior extends JPanel {
 				CasaExterior = "/img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
-				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
@@ -205,7 +203,6 @@ public class CasaExterior extends JPanel {
 			btnContinueMaceta.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 						btnPuertaCasa.setVisible(true);
-						juego.getBtnPista().setVisible(true);
 						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
 						txtLlaveEncontrada.setVisible(false);
@@ -283,7 +280,6 @@ public class CasaExterior extends JPanel {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPuertaCasa.setVisible(true);
-				juego.getBtnPista().setVisible(true);
 				juego.getBtnMochila().setVisible(true);
 				btnPosit.setVisible(true);
 				btnVolver.setVisible(false);
@@ -308,7 +304,6 @@ public class CasaExterior extends JPanel {
 		btnPosit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnPuertaCasa.setVisible(false);
-				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnVolver.setVisible(true);
@@ -358,7 +353,6 @@ public class CasaExterior extends JPanel {
 				CasaExterior = "/img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
-				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnPuertaDoble.setVisible(false);
@@ -386,7 +380,6 @@ public class CasaExterior extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					if (txtPuerta == 2) {
 						btnPuertaCasa.setVisible(true);
-						juego.getBtnPista().setVisible(true);
 						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
 						if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
@@ -431,7 +424,6 @@ public class CasaExterior extends JPanel {
 				}else {
 					btnContinuePuerta.setVisible(true);
 				btnPuertaCasa.setVisible(false);
-				juego.getBtnPista().setVisible(false);
 				btnPuertaCasa.setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
@@ -490,8 +482,6 @@ public class CasaExterior extends JPanel {
 					if (txtPre == 1) {
 						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
-						juego.getBtnPista().setVisible(true);
-						juego.getLblPista().setVisible(true);
 						btnMaceta.setVisible(true);
 						juego.getLblMochila().setVisible(true);
 						btnMacetaIncorrect.setVisible(true);

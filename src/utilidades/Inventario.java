@@ -23,6 +23,14 @@ public class Inventario {
         }
 	}
 	
+	public String getObjetoDesc(int i) {
+		if (Inventario.isEmpty() || i > Inventario.size()) { // Condición corregida
+            return ""; 
+        } else {
+            return Inventario.get(i).getObjDescrip();
+        }
+	}
+	
 	public void agregarObjeto(Objeto o) {
 		Inventario.add(o);
     }

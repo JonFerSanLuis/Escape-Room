@@ -41,10 +41,65 @@ public class Juego extends JFrame{
     private JPanel panelMochila;
     private CardLayout cardLayout;
     private Boolean puzzleCajaFinished;
-    private JButton btnPista;
     private JButton btnMochila;
-    private JLabel lblPista;
     private JLabel lblMochila;
+    
+    JButton ranura1 = new JButton("");
+    
+    JButton ranura2 = new JButton("");
+    
+    JButton ranura3 = new JButton("");
+    JButton ranura4 = new JButton("");
+    
+    JButton ranura5 = new JButton("");
+    
+    JButton ranura6 = new JButton("");
+    JButton ranura7 = new JButton("");
+    
+    JButton ranura8 = new JButton("");
+    
+    JButton ranura9 = new JButton("");
+    
+    JButton ranura10 = new JButton("");
+    
+    JButton ranura11 = new JButton("");
+    JButton ranura12 = new JButton("");
+    
+    JButton ranura13 = new JButton("");
+    
+    JButton ranura14 = new JButton("");
+    
+    JButton ranura15 = new JButton("");
+    
+    JLabel lblPanel1 = new JLabel();
+    
+    JLabel lblPanel2 = new JLabel();
+    
+    JLabel lblPanel3 = new JLabel();
+    
+    JLabel lblPanel4 = new JLabel();
+    
+    JLabel lblPanel5 = new JLabel();
+    
+    JLabel lblPanel6 = new JLabel();
+    
+    JLabel lblPanel7 = new JLabel();
+    
+    JLabel lblPanel8 = new JLabel();
+    
+    JLabel lblPanel9 = new JLabel();
+    
+    JLabel lblPanel10 = new JLabel();
+    
+    JLabel lblPanel11 = new JLabel();
+    
+    JLabel lblPanel12 = new JLabel();
+    
+    JLabel lblPanel13 = new JLabel();
+    
+    JLabel lblPanel14 = new JLabel();
+    
+    JLabel lblPanel15 = new JLabel();
     
     ImagenLoader Img = new ImagenLoader();
     
@@ -58,28 +113,12 @@ public class Juego extends JFrame{
 		this.panelPrincipal = panelPrincipal;
 	}
 
-	public JLabel getLblPista() {
-		return lblPista;
-	}
-
-	public void setLblPista(JLabel lblPista) {
-		this.lblPista = lblPista;
-	}
-
 	public JLabel getLblMochila() {
 		return lblMochila;
 	}
 
 	public void setLblMochila(JLabel lblMochila) {
 		this.lblMochila = lblMochila;
-	}
-
-	public JButton getBtnPista() {
-		return btnPista;
-	}
-
-	public void setBtnPista(JButton btnPista) {
-		this.btnPista = btnPista;
 	}
 
 	public JButton getBtnMochila() {
@@ -107,6 +146,8 @@ public class Juego extends JFrame{
 	}
 
 	Inventario inventario = new Inventario();
+	private final JLabel lblInspeccionado = new JLabel("");
+	private final JTextPane lblDescripcion = new JTextPane();
 
     public Inventario getInventario() {
 		return inventario;
@@ -134,10 +175,7 @@ public class Juego extends JFrame{
         
         lblMochila = new JLabel();
         lblMochila.setIcon(Img.scaleImage("/img/IconoMochilaEX.png", 60, 60));
-        btnPista = new JButton("");
         btnMochila = new JButton("");
-        lblPista = new JLabel();
-        lblPista.setIcon(Img.scaleImage("/img/IconoPistaEX.png", 60, 60));
 
         panelPrincipal.add(new Intro(this), "intro");
         panelPrincipal.add(new CasaExterior(this), "casaExterior");
@@ -165,8 +203,7 @@ public class Juego extends JFrame{
         
         setVisible(true);
         
-        
-        // Gestiona que el cronometro cuando llegue a 0 termine con el Escape Room
+     // Gestiona que el cronometro cuando llegue a 0 termine con el Escape Room
         Cronometro.getInstancia().setOnFinish(() -> {
             cardLayout.show(panelPrincipal, "finJuego");
         });
@@ -176,50 +213,35 @@ public class Juego extends JFrame{
         
         panelMochila = new JPanel();
         panelMochila.setLayout(null);
-        
-        JLabel lblPanel1 = new JLabel();
+
         lblPanel1.setBounds(123, 122, 83, 81);
-        
-        JLabel lblPanel2 = new JLabel();
+
         lblPanel2.setBounds(253, 122, 83, 81);
-        
-        JLabel lblPanel3 = new JLabel();
+
         lblPanel3.setBounds(384, 122, 83, 81);
-        
-        JLabel lblPanel4 = new JLabel();
+
         lblPanel4.setBounds(514, 122, 83, 81);
-        
-        JLabel lblPanel5 = new JLabel();
+
         lblPanel5.setBounds(644, 122, 83, 81);
-        
-        JLabel lblPanel6 = new JLabel();
+
         lblPanel6.setBounds(123, 231, 83, 81);
-        
-        JLabel lblPanel7 = new JLabel();
+
         lblPanel7.setBounds(253, 231, 83, 81);
-        
-        JLabel lblPanel8 = new JLabel();
+
         lblPanel8.setBounds(384, 231, 83, 81);
-        
-        JLabel lblPanel9 = new JLabel();
+
         lblPanel9.setBounds(514, 231, 83, 81);
-        
-        JLabel lblPanel10 = new JLabel();
+
         lblPanel10.setBounds(644, 231, 83, 81);
-        
-        JLabel lblPanel11 = new JLabel();
+
         lblPanel11.setBounds(123, 339, 83, 81);
-        
-        JLabel lblPanel12 = new JLabel();
+
         lblPanel12.setBounds(253, 339, 83, 81);
         
-        JLabel lblPanel13 = new JLabel();
         lblPanel13.setBounds(384, 339, 83, 81);
         
-        JLabel lblPanel14 = new JLabel();
         lblPanel14.setBounds(514, 339, 83, 81);
         
-        JLabel lblPanel15 = new JLabel();
         lblPanel15.setBounds(644, 339, 83, 81);
         
         cargarIcono(lblPanel15, inventario.getObjetoFile(14));
@@ -255,136 +277,225 @@ public class Juego extends JFrame{
         iconos.add(lblPanel14);
         iconos.add(lblPanel15);   
         
-        JButton ranura1 = new JButton("");
-        ranura1.addActionListener(new ActionListener() {
+        JLabel inspeccionarLabel = new JLabel();
+
+        JLabel PanelesLabel = new JLabel();        
+        
+        JButton btnVolver = new JButton("Dejar de Inspeccionar");
+        btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		PanelesLabel.setVisible(true);
+        		inspeccionarLabel.setVisible(false);
+        		btnVolver.setVisible(false);
+        		revelarPaneles();
         	}
         });
-        ranura1.setBounds(123, 122, 83, 81);
-        panelMochila.add(ranura1);
+        lblDescripcion.setForeground(new Color(255, 255, 255));
+        lblDescripcion.setFont(new Font("Courier New", Font.BOLD, 18));
+        lblDescripcion.setForeground(Color.WHITE);
+        lblDescripcion.setOpaque(false);
+        lblDescripcion.setBackground(new Color(0, 0, 0, 0));
+        lblDescripcion.setEditable(false);
+        lblDescripcion.setVisible(false);
+        lblDescripcion.setBounds(499, 122, 228, 298);
         
-        JButton ranura2 = new JButton("");
+        panelMochila.add(lblDescripcion);
+        lblInspeccionado.setBounds(123, 122, 331, 298);
+        panelMochila.add(lblInspeccionado);
+        btnVolver.setBounds(318, 469, 182, 23);
+        panelMochila.add(btnVolver);
+        btnVolver.setVisible(false);
+        
+        ranura1.setBounds(123, 122, 83, 81);
+        ranura1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(0), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(0));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
+        	}
+        });
+        panelMochila.add(ranura1);
+
         ranura2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(1), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(1));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura2.setBounds(253, 122, 83, 81);
         panelMochila.add(ranura2);
-        
-        JButton ranura3 = new JButton("");
+
         ranura3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(2), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(2));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura3.setBounds(384, 122, 83, 81);
         panelMochila.add(ranura3);
         
-        JButton ranura4 = new JButton("");
         ranura4.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(3), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(3));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura4.setBounds(514, 122, 83, 81);
         panelMochila.add(ranura4);
-        
-        JButton ranura5 = new JButton("");
+
         ranura5.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(4), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(4));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura5.setBounds(644, 122, 83, 81);
         panelMochila.add(ranura5);
-        
-        JButton ranura6 = new JButton("");
+
         ranura6.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(5), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(5));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura6.setBounds(123, 231, 83, 81);
         panelMochila.add(ranura6);
         
-        JButton ranura7 = new JButton("");
         ranura7.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(6), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(6));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura7.setBounds(253, 231, 83, 81);
         panelMochila.add(ranura7);
-        
-        JButton ranura8 = new JButton("");
+
         ranura8.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(7), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(7));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura8.setBounds(384, 231, 83, 81);
         panelMochila.add(ranura8);
-        
-        JButton ranura9 = new JButton("");
+
         ranura9.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(8), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(8));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura9.setBounds(514, 231, 83, 81);
         panelMochila.add(ranura9);
-        
-        JButton ranura10 = new JButton("");
+
         ranura10.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(9), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(9));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura10.setBounds(644, 231, 83, 81);
         panelMochila.add(ranura10);
-        
-        JButton ranura11 = new JButton("");
+
         ranura11.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(10), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(10));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura11.setBounds(123, 339, 83, 81);
         panelMochila.add(ranura11);
         
-        JButton ranura12 = new JButton("");
         ranura12.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(11), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(11));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura12.setBounds(253, 339, 83, 81);
         panelMochila.add(ranura12);
-        
-        JButton ranura13 = new JButton("");
+
         ranura13.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(12), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(12));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura13.setBounds(384, 339, 83, 81);
         panelMochila.add(ranura13);
-        
-        JButton ranura14 = new JButton("");
+
         ranura14.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(13), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(13));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura14.setBounds(514, 339, 83, 81);
         panelMochila.add(ranura14);
-        
-        JButton ranura15 = new JButton("");
+
         ranura15.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblInspeccionado.setIcon(Img.scaleImage(inventario.getObjetoFile(14), 331, 298));
+        		lblDescripcion.setText(inventario.getObjetoDesc(14));
+        		PanelesLabel.setVisible(false);
+        		inspeccionarLabel.setVisible(true);
+        		btnVolver.setVisible(true);
+        		esconderPaneles();
         	}
         });
         ranura15.setBounds(644, 339, 83, 81);
@@ -430,18 +541,6 @@ public class Juego extends JFrame{
 				panelPrincipal.setVisible(isVisible);
 				}
 		});
-        
-		btnPista.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblPista.setIcon(new ImageIcon("img/IconoPistaENT.png"));
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblPista.setIcon(new ImageIcon("img/IconoPistaEX.png"));
-			}
-		});
 
 		btnMochila.addMouseListener(new MouseAdapter() {
 			@Override
@@ -455,36 +554,28 @@ public class Juego extends JFrame{
 			}
 		});
 
-		btnMochila.setBounds(800, 11, 60, 60);
+		btnMochila.setBounds(870, 11, 60, 60);
 		btnMochila.setOpaque(false);
 		btnMochila.setBackground(new Color(0, 0, 0, 0));
 		btnMochila.setBorderPainted(false); 
 		btnMochila.setFocusPainted(false);
 		btnMochila.setContentAreaFilled(false);
 
-		lblMochila.setBounds(800, 11, 60, 60); 
+		lblMochila.setBounds(870, 11, 60, 60); 
 		getContentPane().add(lblMochila);
 		getContentPane().add(btnMochila);
 		btnMochila.setVisible(false);
 		lblMochila.setVisible(false);
 
-		btnPista.setBounds(870, 11, 60, 60);
-		btnPista.setOpaque(false);
-		btnPista.setBackground(new Color(0, 0, 0, 0));
-		btnPista.setBorderPainted(false); 
-		btnPista.setFocusPainted(false);
-		btnPista.setContentAreaFilled(false);
-
-		lblPista.setBounds(870, 11, 60, 60);
-		getContentPane().add(btnPista);
-		getContentPane().add(lblPista);
-		btnPista.setVisible(false);
-		lblPista.setVisible(false);
-        JLabel PanelesLabel = new JLabel();
         PanelesLabel.setBounds(77, 86, 689, 372); // Ajusta el tamaño del JLabel 
         PanelesLabel.setIcon(Img.scaleImage("/img/inventarioUI-removebg-preview.png", 689, 372));
         
         panelMochila.add(PanelesLabel);
+
+        inspeccionarLabel.setBounds(77, 86, 689, 372); // Ajusta el tamaño del JLabel 
+        inspeccionarLabel.setIcon(Img.scaleImage("/img/Insepccionar.png", 689, 372));
+        inspeccionarLabel.setVisible(false);
+        panelMochila.add(inspeccionarLabel);
         
         JLabel inventarioLabel = new JLabel();
         inventarioLabel.setBounds(0, 0, 950, 600);
@@ -506,6 +597,80 @@ public class Juego extends JFrame{
 	
 	private void cargarIcono(JLabel icono, String file) {
 		icono.setIcon(Img.scaleImage(file, icono.getWidth(), icono.getHeight()));
+	}
+	
+	private void esconderPaneles() {
+		lblPanel1.setVisible(false);
+		lblPanel2.setVisible(false);
+		lblPanel3.setVisible(false);
+		lblPanel4.setVisible(false);
+		lblPanel5.setVisible(false);
+		lblPanel6.setVisible(false);
+		lblPanel7.setVisible(false);
+		lblPanel8.setVisible(false);
+		lblPanel9.setVisible(false);
+		lblPanel10.setVisible(false);
+		lblPanel11.setVisible(false);
+		lblPanel12.setVisible(false);
+		lblPanel13.setVisible(false);
+		lblPanel14.setVisible(false);
+		lblPanel15.setVisible(false);
+		
+		lblInspeccionado.setVisible(true);
+		lblDescripcion.setVisible(true);
+		
+		ranura1.setVisible(false);
+		ranura2.setVisible(false);
+		ranura3.setVisible(false);
+		ranura4.setVisible(false);
+		ranura5.setVisible(false);
+		ranura6.setVisible(false);
+		ranura7.setVisible(false);
+		ranura8.setVisible(false);
+		ranura9.setVisible(false);
+		ranura10.setVisible(false);
+		ranura11.setVisible(false);
+		ranura12.setVisible(false);
+		ranura13.setVisible(false);
+		ranura14.setVisible(false);
+		ranura15.setVisible(false);
+	}
+	
+	private void revelarPaneles() {
+		lblPanel1.setVisible(true);
+		lblPanel2.setVisible(true);
+		lblPanel3.setVisible(true);
+		lblPanel4.setVisible(true);
+		lblPanel5.setVisible(true);
+		lblPanel6.setVisible(true);
+		lblPanel7.setVisible(true);
+		lblPanel8.setVisible(true);
+		lblPanel9.setVisible(true);
+		lblPanel10.setVisible(true);
+		lblPanel11.setVisible(true);
+		lblPanel12.setVisible(true);
+		lblPanel13.setVisible(true);
+		lblPanel14.setVisible(true);
+		lblPanel15.setVisible(true);
+		
+		lblInspeccionado.setVisible(false);
+		lblDescripcion.setVisible(false);
+		
+		ranura1.setVisible(true);
+		ranura2.setVisible(true);
+		ranura3.setVisible(true);
+		ranura4.setVisible(true);
+		ranura5.setVisible(true);
+		ranura6.setVisible(true);
+		ranura7.setVisible(true);
+		ranura8.setVisible(true);
+		ranura9.setVisible(true);
+		ranura10.setVisible(true);
+		ranura11.setVisible(true);
+		ranura12.setVisible(true);
+		ranura13.setVisible(true);
+		ranura14.setVisible(true);
+		ranura15.setVisible(true);
 	}
 
     private void configurarRanuras(JButton boton) {

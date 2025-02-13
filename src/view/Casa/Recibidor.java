@@ -41,8 +41,7 @@ public class Recibidor extends JPanel {
         backgroundFile = "/img/recibidor.jpeg";
 
         setLayout(null);
-        
-        juego.getBtnPista().setVisible(true);
+
 		juego.getBtnMochila().setVisible(true);
         
         JButton btnEscaleras = new JButton("");

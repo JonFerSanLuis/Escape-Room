@@ -117,7 +117,7 @@ public class Casa extends JFrame {
 			contentPanel.add(btnEnglish);
 			contentPanel.add(btnSpanish);
 
-			JLabel idioma = new JLabel(Config.getTexto("idioma"));
+			JLabel idioma = new JLabel(Config.getTexto("btnVolver"));
 			idioma.setBounds(348, 39, 246, 57);
 			idioma.setOpaque(false);
 			idioma.setForeground(Color.white);

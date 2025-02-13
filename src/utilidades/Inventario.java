@@ -8,11 +8,7 @@ public class Inventario {
 	ArrayList <Objeto> Inventario = new ArrayList<>();
 	
 	public Boolean isInventarioVacio() {
-		if(Inventario.isEmpty()) {
-			return true;
-		}else {
-			return false;
-		}
+		return Inventario.isEmpty();
 	}
 	
 	public int getInventarioSize() {
@@ -20,10 +16,10 @@ public class Inventario {
 	}
 	
 	public String getObjetoFile(int i) {
-		if (Inventario.isEmpty()) { // Condición corregida
+		if (Inventario.isEmpty() || i > Inventario.size()) { // Condición corregida
             return ""; 
         } else {
-            return Inventario.get(i).getObjDescrip();
+            return Inventario.get(i).getFileName();
         }
 	}
 	
@@ -53,6 +49,8 @@ public class Inventario {
         }
     }
 	
+	private static Objeto LlavePuerta;
+	
 	public Objeto getLlavePuerta() {
 		return LlavePuerta;
 	}
@@ -60,8 +58,8 @@ public class Inventario {
 	public static void setLlavePuerta(Objeto llavePuerta) {
 		LlavePuerta = llavePuerta;
 	}
-
-	private static Objeto LlavePuerta;
+		
+	private static Objeto LlaveCajonPadres;
 	
 	public Objeto getLlaveCajonPadres() {
 		return LlaveCajonPadres;
@@ -71,7 +69,7 @@ public class Inventario {
 		LlaveCajonPadres = llaveCajonPadres;
 	}
 	
-	private static Objeto LlaveCajonPadres;
+	private static Objeto PapelesDivorcio;
 	
 	public Objeto getPapelesDivorcio() {
 		return PapelesDivorcio;
@@ -80,9 +78,7 @@ public class Inventario {
 	public static void setPapelesDivorcio(Objeto papelesDivorcio) {
 		PapelesDivorcio = papelesDivorcio;
 	}
-	
-	private static Objeto PapelesDivorcio;
-	
+
 	private Objeto notaHijoSalon;
 
 	public Objeto getNotaHijoSalon() {
@@ -91,6 +87,25 @@ public class Inventario {
 
 	public void setNotaHijoSalon(Objeto notaHijoSalon) {
 		this.notaHijoSalon = notaHijoSalon;
+	}
+	private Objeto llaveHijo;
+	
+	private Objeto PistaTelefonoHijo;
+
+	public Objeto getLlaveHijo() {
+		return llaveHijo;
+	}
+
+	public void setLlaveHijo(Objeto llaveHijo) {
+		this.llaveHijo = llaveHijo;
+	}
+
+	public Objeto getPistaTelefonoHijo() {
+		return PistaTelefonoHijo;
+	}
+
+	public void setPistaTelefonoHijo(Objeto pistaTelefonoHijo) {
+		PistaTelefonoHijo = pistaTelefonoHijo;
 	}
 	
 }

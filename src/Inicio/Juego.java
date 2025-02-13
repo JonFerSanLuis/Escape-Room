@@ -2,6 +2,7 @@ package Inicio;
 
 import javax.swing.*;
 
+import utilidades.ImagenLoader;
 import utilidades.Inventario;
 import view.Casa.BanoCasa;
 import view.Casa.CajaAbierta;
@@ -35,6 +36,8 @@ public class Juego extends JFrame{
     private JButton btnMochila;
     private JLabel lblPista;
     private JLabel lblMochila;
+    
+    ImagenLoader Img = new ImagenLoader();
     
     ArrayList <JLabel> iconos = new ArrayList<JLabel>();
     
@@ -120,10 +123,12 @@ public class Juego extends JFrame{
         panelPrincipal.setBounds(0, 0, getWidth(), getHeight());
         panelPrincipal.setBackground(new Color(0, 0, 0));
         
-        lblMochila = new JLabel(new ImageIcon("img/IconoMochilaEX.png"));
+        lblMochila = new JLabel();
+        lblMochila.setIcon(Img.scaleImage("/img/IconoMochilaEX.png", 60, 60));
         btnPista = new JButton("");
         btnMochila = new JButton("");
-        lblPista = new JLabel(new ImageIcon("img/IconoPistaEX.png"));
+        lblPista = new JLabel();
+        lblPista.setIcon(Img.scaleImage("/img/IconoPistaEX.png", 60, 60));
 
         panelPrincipal.add(new Intro(this), "intro");
         panelPrincipal.add(new CasaExterior(this), "casaExterior");
@@ -144,76 +149,55 @@ public class Juego extends JFrame{
         setVisible(true);
         
      // Cargar la imagen de fondo
-        String backgroundFile = "img/fondoInv.png";
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
-        ImageIcon paperImagen = new ImageIcon("img/inventarioUI-removebg-preview.png");
+        String backgroundFile = "/img/fondoInv.png";
         
         panelMochila = new JPanel();
         panelMochila.setLayout(null);
         
         JLabel lblPanel1 = new JLabel();
         lblPanel1.setBounds(123, 122, 83, 81);
-        lblPanel1.setIcon(scaledIcon);
         
         JLabel lblPanel2 = new JLabel();
         lblPanel2.setBounds(253, 122, 83, 81);
-        lblPanel2.setIcon(scaledIcon);
         
         JLabel lblPanel3 = new JLabel();
         lblPanel3.setBounds(384, 122, 83, 81);
-        lblPanel3.setIcon(scaledIcon);
         
         JLabel lblPanel4 = new JLabel();
         lblPanel4.setBounds(514, 122, 83, 81);
-        lblPanel4.setIcon(scaledIcon);
         
         JLabel lblPanel5 = new JLabel();
         lblPanel5.setBounds(644, 122, 83, 81);
-        lblPanel5.setIcon(scaledIcon);
         
         JLabel lblPanel6 = new JLabel();
         lblPanel6.setBounds(123, 231, 83, 81);
-        lblPanel6.setIcon(scaledIcon);
         
         JLabel lblPanel7 = new JLabel();
         lblPanel7.setBounds(253, 231, 83, 81);
-        lblPanel7.setIcon(scaledIcon);
         
         JLabel lblPanel8 = new JLabel();
         lblPanel8.setBounds(384, 231, 83, 81);
-        lblPanel8.setIcon(scaledIcon);
         
         JLabel lblPanel9 = new JLabel();
         lblPanel9.setBounds(514, 231, 83, 81);
-        lblPanel9.setIcon(scaledIcon);
         
         JLabel lblPanel10 = new JLabel();
         lblPanel10.setBounds(644, 231, 83, 81);
-        lblPanel10.setIcon(scaledIcon);
         
         JLabel lblPanel11 = new JLabel();
         lblPanel11.setBounds(123, 339, 83, 81);
-        lblPanel11.setIcon(scaledIcon);
         
         JLabel lblPanel12 = new JLabel();
         lblPanel12.setBounds(253, 339, 83, 81);
-        lblPanel12.setIcon(scaledIcon);
         
         JLabel lblPanel13 = new JLabel();
         lblPanel13.setBounds(384, 339, 83, 81);
-        lblPanel13.setIcon(scaledIcon);
         
         JLabel lblPanel14 = new JLabel();
         lblPanel14.setBounds(514, 339, 83, 81);
-        lblPanel14.setIcon(scaledIcon);
         
         JLabel lblPanel15 = new JLabel();
         lblPanel15.setBounds(644, 339, 83, 81);
-        lblPanel15.setIcon(scaledIcon);
         
         cargarIcono(lblPanel15, inventario.getObjetoFile(14));
         cargarIcono(lblPanel14, inventario.getObjetoFile(13));
@@ -232,21 +216,21 @@ public class Juego extends JFrame{
         cargarIcono(lblPanel1, inventario.getObjetoFile(0));
 
         
-        iconos.add(lblPanel15);
-        iconos.add(lblPanel14);
-        iconos.add(lblPanel13);
-        iconos.add(lblPanel12);
-        iconos.add(lblPanel11);
-        iconos.add(lblPanel10);
-        iconos.add(lblPanel9);
-        iconos.add(lblPanel8);
-        iconos.add(lblPanel7);
-        iconos.add(lblPanel6);
-        iconos.add(lblPanel5);
-        iconos.add(lblPanel4);
-        iconos.add(lblPanel3);
+        iconos.add(lblPanel1);
         iconos.add(lblPanel2);
-        iconos.add(lblPanel1);   
+        iconos.add(lblPanel3);
+        iconos.add(lblPanel4);
+        iconos.add(lblPanel5);
+        iconos.add(lblPanel6);
+        iconos.add(lblPanel7);
+        iconos.add(lblPanel8);
+        iconos.add(lblPanel9);
+        iconos.add(lblPanel10);
+        iconos.add(lblPanel11);
+        iconos.add(lblPanel12);
+        iconos.add(lblPanel13);
+        iconos.add(lblPanel14);
+        iconos.add(lblPanel15);   
         
         JButton ranura1 = new JButton("");
         ranura1.addActionListener(new ActionListener() {
@@ -475,14 +459,13 @@ public class Juego extends JFrame{
 		lblPista.setVisible(false);
         JLabel PanelesLabel = new JLabel();
         PanelesLabel.setBounds(77, 86, 689, 372); // Ajusta el tamaño del JLabel 
-        Image imgPaper = paperImagen.getImage().getScaledInstance(PanelesLabel.getWidth(), PanelesLabel.getHeight(), Image.SCALE_SMOOTH);
-        PanelesLabel.setIcon(new ImageIcon(imgPaper));
+        PanelesLabel.setIcon(Img.scaleImage("/img/inventarioUI-removebg-preview.png", 689, 372));
         
         panelMochila.add(PanelesLabel);
         
         JLabel inventarioLabel = new JLabel();
         inventarioLabel.setBounds(0, 0, 950, 600);
-        inventarioLabel.setIcon(scaledIcon);
+        inventarioLabel.setIcon(Img.scaleImage(backgroundFile, 950, 600));
         
         panelMochila.add(inventarioLabel);
         panelMochila.setBounds(0, 0, getWidth(), getHeight());
@@ -495,15 +478,11 @@ public class Juego extends JFrame{
 	public void updatePaneles() {
 			for (int i = 0; inventario.isInventarioVacio()==false && i < inventario.getInventarioSize(); i++) {
 				cargarIcono(iconos.get(i), inventario.getObjetoFile(i));
-		}
+			}
 	}
 	
 	private void cargarIcono(JLabel icono, String file) {
-		ImageIcon imagenFile = new ImageIcon(file);
-		Image imgIcono = imagenFile.getImage().getScaledInstance(icono.getWidth(),
-				icono.getHeight(), Image.SCALE_SMOOTH);
-		icono.setIcon(new ImageIcon(imgIcono));
-		add(icono);
+		icono.setIcon(Img.scaleImage(file, icono.getWidth(), icono.getHeight()));
 	}
 
     private void configurarRanuras(JButton boton) {

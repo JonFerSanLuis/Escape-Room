@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import utilidades.Cronometro;
+import utilidades.ImagenLoader;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -31,17 +32,14 @@ public class Recibidor extends JPanel {
     String backgroundFile;
     JLabel RecibidorLabel;
     private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
+    
+    ImagenLoader img = new ImagenLoader();
 
     public Recibidor(Juego juego) {
         setBounds(0, 0, 950, 600);
     	
-        backgroundFile = "img/recibidor.jpeg";
+        backgroundFile = "/img/recibidor.jpeg";
 
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
         setLayout(null);
         
         JButton btnEscaleras = new JButton("");
@@ -52,19 +50,10 @@ public class Recibidor extends JPanel {
         add(btnCocina);
         JButton btnBano = new JButton("");
         add(btnBano);
-        
-     // Cargar y redimensionar imágenes una sola vez
-        ImageIcon flechaEscaleraOFF = new ImageIcon("img/flechaEscaleraOFF.png");
-        ImageIcon flechaEscaleraON = new ImageIcon("img/flechaEscaleraON.png");
 
-        Image imgEscaleraOFF = flechaEscaleraOFF.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
-        Image imgEscaleraON = flechaEscaleraON.getImage().getScaledInstance(81, 77, Image.SCALE_SMOOTH);
-
-        ImageIcon iconEscaleraOFF = new ImageIcon(imgEscaleraOFF);
-        ImageIcon iconEscaleraON = new ImageIcon(imgEscaleraON);
-
-        JLabel lblEscalera = new JLabel(iconEscaleraOFF);
+        JLabel lblEscalera = new JLabel();
         lblEscalera.setBounds(797, 247, 81, 77);
+        lblEscalera.setIcon(img.scaleImage("/img/flechaEscaleraOFF.png", 81, 77));
         add(lblEscalera);
         
         btnEscaleras.addActionListener(new ActionListener() {
@@ -75,12 +64,12 @@ public class Recibidor extends JPanel {
         btnEscaleras.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                lblEscalera.setIcon(iconEscaleraON);
+            	lblEscalera.setIcon(img.scaleImage("/img/flechaEscaleraON.png", 81, 77));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                lblEscalera.setIcon(iconEscaleraOFF);
+            	lblEscalera.setIcon(img.scaleImage("/img/flechaEscaleraOFF.png", 81, 77));
             }
         });
         btnEscaleras.setBounds(797, 247, 81, 77);
@@ -88,19 +77,10 @@ public class Recibidor extends JPanel {
         btnEscaleras.setOpaque(false);
         btnEscaleras.setBorderPainted(false);
         btnEscaleras.setContentAreaFilled(false);
-        
-     // Cargar y redimensionar imágenes una sola vez
-        ImageIcon flechaPuertaOFF = new ImageIcon("img/FlechaSalonOFF.png");
-        ImageIcon flechaPuertaON = new ImageIcon("img/FlechaSalonON.png");
 
-        Image imgPuertaOFF = flechaPuertaOFF.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
-        Image imgPuertaON = flechaPuertaON.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
-
-        ImageIcon iconPuertaOFF = new ImageIcon(imgPuertaOFF);
-        ImageIcon iconPuertaON = new ImageIcon(imgPuertaON);
-
-        JLabel lblPuerta = new JLabel(iconPuertaOFF);
+        JLabel lblPuerta = new JLabel();
         lblPuerta.setBounds(250, 390, 212, 137);
+        lblPuerta.setIcon(img.scaleImage("/img/FlechaSalonOFF.png", 212, 137));
         add(lblPuerta);
         
         btnPuerta.addMouseListener(new MouseAdapter() {
@@ -110,12 +90,11 @@ public class Recibidor extends JPanel {
         	}
         	@Override
         	public void mouseEntered(MouseEvent e) {
-        		lblPuerta.setIcon(iconPuertaON);
+        		lblPuerta.setIcon(img.scaleImage("/img/FlechaSalonON.png", 212, 137));
         	}
         	@Override
         	public void mouseExited(MouseEvent e) {
-        		lblPuerta.setIcon(iconPuertaOFF);
-        		
+        		lblPuerta.setIcon(img.scaleImage("/img/FlechaSalonOFF.png", 212, 137));        		
         	}
         });
         btnPuerta.setBounds(332, 405, 95, 88);
@@ -125,18 +104,10 @@ public class Recibidor extends JPanel {
         btnPuerta.setContentAreaFilled(false);
         
      // Cargar y redimensionar imágenes una sola vez
-        ImageIcon flechaCocinaOFF = new ImageIcon("img/flechaCocinaOFF.png");
-        ImageIcon flechaCocinaON = new ImageIcon("img/flechaCocinaON.png");
 
-        Image imgCocinaOFF = flechaCocinaOFF.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
-        Image imgCocinaON = flechaCocinaON.getImage().getScaledInstance(212, 137, Image.SCALE_SMOOTH);
-
-        ImageIcon iconCocinaOFF = new ImageIcon(imgCocinaOFF);
-        ImageIcon iconCocinaON = new ImageIcon(imgCocinaON);
-
-        JLabel lblCocina = new JLabel(iconCocinaOFF);
-
+        JLabel lblCocina = new JLabel();
         lblCocina.setBounds(150, 450, 212, 137);
+        lblCocina.setIcon(img.scaleImage("/img/flechaCocinaOFF.png", 212, 137));
         add(lblCocina);
         
         btnCocina.addMouseListener(new MouseAdapter() {
@@ -146,11 +117,11 @@ public class Recibidor extends JPanel {
         	}
         	@Override
         	public void mouseEntered(MouseEvent e) {
-        		lblCocina.setIcon(iconCocinaON);
+        		lblCocina.setIcon(img.scaleImage("/img/flechaCocinaON.png", 212, 137));
         	}
         	@Override
         	public void mouseExited(MouseEvent e) {
-        		lblCocina.setIcon(iconCocinaOFF);
+        		lblCocina.setIcon(img.scaleImage("/img/flechaCocinaOFF.png", 212, 137));
         		
         	}
         });
@@ -192,7 +163,7 @@ public class Recibidor extends JPanel {
         // Mostrar la imagen de fondo
         RecibidorLabel = new JLabel();
         RecibidorLabel.setBounds(0, 0, 950, 600);
-        RecibidorLabel.setIcon(scaledIcon);  // Establecer la imagen por defecto
+        RecibidorLabel.setIcon(img.scaleImage(backgroundFile, 950, 600));  // Establecer la imagen por defecto
         add(RecibidorLabel); // Agregar al final para que quede encima del botón
 
         // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
@@ -201,10 +172,5 @@ public class Recibidor extends JPanel {
         actualizarTimer.start();
 
     }
-    
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
+
 }

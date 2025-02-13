@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.*;
 import config.Config;
+import utilidades.ImagenLoader;
 
 public class Intro extends JPanel {
 
@@ -14,14 +15,15 @@ public class Intro extends JPanel {
     private int txt;
     private String IntroBackground;
     private ArrayList<JTextPane> TxtIntro;
+    
+    ImagenLoader img = new ImagenLoader();
 
     public Intro(Juego juego) {
         setLayout(null);
         setBounds(0, 0, 950, 600);
         setBackground(Color.BLACK);
 
-        IntroBackground = "img/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";
-        ImageIcon scaledIcon = loadImage(IntroBackground);
+        IntroBackground = "/img/Generate_a_scene_of_two_young__(2)_Nero_AI_Anime_Face_(1)_(1)-transformed (1).png";
 
         TxtIntro = new ArrayList<>();
         txt = 0;
@@ -57,7 +59,7 @@ public class Intro extends JPanel {
             TxtIntro.add(historia);
         }
 
-        JButton btnContinue = new JButton(Config.getTexto("siguiente"));  // Usamos el texto para el botón
+        JButton btnContinue = new JButton("Continuar");  // Usamos el texto para el botón
         btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
         btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -94,22 +96,17 @@ public class Intro extends JPanel {
 
         IntroLabel = new JLabel();
         IntroLabel.setBounds(0, 0, 950, 600);
-        IntroLabel.setIcon(scaledIcon);
+        IntroLabel.setIcon(img.scaleImage(IntroBackground, 950, 600));
         add(IntroLabel);
     }
 
     private void cambiarFondo() {
-        String[] fondos = {"img/confesion.jpg", "img/Por qué.png", "img/pixelcut-export (1).png", ""};
+        String[] fondos = {"/img/confesion.jpg", "/img/Por qué.png", "/img/pixelcut-export (1).png", ""};
         if (txt == 2 || txt == 5 || txt == 7 || txt == 8) {
             IntroBackground = fondos[(txt == 2) ? 0 : (txt == 5) ? 1 : (txt == 7) ? 2 : 3];
-            IntroLabel.setIcon(loadImage(IntroBackground));
+            IntroLabel.setIcon(img.scaleImage(IntroBackground, 950, 600));
             IntroLabel.repaint();
         }
     }
 
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(950, 600, Image.SCALE_SMOOTH));
-    }
 }

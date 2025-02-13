@@ -22,12 +22,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import config.Config;
+import utilidades.ImagenLoader;
 
 public class Casa extends JFrame {
 
 	private JPanel contentPanel;
 	private JLabel HomeLabel;
 	private JButton play, btnOptions, ranking, guardar;
+	
+	ImagenLoader Img = new ImagenLoader();
 
 	public Casa() {
 		Config.cargarIdiomas();
@@ -43,7 +46,7 @@ public class Casa extends JFrame {
 		setUndecorated(true);
 		
 		try {
-            Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BonaNovaSC-Bold.ttf"));
+            Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/fonts/BonaNovaSC-Bold.ttf"));
             buttonFont = buttonFont.deriveFont(30f);
 
             play = new JButton(Config.getTexto("jugar"));
@@ -120,18 +123,16 @@ public class Casa extends JFrame {
 			idioma.setForeground(Color.white);
 			contentPanel.add(idioma);
 			idioma.setVisible(false);
-			
-			ImageIcon SpanishImagen = new ImageIcon("img/Bandera_de_España.svg (1).png");
+
 	        JLabel Spanishlabel = new JLabel();
 	        Spanishlabel.setBounds(363, 124, 94, 52);
-	        Spanishlabel.setIcon(escalarImagen(SpanishImagen, Spanishlabel.getWidth(), Spanishlabel.getHeight()));
+	        Spanishlabel.setIcon(Img.scaleImage("/img/Bandera_de_España.svg (1).png", 94, 52));
 	        contentPanel.add(Spanishlabel);
 	        Spanishlabel.setVisible(false);
-	        
-	        ImageIcon EnglishImagen = new ImageIcon("img/Flag_of_the_United_Kingdom_(1-2).svg.png");
+
 	        JLabel Englishlabel = new JLabel();
 	        Englishlabel.setBounds(480, 124, 94, 52);
-	        Englishlabel.setIcon(escalarImagen(EnglishImagen, Englishlabel.getWidth(), Englishlabel.getHeight()));
+	        Englishlabel.setIcon(Img.scaleImage("/img/Flag_of_the_United_Kingdom_(1-2).svg.png", 94, 52));
 	        contentPanel.add(Englishlabel);
 	        Englishlabel.setVisible(false);
 
@@ -140,9 +141,8 @@ public class Casa extends JFrame {
 			contentPanel.add(guardar);
 			
 	        lblOpciones.setBounds(257, 11, 410, 489);
-	        String imagePath = "img/pixelcut-export (1) (1).png";
-	        ImageIcon originalIcon = new ImageIcon(imagePath);
-	        lblOpciones.setIcon(escalarImagen(originalIcon, lblOpciones.getWidth(), lblOpciones.getHeight()));
+	        String imagePath = "/img/pixelcut-export (1) (1).png";
+	        lblOpciones.setIcon(Img.scaleImage(imagePath, 410, 489));
 	        contentPanel.add(lblOpciones);
 	        lblOpciones.setVisible(false);
 	        
@@ -220,22 +220,13 @@ public class Casa extends JFrame {
 		}
 
         // Cargar la imagen de fondo
-        String backgroundFile = "img/JUGAR.png";
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        String backgroundFile = "/img/JUGAR.png";
 
         HomeLabel = new JLabel();
         HomeLabel.setBounds(0, 0, 950, 600);
-        HomeLabel.setIcon(scaledIcon);
+        HomeLabel.setIcon(Img.scaleImage(backgroundFile, 950, 600));
         contentPanel.add(HomeLabel);
         
-    }
-    
-    private ImageIcon escalarImagen(ImageIcon icon, int width, int height) {
-        Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(img);
     }
 
     private void configurarBoton(JButton boton, Font fuente) {

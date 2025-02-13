@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import utilidades.ImagenLoader;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -32,24 +33,16 @@ public class PuzzleCajaFuerte extends JPanel {
     int posNum1;
     int posNum2;
     int posNum3;
+    
+    ImagenLoader img = new ImagenLoader();
 
     public PuzzleCajaFuerte(Juego juego) {
         setBounds(0, 0, 950, 600);
     	
-        backgroundFile = "img/puzzleCajaFuerte.png";
+        backgroundFile = "/img/puzzleCajaFuerte.png";
 
-        // Cargar la imagen y redimensionarla
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
-        ImageIcon RuedaImage = new ImageIcon("img/RuedaPuzzle.png");
         JLabel RuedaLabel = new JLabel();
         RuedaLabel.setBounds(393, 52, 170, 170);
-        Image imgRueda = RuedaImage.getImage().getScaledInstance(RuedaLabel.getWidth(), RuedaLabel.getHeight(),
-        		Image.SCALE_SMOOTH);
-        
         setLayout(null);
         
         posNum1 = 0;
@@ -105,41 +98,33 @@ public class PuzzleCajaFuerte extends JPanel {
 		
         JButton btnAceptar = new JButton("ACEPTAR");
 
-        RuedaLabel.setIcon(new ImageIcon(imgRueda));
+        RuedaLabel.setIcon(img.scaleImage("/img/RuedaPuzzle.png", 170, 170));
         add(RuedaLabel, Integer.valueOf(2));
         
         JLabel flechaArriba1 = new JLabel("");
         flechaArriba1.setBounds(262, 269, 91, 47);
         
-        ImageIcon FlechaArriba = new ImageIcon("img/botonArribaPuzzle.png");
-        Image imgFlechaArriba = FlechaArriba.getImage().getScaledInstance(flechaArriba1.getWidth(), flechaArriba1.getHeight(),
-        		Image.SCALE_SMOOTH);
-        
-        ImageIcon FlechaAbajo = new ImageIcon("img/botonAbajoPuzzle.png");
-        Image imgFlechaAbajo = FlechaAbajo.getImage().getScaledInstance(flechaArriba1.getWidth(), flechaArriba1.getHeight(),
-        		Image.SCALE_SMOOTH);
-        
-        flechaArriba1.setIcon(new ImageIcon(imgFlechaArriba));
+        flechaArriba1.setIcon(img.scaleImage("/img/botonArribaPuzzle.png", 91, 47));
         
         JLabel flechaArriba2 = new JLabel("");
         flechaArriba2.setBounds(434, 269, 91, 47);
-        flechaArriba2.setIcon(new ImageIcon(imgFlechaArriba));
+        flechaArriba2.setIcon(img.scaleImage("/img/botonArribaPuzzle.png", 91, 47));
         
         JLabel flechaArriba3 = new JLabel("");
         flechaArriba3.setBounds(595, 269, 91, 47);
-        flechaArriba3.setIcon(new ImageIcon(imgFlechaArriba));
+        flechaArriba3.setIcon(img.scaleImage("/img/botonArribaPuzzle.png", 91, 47));
         
         JLabel flechaAbajo3 = new JLabel("");
         flechaAbajo3.setBounds(595, 455, 91, 47);
-        flechaAbajo3.setIcon(new ImageIcon(imgFlechaAbajo));
+        flechaAbajo3.setIcon(img.scaleImage("/img/botonAbajoPuzzle.png", 91, 47));
         
         JLabel flechaAbajo2 = new JLabel("");
         flechaAbajo2.setBounds(434, 455, 91, 47);
-        flechaAbajo2.setIcon(new ImageIcon(imgFlechaAbajo));
+        flechaAbajo2.setIcon(img.scaleImage("/img/botonAbajoPuzzle.png", 91, 47));
         
         JLabel flechaAbajo1 = new JLabel("");
         flechaAbajo1.setBounds(262, 455, 91, 47);
-        flechaAbajo1.setIcon(new ImageIcon(imgFlechaAbajo));
+        flechaAbajo1.setIcon(img.scaleImage("/img/botonAbajoPuzzle.png", 91, 47));
         
         btnArriba1.setBounds(262, 269, 91, 47);
         btnArriba1.addActionListener(new ActionListener() {
@@ -312,26 +297,14 @@ public class PuzzleCajaFuerte extends JPanel {
 		// Mostrar la imagen de fondo
 		Background = new JLabel();
 		Background.setBounds(0, 0, 950, 600);
-		Background.setIcon(scaledIcon); // Establecer la imagen por defecto
+		Background.setIcon(img.scaleImage(backgroundFile, 950, 600)); // Establecer la imagen por defecto
 		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa
 
 	}
     private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(backgroundFile);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-		// Actualizar el fondo con la nueva imagen
-		Background.setIcon(scaledIcon);
+		Background.setIcon(img.scaleImage(backgroundFile, 950, 600));
 		Background.repaint(); // Redibujar para aplicar el cambio
 	}
-    
-    private ImageIcon loadImage(String filePath) {
-        ImageIcon icon = new ImageIcon(filePath);
-        Image image = icon.getImage();
-        return new ImageIcon(image.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-    }
+
 }

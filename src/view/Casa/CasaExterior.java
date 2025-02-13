@@ -52,6 +52,9 @@ public class CasaExterior extends JPanel {
 		setBounds(0, 0, 950, 600);
 		setLayout(null);
 		
+		juego.getBtnPista().setVisible(true);
+		juego.getBtnMochila().setVisible(true);
+		
 		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "/img/llaveCasa.png"));
 
 		JLabel LightLabel = new JLabel();
@@ -141,7 +144,7 @@ public class CasaExterior extends JPanel {
 		btnMaceta.setVisible(false);
 		btnMaceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())) {
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
 					CasaExterior = "/img/CasaExteriorTexto.jpeg";
 					upgradeImage();
 					btnPuertaCasa.setVisible(false);
@@ -153,6 +156,7 @@ public class CasaExterior extends JPanel {
 					btnMacetaIncorrect.setVisible(false);
 					txtLlaveEncontrada.setVisible(true);
 					btnContinueMaceta.setVisible(true);
+					btnMaceta.setEnabled(true);
 					juego.getInventario().agregarObjeto(juego.getInventario().getLlavePuerta());
 				}
 			}
@@ -208,8 +212,8 @@ public class CasaExterior extends JPanel {
 						txtOtraPuerta.setVisible(false);
 						btnPuertaDoble.setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
-						btnMaceta.setEnabled(true);
 						txtLlaveNOEncontrada.setVisible(false);
+						btnMaceta.setVisible(true);
 						CasaExterior = "/img/CasaExteriorImg.jpeg";
 						upgradeImage();
 				}

@@ -42,6 +42,9 @@ public class Recibidor extends JPanel {
 
         setLayout(null);
         
+        juego.getBtnPista().setVisible(true);
+		juego.getBtnMochila().setVisible(true);
+        
         JButton btnEscaleras = new JButton("");
         add(btnEscaleras);
         JButton btnPuerta = new JButton("");

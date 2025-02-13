@@ -35,6 +35,11 @@ public class DiarioMadre extends JFrame {
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		String cod = "=@ qr sroerb qry @=!(";
+		//2 de Febrero del 2018
+		
+		
 	}
 
 }

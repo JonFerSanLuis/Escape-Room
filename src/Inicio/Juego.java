@@ -14,6 +14,7 @@ import view.Casa.CuartoMatrimonio;
 import view.Casa.NeveraCalendario;
 import view.Casa.Pasillo2Piso;
 import view.Casa.PuzzleCajaFuerte;
+import view.Casa.PuzzleCajonSala;
 import view.Casa.Recibidor;
 import view.Casa.SalonCasa;
 
@@ -22,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Juego extends JFrame{
     private JFrame frame;
@@ -33,6 +35,8 @@ public class Juego extends JFrame{
     private JButton btnMochila;
     private JLabel lblPista;
     private JLabel lblMochila;
+    
+    ArrayList <JLabel> iconos = new ArrayList<JLabel>();
     
     public JPanel getPanelPrincipal() {
 		return panelPrincipal;
@@ -135,6 +139,7 @@ public class Juego extends JFrame{
         panelPrincipal.add(new NeveraCalendario(this), "nevera");
         panelPrincipal.add(new CocinaCasa(this), "cocina");
         panelPrincipal.add(new BanoCasa(this), "bano");
+        panelPrincipal.add(new PuzzleCajonSala(this), "cajonSalon");
         
         setVisible(true);
         
@@ -149,66 +154,250 @@ public class Juego extends JFrame{
         
         panelMochila = new JPanel();
         panelMochila.setLayout(null);
-         
-        JButton ranura1 = new JButton("New button");
+        
+        JLabel lblPanel1 = new JLabel();
+        lblPanel1.setBounds(123, 122, 83, 81);
+        lblPanel1.setIcon(scaledIcon);
+        
+        JLabel lblPanel2 = new JLabel();
+        lblPanel2.setBounds(253, 122, 83, 81);
+        lblPanel2.setIcon(scaledIcon);
+        
+        JLabel lblPanel3 = new JLabel();
+        lblPanel3.setBounds(384, 122, 83, 81);
+        lblPanel3.setIcon(scaledIcon);
+        
+        JLabel lblPanel4 = new JLabel();
+        lblPanel4.setBounds(514, 122, 83, 81);
+        lblPanel4.setIcon(scaledIcon);
+        
+        JLabel lblPanel5 = new JLabel();
+        lblPanel5.setBounds(644, 122, 83, 81);
+        lblPanel5.setIcon(scaledIcon);
+        
+        JLabel lblPanel6 = new JLabel();
+        lblPanel6.setBounds(123, 231, 83, 81);
+        lblPanel6.setIcon(scaledIcon);
+        
+        JLabel lblPanel7 = new JLabel();
+        lblPanel7.setBounds(253, 231, 83, 81);
+        lblPanel7.setIcon(scaledIcon);
+        
+        JLabel lblPanel8 = new JLabel();
+        lblPanel8.setBounds(384, 231, 83, 81);
+        lblPanel8.setIcon(scaledIcon);
+        
+        JLabel lblPanel9 = new JLabel();
+        lblPanel9.setBounds(514, 231, 83, 81);
+        lblPanel9.setIcon(scaledIcon);
+        
+        JLabel lblPanel10 = new JLabel();
+        lblPanel10.setBounds(644, 231, 83, 81);
+        lblPanel10.setIcon(scaledIcon);
+        
+        JLabel lblPanel11 = new JLabel();
+        lblPanel11.setBounds(123, 339, 83, 81);
+        lblPanel11.setIcon(scaledIcon);
+        
+        JLabel lblPanel12 = new JLabel();
+        lblPanel12.setBounds(253, 339, 83, 81);
+        lblPanel12.setIcon(scaledIcon);
+        
+        JLabel lblPanel13 = new JLabel();
+        lblPanel13.setBounds(384, 339, 83, 81);
+        lblPanel13.setIcon(scaledIcon);
+        
+        JLabel lblPanel14 = new JLabel();
+        lblPanel14.setBounds(514, 339, 83, 81);
+        lblPanel14.setIcon(scaledIcon);
+        
+        JLabel lblPanel15 = new JLabel();
+        lblPanel15.setBounds(644, 339, 83, 81);
+        lblPanel15.setIcon(scaledIcon);
+        
+        cargarIcono(lblPanel15, inventario.getObjetoFile(14));
+        cargarIcono(lblPanel14, inventario.getObjetoFile(13));
+        cargarIcono(lblPanel13, inventario.getObjetoFile(12));
+        cargarIcono(lblPanel12, inventario.getObjetoFile(11));
+        cargarIcono(lblPanel11, inventario.getObjetoFile(10));
+        cargarIcono(lblPanel10, inventario.getObjetoFile(9));
+        cargarIcono(lblPanel9, inventario.getObjetoFile(8));
+        cargarIcono(lblPanel8, inventario.getObjetoFile(7));
+        cargarIcono(lblPanel7, inventario.getObjetoFile(6));
+        cargarIcono(lblPanel6, inventario.getObjetoFile(5));
+        cargarIcono(lblPanel5, inventario.getObjetoFile(4));
+        cargarIcono(lblPanel4, inventario.getObjetoFile(3));
+        cargarIcono(lblPanel3, inventario.getObjetoFile(2));
+        cargarIcono(lblPanel2, inventario.getObjetoFile(1));
+        cargarIcono(lblPanel1, inventario.getObjetoFile(0));
+
+        
+        iconos.add(lblPanel15);
+        iconos.add(lblPanel14);
+        iconos.add(lblPanel13);
+        iconos.add(lblPanel12);
+        iconos.add(lblPanel11);
+        iconos.add(lblPanel10);
+        iconos.add(lblPanel9);
+        iconos.add(lblPanel8);
+        iconos.add(lblPanel7);
+        iconos.add(lblPanel6);
+        iconos.add(lblPanel5);
+        iconos.add(lblPanel4);
+        iconos.add(lblPanel3);
+        iconos.add(lblPanel2);
+        iconos.add(lblPanel1);   
+        
+        JButton ranura1 = new JButton("");
+        ranura1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura1.setBounds(123, 122, 83, 81);
         panelMochila.add(ranura1);
         
-        JButton ranura2 = new JButton("New button");
+        JButton ranura2 = new JButton("");
+        ranura2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura2.setBounds(253, 122, 83, 81);
         panelMochila.add(ranura2);
         
-        JButton ranura3 = new JButton("New button");
+        JButton ranura3 = new JButton("");
+        ranura3.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura3.setBounds(384, 122, 83, 81);
         panelMochila.add(ranura3);
         
-        JButton ranura4 = new JButton("New button");
+        JButton ranura4 = new JButton("");
+        ranura4.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura4.setBounds(514, 122, 83, 81);
         panelMochila.add(ranura4);
         
-        JButton ranura5 = new JButton("New button");
+        JButton ranura5 = new JButton("");
+        ranura5.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura5.setBounds(644, 122, 83, 81);
         panelMochila.add(ranura5);
         
-        JButton ranura6 = new JButton("New button");
+        JButton ranura6 = new JButton("");
+        ranura6.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura6.setBounds(123, 231, 83, 81);
         panelMochila.add(ranura6);
         
-        JButton ranura7 = new JButton("New button");
+        JButton ranura7 = new JButton("");
+        ranura7.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura7.setBounds(253, 231, 83, 81);
         panelMochila.add(ranura7);
         
-        JButton ranura8 = new JButton("New button");
+        JButton ranura8 = new JButton("");
+        ranura8.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura8.setBounds(384, 231, 83, 81);
         panelMochila.add(ranura8);
         
-        JButton ranura9 = new JButton("New button");
+        JButton ranura9 = new JButton("");
+        ranura9.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura9.setBounds(514, 231, 83, 81);
         panelMochila.add(ranura9);
         
-        JButton ranura10 = new JButton("New button");
+        JButton ranura10 = new JButton("");
+        ranura10.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura10.setBounds(644, 231, 83, 81);
         panelMochila.add(ranura10);
         
-        JButton ranura11 = new JButton("New button");
+        JButton ranura11 = new JButton("");
+        ranura11.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura11.setBounds(123, 339, 83, 81);
         panelMochila.add(ranura11);
         
-        JButton ranura12 = new JButton("New button");
+        JButton ranura12 = new JButton("");
+        ranura12.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura12.setBounds(253, 339, 83, 81);
         panelMochila.add(ranura12);
         
-        JButton ranura13 = new JButton("New button");
+        JButton ranura13 = new JButton("");
+        ranura13.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura13.setBounds(384, 339, 83, 81);
         panelMochila.add(ranura13);
         
-        JButton ranura14 = new JButton("New button");
+        JButton ranura14 = new JButton("");
+        ranura14.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura14.setBounds(514, 339, 83, 81);
         panelMochila.add(ranura14);
         
-        JButton ranura15 = new JButton("New button");
+        JButton ranura15 = new JButton("");
+        ranura15.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        });
         ranura15.setBounds(644, 339, 83, 81);
         panelMochila.add(ranura15);
+        
+        panelMochila.add(lblPanel1);
+        panelMochila.add(lblPanel2);
+        panelMochila.add(lblPanel3);
+        panelMochila.add(lblPanel4);
+        panelMochila.add(lblPanel5);
+        panelMochila.add(lblPanel6);
+        panelMochila.add(lblPanel7);
+        panelMochila.add(lblPanel8);
+        panelMochila.add(lblPanel9);
+        panelMochila.add(lblPanel10);
+        panelMochila.add(lblPanel11);
+        panelMochila.add(lblPanel12);
+        panelMochila.add(lblPanel13);
+        panelMochila.add(lblPanel14);
+        panelMochila.add(lblPanel15);
         
         configurarRanuras(ranura1);
         configurarRanuras(ranura2);
@@ -229,6 +418,7 @@ public class Juego extends JFrame{
         btnMochila.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean isVisible = panelMochila.isVisible();
+				updatePaneles();
 				panelMochila.setVisible(!isVisible);
 				panelPrincipal.setVisible(isVisible);
 				}
@@ -284,7 +474,7 @@ public class Juego extends JFrame{
 		btnPista.setVisible(false);
 		lblPista.setVisible(false);
         JLabel PanelesLabel = new JLabel();
-        PanelesLabel.setBounds(74, 84, 689, 372); // Ajusta el tamaño del JLabel 
+        PanelesLabel.setBounds(77, 86, 689, 372); // Ajusta el tamaño del JLabel 
         Image imgPaper = paperImagen.getImage().getScaledInstance(PanelesLabel.getWidth(), PanelesLabel.getHeight(), Image.SCALE_SMOOTH);
         PanelesLabel.setIcon(new ImageIcon(imgPaper));
         
@@ -301,6 +491,20 @@ public class Juego extends JFrame{
         getContentPane().add(panelPrincipal);
 
     }
+	
+	public void updatePaneles() {
+			for (int i = 0; inventario.isInventarioVacio()==false && i < inventario.getInventarioSize(); i++) {
+				cargarIcono(iconos.get(i), inventario.getObjetoFile(i));
+		}
+	}
+	
+	private void cargarIcono(JLabel icono, String file) {
+		ImageIcon imagenFile = new ImageIcon(file);
+		Image imgIcono = imagenFile.getImage().getScaledInstance(icono.getWidth(),
+				icono.getHeight(), Image.SCALE_SMOOTH);
+		icono.setIcon(new ImageIcon(imgIcono));
+		add(icono);
+	}
 
     private void configurarRanuras(JButton boton) {
     	boton.setOpaque(false);
@@ -308,6 +512,7 @@ public class Juego extends JFrame{
         boton.setBorderPainted(false);
         boton.setFocusPainted(false);
         boton.setContentAreaFilled(false);
+        boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     public void cambiarEscena(String nombreEscena) {

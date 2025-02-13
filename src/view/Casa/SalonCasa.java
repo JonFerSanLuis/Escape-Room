@@ -106,6 +106,7 @@ public class SalonCasa extends JPanel {
         btnMueble.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnMueble.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("cajonSalon");
         	}
         });
         btnMueble.setBounds(808, 410, 104, 83);

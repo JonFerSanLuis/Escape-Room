@@ -7,6 +7,26 @@ import Objetos.Objeto;
 public class Inventario {
 	ArrayList <Objeto> Inventario = new ArrayList<>();
 	
+	public Boolean isInventarioVacio() {
+		if(Inventario.isEmpty()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public int getInventarioSize() {
+		return Inventario.size();
+	}
+	
+	public String getObjetoFile(int i) {
+		if (Inventario.isEmpty()) { // Condición corregida
+            return ""; 
+        } else {
+            return Inventario.get(i).getObjDescrip();
+        }
+	}
+	
 	public void agregarObjeto(Objeto o) {
 		Inventario.add(o);
     }

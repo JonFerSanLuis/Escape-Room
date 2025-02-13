@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import config.Config;
 import utilidades.ImagenLoader;
 
 import javax.swing.JButton;
@@ -38,16 +39,16 @@ public class SalonCasa extends JPanel {
 		
 		backgroundFile = "/img/salonCasa.jpg";
 		
-		JButton btnContinue = new JButton("CONTINUAR");
+		JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 		
-		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", "Parece que es una nota desgastada por los días que lleva bajo la almohada, además la letra parece de Mikel", "img/......."));
+		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", Config.getTexto("1S"), "img/......."));
         
         JLabel LightLabel = new JLabel();
         LightLabel.setBounds(313, 382, 61, 17); // Ajusta el tamaño del JLabel 
         LightLabel.setIcon(img.scaleImage("/img/11571045.png", 61, 17));
         LightLabel.setVisible(false);
         
-        JLabel TxtAlmohada = new JLabel("Parece que debajo de la almohada había una nota");
+        JLabel TxtAlmohada = new JLabel(Config.getTexto("1S"));
 		TxtAlmohada.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtAlmohada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtAlmohada.setForeground(Color.WHITE);

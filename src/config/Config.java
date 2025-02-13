@@ -53,6 +53,10 @@ public class Config {
         textosEn.put("btnVolver", "RETURN");
         textosEn.put("12CE", "This is Mikel's house.");
         textosEn.put("13CE", "I should see his parents to see if they can give me some information.");
+        
+        // Cajón Salón
+        textosEn.put("codigoAcertado", "¡CORRECT CODE!");
+        textosEn.put("codigoIncorrecto", "¡INCORRECT CODE!");
 
         
         // Textos en español
@@ -84,7 +88,6 @@ public class Config {
         textosEs.put("12", "TENGO QUE ENCONTRARLE.");
         
         // Casa exterior
-        textosEs.put("", "");
         textosEs.put("1CE", "-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
         textosEs.put("2CE", "No llego ni de coña.");
         textosEs.put("3CE", "Nah, tampoco puedo entrar por la ventana.");
@@ -99,6 +102,10 @@ public class Config {
         textosEs.put("12CE", "Esta es la casa de Mikel.");
         textosEs.put("13CE", "Debería ver a sus padres por si me pueden dar algo de información.");
         
+        // Cajón salón
+        textosEs.put("", "");
+        textosEs.put("codigoAcertado", "¡CODIGO ACERTADO!");
+        textosEs.put("codigoIncorrecto", "¡CODIGO INCORRECTO!");
         
         // Guardar los textos de cada idioma en el hashmap
         textos.put("en", textosEn);

@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import config.Config;
 import utilidades.ImagenLoader;
 import utilidades.Inventario;
 
@@ -206,7 +207,7 @@ public class PuzzleCajonSala extends JPanel {
      		btnOK.addActionListener(new ActionListener() {
      			public void actionPerformed(ActionEvent e) {
      				if (panelCod.getText().equals("150317")) {
-     					panelCod.setText("¡CODIGO ACERTADO!");
+     					panelCod.setText(Config.getTexto("codigoAcertado"));
      					backgroundFile = "/img/cajonPuzzleEcho.png";
     					upgradeImage();
      				    btn0.setVisible(false);
@@ -224,7 +225,7 @@ public class PuzzleCajonSala extends JPanel {
      				   lblLlavesNiño.setVisible(true);
      				   lblPistaMovil.setVisible(true);
      				} else {
-     				    panelCod.setText("¡CODIGO INCORRECTO!");
+     				    panelCod.setText(Config.getTexto("codigoIncorrecto"));
      				    setEnabled(false);
      				    // Usamos un SwingWorker para evitar bloquear la interfaz gráfica
      				    new SwingWorker<Void, Void>() {
@@ -245,7 +246,7 @@ public class PuzzleCajonSala extends JPanel {
      			}
      		});
      		
-     		JButton btnVolver = new JButton("VOLVER");
+     		JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
             btnVolver.addActionListener(new ActionListener() {
             	public void actionPerformed(ActionEvent e) {
             		juego.cambiarEscena("salon");

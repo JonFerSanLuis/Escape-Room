@@ -201,7 +201,7 @@ public class ElegirConversacion extends JPanel {
 		btnContinue.setOpaque(false);
 		btnContinue.setBorderPainted(false);
 		btnContinue.setContentAreaFilled(false);
-
+		btnContinue.setVisible(false);
 		add(btnContinue);
 		
 		add(lblTv);

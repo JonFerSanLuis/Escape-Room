@@ -102,7 +102,7 @@ public class TvCuartoHijo extends JPanel {
 	    JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		juego.cambiarEscena("curtoHijo");
+        		juego.cambiarEscena("cuartoHijo");
         	}
         });
         btnVolver.setBounds(51, 506, 89, 23);

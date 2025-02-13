@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 public class puzzleTelefono extends JFrame {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */

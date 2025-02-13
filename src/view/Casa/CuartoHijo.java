@@ -19,6 +19,8 @@ import utilidades.ImagenLoader;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CuartoHijo extends JPanel {
 	
@@ -41,17 +43,16 @@ public class CuartoHijo extends JPanel {
 
 	    btnTV = new JButton("");
 	    btnTV.setBounds(20, 230, 78, 102);
+	    btnTV.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		juego.cambiarEscena("verPantalla");
+	    	}
+	    });
+	    
 	    btnTV.setContentAreaFilled(false);
 	    btnTV.setBorderPainted(false);
 	    btnTV.setFocusPainted(false);
 	    btnTV.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-	    btnTV.addMouseListener(new MouseAdapter() {
-	        @Override
-	        public void mouseClicked(MouseEvent e) {
-	        	juego.cambiarEscena("pantallaPc");
-			}
-		});
 
 		JLabel lblFlechaPasillo = new JLabel("");
 		lblFlechaPasillo.setBounds(175, 410, 309, 190);
@@ -76,6 +77,14 @@ public class CuartoHijo extends JPanel {
 				lblFlechaPasillo.setIcon(img.scaleImage("/img/FlechaVolverPasilloPadresOFF.png", 309, 190));
 			}
 		});
+		
+		JButton btnPhone = new JButton("");
+		btnPhone.setBounds(579, 373, 70, 22);
+		btnPhone.setBackground(new Color(0, 0, 0, 0));
+		btnPhone.setOpaque(false);
+		btnPhone.setBorderPainted(false);
+		btnPhone.setContentAreaFilled(false);
+		add(btnPhone);
 
 		btnVolverPasillo.setBounds(260, 456, 155, 106);
 		btnVolverPasillo.setBackground(new Color(0, 0, 0, 0));
@@ -85,15 +94,6 @@ public class CuartoHijo extends JPanel {
 
 		add(btnVolverPasillo);
 		add(lblFlechaPasillo);
-
-		JButton btnMovil = new JButton("");
-		btnMovil.setBounds(584, 381, 63, 14);
-		btnMovil.setBounds(20, 212, 89, 102);
-		btnMovil.setContentAreaFilled(false);
-		btnMovil.setBorderPainted(false);
-		btnMovil.setFocusPainted(false);
-	    add(btnMovil);
-	    btnMovil.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 	    add(btnTV);
 	    add(lblPasillo2Piso);

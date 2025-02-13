@@ -152,9 +152,9 @@ public class Juego extends JFrame{
         panelPrincipal.add(new BanoCasa(this), "bano");
         panelPrincipal.add(new PuzzleCajonSala(this), "cajonSalon");
         panelPrincipal.add(new PuertaMikel(this), "puertaMikel");
-        panelPrincipal.add(new CuartoHijo(this), "cuartoHijo");
-        panelPrincipal.add(new TvCuartoHijo(this), "pantallaPc");
         panelPrincipal.add(new ElegirConversacion(this), "conversacionesPc");
+        panelPrincipal.add(new TvCuartoHijo(this), "verPantalla");
+        panelPrincipal.add(new CuartoHijo(this), "cuartoHijo");
         
         setVisible(true);
         

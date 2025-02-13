@@ -45,7 +45,7 @@ public class Config {
         textosEn.put("4CE", "This door won't open either.");
         textosEn.put("5CE", "-You move the flowerpot, but there's nothing underneath.-");
         textosEn.put("btnContinuar", "CONTINUE");
-        textosEn.put("postit", "img/PostitIngles.png");
+        textosEn.put("postit", "/img/PostitIngles.png");
         textosEn.put("8CE", "It looks like no one is home.");
         textosEn.put("9CE", "But the door is closed.");
         textosEn.put("10CE", "I must find a way to get in.");
@@ -93,7 +93,7 @@ public class Config {
         textosEs.put("4CE", "Esta puerta tampoco se abre.");
         textosEs.put("5CE", "-Mueves la maceta, pero no hay nada debajo-");
         textosEs.put("btnContinuar", "CONTINUAR");
-        textosEs.put("postit", "img/postitGrande (2).png");
+        textosEs.put("postit", "/img/postitGrande (2).png");
         textosEs.put("8CE", "Parece que no hay nadie en casa.");
         textosEs.put("9CE", "Pero la puerta esta cerrada.");
         textosEs.put("10CE", "Debo encontrar la forma de entrar");

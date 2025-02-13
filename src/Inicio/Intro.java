@@ -59,7 +59,7 @@ public class Intro extends JPanel {
             TxtIntro.add(historia);
         }
 
-        JButton btnContinue = new JButton("Continuar");  // Usamos el texto para el botón
+        JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));  // Usamos el texto para el botón
         btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
         btnContinue.setBackground(new Color(0, 0, 0, 0));

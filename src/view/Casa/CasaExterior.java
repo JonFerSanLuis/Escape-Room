@@ -190,7 +190,7 @@ public class CasaExterior extends JPanel {
 		add(btnMacetaIncorrect);
 
 		JLabel lblPositGrande = new JLabel();
-		lblPositGrande.setBounds(240, 100, 478, 429); // Ajusta el tamaño del JLabel
+		lblPositGrande.setBounds(240, 78, 478, 451); // Ajusta el tamaño del JLabel
 
 			btnContinueMaceta.setBounds(819, 468, 115, 23);
 			btnContinueMaceta.setBackground(new Color(0, 0, 0, 0));
@@ -240,7 +240,7 @@ public class CasaExterior extends JPanel {
 		add(btnMaceta);
 		add(LightLabel);
 
-		lblPositGrande.setIcon(img.scaleImage("/img/postitGrande (2).png", 478, 429));
+		lblPositGrande.setIcon(img.scaleImage(Config.getTexto("postit"), 478, 429));
 		add(lblPositGrande);
 		lblPositGrande.setVisible(false);
 

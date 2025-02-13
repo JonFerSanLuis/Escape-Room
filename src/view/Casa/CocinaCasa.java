@@ -44,6 +44,11 @@ public class CocinaCasa extends JPanel {
         lblVolver.setIcon(img.scaleImage("/img/fechaAbajoOFF.png", 89, 83));
         
         JButton btnCajonCocina = new JButton("");
+        btnCajonCocina.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("papelera");
+        	}
+        });
         btnCajonCocina.setBounds(352, 382, 58, 106);
         btnCajonCocina.setBackground(new Color(0, 0, 0, 0));
         btnCajonCocina.setOpaque(false);

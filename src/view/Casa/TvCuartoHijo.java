@@ -2,6 +2,7 @@ package view.Casa;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -15,124 +16,104 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import Inicio.Juego;
+import utilidades.ImagenLoader;
+
 import javax.swing.JOptionPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class TvCuartoHijo extends JFrame {
-
-	private JPanel contentPane;
+public class TvCuartoHijo extends JPanel {
+	
 	private JLabel lblTv;
 	private JTextField textField;
 	private JButton btnSubmit;
 	private int attemptCount = 0;  // Contador de intentos
+	
+	ImagenLoader img = new ImagenLoader();
 
 	// La contraseña correcta
-	private final String correctPassword = "acoso";
+	private final String correctPassword = "gladiator2010";
 	
 	// Pistas
 	private final String[] clues = {
-		"La contraseña tiene 5 letras.",
-		"Es una palabra en español.",
-		"La primera letra es 'a'.",
-		"La contraseña es algo que ocurre cuando alguien se comporta de manera inapropiada."
+		"La contraseña tiene 13 caracteres.",
+		"La contraseña esta en ingles",
+		"Contiene numero y letras",
+		"Es quizá la nota se refiere a su padre biologico"
 	};
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TvCuartoHijo frame = new TvCuartoHijo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+	public TvCuartoHijo(Juego juego) {
+	    setBounds(0, 0, 950, 600);
+	    setLayout(null);
+
+		String backgroundFile = "/img/Fototelevision.png";
+
+		btnSubmit = new JButton("");
+		btnSubmit.setBounds(420, 331, 98, 33);
+		add(btnSubmit);
+		btnSubmit.setOpaque(false);
+		btnSubmit.setContentAreaFilled(false);
+		btnSubmit.setBorderPainted(false);
+
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String userInput = textField.getText().trim().toLowerCase();
+
+				if (userInput.equals(correctPassword)) {
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							
+						}
+					});
+				} else {
+					attemptCount++;
+					if (attemptCount < clues.length) {
+						JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Pista: " + clues[attemptCount]);
+					} else {
+						JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Ya no hay más pistas.");
+					}
 				}
 			}
 		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public TvCuartoHijo() {
-		setResizable(false);
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setBounds(200, 100, 950, 600);
+		JLabel btnenter = new JLabel("");
+		btnenter.setIcon(img.scaleImage("/img/botonenter.png", 160, 88));
 
-	    contentPane = new JPanel();
-	    setContentPane(contentPane);
-	    contentPane.setLayout(null);
+		btnenter.setBounds(390, 311, 160, 88); // Establecer el mismo tamaño que el botón
+		add(btnenter);
 
-	    String backgroundFile = "img/Fototelevision.png";
-	    ImageIcon originalIcon = new ImageIcon(backgroundFile);
-	    Image originalImage = originalIcon.getImage();
-	    Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-	    
-	    // Crear el JLabel y asignar la imagen redimensionada
-        ImageIcon flechaIcon = new ImageIcon("img\\botonenter.png");
+		Color backgroundColor = new Color(209, 238, 253);
 
-	    
-	    JLabel btnenter = new JLabel("");
-        Image flechaImage = flechaIcon.getImage().getScaledInstance(150, 70, Image.SCALE_SMOOTH);
-        ImageIcon scaledFlechaIcon = new ImageIcon(flechaImage);
-        btnenter.setIcon(scaledFlechaIcon);
-	    
-        btnenter.setBounds(390, 298, 160, 88);  // Establecer el mismo tamaño que el botón
-	    contentPane.add(btnenter);
+		textField = new JTextField();
+		textField.setBounds(359, 276, 208, 33);
+		add(textField);
+		textField.setColumns(10);
+		textField.setBackground(backgroundColor);
+		textField.setForeground(Color.BLACK);
+	    textField.setBorder(new LineBorder(backgroundColor, 2)); 
 	    
 	    JLabel lblPosit = new JLabel("");
-	    lblPosit.setIcon(new ImageIcon("img\\PositTv.png"));
-	    lblPosit.setBounds(-114, 54, 430, 217);
-	    contentPane.add(lblPosit);
+	    lblPosit.setIcon(img.scaleImage("/img/postitTvIng.png", 430, 217));
+	    lblPosit.setBounds(-67, 21, 430, 217);
+	    add(lblPosit);
+	    
+	    JButton btnVolver = new JButton("VOLVER");
+        btnVolver.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("curtoHijo");
+        	}
+        });
+        btnVolver.setBounds(51, 506, 89, 23);
+        add(btnVolver);
+        
+        btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR)); 
 	    
 	    lblTv = new JLabel();
-	    lblTv.setBounds(0, 0, 944, 561);
-	    lblTv.setIcon(scaledIcon);
-	    contentPane.add(lblTv);
-	    
-	    textField = new JTextField();
-	    textField.setBounds(358, 254, 208, 33);
-	    contentPane.add(textField);
-	    textField.setColumns(10);
-        Color backgroundColor = new Color(209, 238, 253);
-        textField.setBackground(backgroundColor);
-        textField.setForeground(Color.BLACK);
-        textField.setBorder(new LineBorder(backgroundColor, 2)); 
+	    lblTv.setBounds(0, 0, 950, 600);
+	    lblTv.setIcon(img.scaleImage(backgroundFile, 950, 600));
+	    add(lblTv);
         
-        btnSubmit = new JButton("");
-        btnSubmit.setBounds(379, 298, 171, 100);  
-        contentPane.add(btnSubmit);
-        btnSubmit.setOpaque(false);
-        btnSubmit.setContentAreaFilled(false);
-        btnSubmit.setBorderPainted(false);
-                
-                btnSubmit.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        String userInput = textField.getText().trim().toLowerCase();
-                        
-                        if (userInput.equals(correctPassword)) {
-                    		EventQueue.invokeLater(new Runnable() {
-                    			public void run() {
-                    				try {
-                    					ElegirConversacion frame = new ElegirConversacion();
-                    					frame.setVisible(true);
-                    				} catch (Exception e) {
-                    					e.printStackTrace();
-                    				}
-                    			}
-                    		});                        } else {
-                            attemptCount++;
-                            if (attemptCount < clues.length) {
-                                JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Pista: " + clues[attemptCount]);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "¡Contraseña incorrecta! Ya no hay más pistas.");
-                            }
-                        }
-                    }
-                }); 
 	}
 }

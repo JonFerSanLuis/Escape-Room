@@ -25,6 +25,8 @@ public class CuartoMatrimonio extends JPanel {
 
     ImagenLoader img = new ImagenLoader();
     
+    Inventario inventario = new Inventario();
+    
     int txtPre;
 
     public CuartoMatrimonio(Juego juego) {
@@ -70,7 +72,6 @@ public class CuartoMatrimonio extends JPanel {
 	
 	add(btnVolverPasillo);
 	add(lblFlechaPasillo);
-	
 
     JButton btnVerCaja = new JButton("");
     
@@ -133,12 +134,8 @@ public class CuartoMatrimonio extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 EventQueue.invokeLater(new Runnable() {
 					public void run() {
-						if (juego.getInventario().contieneObjeto(juego.getInventario().getLlaveCajonPadres())) {
-							try {
+						if (juego.getInventario().contieneObjeto(inventario.getLlaveCajonPadres())) {
 								juego.cambiarEscena("cajonPadres");
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
 						} else {
 							CuartoPadresFile = "/img/CuartoPadresTexto.png";
 							upgradeImage();
@@ -148,6 +145,7 @@ public class CuartoMatrimonio extends JPanel {
 							btnPistaCaja.setVisible(false);
 							btnVerCajon.setVisible(false);
 							lblFlechaPasillo.setVisible(false);
+							btnVolverPasillo.setVisible(false);
 						}
 					}
                 });
@@ -177,6 +175,8 @@ public class CuartoMatrimonio extends JPanel {
                         btnVerCaja.setVisible(true);
                         btnVerCajon.setVisible(true);
                         btnPistaCaja.setVisible(true);
+                        lblFlechaPasillo.setVisible(true);
+                        btnVolverPasillo.setVisible(true);
                     }
                 });
             }

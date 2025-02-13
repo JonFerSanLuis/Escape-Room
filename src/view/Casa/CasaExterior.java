@@ -47,6 +47,8 @@ public class CasaExterior extends JPanel {
 	
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 	
+    Inventario inventario = new Inventario();
+	
 	ImagenLoader img = new ImagenLoader();
 
 	public CasaExterior(Juego juego) {
@@ -142,7 +144,7 @@ public class CasaExterior extends JPanel {
 		btnMaceta.setVisible(false);
 		btnMaceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+				if(!juego.getInventario().contieneObjeto(inventario.getLlavePuerta())) {
 					CasaExterior = "/img/CasaExteriorTexto.jpeg";
 					upgradeImage();
 					btnPuertaCasa.setVisible(false);

@@ -79,8 +79,6 @@ public class Inventario {
 		PapelesDivorcio = papelesDivorcio;
 	}
 
-	private Objeto notaHijoSalon;
-
 	public Objeto getNotaHijoSalon() {
 		return notaHijoSalon;
 	}
@@ -88,9 +86,8 @@ public class Inventario {
 	public void setNotaHijoSalon(Objeto notaHijoSalon) {
 		this.notaHijoSalon = notaHijoSalon;
 	}
-	private Objeto llaveHijo;
 	
-	private Objeto PistaTelefonoHijo;
+	private static Objeto notaHijoSalon;
 
 	public Objeto getLlaveHijo() {
 		return llaveHijo;
@@ -99,10 +96,14 @@ public class Inventario {
 	public void setLlaveHijo(Objeto llaveHijo) {
 		this.llaveHijo = llaveHijo;
 	}
-
+	
+	private static Objeto llaveHijo;
+	
 	public Objeto getPistaTelefonoHijo() {
 		return PistaTelefonoHijo;
 	}
+	
+	private Objeto PistaTelefonoHijo;
 
 	public void setPistaTelefonoHijo(Objeto pistaTelefonoHijo) {
 		PistaTelefonoHijo = pistaTelefonoHijo;

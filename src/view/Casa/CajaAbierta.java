@@ -34,11 +34,13 @@ public class CajaAbierta extends JPanel {
     JLabel Background;
     
     ImagenLoader img = new ImagenLoader();
+    
+    Inventario inventario = new Inventario();
 
     public CajaAbierta(Juego juego) {
         setBounds(0, 0, 950, 600);
         
-        juego.getInventario().setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "img/llaveCajon.png"));
+        juego.getInventario().setLlaveCajonPadres(new Objeto(true, true, 002, "Llave del Cajón", "La llave del cajón de la comoda de los padres de Mikel", "/img/llaveCajon.png"));
     	
         backgroundFile = "/img/cajaFuerteOpen.jpeg";
         

@@ -75,7 +75,7 @@ public class Pasillo2Piso extends JPanel {
         JButton btnHijo = new JButton("");
         btnHijo.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		// juego.cambiarEscena("cuartoHijo");
+        		juego.cambiarEscena("puertaMikel");
         	}
         });
         btnHijo.addMouseListener(new MouseAdapter() {

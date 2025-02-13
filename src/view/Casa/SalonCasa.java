@@ -18,6 +18,7 @@ import Inicio.Juego;
 import Objetos.Objeto;
 import config.Config;
 import utilidades.ImagenLoader;
+import utilidades.Inventario;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -32,6 +33,8 @@ public class SalonCasa extends JPanel {
     JLabel salonLabel;
     
     ImagenLoader img = new ImagenLoader();
+    
+    Inventario inventario = new Inventario();
 
 	public SalonCasa(Juego juego) {
 		setBounds(0, 0, 950, 600);
@@ -41,7 +44,7 @@ public class SalonCasa extends JPanel {
 		
 		JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 		
-		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", Config.getTexto("1S"), "img/......."));
+		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", Config.getTexto("1S"), "/img/notaMikel.png"));
         
         JLabel LightLabel = new JLabel();
         LightLabel.setBounds(313, 382, 61, 17); // Ajusta el tamaño del JLabel 

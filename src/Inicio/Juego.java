@@ -11,13 +11,16 @@ import view.Casa.CasaExterior;
 import view.Casa.CocinaCasa;
 import view.Casa.CuadroMadre;
 import view.Casa.CuadroPerro;
+import view.Casa.CuartoHijo;
 import view.Casa.CuartoMatrimonio;
 import view.Casa.NeveraCalendario;
 import view.Casa.Pasillo2Piso;
+import view.Casa.PuertaMikel;
 import view.Casa.PuzzleCajaFuerte;
 import view.Casa.PuzzleCajonSala;
 import view.Casa.Recibidor;
 import view.Casa.SalonCasa;
+import view.Casa.puzzlePapelera;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -143,8 +146,11 @@ public class Juego extends JFrame{
         panelPrincipal.add(new CuadroMadre(this), "cuadroM");
         panelPrincipal.add(new NeveraCalendario(this), "nevera");
         panelPrincipal.add(new CocinaCasa(this), "cocina");
+        panelPrincipal.add(new puzzlePapelera(this), "papelera");
         panelPrincipal.add(new BanoCasa(this), "bano");
         panelPrincipal.add(new PuzzleCajonSala(this), "cajonSalon");
+        panelPrincipal.add(new PuertaMikel(this), "puertaMikel");
+        panelPrincipal.add(new CuartoHijo(this), "cuartoHijo");
         
         setVisible(true);
         

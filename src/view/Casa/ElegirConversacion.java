@@ -64,9 +64,7 @@ public class ElegirConversacion extends JFrame {
                         btnAtras.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                CuartoHijo frame = new CuartoHijo();
-                                frame.setVisible(true);
-                                dispose(); 
+                                
                             }
                         });
                         contentPane.add(btnAtras);

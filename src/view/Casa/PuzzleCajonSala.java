@@ -41,9 +41,8 @@ public class PuzzleCajonSala extends JPanel {
 		
 		backgroundFile = "/img/cajonSalonImg.png";
 		
-		inventario.setLlaveHijo(new Objeto(true, true, 100, "Llave del cuarto de Mikel", "Es la llave de la puerta del cuarto de Mikel.", "/img/llavesNiño.png"));
-		inventario.setPistaTelefonoHijo(new Objeto(true, false, 15, "Tablon Encriptado", "¿Qué será este tablón tan raro?", "/img/pistaCodMovil.png"));
-
+		juego.getInventario().setLlaveHijo(new Objeto(true, true, 100, "Llave del cuarto de Mikel", "Es la llave de la puerta del cuarto de Mikel.", "/img/llavesNiño.png"));
+		juego.getInventario().setPistaTelefonoHijo(new Objeto(true, false, 15, "Tablon Encriptado", "¿Qué será este tablón tan raro?", "/img/pistaCodMovil.png"));
 
 		JLabel lblLlavesNiño = new JLabel("");
 		JLabel lblPistaMovil = new JLabel("");
@@ -52,9 +51,9 @@ public class PuzzleCajonSala extends JPanel {
 		JButton btnLlave = new JButton("");
 		btnLlave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				juego.getInventario().agregarObjeto(juego.getInventario().getLlaveHijo());
 				lblLlavesNiño.setVisible(false);
 				btnLlave.setVisible(false);
-				inventario.agregarObjeto(inventario.getLlaveHijo());
 			}
 		});
 		btnLlave.setBounds(648, 418, 73, 70);
@@ -65,7 +64,8 @@ public class PuzzleCajonSala extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				lblPistaMovil.setVisible(false);
 				btnPistaMovil.setVisible(false);
-				inventario.agregarObjeto(inventario.getPistaTelefonoHijo());
+				juego.getInventario().agregarObjeto(juego.getInventario().getPistaTelefonoHijo());
+				
 			}
 		});
 		btnPistaMovil.setBounds(699, 201, 225, 119);

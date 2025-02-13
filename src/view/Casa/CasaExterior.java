@@ -447,7 +447,7 @@ public class CasaExterior extends JPanel {
 
 		ArrayList<JLabel> TxtIntroCasa = new ArrayList<>();
 
-		JLabel TxtIntroCasa1 = new JLabel("Esta es la casa de Mikel.");
+		JLabel TxtIntroCasa1 = new JLabel(Config.getTexto("12CE"));
 		TxtIntroCasa1.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtIntroCasa1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtIntroCasa1.setForeground(Color.WHITE);
@@ -455,7 +455,7 @@ public class CasaExterior extends JPanel {
 		add(TxtIntroCasa1);
 		TxtIntroCasa1.setVisible(true);
 
-		JLabel TxtIntroCasa2 = new JLabel("Debería ver a sus padres por si me pueden dar algo de información");
+		JLabel TxtIntroCasa2 = new JLabel(Config.getTexto("13CE"));
 		TxtIntroCasa2.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtIntroCasa2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtIntroCasa2.setForeground(Color.WHITE);
@@ -471,7 +471,7 @@ public class CasaExterior extends JPanel {
 		try {
 			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
 			optionsFont = optionsFont.deriveFont(10f);
-			JButton btnContinue = new JButton("CONTINUAR");
+			JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 			btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			btnContinue.setBounds(819, 468, 115, 23);
 			btnContinue.setBackground(new Color(0, 0, 0, 0));

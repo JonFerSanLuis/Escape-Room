@@ -50,7 +50,13 @@ public class Config {
         textosEn.put("9CE", "But the door is closed.");
         textosEn.put("10CE", "I must find a way to get in.");
         textosEn.put("btnVolver", "RETURN");
-        textosEn.put("12CE", "");
+        textosEn.put("12CE", "This is Mikel's house.");
+        textosEn.put("13CE", "I should see his parents to see if they can give me some information.");
+        textosEn.put("1CE4", "");
+        textosEn.put("15CE", "");
+        textosEn.put("16CE", "");
+        textosEn.put("17CE", "");
+        textosEn.put("18CE", "");
 
         // Textos en español
         Map<String, String> textosEs = new HashMap<>();
@@ -92,7 +98,14 @@ public class Config {
         textosEs.put("9CE", "Pero la puerta esta cerrada.");
         textosEs.put("10CE", "Debo encontrar la forma de entrar");
         textosEs.put("btnVolver", "VOLVER");
-        textosEs.put("12CE", "");
+        textosEs.put("12CE", "Esta es la casa de Mikel.");
+        textosEs.put("13CE", "Debería ver a sus padres por si me pueden dar algo de información.");
+        textosEs.put("14CE", "");
+        textosEs.put("15CE", "");
+        textosEs.put("16CE", "");
+        textosEs.put("17CE", "");
+        textosEs.put("18CE", "");
+        
         
         
         // Guardar los textos de cada idioma en el hashmap

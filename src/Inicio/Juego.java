@@ -2,6 +2,7 @@ package Inicio;
 
 import javax.swing.*;
 
+import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 import utilidades.Inventario;
 import view.Casa.BanoCasa;
@@ -15,6 +16,7 @@ import view.Casa.CuadroPerro;
 import view.Casa.CuartoHijo;
 import view.Casa.CuartoMatrimonio;
 import view.Casa.ElegirConversacion;
+import view.Casa.FinJuego;
 import view.Casa.NeveraCalendario;
 import view.Casa.Pasillo2Piso;
 import view.Casa.PuertaMikel;
@@ -159,8 +161,15 @@ public class Juego extends JFrame{
         panelPrincipal.add(new CuartoHijo(this), "cuartoHijo");
         panelPrincipal.add(new ColegioXFuera(this), "colegioIntro");
         panelPrincipal.add(new CasaExteriorFinal(this), "casaFinal");
+        panelPrincipal.add(new FinJuego(this), "finJuego");
         
         setVisible(true);
+        
+        
+        // Gestiona que el cronometro cuando llegue a 0 termine con el Escape Room
+        Cronometro.getInstancia().setOnFinish(() -> {
+            cardLayout.show(panelPrincipal, "finJuego");
+        });
         
      // Cargar la imagen de fondo
         String backgroundFile = "/img/fondoInv.png";

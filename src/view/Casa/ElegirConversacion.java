@@ -18,7 +18,6 @@ public class ElegirConversacion extends JPanel {
     private JLabel lblTv; // Imagen de fondo
     private JLabel lblfotoconver1;
     private JLabel lblfotoconver2;
-    private JButton btnVolver;
     private JButton btnConver1;
     private JButton btnConver2;
     private JButton btnAtras; // Nueva flecha para ir a CuartoHijo
@@ -82,7 +81,6 @@ public class ElegirConversacion extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 lblfotoconver1.setVisible(true);
                 lblfotoconver2.setVisible(false);
-                btnVolver.setVisible(true);
                 // Oculta los botones de selección de conversación
                 btnConver1.setVisible(false);
                 btnConver2.setVisible(false);
@@ -105,7 +103,6 @@ public class ElegirConversacion extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 lblfotoconver2.setVisible(true);
                 lblfotoconver1.setVisible(false);
-                btnVolver.setVisible(true);
                 // Oculta los botones de selección de conversación
                 btnConver1.setVisible(false);
                 btnConver2.setVisible(false);

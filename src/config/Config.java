@@ -12,6 +12,7 @@ public class Config {
     public static void cargarIdiomas() {
         // Textos en inglés
         Map<String, String> textosEn = new HashMap<>();
+        // menu principal
         textosEn.put("saludo", "Hello");
         textosEn.put("siguiente", "Next");
         textosEn.put("bienvenida", "Welcome");
@@ -52,14 +53,18 @@ public class Config {
         textosEn.put("btnVolver", "RETURN");
         textosEn.put("12CE", "This is Mikel's house.");
         textosEn.put("13CE", "I should see his parents to see if they can give me some information.");
-        textosEn.put("1CE4", "");
-        textosEn.put("15CE", "");
-        textosEn.put("16CE", "");
-        textosEn.put("17CE", "");
-        textosEn.put("18CE", "");
+        
+        // Cajón Salón
+        textosEn.put("codigoAcertado", "¡CORRECT CODE!");
+        textosEn.put("codigoIncorrecto", "¡INCORRECT CODE!");
+        
+        // Cuarto Matrimonio
+        textosEn.put("1CM", "The drawer is locked");
 
+        
         // Textos en español
         Map<String, String> textosEs = new HashMap<>();
+        
         // menu principal
         textosEs.put("saludo", "Hola");
         textosEs.put("siguiente", "Siguiente");
@@ -86,7 +91,6 @@ public class Config {
         textosEs.put("12", "TENGO QUE ENCONTRARLE.");
         
         // Casa exterior
-        textosEs.put("", "");
         textosEs.put("1CE", "-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
         textosEs.put("2CE", "No llego ni de coña.");
         textosEs.put("3CE", "Nah, tampoco puedo entrar por la ventana.");
@@ -100,13 +104,13 @@ public class Config {
         textosEs.put("btnVolver", "VOLVER");
         textosEs.put("12CE", "Esta es la casa de Mikel.");
         textosEs.put("13CE", "Debería ver a sus padres por si me pueden dar algo de información.");
-        textosEs.put("14CE", "");
-        textosEs.put("15CE", "");
-        textosEs.put("16CE", "");
-        textosEs.put("17CE", "");
-        textosEs.put("18CE", "");
         
+        // Cajón salón
+        textosEs.put("codigoAcertado", "¡CODIGO ACERTADO!");
+        textosEs.put("codigoIncorrecto", "¡CODIGO INCORRECTO!");
         
+        // Cuarto matrimonio
+        textosEs.put("1CM", "El cajón esta cerrado con llave");
         
         // Guardar los textos de cada idioma en el hashmap
         textos.put("en", textosEn);

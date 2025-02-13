@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 import utilidades.Inventario;
@@ -77,9 +78,9 @@ public class CuartoMatrimonio extends JPanel {
     
     JButton btnPuzzleCaja = new JButton("");
     
-    JButton btnContinue = new JButton("CONTINUAR");
+    JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
     
-    JButton btnVolver = new JButton("VOLVER");
+    JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
     add(btnPuzzleCaja);
     add(btnPistaCaja); 
 
@@ -106,7 +107,7 @@ public class CuartoMatrimonio extends JPanel {
 		
 		lblCajaZoom.setVisible(false);
         
-        JLabel Txtcajon1 = new JLabel("El cajón esta cerrado con llave");
+        JLabel Txtcajon1 = new JLabel(Config.getTexto("1CM"));
 		Txtcajon1.setHorizontalAlignment(SwingConstants.CENTER);
 		Txtcajon1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Txtcajon1.setForeground(Color.WHITE);

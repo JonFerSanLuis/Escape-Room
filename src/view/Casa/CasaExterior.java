@@ -192,9 +192,6 @@ public class CasaExterior extends JPanel {
 		JLabel lblPositGrande = new JLabel();
 		lblPositGrande.setBounds(240, 100, 478, 429); // Ajusta el tamaño del JLabel
 
-		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
-			optionsFont = optionsFont.deriveFont(10f);
 			btnContinueMaceta.setBounds(819, 468, 115, 23);
 			btnContinueMaceta.setBackground(new Color(0, 0, 0, 0));
 			btnContinueMaceta.setOpaque(false);
@@ -240,14 +237,10 @@ public class CasaExterior extends JPanel {
 			
 			add(btnContinueMaceta);
 
-		} catch (FontFormatException | IOException e1) {
-			e1.printStackTrace();
-		}
-
 		add(btnMaceta);
 		add(LightLabel);
 
-		lblPositGrande.setIcon(img.scaleImage("/img/positGrande (2).png", 478, 429));
+		lblPositGrande.setIcon(img.scaleImage("/img/postitGrande (2).png", 478, 429));
 		add(lblPositGrande);
 		lblPositGrande.setVisible(false);
 
@@ -307,7 +300,7 @@ public class CasaExterior extends JPanel {
 		btnVolver.setVisible(false);
 
 		JLabel lblPostit = new JLabel();
-		lblPostit.setIcon(img.scaleImage("/img/positGrande (2).png", 46, 50));
+		lblPostit.setIcon(img.scaleImage("/img/postitGrande (2).png", 46, 50));
 		lblPostit.setBounds(270, 378, 46, 50);
 
 		btnPosit.addActionListener(new ActionListener() {
@@ -378,9 +371,6 @@ public class CasaExterior extends JPanel {
 			}
 		});
 
-		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
-			optionsFont = optionsFont.deriveFont(10f);
 			btnContinuePuerta.setBounds(819, 468, 115, 23);
 			btnContinuePuerta.setBackground(new Color(0, 0, 0, 0));
 			btnContinuePuerta.setOpaque(false);
@@ -430,10 +420,6 @@ public class CasaExterior extends JPanel {
 			});
 
 			add(btnContinuePuerta);
-
-		} catch (FontFormatException | IOException e1) {
-			e1.printStackTrace();
-		}
 
 		btnPuertaCasa.addActionListener(new ActionListener() {
 			@Override
@@ -488,9 +474,6 @@ public class CasaExterior extends JPanel {
 
 		txtPre = 0;
 
-		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
-			optionsFont = optionsFont.deriveFont(10f);
 			JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 			btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			btnContinue.setBounds(819, 468, 115, 23);
@@ -545,10 +528,6 @@ public class CasaExterior extends JPanel {
 
 			add(btnContinue);
 
-		} catch (FontFormatException | IOException e1) {
-			e1.printStackTrace();
-		}
-
 		add(lblCasa);
 		
 		labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
@@ -572,7 +551,7 @@ public class CasaExterior extends JPanel {
 
 	private void upgradeImage() {
 		// Actualizar el fondo con la nueva imagen
-		lblCasa.setIcon(img.scaleImage(CasaExterior, lblCasa.getWidth(), lblCasa.getHeight()));
+		lblCasa.setIcon(img.scaleImage(CasaExterior, 950, 600));
 		lblCasa.repaint(); // Redibujar para aplicar el cambio
 	}
 

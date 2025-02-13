@@ -139,7 +139,7 @@ public class CuartoMatrimonio extends JPanel {
 								e.printStackTrace();
 							}
 						} else {
-							CuartoPadresFile = "img/CuartoPadresTexto.png";
+							CuartoPadresFile = "/img/CuartoPadresTexto.png";
 							upgradeImage();
 							btnContinue.setVisible(true);
 							Txtcajon1.setVisible(true);
@@ -276,7 +276,7 @@ public class CuartoMatrimonio extends JPanel {
 
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CuartoPadresFile = "img/habitacionMatrimonial.jpeg";
+				CuartoPadresFile = "/img/habitacionMatrimonial.jpeg";
 				upgradeImage();
 				btnVerCajon.setVisible(true);
 				btnContinue.setVisible(false);

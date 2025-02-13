@@ -8,6 +8,7 @@ import view.Casa.BanoCasa;
 import view.Casa.CajaAbierta;
 import view.Casa.CajonCuartoPadres;
 import view.Casa.CasaExterior;
+import view.Casa.CasaExteriorFinal;
 import view.Casa.CocinaCasa;
 import view.Casa.CuadroMadre;
 import view.Casa.CuadroPerro;
@@ -23,6 +24,7 @@ import view.Casa.Recibidor;
 import view.Casa.SalonCasa;
 import view.Casa.TvCuartoHijo;
 import view.Casa.puzzlePapelera;
+import view.Colegio.ColegioXFuera;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -155,6 +157,8 @@ public class Juego extends JFrame{
         panelPrincipal.add(new ElegirConversacion(this), "conversacionesPc");
         panelPrincipal.add(new TvCuartoHijo(this), "verPantalla");
         panelPrincipal.add(new CuartoHijo(this), "cuartoHijo");
+        panelPrincipal.add(new ColegioXFuera(this), "colegioIntro");
+        panelPrincipal.add(new CasaExteriorFinal(this), "casaFinal");
         
         setVisible(true);
         

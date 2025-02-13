@@ -64,7 +64,7 @@ public class TvCuartoHijo extends JPanel {
 				if (userInput.equals(correctPassword)) {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
-							
+							juego.cambiarEscena("conversacionesPc");
 						}
 					});
 				} else {

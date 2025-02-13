@@ -49,7 +49,7 @@ public class CuartoHijo extends JPanel {
 	    btnTV.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	
+	        	juego.cambiarEscena("pantallaPc");
 			}
 		});
 

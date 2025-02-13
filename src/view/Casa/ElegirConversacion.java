@@ -10,9 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ElegirConversacion extends JFrame {
+import Inicio.Juego;
+import utilidades.ImagenLoader;
 
-    private JPanel contentPane;
+public class ElegirConversacion extends JPanel {
+
     private JLabel lblTv; // Imagen de fondo
     private JLabel lblfotoconver1;
     private JLabel lblfotoconver2;
@@ -20,104 +22,54 @@ public class ElegirConversacion extends JFrame {
     private JButton btnConver1;
     private JButton btnConver2;
     private JButton btnAtras; // Nueva flecha para ir a CuartoHijo
-    private boolean conversacionVista = false; // Bandera para saber si ya vieron una conversación
+    private boolean conversacion1Vista = false; 
+    private boolean conversacion2Vista = false;// Bandera para saber si ya vieron una conversación
+    
+    ImagenLoader img = new ImagenLoader();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ElegirConversacion frame = new ElegirConversacion();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    public ElegirConversacion(Juego juego) {
 
-    public ElegirConversacion() {
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
-
-        contentPane = new JPanel();
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+        setBounds(0, 0, 950, 600);
+        setLayout(null);
 
         // --------- IMAGEN DE FONDO ---------
-        String backgroundFile = "img/Fototelevision -conver.jpg";
-        ImageIcon originalIcon = new ImageIcon(backgroundFile);
-        Image originalImage = originalIcon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        String backgroundFile = "/img/Fototelevision -conver.jpg";
         
                 // --------- FLECHA ATRÁS PARA IR A CuartoHijo ---------
                 btnAtras = new JButton("");
                 btnAtras.setBounds(715, 374, 177, 141);
-                ImageIcon iconAtras = new ImageIcon("img\\VolverHabitacion.png");
-                btnAtras.setIcon(new ImageIcon(iconAtras.getImage().getScaledInstance(200, 125, Image.SCALE_SMOOTH)));
+                btnAtras.setIcon(img.scaleImage("/img/VolverHabitacion.png", 177, 141));
                 btnAtras.setOpaque(false);
                 btnAtras.setContentAreaFilled(false);
                 btnAtras.setBorderPainted(false);
                 btnAtras.setVisible(false);
-                
                         btnAtras.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 
                             }
                         });
-                        contentPane.add(btnAtras);
+                add(btnAtras);
 
         lblTv = new JLabel();
         lblTv.setBounds(0, 0, 950, 600);
-        lblTv.setIcon(scaledIcon);
-        contentPane.add(lblTv);
+        lblTv.setIcon(img.scaleImage(backgroundFile, 950, 600));
+        add(lblTv);
 
         // --------- IMAGEN DE LA CONVERSACIÓN 1 ---------
         lblfotoconver1 = new JLabel();
         lblfotoconver1.setBounds(284, 11, 421, 539);
         lblfotoconver1.setVisible(false);
-        ImageIcon imgIcon1 = new ImageIcon("img\\movilconver1 (1).png");
-        lblfotoconver1.setIcon(new ImageIcon(imgIcon1.getImage().getScaledInstance(421, 539, Image.SCALE_SMOOTH)));
-        contentPane.add(lblfotoconver1);
+        lblfotoconver1.setIcon(img.scaleImage("/img/movilconver1 (1).png", 421, 539));
+        add(lblfotoconver1);
 
         // --------- IMAGEN DE LA CONVERSACIÓN 2 ---------
         lblfotoconver2 = new JLabel();
         lblfotoconver2.setBounds(191, -31, 577, 626);
         lblfotoconver2.setVisible(false);
-        ImageIcon imgIcon2 = new ImageIcon("img\\MovilConver2.png");
-        lblfotoconver2.setIcon(new ImageIcon(imgIcon2.getImage().getScaledInstance(577, 626, Image.SCALE_SMOOTH)));
-        contentPane.add(lblfotoconver2);
+        lblfotoconver2.setIcon(img.scaleImage("/img/MovilConver2.png", 577, 626));
+        add(lblfotoconver2);
 
-        // --------- BOTÓN VOLVER (Regresar a selección) ---------
-        btnVolver = new JButton("");
-        btnVolver.setBounds(50, 500, 80, 50);
-        ImageIcon iconVolver = new ImageIcon("img\\FlechaAtrasTV.png");
-        btnVolver.setIcon(new ImageIcon(iconVolver.getImage().getScaledInstance(80, 50, Image.SCALE_SMOOTH)));
-        btnVolver.setOpaque(false);
-        btnVolver.setContentAreaFilled(false);
-        btnVolver.setBorderPainted(false);
-        btnVolver.setVisible(false); // Se oculta inicialmente
-
-        btnVolver.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Oculta las imágenes de las conversaciones
-                lblfotoconver1.setVisible(false);
-                lblfotoconver2.setVisible(false);
-                // Muestra nuevamente las opciones de conversación
-                btnConver1.setVisible(true);
-                btnConver2.setVisible(true);
-                // Oculta el botón "Volver"
-                btnVolver.setVisible(false);
-                // Si ya vio al menos una conversación, mostrar la flecha atrás
-                if (conversacionVista) {
-                    btnAtras.setVisible(true);
-                }
-            }
-        });
-        contentPane.add(btnVolver);
 
         // --------- BOTÓN PARA ABRIR CONVERSACIÓN 1 ---------
         btnConver1 = new JButton("");
@@ -135,12 +87,12 @@ public class ElegirConversacion extends JFrame {
                 btnConver1.setVisible(false);
                 btnConver2.setVisible(false);
                 // Marca que el usuario ya vio una conversación
-                conversacionVista = true;
+                conversacion1Vista = true;
                 // Oculta la flecha de "Atras" mientras ve una conversación
                 btnAtras.setVisible(false);
             }
         });
-        contentPane.add(btnConver1);
+        add(btnConver1);
 
         // --------- BOTÓN PARA ABRIR CONVERSACIÓN 2 ---------
         btnConver2 = new JButton("");
@@ -158,13 +110,17 @@ public class ElegirConversacion extends JFrame {
                 btnConver1.setVisible(false);
                 btnConver2.setVisible(false);
                 // Marca que el usuario ya vio una conversación
-                conversacionVista = true;
+                conversacion2Vista = true;
                 // Oculta la flecha de "Atras" mientras ve una conversación
                 btnAtras.setVisible(false);
             }
         });
-        contentPane.add(btnConver2);
+        add(btnConver2);
+        
+        if(conversacion1Vista == true && conversacion2Vista == true) {
+        	
+        }
 
-        contentPane.setComponentZOrder(lblTv, contentPane.getComponentCount() - 1);
+        setComponentZOrder(lblTv, getComponentCount() - 1);
     }
 }

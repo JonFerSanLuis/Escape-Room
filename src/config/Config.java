@@ -57,6 +57,9 @@ public class Config {
         // Cajón Salón
         textosEn.put("codigoAcertado", "¡CORRECT CODE!");
         textosEn.put("codigoIncorrecto", "¡INCORRECT CODE!");
+        
+        // Cuarto Matrimonio
+        textosEn.put("1CM", "The drawer is locked");
 
         
         // Textos en español
@@ -103,9 +106,11 @@ public class Config {
         textosEs.put("13CE", "Debería ver a sus padres por si me pueden dar algo de información.");
         
         // Cajón salón
-        textosEs.put("", "");
         textosEs.put("codigoAcertado", "¡CODIGO ACERTADO!");
         textosEs.put("codigoIncorrecto", "¡CODIGO INCORRECTO!");
+        
+        // Cuarto matrimonio
+        textosEs.put("1CM", "El cajón esta cerrado con llave");
         
         // Guardar los textos de cada idioma en el hashmap
         textos.put("en", textosEn);

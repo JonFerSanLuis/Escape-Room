@@ -30,6 +30,7 @@ import java.awt.event.MouseEvent;
 import Objetos.Objeto;
 import config.Config;
 import utilidades.Cronometro;
+import utilidades.ImagenLoader;
 import utilidades.Inventario;
 
 public class CasaExterior extends JPanel {
@@ -45,19 +46,18 @@ public class CasaExterior extends JPanel {
 	JLabel lblCasa;
 	
 	private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
+	
+	ImagenLoader img = new ImagenLoader();
 
 	public CasaExterior(Juego juego) {
 		setBounds(0, 0, 950, 600);
 		setLayout(null);
 		
-		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "img/llaveCasa.png"));
+		juego.getInventario().setLlavePuerta(new Objeto(true, true, 001, "Llave", "La llave de la puerta delantera de la casa de Mikel", "/img/llaveCasa.png"));
 
 		JLabel LightLabel = new JLabel();
-        // Cargar la imagen de la bandera inglesa
-        ImageIcon LightImagen = new ImageIcon("img/11571045.png");
         LightLabel.setBounds(502, 448, 61, 17); // Ajusta el tamaño del JLabel 
-        Image imgLight = LightImagen.getImage().getScaledInstance(LightLabel.getWidth(), LightLabel.getHeight(), Image.SCALE_SMOOTH);
-        LightLabel.setIcon(new ImageIcon(imgLight));
+        LightLabel.setIcon(img.scaleImage("/img/11571045.png", 61, 17));
         LightLabel.setVisible(false);
 		
 		JButton btnPuertaDoble = new JButton("");
@@ -142,8 +142,8 @@ public class CasaExterior extends JPanel {
 		btnMaceta.setVisible(false);
 		btnMaceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())) {
-					CasaExterior = "img/CasaExteriorTexto.jpeg";
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					CasaExterior = "/img/CasaExteriorTexto.jpeg";
 					upgradeImage();
 					btnPuertaCasa.setVisible(false);
 					juego.getBtnPista().setVisible(false);
@@ -154,6 +154,7 @@ public class CasaExterior extends JPanel {
 					btnMacetaIncorrect.setVisible(false);
 					txtLlaveEncontrada.setVisible(true);
 					btnContinueMaceta.setVisible(true);
+					btnMaceta.setEnabled(true);
 					juego.getInventario().agregarObjeto(juego.getInventario().getLlavePuerta());
 				}
 			}
@@ -168,13 +169,17 @@ public class CasaExterior extends JPanel {
 		btnMacetaIncorrect.setVisible(false);
 		btnMacetaIncorrect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CasaExterior = "img/CasaExteriorTexto.jpeg";
+				CasaExterior = "/img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
 				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
-				btnMaceta.setVisible(false);
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					btnMaceta.setVisible(true);
+				}else {
+					btnMaceta.setVisible(false);
+				}
 				btnPuertaDoble.setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
 				btnContinueMaceta.setVisible(true);
@@ -184,15 +189,11 @@ public class CasaExterior extends JPanel {
 		
 		add(btnMacetaIncorrect);
 
-		ImageIcon PositImagen = new ImageIcon(Config.getTexto("postit"));
 		JLabel lblPositGrande = new JLabel();
 		lblPositGrande.setBounds(240, 100, 478, 429); // Ajusta el tamaño del JLabel
-		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
-		Image imgPositG = PositImagen.getImage().getScaledInstance(lblPositGrande.getWidth(),
-				lblPositGrande.getHeight(), Image.SCALE_SMOOTH);
 
 		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
+			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
 			optionsFont = optionsFont.deriveFont(10f);
 			btnContinueMaceta.setBounds(819, 468, 115, 23);
 			btnContinueMaceta.setBackground(new Color(0, 0, 0, 0));
@@ -213,9 +214,13 @@ public class CasaExterior extends JPanel {
 						txtOtraPuerta.setVisible(false);
 						btnPuertaDoble.setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
-						btnMaceta.setEnabled(true);
+						if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+							btnMaceta.setVisible(true);
+						}else {
+							btnMaceta.setVisible(false);
+						}
 						txtLlaveNOEncontrada.setVisible(false);
-						CasaExterior = "img/CasaExteriorImg.jpeg";
+						CasaExterior = "/img/CasaExteriorImg.jpeg";
 						upgradeImage();
 				}
 				
@@ -242,7 +247,7 @@ public class CasaExterior extends JPanel {
 		add(btnMaceta);
 		add(LightLabel);
 
-		lblPositGrande.setIcon(new ImageIcon(imgPositG));
+		lblPositGrande.setIcon(img.scaleImage("/img/positGrande (2).png", 478, 429));
 		add(lblPositGrande);
 		lblPositGrande.setVisible(false);
 
@@ -288,7 +293,11 @@ public class CasaExterior extends JPanel {
 				btnPosit.setVisible(true);
 				btnVolver.setVisible(false);
 				btnPuertaDoble.setVisible(true);
-				btnMaceta.setVisible(true);
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					btnMaceta.setVisible(true);
+				}else {
+					btnMaceta.setVisible(false);
+				}
 				btnMacetaIncorrect.setVisible(true);
 				lblPositGrande.setVisible(false);
 			}
@@ -298,7 +307,7 @@ public class CasaExterior extends JPanel {
 		btnVolver.setVisible(false);
 
 		JLabel lblPostit = new JLabel();
-		lblPostit.setIcon(new ImageIcon("img/PostitEntrada.png"));
+		lblPostit.setIcon(img.scaleImage("/img/positGrande (2).png", 46, 50));
 		lblPostit.setBounds(270, 378, 46, 50);
 
 		btnPosit.addActionListener(new ActionListener() {
@@ -309,7 +318,11 @@ public class CasaExterior extends JPanel {
 				btnPosit.setVisible(false);
 				btnVolver.setVisible(true);
 				btnPuertaDoble.setVisible(false);
-				btnMaceta.setVisible(false);
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					btnMaceta.setVisible(true);
+				}else {
+					btnMaceta.setVisible(false);
+				}
 				lblPositGrande.setVisible(true);
 			}
 		});
@@ -323,16 +336,11 @@ public class CasaExterior extends JPanel {
 		add(lblPostit);
 		btnPosit.setVisible(false);
 
-		CasaExterior = "img/CasaExteriorTexto.jpeg";
-
-		ImageIcon originalIcon = new ImageIcon(CasaExterior);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+		CasaExterior = "/img/CasaExteriorTexto.jpeg";
 
 		lblCasa = new JLabel();
 		lblCasa.setBackground(Color.BLACK);
-		lblCasa.setIcon(scaledIcon); // Establecer la imagen por defecto
+		lblCasa.setIcon(img.scaleImage(CasaExterior, 950, 600)); // Establecer la imagen por defecto
 		add(lblCasa);
 		
 		upgradeImage();
@@ -352,14 +360,18 @@ public class CasaExterior extends JPanel {
 		
 		btnPuertaDoble.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CasaExterior = "img/CasaExteriorTexto.jpeg";
+				CasaExterior = "/img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				btnPuertaCasa.setVisible(false);
 				juego.getBtnPista().setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnPosit.setVisible(false);
 				btnPuertaDoble.setVisible(false);
-				btnMaceta.setVisible(false);
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					btnMaceta.setVisible(true);
+				}else {
+					btnMaceta.setVisible(false);
+				}
 				btnMacetaIncorrect.setVisible(false);
 				txtOtraPuerta.setVisible(true);
 				btnContinueMaceta.setVisible(true);
@@ -367,7 +379,7 @@ public class CasaExterior extends JPanel {
 		});
 
 		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
+			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
 			optionsFont = optionsFont.deriveFont(10f);
 			btnContinuePuerta.setBounds(819, 468, 115, 23);
 			btnContinuePuerta.setBackground(new Color(0, 0, 0, 0));
@@ -385,11 +397,15 @@ public class CasaExterior extends JPanel {
 						juego.getBtnPista().setVisible(true);
 						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
-						btnMaceta.setVisible(true);
+						if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+							btnMaceta.setVisible(true);
+						}else {
+							btnMaceta.setVisible(false);
+						}
 						btnMacetaIncorrect.setVisible(true);
 						btnContinuePuerta.setVisible(false);
 						btnPuertaDoble.setVisible(true);
-						CasaExterior = "img/CasaExteriorImg.jpeg";
+						CasaExterior = "/img/CasaExteriorImg.jpeg";
 						upgradeImage();
 						TxtPuerta3.setVisible(false);
 						txtPuerta = 0;
@@ -431,10 +447,14 @@ public class CasaExterior extends JPanel {
 				btnPuertaCasa.setVisible(false);
 				juego.getBtnMochila().setVisible(false);
 				btnMacetaIncorrect.setVisible(false);
-				btnMaceta.setVisible(false);
+				if(juego.getInventario().contieneObjeto(juego.getInventario().getLlavePuerta())==false) {
+					btnMaceta.setVisible(true);
+				}else {
+					btnMaceta.setVisible(false);
+				}
 				btnPuertaDoble.setVisible(false);
 				btnPosit.setVisible(false);
-				CasaExterior = "img/CasaExteriorTexto.jpeg";
+				CasaExterior = "/img/CasaExteriorTexto.jpeg";
 				upgradeImage();
 				TxtPuerta1.setVisible(true);
 				}
@@ -469,7 +489,7 @@ public class CasaExterior extends JPanel {
 		txtPre = 0;
 
 		try {
-			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/BeechlandsDemoRegular.ttf"));
+			Font optionsFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("fonts/BeechlandsDemoRegular.ttf"));
 			optionsFont = optionsFont.deriveFont(10f);
 			JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 			btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -501,7 +521,7 @@ public class CasaExterior extends JPanel {
 						txtPre = txtPre + 1;
 					}
 					if (txtPre == 2) {
-						CasaExterior = "img/CasaExteriorImg.jpeg";
+						CasaExterior = "/img/CasaExteriorImg.jpeg";
 						upgradeImage();
 					}
 				}
@@ -528,8 +548,6 @@ public class CasaExterior extends JPanel {
 		} catch (FontFormatException | IOException e1) {
 			e1.printStackTrace();
 		}
-		
-		
 
 		add(lblCasa);
 		
@@ -553,21 +571,9 @@ public class CasaExterior extends JPanel {
 	}
 
 	private void upgradeImage() {
-		// Cargar la nueva imagen
-		ImageIcon originalIcon = new ImageIcon(CasaExterior);
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(950, 600, Image.SCALE_SMOOTH);
-		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
 		// Actualizar el fondo con la nueva imagen
-		lblCasa.setIcon(scaledIcon);
+		lblCasa.setIcon(img.scaleImage(CasaExterior, lblCasa.getWidth(), lblCasa.getHeight()));
 		lblCasa.repaint(); // Redibujar para aplicar el cambio
 	}
 
-	private ImageIcon loadImage(String filePath) {
-		ImageIcon icon = new ImageIcon(filePath);
-		Image image = icon.getImage();
-		return new ImageIcon(
-				image.getScaledInstance(950, 600, Image.SCALE_SMOOTH));
-	}
 }

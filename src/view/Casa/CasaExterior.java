@@ -28,6 +28,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import Objetos.Objeto;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.Inventario;
 
@@ -70,7 +71,7 @@ public class CasaExterior extends JPanel {
 		btnPuertaDoble.setVisible(false);
 		add(btnPuertaDoble);
 		
-		JLabel txtLlaveEncontrada = new JLabel("-Mueves la maceta cuidadosamente y encuentras la llave de la casa-");
+		JLabel txtLlaveEncontrada = new JLabel(Config.getTexto("1CE"));
 		txtLlaveEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLlaveEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtLlaveEncontrada.setForeground(Color.WHITE);
@@ -78,7 +79,7 @@ public class CasaExterior extends JPanel {
 		add(txtLlaveEncontrada);
 		txtLlaveEncontrada.setVisible(false);
 		
-		JLabel txtSegundaVentana = new JLabel("No llego ni de coña.");
+		JLabel txtSegundaVentana = new JLabel(Config.getTexto("2CE"));
 		txtSegundaVentana.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSegundaVentana.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtSegundaVentana.setForeground(Color.WHITE);
@@ -86,7 +87,7 @@ public class CasaExterior extends JPanel {
 		add(txtSegundaVentana);
 		txtSegundaVentana.setVisible(false);
 		
-		JLabel txtVentana = new JLabel("Nah, tampoco puedo entrar por la ventana.");
+		JLabel txtVentana = new JLabel(Config.getTexto("3CE"));
 		txtVentana.setHorizontalAlignment(SwingConstants.CENTER);
 		txtVentana.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtVentana.setForeground(Color.WHITE);
@@ -94,7 +95,7 @@ public class CasaExterior extends JPanel {
 		add(txtVentana);
 		txtVentana.setVisible(false);
 		
-		JLabel txtOtraPuerta = new JLabel("Esta puerta tampoco se habre.");
+		JLabel txtOtraPuerta = new JLabel(Config.getTexto("4CE"));
 		txtOtraPuerta.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOtraPuerta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtOtraPuerta.setForeground(Color.WHITE);
@@ -102,7 +103,7 @@ public class CasaExterior extends JPanel {
 		add(txtOtraPuerta);
 		txtOtraPuerta.setVisible(false);
 		
-		JLabel txtLlaveNOEncontrada = new JLabel("-Mueves la maceta, pero no hay nada debajo-");
+		JLabel txtLlaveNOEncontrada = new JLabel(Config.getTexto("5CE"));
 		txtLlaveNOEncontrada.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLlaveNOEncontrada.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtLlaveNOEncontrada.setForeground(Color.WHITE);
@@ -110,7 +111,7 @@ public class CasaExterior extends JPanel {
 		add(txtLlaveNOEncontrada);
 		txtLlaveNOEncontrada.setVisible(false);
 
-		JButton btnContinueMaceta = new JButton("CONTINUAR");
+		JButton btnContinueMaceta = new JButton(Config.getTexto("btnContinuar"));
 		btnContinueMaceta.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		JButton btnMaceta = new JButton("");
 		btnMaceta.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -183,7 +184,7 @@ public class CasaExterior extends JPanel {
 		
 		add(btnMacetaIncorrect);
 
-		ImageIcon PositImagen = new ImageIcon("img/postitGrande (2).png");
+		ImageIcon PositImagen = new ImageIcon(Config.getTexto("postit"));
 		JLabel lblPositGrande = new JLabel();
 		lblPositGrande.setBounds(240, 100, 478, 429); // Ajusta el tamaño del JLabel
 		// Redimensionar la imagen para que se ajuste al tamaño del JLabel
@@ -245,7 +246,7 @@ public class CasaExterior extends JPanel {
 		add(lblPositGrande);
 		lblPositGrande.setVisible(false);
 
-		JLabel TxtPuerta1 = new JLabel("Parece que no hay nadie en casa.");
+		JLabel TxtPuerta1 = new JLabel(Config.getTexto("8CE"));
 		TxtPuerta1.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtPuerta1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta1.setForeground(Color.WHITE);
@@ -253,7 +254,7 @@ public class CasaExterior extends JPanel {
 		add(TxtPuerta1);
 		TxtPuerta1.setVisible(false);
 
-		JLabel TxtPuerta2 = new JLabel("Pero la puerta esta cerrada.");
+		JLabel TxtPuerta2 = new JLabel(Config.getTexto("9CE"));
 		TxtPuerta2.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtPuerta2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta2.setForeground(Color.WHITE);
@@ -261,7 +262,7 @@ public class CasaExterior extends JPanel {
 		add(TxtPuerta2);
 		TxtPuerta2.setVisible(false);
 
-		JLabel TxtPuerta3 = new JLabel("Debo encontrar la forma de entrar");
+		JLabel TxtPuerta3 = new JLabel(Config.getTexto("10CE"));
 		TxtPuerta3.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtPuerta3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtPuerta3.setForeground(Color.WHITE);
@@ -277,7 +278,7 @@ public class CasaExterior extends JPanel {
 
 		txtPuerta = 0;
 
-		JButton btnVolver = new JButton("VOLVER");
+		JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
 		btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -346,7 +347,7 @@ public class CasaExterior extends JPanel {
 		btnPuertaCasa.setContentAreaFilled(false);
 		add(btnPuertaCasa);
 
-		JButton btnContinuePuerta = new JButton("CONTINUAR");
+		JButton btnContinuePuerta = new JButton(Config.getTexto("btnContinuar"));
 		btnContinuePuerta.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		
 		btnPuertaDoble.addActionListener(new ActionListener() {

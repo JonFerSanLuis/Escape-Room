@@ -561,12 +561,12 @@ public class Juego extends JFrame{
 		btnMochila.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				lblMochila.setIcon(new ImageIcon("img/IconoMochilaENT.png"));
+				lblMochila.setIcon(Img.scaleImage("/img/IconoMochilaENT.png",60, 60));
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblMochila.setIcon(new ImageIcon("img/IconoMochilaEX.png"));
+				lblMochila.setIcon(Img.scaleImage("/img/IconoMochilaEX.png",60, 60));
 			}
 		});
 

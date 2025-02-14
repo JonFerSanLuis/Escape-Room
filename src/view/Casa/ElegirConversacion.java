@@ -147,6 +147,8 @@ public class ElegirConversacion extends JPanel {
                     lblfotoconver1.setVisible(false);
                     btnVolver.setVisible(false);
                 	btnContinue.setVisible(true);
+                	juego.getBtnMochila().setVisible(false);
+					juego.getLblMochila().setVisible(false);
                 }else {
                 	lblfotoconver2.setVisible(false);
                     lblfotoconver1.setVisible(false);

@@ -480,9 +480,9 @@ public class CasaExterior extends JPanel {
 			btnContinue.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (txtPre == 1) {
-						juego.getBtnMochila().setVisible(true);
 						btnPosit.setVisible(true);
 						btnMaceta.setVisible(true);
+						juego.getBtnMochila().setVisible(true);
 						juego.getLblMochila().setVisible(true);
 						btnMacetaIncorrect.setVisible(true);
 						btnPuertaCasa.setVisible(true);

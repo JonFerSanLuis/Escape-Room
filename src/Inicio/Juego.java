@@ -15,6 +15,7 @@ import view.Casa.CuadroMadre;
 import view.Casa.CuadroPerro;
 import view.Casa.CuartoHijo;
 import view.Casa.CuartoMatrimonio;
+import view.Casa.DiarioMadre;
 import view.Casa.ElegirConversacion;
 import view.Casa.FinJuego;
 import view.Casa.NeveraCalendario;
@@ -26,6 +27,7 @@ import view.Casa.Recibidor;
 import view.Casa.SalonCasa;
 import view.Casa.TvCuartoHijo;
 import view.Casa.puzzlePapelera;
+import view.Casa.puzzleTelefono;
 import view.Colegio.ColegioXFuera;
 
 import java.awt.*;
@@ -41,6 +43,7 @@ public class Juego extends JFrame{
     private JPanel panelMochila;
     private CardLayout cardLayout;
     private Boolean puzzleCajaFinished;
+    private Boolean coverPadreFin;
     private JButton btnMochila;
     private JLabel lblMochila;
     
@@ -137,6 +140,14 @@ public class Juego extends JFrame{
 		this.panelMochila = panelMochila;
 	}
 
+	public Boolean getCoverPadreFin() {
+		return coverPadreFin;
+	}
+
+	public void setCoverPadreFin(Boolean coverPadreFin) {
+		this.coverPadreFin = coverPadreFin;
+	}
+
 	public Boolean getPuzzleCajaFinished() {
 		return puzzleCajaFinished;
 	}
@@ -166,6 +177,7 @@ public class Juego extends JFrame{
         setBackground(Color.black);
         setUndecorated(true);
         puzzleCajaFinished = false;
+        coverPadreFin = false;
 
         cardLayout = new CardLayout();
         
@@ -200,6 +212,8 @@ public class Juego extends JFrame{
         panelPrincipal.add(new ColegioXFuera(this), "colegioIntro");
         panelPrincipal.add(new CasaExteriorFinal(this), "casaFinal");
         panelPrincipal.add(new FinJuego(this), "finJuego");
+        panelPrincipal.add(new DiarioMadre(this), "diario");
+        panelPrincipal.add(new puzzleTelefono(this), "telefono");
         
         setVisible(true);
         

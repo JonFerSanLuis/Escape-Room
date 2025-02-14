@@ -18,6 +18,8 @@ import Inicio.Juego;
 import utilidades.ImagenLoader;
 
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BanoCasa extends JPanel {
 
@@ -34,6 +36,11 @@ public class BanoCasa extends JPanel {
 		backgroundFile = "/img/bañoCasa.jpg";
         
         JButton btnDiario = new JButton("");
+        btnDiario.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		juego.cambiarEscena("diario");
+        	}
+        });
         btnDiario.setBounds(0, 381, 89, 44);
         btnDiario.setOpaque(false);
         btnDiario.setBackground(new Color(0, 0, 0, 0));

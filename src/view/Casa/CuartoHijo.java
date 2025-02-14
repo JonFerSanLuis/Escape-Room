@@ -80,10 +80,19 @@ public class CuartoHijo extends JPanel {
 		
 		JButton btnPhone = new JButton("");
 		btnPhone.setBounds(579, 373, 70, 22);
+		btnPhone.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(juego.getCoverPadreFin()==false) {
+					juego.cambiarEscena("telefono");
+				}
+			}
+		});
 		btnPhone.setBackground(new Color(0, 0, 0, 0));
 		btnPhone.setOpaque(false);
 		btnPhone.setBorderPainted(false);
 		btnPhone.setContentAreaFilled(false);
+		btnPhone.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(btnPhone);
 
 		btnVolverPasillo.setBounds(260, 456, 155, 106);
@@ -91,6 +100,7 @@ public class CuartoHijo extends JPanel {
 		btnVolverPasillo.setOpaque(false);
 		btnVolverPasillo.setBorderPainted(false);
 		btnVolverPasillo.setContentAreaFilled(false);
+		btnVolverPasillo.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
 		add(btnVolverPasillo);
 		add(lblFlechaPasillo);

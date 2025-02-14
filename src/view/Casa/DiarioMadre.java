@@ -1,7 +1,9 @@
 package view.Casa;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,70 +11,82 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
+import Inicio.Juego;
 import utilidades.ImagenLoader;
 
-public class DiarioMadre extends JFrame {
+public class DiarioMadre extends JPanel {
 
-    private JPanel contentPane;
     String ImagenDiario;
     ImagenLoader img = new ImagenLoader();
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DiarioMadre frame = new DiarioMadre();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    JTextPane lblaparecer2 = new JTextPane();
+    
+    JTextPane lblcap2 = new JTextPane();
+    
+    JTextPane lblaparecer1 = new JTextPane();
+    
+    JTextPane lblcap1 = new JTextPane();
 
-    /**
-     * Create the frame.
-     */
-    public DiarioMadre() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(200, 100, 950, 600);
-        contentPane = new JPanel();
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+    public DiarioMadre(Juego juego) {
+        setBounds(0, 0, 950, 600);
+        setLayout(null);
         
         JButton btnVolver = new JButton("VOLVER");
         btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	juego.cambiarEscena("bano");
             }
         });
         btnVolver.setBounds(51, 506, 89, 23);
-        getContentPane().add(btnVolver);
+        add(btnVolver);
         btnVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        JLabel lblaparecer2 = new JLabel("New label");
-        lblaparecer2.setBounds(526, 300, 46, 14);
-        contentPane.add(lblaparecer2);
+        lblaparecer2.setFont(new Font("Tahoma", Font.PLAIN, 8));
+
+        lblaparecer2.setBounds(497, 218, 110, 176);
+        lblaparecer2.setForeground(Color.black);
+        lblaparecer2.setOpaque(false);
+        lblaparecer2.setBackground(new Color(0, 0, 0, 0));
+        lblaparecer2.setEditable(false);
+        lblaparecer2.setText("Con Juan las cosas van bien. Me gusta cómo ha sabido entrar en nuestra vida sin apresurar nada. No sé qué nos deparará el futuro, pero sé que ahora mismo, aquí y así, me siento feliz. Es bonito tener a alguien con quien compartir, que me vea más allá de \"mamá\" y que aún así ame esa parte de mí. A veces la vida no es perfecta, pero hoy, en este pequeño instante de calma, siento que todo está en su lugar.");
         lblaparecer2.setVisible(false);
-        
-        JLabel lblcap2 = new JLabel("New label");
-        lblcap2.setBounds(526, 265, 46, 14);
-        contentPane.add(lblcap2);
-        
-        JLabel lblaparecer1 = new JLabel("New label");
-        lblaparecer1.setBounds(379, 300, 46, 14);
-        contentPane.add(lblaparecer1);
+        add(lblaparecer2);
+        lblaparecer2.setVisible(false);
+        lblcap2.setFont(new Font("Tahoma", Font.PLAIN, 8));
+
+        lblcap2.setBounds(497, 218, 110, 170);
+        lblcap2.setForeground(Color.black);
+        lblcap2.setOpaque(false);
+        lblcap2.setBackground(new Color(0, 0, 0, 0));
+        lblcap2.setEditable(false);
+        lblcap2.setText("Hoy ha sido un día largo, pero lleno de momentos que quiero recordar. A veces siento que el tiempo pasa demasiado rápido… Mi hijo crece cada día, y aunque a veces me vuelva loca con sus travesuras, no hay nada en el mundo que ame más que verlo reír. Es increíble cómo su sonrisa puede borrar cualquier preocupación.");
+        lblcap2.setVisible(true);
+        add(lblcap2);
+        lblaparecer1.setFont(new Font("Tahoma", Font.PLAIN, 8));
+
+        lblaparecer1.setBounds(347, 218, 110, 170);
+        lblaparecer1.setForeground(Color.black);
+        lblaparecer1.setOpaque(false);
+        lblaparecer1.setBackground(new Color(0, 0, 0, 0));
+        lblaparecer1.setEditable(false);
+        lblaparecer1.setText("Queda aguardando la puerta de la biblioteca en la que se encuentra la más altamente secreta información del descendiente del señor desterrado y privado de sus tesoros, la gran pintura que la matrona le obsequio al pueblo                         <=@ qr sroerb qry @=!(>");
+        lblaparecer1.setVisible(false);
+        add(lblaparecer1);
         lblaparecer1.setVisible(false); 
+        lblcap1.setFont(new Font("Tahoma", Font.PLAIN, 8));
         
-        JLabel lblcap1 = new JLabel("New label");
-        lblcap1.setBounds(379, 265, 46, 14);
-        contentPane.add(lblcap1);
+        lblcap1.setBounds(347, 218, 110, 170);
+        lblcap1.setForeground(Color.black);
+        lblcap1.setOpaque(false);
+        lblcap1.setBackground(new Color(0, 0, 0, 0));
+        lblcap1.setEditable(false);
+        lblcap1.setText("Hoy fue uno de esos días en los que me detuve a observar mi vida y sentí una mezcla de amor, cansancio y felicidad. Ser madre no es fácil, pero cada \"te quiero\" de mi hijo hace que todo valga la pena. A veces me preocupa si lo estoy haciendo bien, si le estoy dando todo lo que necesita… pero luego lo veo jugar, reír y abrazarme con tanta fuerza que sé que, de alguna manera, estamos bien.");
+        lblcap1.setVisible(true);
+        add(lblcap1);
         
         JButton btn1 = new JButton("New button");
-        btn1.setBounds(357, 231, 89, 23);
+        btn1.setBounds(290, 296, 23, 23);
         btn1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 lblaparecer1.setVisible(true);
@@ -81,10 +95,10 @@ public class DiarioMadre extends JFrame {
                 lblcap2.setVisible(false);
             }
         });
-        contentPane.add(btn1);
+        add(btn1);
         
         JButton btn2 = new JButton("New button");
-        btn2.setBounds(505, 231, 89, 23);
+        btn2.setBounds(636, 296, 23, 23);
         btn2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 lblaparecer1.setVisible(false);
@@ -93,16 +107,14 @@ public class DiarioMadre extends JFrame {
                 lblcap2.setVisible(true);
             }
         });
-        contentPane.add(btn2);
+        add(btn2);
         
         // Imagen de fondo
         JLabel lblDiario = new JLabel();
         lblDiario.setBounds(0, 0, 950, 600);
-        contentPane.add(lblDiario);
+        add(lblDiario);
         ImagenDiario = "/img/diariomesaBano.png";
         lblDiario.setIcon(img.scaleImage(ImagenDiario, 950, 600));
-        
-        String cod = "=@ qr sroerb qry @=!(";
-        //2 de Febrero del 2018
+
     }
 }

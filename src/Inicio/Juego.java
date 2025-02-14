@@ -25,6 +25,7 @@ import view.Casa.PuzzleCajaFuerte;
 import view.Casa.PuzzleCajonSala;
 import view.Casa.Recibidor;
 import view.Casa.SalonCasa;
+import view.Casa.TelefonoDesbloq;
 import view.Casa.TvCuartoHijo;
 import view.Casa.puzzlePapelera;
 import view.Casa.puzzleTelefono;
@@ -214,6 +215,7 @@ public class Juego extends JFrame{
         panelPrincipal.add(new FinJuego(this), "finJuego");
         panelPrincipal.add(new DiarioMadre(this), "diario");
         panelPrincipal.add(new puzzleTelefono(this), "telefono");
+        panelPrincipal.add(new TelefonoDesbloq(this), "telDesbloq");
         
         setVisible(true);
         

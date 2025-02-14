@@ -85,9 +85,12 @@ public class CuartoHijo extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				if(juego.getCoverPadreFin()==false) {
 					juego.cambiarEscena("telefono");
+				}else {
+					juego.cambiarEscena("telDesbloq");	
 				}
 			}
 		});
+		
 		btnPhone.setBackground(new Color(0, 0, 0, 0));
 		btnPhone.setOpaque(false);
 		btnPhone.setBorderPainted(false);

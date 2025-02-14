@@ -44,7 +44,7 @@ public class SalonCasa extends JPanel {
 		
 		JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));
 		
-		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", Config.getTexto("1S"), "/img/notaMikel.png"));
+		juego.getInventario().setNotaHijoSalon(new Objeto(true, false, 105, "Nota del salón", "Parece una nota antigua. Y su letra se parece mucho a la de Mikel", "/img/notaMikel.png"));
         
         JLabel LightLabel = new JLabel();
         LightLabel.setBounds(313, 382, 61, 17); // Ajusta el tamaño del JLabel 

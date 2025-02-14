@@ -342,7 +342,7 @@ public class puzzleTelefono extends JPanel {
             "-Pero, ¿por qué llamas desde su movil?-",
             "Bueno, es complicado de explicar",
             "Quiero saber dónde esta. Quiero encontrar a mi mejor amigo.",
-            "-Así que tu eres María-",
+            "-Así que tu eres Yuri-",
             "-Me alegro de ponerte voz-",
             "-Dime, ¿en qué puedo ayudarte?-",
             "¿Por casualidad no sabras la contraseña de su ordenador?", 

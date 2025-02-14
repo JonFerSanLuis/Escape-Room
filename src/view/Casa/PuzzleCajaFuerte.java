@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
@@ -65,7 +66,7 @@ public class PuzzleCajaFuerte extends JPanel {
         JButton btnAbajo2 = new JButton("");
         JButton btnAbajo3 = new JButton("");
         
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("cuartoPadres");
@@ -101,7 +102,7 @@ public class PuzzleCajaFuerte extends JPanel {
                 
 		JLabel falloLabel = new JLabel("COMBINACI\u00D3N INCORRECTA");
 		
-        JButton btnAceptar = new JButton("ACEPTAR");
+        JButton btnAceptar = new JButton(Config.getTexto("btnAceptar"));
 
         RuedaLabel.setIcon(img.scaleImage("/img/RuedaPuzzle.png", 170, 170));
         add(RuedaLabel, Integer.valueOf(2));

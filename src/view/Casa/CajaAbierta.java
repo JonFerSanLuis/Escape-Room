@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
 import Objetos.Objeto;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 import utilidades.Inventario;
@@ -72,7 +73,7 @@ public class CajaAbierta extends JPanel {
         
         setLayout(null);
 
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("cuartoPadres");

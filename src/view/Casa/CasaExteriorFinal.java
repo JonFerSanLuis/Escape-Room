@@ -72,7 +72,7 @@ public class CasaExteriorFinal extends JPanel {
 
 		ArrayList<JLabel> TxtIntroCasa = new ArrayList<>();
 
-		JLabel TxtOutroCasa1 = new JLabel("No me puedo creer que haya dejado pasar todo esto.");
+		JLabel TxtOutroCasa1 = new JLabel(Config.getTexto("iCantBelieve"));
 		TxtOutroCasa1.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtOutroCasa1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtOutroCasa1.setForeground(Color.WHITE);
@@ -80,7 +80,7 @@ public class CasaExteriorFinal extends JPanel {
 		add(TxtOutroCasa1);
 		TxtOutroCasa1.setVisible(true);
 
-		JLabel TxtIntroCasa2 = new JLabel("Debo darme prisa e ir al colegio lo antes posible.");
+		JLabel TxtIntroCasa2 = new JLabel(Config.getTexto("iMustRush"));
 		TxtIntroCasa2.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtIntroCasa2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtIntroCasa2.setForeground(Color.WHITE);

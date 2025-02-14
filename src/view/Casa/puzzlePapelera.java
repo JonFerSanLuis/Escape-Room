@@ -17,6 +17,7 @@ import javax.swing.Timer;
 import javax.swing.border.LineBorder;
 
 import Inicio.Juego;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
@@ -67,7 +68,7 @@ public class puzzlePapelera extends JPanel {
         btnMostrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         DragListener dragListener = new DragListener();
         
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("cocina");

@@ -16,6 +16,7 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
@@ -39,7 +40,7 @@ public class CuadroPerro extends JPanel {
 		
 		backgroundFile = "/img/cuadroPerro.png";
         
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("salon");

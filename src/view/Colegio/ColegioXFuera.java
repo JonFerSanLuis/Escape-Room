@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Inicio.Casa;
 import Inicio.Juego;
+import config.Config;
 import utilidades.ImagenLoader;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -31,7 +32,7 @@ public class ColegioXFuera extends JPanel {
 		backgroundFile = "/img/escuelaIntro.jpeg";
 		setLayout(null);
 		
-		JLabel lblContinuara = new JLabel("CONTINUARA");
+		JLabel lblContinuara = new JLabel(Config.getTexto("continuara"));
 		lblContinuara.setForeground(new Color(255, 255, 255));
 		lblContinuara.setFont(new Font("Lato Light", Font.BOLD | Font.ITALIC, 35));
 		lblContinuara.setHorizontalAlignment(SwingConstants.CENTER);

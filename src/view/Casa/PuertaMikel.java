@@ -47,7 +47,7 @@ public class PuertaMikel extends JPanel {
 		JLabel lblVolver = new JLabel();
         lblVolver.setIcon(img.scaleImage("/img/flechaIzqOFF.png", 89, 83));
         
-        JLabel Txt1 = new JLabel("Vaya, la puerte de Mikel esta cerrada...");
+        JLabel Txt1 = new JLabel(Config.getTexto("1PM"));
 		Txt1.setHorizontalAlignment(SwingConstants.CENTER);
 		Txt1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Txt1.setForeground(Color.WHITE);

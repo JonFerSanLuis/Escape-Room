@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import Inicio.Juego;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
@@ -38,7 +39,7 @@ public class DiarioMadre extends JPanel {
         setBounds(0, 0, 950, 600);
         setLayout(null);
         
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	juego.cambiarEscena("bano");
@@ -54,7 +55,7 @@ public class DiarioMadre extends JPanel {
         lblaparecer2.setOpaque(false);
         lblaparecer2.setBackground(new Color(0, 0, 0, 0));
         lblaparecer2.setEditable(false);
-        lblaparecer2.setText("Con Juan las cosas van bien. Me gusta cómo ha sabido entrar en nuestra vida sin apresurar nada. No sé qué nos deparará el futuro, pero sé que ahora mismo, aquí y así, me siento feliz. Es bonito tener a alguien con quien compartir, que me vea más allá de \"mamá\" y que aún así ame esa parte de mí. A veces la vida no es perfecta, pero hoy, en este pequeño instante de calma, siento que todo está en su lugar.");
+        lblaparecer2.setText(Config.getTexto("1D"));
         lblaparecer2.setVisible(false);
         add(lblaparecer2);
         lblaparecer2.setVisible(false);
@@ -65,7 +66,7 @@ public class DiarioMadre extends JPanel {
         lblcap2.setOpaque(false);
         lblcap2.setBackground(new Color(0, 0, 0, 0));
         lblcap2.setEditable(false);
-        lblcap2.setText("Hoy ha sido un día largo, pero lleno de momentos que quiero recordar. A veces siento que el tiempo pasa demasiado rápido… Mi hijo crece cada día, y aunque a veces me vuelva loca con sus travesuras, no hay nada en el mundo que ame más que verlo reír. Es increíble cómo su sonrisa puede borrar cualquier preocupación.");
+        lblcap2.setText(Config.getTexto("2D"));
         lblcap2.setVisible(true);
         add(lblcap2);
         lblaparecer1.setFont(new Font("Tahoma", Font.PLAIN, 8));
@@ -75,7 +76,7 @@ public class DiarioMadre extends JPanel {
         lblaparecer1.setOpaque(false);
         lblaparecer1.setBackground(new Color(0, 0, 0, 0));
         lblaparecer1.setEditable(false);
-        lblaparecer1.setText("Queda aguardando la puerta de la biblioteca en la que se encuentra la más altamente secreta información del descendiente del señor desterrado y privado de sus tesoros, la gran pintura que la matrona le obsequio al pueblo                         <=@ qr sroerb qry @=!(>");
+        lblaparecer1.setText(Config.getTexto("3D"));
         lblaparecer1.setVisible(false);
         add(lblaparecer1);
         lblaparecer1.setVisible(false); 
@@ -86,7 +87,7 @@ public class DiarioMadre extends JPanel {
         lblcap1.setOpaque(false);
         lblcap1.setBackground(new Color(0, 0, 0, 0));
         lblcap1.setEditable(false);
-        lblcap1.setText("Hoy fue uno de esos días en los que me detuve a observar mi vida y sentí una mezcla de amor, cansancio y felicidad. Ser madre no es fácil, pero cada \"te quiero\" de mi hijo hace que todo valga la pena. A veces me preocupa si lo estoy haciendo bien, si le estoy dando todo lo que necesita… pero luego lo veo jugar, reír y abrazarme con tanta fuerza que sé que, de alguna manera, estamos bien.");
+        lblcap1.setText(Config.getTexto("4D"));
         lblcap1.setVisible(true);
         add(lblcap1);
         

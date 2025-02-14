@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import Inicio.Juego;
+import config.Config;
 import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
@@ -44,10 +45,10 @@ public class TvCuartoHijo extends JPanel {
 	
 	// Pistas
 	private final String[] clues = {
-		"La contraseña tiene 13 caracteres.",
-		"La contraseña esta todo en minusculas",
-		"Contiene números y letras",
-		"Es quizá la nota se refiere a su padre biologico"
+			Config.getTexto("1PS"),
+			Config.getTexto("2PS"),
+			Config.getTexto("3PS"),
+			Config.getTexto("4PS")
 	};
 
 	public TvCuartoHijo(Juego juego) {
@@ -105,7 +106,7 @@ public class TvCuartoHijo extends JPanel {
 	    lblPosit.setBounds(-67, 21, 430, 217);
 	    add(lblPosit);
 	    
-	    JButton btnVolver = new JButton("VOLVER");
+	    JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("cuartoHijo");

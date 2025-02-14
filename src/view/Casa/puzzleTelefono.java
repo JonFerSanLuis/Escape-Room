@@ -169,7 +169,7 @@ public class puzzleTelefono extends JPanel {
 		configButton(btn8);
 		configButton(btn9);
 		
-		JButton btnVolver = new JButton("VOLVER");
+		JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         btnVolver.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		juego.cambiarEscena("cuartoHijo");
@@ -335,28 +335,28 @@ public class puzzleTelefono extends JPanel {
 
         // Array de textos cogidos de la clase Config
         String[] textos = {
-            "¿Hola?",
-            "-¿Si? ¿Quién es?-",
-            "¿Hablo el padre de Mikel?",
-            "-Sí, soy su...-",
-            "-Sí... Soy Omar-",
-            "¿Pasa algo?",
-            "-No soy su tutor legal, pero si su progenitor-",
-            "-Entiendo que llamas por su desaparición-",
-            "-Pero, ¿por qué llamas desde su movil?-",
-            "Bueno, es complicado de explicar",
-            "Quiero saber dónde esta. Quiero encontrar a mi mejor amigo.",
-            "-Así que tu eres Yuri-",
-            "-Me alegro de ponerte voz-",
-            "-Dime, ¿en qué puedo ayudarte?-",
-            "¿Por casualidad no sabras la contraseña de su ordenador?", 
-            "Creo que puedo encontrar información que me ayudaría a encontrarle ahí",
-            "-Pues yo probaría con su pelicula favorita Gladiator, la tiene de fondo de pantalla, o algo que tenga que ver con su perro-",
-            "-Recuerdo bien su sonrisa cuando se trataba de cualquiera de las dos cosas-",
-            "¡Muchas gracias!",
-            "-De nada, suerte. Y si lo ves...-",
-            "-Dile que lo quiero de mi parte-",
-            "Eso esta hecho Omar"
+        		Config.getTexto("1DP"),
+                Config.getTexto("2DP"),
+                Config.getTexto("3DP"),
+                Config.getTexto("4DP"),
+                Config.getTexto("5DP"),
+                Config.getTexto("6DP"),
+                Config.getTexto("7DP"),
+                Config.getTexto("8DP"),
+                Config.getTexto("9DP"),
+                Config.getTexto("10DP"),
+                Config.getTexto("11DP"),
+                Config.getTexto("12DP"),
+                Config.getTexto("13DP"),
+                Config.getTexto("14DP"),
+                Config.getTexto("15DP"),
+                Config.getTexto("16DP"),
+                Config.getTexto("17DP"),
+                Config.getTexto("18DP"),
+                Config.getTexto("19DP"),
+                Config.getTexto("20DP"),
+                Config.getTexto("21DP"),
+                Config.getTexto("22DP")
         };
 
         // Crear JTextPane para cada texto
@@ -375,7 +375,7 @@ public class puzzleTelefono extends JPanel {
         }
 		
 
-		JButton btnContinue = new JButton("CONTINUAR");  // Usamos el texto para el botón
+		JButton btnContinue = new JButton(Config.getTexto("btnContinuar"));  // Usamos el texto para el botón
         btnContinue.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnContinue.setBounds(819, 468, 115, 23);
         btnContinue.setBackground(new Color(0, 0, 0, 0));
@@ -435,7 +435,7 @@ public class puzzleTelefono extends JPanel {
 		btn9Tlfn.setVisible(false);
 		btnOKTlfn.setVisible(false);
 		
- 		JLabel Txtcajon1 = new JLabel("Ups... Número equivocado.");
+ 		JLabel Txtcajon1 = new JLabel(Config.getTexto("23DP"));
 		Txtcajon1.setHorizontalAlignment(SwingConstants.CENTER);
 		Txtcajon1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		Txtcajon1.setForeground(Color.WHITE);

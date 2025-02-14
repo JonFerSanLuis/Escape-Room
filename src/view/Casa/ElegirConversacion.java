@@ -50,7 +50,7 @@ public class ElegirConversacion extends JPanel {
         
         ArrayList<JLabel> TxtFinalCasa = new ArrayList<>();
 
-		TxtOutroCasa1 = new JLabel("Esto es horrible.");
+		TxtOutroCasa1 = new JLabel(Config.getTexto("thisIsHorrible"));
 		TxtOutroCasa1.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtOutroCasa1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtOutroCasa1.setForeground(Color.WHITE);
@@ -58,7 +58,7 @@ public class ElegirConversacion extends JPanel {
 		add(TxtOutroCasa1);
 		TxtOutroCasa1.setVisible(false);
 
-		TxtOutroCasa2 = new JLabel("Mikel soporta esto TODOS lo días...");
+		TxtOutroCasa2 = new JLabel(Config.getTexto("mikelEnduresThisEveryDay"));
 		TxtOutroCasa2.setHorizontalAlignment(SwingConstants.CENTER);
 		TxtOutroCasa2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TxtOutroCasa2.setForeground(Color.WHITE);
@@ -90,7 +90,7 @@ public class ElegirConversacion extends JPanel {
         lblfotoconver2.setIcon(img.scaleImage("/img/MovilConver2.png", 577, 626));
         add(lblfotoconver2);
 
-        JButton btnVolver = new JButton("VOLVER");
+        JButton btnVolver = new JButton(Config.getTexto("btnVolver"));
         
         // --------- BOTÓN PARA ABRIR CONVERSACIÓN 1 ---------
         btnConver1 = new JButton("");

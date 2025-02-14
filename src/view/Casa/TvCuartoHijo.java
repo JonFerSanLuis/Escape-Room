@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,10 +15,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import Inicio.Juego;
+import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
 import javax.swing.JOptionPane;
@@ -30,6 +34,8 @@ public class TvCuartoHijo extends JPanel {
 	private JTextField textField;
 	private JButton btnSubmit;
 	private int attemptCount = 0;  // Contador de intentos
+	
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 	
 	ImagenLoader img = new ImagenLoader();
 
@@ -114,6 +120,24 @@ public class TvCuartoHijo extends JPanel {
 	    lblTv.setBounds(0, 0, 950, 600);
 	    lblTv.setIcon(img.scaleImage(backgroundFile, 950, 600));
 	    add(lblTv);
+	    
+	 // Cronometro
+        labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+        labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+        labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+        labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+        labelTiempo.setOpaque(true);
+        labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelTiempo.setBounds(10, 10, 102, 30); 
+        
+     // Agregar primero labelTiempo para asegurarnos de que está al frente
+        add(labelTiempo);
+        setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+        
+     // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
         
 	}
 }

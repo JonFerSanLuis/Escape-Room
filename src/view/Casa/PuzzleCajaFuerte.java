@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Inicio.Juego;
+import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
 import javax.swing.JLabel;
@@ -23,12 +24,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
+
 import java.awt.Font;
 
 public class PuzzleCajaFuerte extends JPanel {
     private Image backgroundImage;
     String backgroundFile;
     JLabel Background;
+    
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
     
     int posNum1;
     int posNum2;
@@ -300,6 +305,24 @@ public class PuzzleCajaFuerte extends JPanel {
 		Background.setIcon(img.scaleImage(backgroundFile, 950, 600)); // Establecer la imagen por defecto
 		add(Background); // Agregar al final para que quede encima del botón
 		// Cargar la imagen de la bandera inglesa
+		
+		// Cronometro
+        labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+        labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+        labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+        labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+        labelTiempo.setOpaque(true);
+        labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelTiempo.setBounds(10, 10, 102, 30); 
+        
+     // Agregar primero labelTiempo para asegurarnos de que está al frente
+        add(labelTiempo);
+        setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+        
+     // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
 
 	}
     private void upgradeImage() {

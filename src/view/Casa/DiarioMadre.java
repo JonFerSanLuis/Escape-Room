@@ -12,8 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
 
 import Inicio.Juego;
+import utilidades.Cronometro;
 import utilidades.ImagenLoader;
 
 public class DiarioMadre extends JPanel {
@@ -28,6 +31,8 @@ public class DiarioMadre extends JPanel {
     JTextPane lblaparecer1 = new JTextPane();
     
     JTextPane lblcap1 = new JTextPane();
+    
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
 
     public DiarioMadre(Juego juego) {
         setBounds(0, 0, 950, 600);
@@ -115,6 +120,24 @@ public class DiarioMadre extends JPanel {
         add(lblDiario);
         ImagenDiario = "/img/diariomesaBano.png";
         lblDiario.setIcon(img.scaleImage(ImagenDiario, 950, 600));
+        
+     // Cronometro
+        labelTiempo = new JLabel(Cronometro.getInstancia().getTiempoFormato());
+        labelTiempo.setFont(new Font("Tahoma", Font.BOLD, 18)); // Fuente más grande para mejor visibilidad
+        labelTiempo.setForeground(Color.WHITE); // Texto en blanco
+        labelTiempo.setBackground(new Color(0, 0, 0)); // Fondo negro semi-transparente
+        labelTiempo.setOpaque(true);
+        labelTiempo.setHorizontalAlignment(SwingConstants.CENTER);
+        labelTiempo.setBounds(10, 10, 102, 30); 
+        
+     // Agregar primero labelTiempo para asegurarnos de que está al frente
+        add(labelTiempo);
+        setComponentZOrder(labelTiempo, 0); // Lo pone en la capa superior
+        
+     // Actualizar la etiqueta cada segundo (formato HH:MM:SS)
+        Timer actualizarTimer = new Timer(1000, e -> 
+            labelTiempo.setText(Cronometro.getInstancia().getTiempoFormato()));
+        actualizarTimer.start();
 
     }
 }

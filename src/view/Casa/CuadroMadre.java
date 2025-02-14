@@ -23,6 +23,8 @@ public class CuadroMadre extends JPanel {
     private String backgroundFile;
     JLabel bañoLabel;
     
+    private JLabel labelTiempo; // Sirve para almacenar el tiempo del cronometro
+    
     ImagenLoader img = new ImagenLoader();
 
 	public CuadroMadre(Juego juego) {

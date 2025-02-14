@@ -39,8 +39,8 @@ public class TvCuartoHijo extends JPanel {
 	// Pistas
 	private final String[] clues = {
 		"La contraseña tiene 13 caracteres.",
-		"La contraseña esta en ingles",
-		"Contiene numero y letras",
+		"La contraseña esta todo en minusculas",
+		"Contiene números y letras",
 		"Es quizá la nota se refiere a su padre biologico"
 	};
 

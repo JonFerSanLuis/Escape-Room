@@ -347,7 +347,7 @@ public class puzzleTelefono extends JPanel {
             "-Dime, ¿en qué puedo ayudarte?-",
             "¿Por casualidad no sabras la contraseña de su ordenador?", 
             "Creo que puedo encontrar información que me ayudaría a encontrarle ahí",
-            "-Pues yo probaría con su pelicula favorita, la tiene de fondo de pantalla, o algo que tenga que ver con su perro-",
+            "-Pues yo probaría con su pelicula favorita Gladiator, la tiene de fondo de pantalla, o algo que tenga que ver con su perro-",
             "-Recuerdo bien su sonrisa cuando se trataba de cualquiera de las dos cosas-",
             "¡Muchas gracias!",
             "-De nada, suerte. Y si lo ves...-",
